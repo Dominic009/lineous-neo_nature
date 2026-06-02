@@ -1,5 +1,6 @@
 import { Libre_Caslon_Text } from "next/font/google";
 import { Hanken_Grotesk } from "next/font/google";
+import "./globals.css"
 
 const libre = Libre_Caslon_Text({
   subsets: ["latin"],
