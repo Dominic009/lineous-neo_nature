@@ -6,6 +6,8 @@ import Vision from "@/components/home/Vision";
 import MarketOpportunity from "@/components/home/MarketOpportunity";
 import Masterplan from "@/components/masterplan/Masterplan";
 import Technology from "@/components/technology/Technology";
+import InvestmentStrategy from "@/components/investment/InvestmentStrategy";
+import Sustainability from "@/components/sustainability/Sustainability";
 
 export default function HomePage() {
   return (
@@ -15,9 +17,11 @@ export default function HomePage() {
       <main>
         <Hero />
         <Vision />
+        <InvestmentStrategy />
         <MarketOpportunity />
         <Masterplan />
         <Technology />
+        <Sustainability />
       </main>
 
       <Footer />

@@ -47,27 +47,9 @@ export default function Hero() {
       {/* Atmospheric overlays */}
       <div className="absolute inset-0 bg-black/20" />
 
-      <div
-        className="
-        absolute
-        inset-0
-        bg-gradient-to-t
-        from-black
-        via-black/30
-        to-black/10
-      "
-      />
+      <div className="absolute not-[]:inset-0 bg-linear-to-t from-black via-black/30 to-black/10" />
 
-      <div
-        className="
-        absolute
-        inset-0
-        bg-gradient-to-r
-        from-black/50
-        via-transparent
-        to-transparent
-      "
-      />
+      <div className="absolute inset-0 bg-linear-to-r from-black/50 via-transparent to-transparent" />
 
       {/* Main Content */}
       <div className="relative z-10 h-full">
@@ -79,20 +61,6 @@ export default function Hero() {
               animate="show"
               className="max-w-7xl"
             >
-              {/* <motion.span
-                variants={item}
-                className="
-                  inline-block
-                  uppercase
-                  tracking-[0.4em]
-                  text-xs
-                  text-white/70
-                  mb-8
-                "
-              >
-                Valuka, Mymensingh
-              </motion.span> */}
-
               <div className="overflow-hidden">
                 <motion.h1
                   variants={item}
@@ -103,7 +71,7 @@ export default function Hero() {
                     lg:text-[100px]
                     xl:text-[140px]
                     leading-[0.9]
-                    tracking-[-0.05em]
+                    tracking-tighter
                     font-serif
                     text-white
                   "

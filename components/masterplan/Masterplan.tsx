@@ -12,14 +12,14 @@ export default function Masterplan() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="masterplan" className="relative bg-black text-white py-40">
+    <section id="masterplan" className="relative bg-[#3a7979] text-white py-40">
       <Container>
         <div className="mb-32">
           <span className="uppercase tracking-[0.3em] text-xs text-white/40">
             Development Strategy
           </span>
 
-          <h2 className="text-6xl md:text-8xl font-serif mt-8 max-w-4xl">
+          <h2 className="text-6xl md:text-5xl font-serif mt-8 max-w-4xl">
             Masterplan
           </h2>
         </div>

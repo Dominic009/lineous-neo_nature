@@ -11,7 +11,7 @@ export default function Technology() {
     <section
       id="technology"
       className="
-      bg-[#0f1111]
+      bg-[#052424]
       text-white
       py-40
       overflow-hidden
@@ -27,8 +27,8 @@ export default function Technology() {
 
             <h2
               className="
-              text-6xl
-              md:text-8xl
+              text-3xl
+              md:text-5xl
               font-serif
               mt-8
               leading-none
@@ -66,7 +66,7 @@ export default function Technology() {
           </div>
 
           {/* Right */}
-          <div>
+          <div className="mt-72">
             {technologyFeatures.map((feature) => (
               <TechnologyFeature
                 key={feature.title}

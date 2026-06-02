@@ -35,12 +35,12 @@ export default function MarketOpportunity() {
   return (
     <section className="bg-[#f7f5f2] py-40 overflow-hidden">
       <Container>
-        <div className="max-w-4xl mb-32">
+        <div className="max-w-4xl mb-20">
           <span className="uppercase tracking-[0.4em] text-xs text-neutral-500">
             Market Opportunity
           </span>
 
-          <h2 className="text-6xl md:text-8xl font-serif mt-8 mb-10 leading-none">
+          <h2 className="text-6xl md:text-5xl font-serif mt-8 mb-10 leading-none">
             Why Neo Nature?
           </h2>
 
@@ -84,11 +84,11 @@ export default function MarketOpportunity() {
               <div>
                 <div
                   className="
-                    text-[90px]
-                    md:text-[120px]
+                    text-[60px]
+                    md:text-[80px]
                     font-serif
                     leading-none
-                    tracking-[-0.05em]
+                    tracking-tighter
                     transition-all
                     duration-500
                     group-hover:translate-x-2

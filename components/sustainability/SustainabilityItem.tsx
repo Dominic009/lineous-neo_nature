@@ -2,20 +2,20 @@
 
 import { motion } from "framer-motion";
 
-type Props = {
+type SustainabilityItemProps = {
   title: string;
   description: string;
 };
 
-export default function TechnologyFeature({
+export default function SustainabilityItem({
   title,
   description,
-}: Props) {
+}: SustainabilityItemProps) {
   return (
     <motion.div
       initial={{
         opacity: 0,
-        y: 50,
+        y: 40,
       }}
       whileInView={{
         opacity: 1,
@@ -25,32 +25,32 @@ export default function TechnologyFeature({
         once: true,
       }}
       transition={{
-        duration: 0.8,
+        duration: 0.7,
       }}
       className="
-      border-b
-      border-white/10
-      py-12
-    "
+        border-b
+        border-black/10
+        py-10
+      "
     >
       <h3
         className="
-        text-2xl
-        md:text-3xl
-        font-serif
-        mb-4
-      "
+          text-3xl
+          md:text-5xl
+          font-serif
+          mb-4
+        "
       >
         {title}
       </h3>
 
       <p
         className="
-        text-white/70
-        max-w-2xl
-        text-lg
-        leading-relaxed
-      "
+          text-neutral-600
+          text-lg
+          leading-relaxed
+          max-w-2xl
+        "
       >
         {description}
       </p>
