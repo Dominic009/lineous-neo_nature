@@ -12,10 +12,10 @@ import Container from "./Container";
 import { MenuIcon, X } from "lucide-react";
 
 const NAV_ITEMS = [
-  { label: "Vision", href: "#vision" },
-  { label: "Masterplan", href: "#masterplan" },
-  { label: "Technology", href: "#technology" },
-  { label: "Investment", href: "#investment" },
+  { label: "Vision", href: "/vision" },
+  { label: "Masterplan", href: "/masterplan" },
+  { label: "Technology", href: "/technology" },
+  { label: "Investment", href: "/investment" },
 ];
 
 export default function Navbar() {
@@ -111,61 +111,65 @@ export default function Navbar() {
           {/* Routes */}
           <nav className="hidden lg:flex gap-3">
             {NAV_ITEMS.map((item) => (
-              <motion.a
+              <motion.div
                 key={item.label}
-                href={item.href}
                 whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                className="
-                  group
-                  relative
-                  overflow-hidden
-                  rounded-full
-                  px-5
-                  py-3
-                  text-white
-                  transition-all
-                  duration-300
-                  hover:text-white
-                "
               >
-                {/* animated glass hover */}
-                <span
+                <Link
+                  href={item.href}
                   className="
-                    absolute
-                    inset-0
-                    scale-50
+                    group
+                    relative
+                    block
+                    overflow-hidden
                     rounded-full
-                    bg-linear-to-r
-                    from-blue-500/15
-                    to-cyan-400/15
-                    opacity-0
-                    blur-xl
+                    px-5
+                    py-3
+                    text-white
                     transition-all
-                    duration-500
-                    group-hover:scale-100
-                    group-hover:opacity-100
+                    duration-300
+                    hover:text-white
                   "
-                />
+                >
+                  {/* animated glass hover */}
+                  <span
+                    className="
+                      absolute
+                      inset-0
+                      scale-50
+                      rounded-full
+                      bg-linear-to-r
+                      from-blue-500/15
+                      to-cyan-400/15
+                      opacity-0
+                      blur-xl
+                      transition-all
+                      duration-500
+                      group-hover:scale-100
+                      group-hover:opacity-100
+                    "
+                  />
 
-                {/* sliding highlight */}
-                <span
-                  className="
-                    absolute
-                    inset-0
-                    -translate-x-full
-                    bg-linear-to-r
-                    from-transparent
-                    via-white/30
-                    to-transparent
-                    transition-transform
-                    duration-700
-                    group-hover:translate-x-full
-                  "
-                />
+                  {/* sliding highlight */}
+                  <span
+                    className="
+                      absolute
+                      inset-0
+                      -translate-x-full
+                      bg-linear-to-r
+                      from-transparent
+                      via-white/30
+                      to-transparent
+                      transition-transform
+                      duration-700
+                      group-hover:translate-x-full
+                    "
+                  />
 
-                <span className="relative z-10">{item.label}</span>
-              </motion.a>
+                  <span className="relative z-10">{item.label}</span>
+                </Link>
+              </motion.div>
             ))}
           </nav>
 
@@ -238,10 +242,8 @@ export default function Navbar() {
 
                   <div className="flex-1 flex flex-col justify-center px-8 bg-black">
                     {NAV_ITEMS.map((item, index) => (
-                      <motion.a
+                      <motion.div
                         key={item.label}
-                        href={item.href}
-                        onClick={() => setIsOpen(false)}
                         initial={{
                           opacity: 0,
                           x: 40,
@@ -257,17 +259,23 @@ export default function Navbar() {
                         transition={{
                           delay: index * 0.08,
                         }}
-                        className="
-                  text-2xl
-                  font-serif
-                  text-white
-                  py-5
-                  border-b
-                  border-white/10
-                "
                       >
-                        {item.label}
-                      </motion.a>
+                        <Link
+                          href={item.href}
+                          onClick={() => setIsOpen(false)}
+                          className="
+                            block
+                            text-2xl
+                            font-serif
+                            text-white
+                            py-5
+                            border-b
+                            border-white/10
+                          "
+                        >
+                          {item.label}
+                        </Link>
+                      </motion.div>
                     ))}
                   </div>
                 </div>

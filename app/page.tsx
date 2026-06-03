@@ -8,6 +8,7 @@ import Masterplan from "@/components/masterplan/Masterplan";
 import Technology from "@/components/technology/Technology";
 import InvestmentStrategy from "@/components/investment/InvestmentStrategy";
 import Sustainability from "@/components/sustainability/Sustainability";
+import VillaCollection from "@/components/villas/VillaCollection";
 
 export default function HomePage() {
   return (
@@ -21,6 +22,7 @@ export default function HomePage() {
         <MarketOpportunity />
         <Masterplan />
         <Technology />
+        <VillaCollection />
         <Sustainability />
       </main>
 
