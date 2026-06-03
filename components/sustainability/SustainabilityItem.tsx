@@ -35,8 +35,8 @@ export default function SustainabilityItem({
     >
       <h3
         className="
-          text-3xl
-          md:text-5xl
+          text-xl
+          md:text-3xl
           font-serif
           mb-4
         "
@@ -47,7 +47,7 @@ export default function SustainabilityItem({
       <p
         className="
           text-neutral-600
-          text-lg
+          lg:text-lg
           leading-relaxed
           max-w-2xl
         "

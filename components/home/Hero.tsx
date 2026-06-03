@@ -49,11 +49,11 @@ export default function Hero() {
 
       <div className="absolute not-[]:inset-0 bg-linear-to-t from-black via-black/30 to-black/10" />
 
-      <div className="absolute inset-0 bg-linear-to-r from-black/50 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-r from-black/80 via-transparent to-transparent" />
 
       {/* Main Content */}
       <div className="relative z-10 h-full">
-        <div className="container mx-auto px-8 h-full">
+        <div className="container mx-auto px-8 lg:pl-32 h-full">
           <div className="h-full flex flex-col justify-center">
             <motion.div
               variants={container}
@@ -65,11 +65,10 @@ export default function Hero() {
                 <motion.h1
                   variants={item}
                   className="
-                    text-[40px]
-                    sm:text-[60px]
-                    md:text-[80px]
-                    lg:text-[100px]
-                    xl:text-[140px]
+                    text-[30px]
+                    sm:text-[40px]
+                    md:text-[50px]
+                    xl:text-[80px]
                     leading-[0.9]
                     tracking-tighter
                     font-serif
@@ -84,11 +83,10 @@ export default function Hero() {
                 <motion.h1
                   variants={item}
                   className="
-                   text-[40px]
-                    sm:text-[60px]
-                    md:text-[80px]
-                    lg:text-[100px]
-                    xl:text-[140px]
+                    text-[30px]
+                    sm:text-[40px]
+                    md:text-[50px]
+                    xl:text-[100px]
                     leading-[0.9]
                     tracking-[-0.05em]
                     font-serif
@@ -130,7 +128,7 @@ export default function Hero() {
             hidden
             lg:block
             absolute
-            right-12
+            right-72
             top-1/2
             -translate-y-1/2
             w-[320px]
@@ -196,7 +194,7 @@ export default function Hero() {
 
             <div className="flex gap-8 flex-wrap">
               <span>Eco-Intelligent Resort</span>
-              <span>Vision 2035</span>
+              <span>Vision 2028</span>
               <span>Luxury Hospitality</span>
             </div>
           </div>

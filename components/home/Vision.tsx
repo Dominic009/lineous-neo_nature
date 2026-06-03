@@ -20,8 +20,8 @@ export default function Vision() {
 
         <h2
           className="
-          text-5xl
-          md:text-7xl
+          text-3xl
+          md:text-5xl
           font-serif
           mt-6
           mb-10
@@ -33,7 +33,7 @@ export default function Vision() {
 
         <p
           className="
-          text-xl
+          text-lg
           leading-relaxed
           text-neutral-600
         "

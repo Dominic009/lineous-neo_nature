@@ -13,7 +13,7 @@ export default function Technology() {
       className="
       bg-[#052424]
       text-white
-      py-40
+      lg:py-40
       overflow-hidden
     "
     >
@@ -66,7 +66,7 @@ export default function Technology() {
           </div>
 
           {/* Right */}
-          <div className="mt-72">
+          <div className="mt-20 lg:mt-72">
             {technologyFeatures.map((feature) => (
               <TechnologyFeature
                 key={feature.title}

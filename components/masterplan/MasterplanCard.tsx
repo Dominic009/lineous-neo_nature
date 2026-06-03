@@ -25,7 +25,7 @@ export default function MasterplanCard({
       <div className="max-w-xl">
         <h3 className="text-5xl font-serif mb-8">{title}</h3>
 
-        <p className="text-lg text-neutral-600 leading-relaxed">
+        <p className="text-lg text-neutral-300 leading-relaxed">
           {description}
         </p>
       </div>

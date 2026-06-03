@@ -11,7 +11,7 @@ export default function Sustainability() {
     <section
       id="sustainability"
       className="
-        py-40
+        lg:py-40
         bg-[#F8F6F3]
         overflow-hidden
       "
@@ -33,8 +33,8 @@ export default function Sustainability() {
 
             <h2
               className="
-                text-5xl
-                md:text-8xl
+                text-3xl
+                md:text-5xl
                 font-serif
                 mt-8
                 leading-none
@@ -67,7 +67,7 @@ export default function Sustainability() {
                 "
               >
                 <Image
-                  src="/images/sustainability/sustainability.jpg"
+                  src="/villa.jpg"
                   alt="Sustainability"
                   fill
                   className="object-cover"
@@ -77,7 +77,7 @@ export default function Sustainability() {
           </div>
 
           {/* Right */}
-          <div>
+          <div className="lg:mt-72">
             {sustainabilityItems.map((item) => (
               <SustainabilityItem
                 key={item.title}

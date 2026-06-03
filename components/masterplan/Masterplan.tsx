@@ -12,9 +12,12 @@ export default function Masterplan() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="masterplan" className="relative bg-[#3a7979] text-white py-40">
+    <section
+      id="masterplan"
+      className="relative bg-[#3a7979] text-white pt-20 lg:py-40"
+    >
       <Container>
-        <div className="mb-32">
+        <div className="lg:mb-32">
           <span className="uppercase tracking-[0.3em] text-xs text-white/40">
             Development Strategy
           </span>
@@ -40,7 +43,7 @@ export default function Masterplan() {
           {/* RIGHT SIDE */}
           <div className="hidden lg:block">
             <div className="sticky top-32">
-              <div className="aspect-4/5 relative overflow-hidden rounded-3xl">
+              <div className="h-[63dvh] relative overflow-hidden rounded-3xl">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeIndex}
