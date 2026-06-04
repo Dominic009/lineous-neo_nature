@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   AnimatePresence,
   motion,
@@ -20,9 +21,13 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const { scrollY } = useScroll();
+  const pathname = usePathname();
 
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
 
   useEffect(() => {
     return scrollY.on("change", (latest) => {
@@ -118,19 +123,19 @@ export default function Navbar() {
               >
                 <Link
                   href={item.href}
-                  className="
+                  className={`
                     group
                     relative
                     block
                     overflow-hidden
                     rounded-full
                     px-5
-                    py-3
-                    text-white
+                    py-2
                     transition-all
                     duration-300
                     hover:text-white
-                  "
+                    ${isActive(item.href) ? "bg-cyan-500 text-gray-200 font-semibold" : "      text-white"}
+                  `}
                 >
                   {/* animated glass hover */}
                   <span
@@ -190,7 +195,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden relative w-12 h-12 flex items-center justify-center"
             >
-             <MenuIcon className="text-white"/>
+              <MenuIcon className="text-white" />
             </button>
           </div>
         </div>
@@ -263,7 +268,7 @@ export default function Navbar() {
                         <Link
                           href={item.href}
                           onClick={() => setIsOpen(false)}
-                          className="
+                          className={`
                             block
                             text-2xl
                             font-serif
@@ -271,7 +276,8 @@ export default function Navbar() {
                             py-5
                             border-b
                             border-white/10
-                          "
+                            ${isActive(item.href) ? "text-blue-400" : ""}
+                          `}
                         >
                           {item.label}
                         </Link>

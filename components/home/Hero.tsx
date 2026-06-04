@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const customEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+export const customEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const container = {
   hidden: {},

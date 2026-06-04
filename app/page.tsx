@@ -13,8 +13,6 @@ import VillaCollection from "@/components/villas/VillaCollection";
 export default function HomePage() {
   return (
     <>
-      <Navbar />
-
       <main>
         <Hero />
         <Vision />
@@ -25,8 +23,6 @@ export default function HomePage() {
         <VillaCollection />
         <Sustainability />
       </main>
-
-      <Footer />
     </>
   );
 }

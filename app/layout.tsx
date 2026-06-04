@@ -1,6 +1,8 @@
 import { Libre_Caslon_Text } from "next/font/google";
 import { Hanken_Grotesk } from "next/font/google";
-import "./globals.css"
+import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 const libre = Libre_Caslon_Text({
   subsets: ["latin"],
@@ -20,10 +22,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${libre.variable} ${hanken.variable}`}
-      >
+      <body className={`${libre.variable} ${hanken.variable}`}>
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
