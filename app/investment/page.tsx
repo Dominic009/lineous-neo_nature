@@ -3,7 +3,7 @@ import InvestmentStrategy from "@/components/investment/InvestmentStrategy";
 export default function InvestmentPage() {
   return (
     <>
-      <main className="pt-24 bg-[#263737]">
+      <main className="bg-[var(--color-bg-primary)]">
         <InvestmentStrategy />
       </main>
     </>

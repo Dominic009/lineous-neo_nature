@@ -1,15 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { customEase } from "../home/Hero";
 
 type Props = {
   title: string;
   description: string;
+  index?: number;
 };
 
 export default function TechnologyFeature({
   title,
   description,
+  index = 0,
 }: Props) {
   return (
     <motion.div
@@ -26,31 +29,36 @@ export default function TechnologyFeature({
       }}
       transition={{
         duration: 0.8,
+        delay: index * 0.08,
+        ease: customEase,
       }}
       className="
-      border-b
-      border-white/10
-      py-12
-    "
+        border-b
+        border-[var(--color-border-subtle)]
+        py-12
+      "
     >
+      <div className="mb-4 h-px w-12 bg-[var(--color-accent-primary)]" />
       <h3
         className="
-        text-2xl
-        md:text-3xl
-        font-serif
-        mb-4
-      "
+          text-2xl
+          md:text-3xl
+          font-bold
+          mb-4
+          tracking-[-0.03em]
+          text-[var(--color-text-primary)]
+        "
       >
         {title}
       </h3>
 
       <p
         className="
-        text-white/70
-        max-w-2xl
-        text-lg
-        leading-relaxed
-      "
+          text-[var(--color-text-secondary)]
+          max-w-2xl
+          text-lg
+          leading-relaxed
+        "
       >
         {description}
       </p>

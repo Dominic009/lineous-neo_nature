@@ -1,21 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --bone: #f9f8f7;
-  --sand: #d1c7bd;
-  --charcoal: #212323;
-  --ink: #000000;
+  --color-bg-primary: #f8f3ea;
+  --color-bg-secondary: #f1e6d8;
+  --color-surface: #fffdf8;
+  --color-surface-muted: #ebdccb;
+  --color-text-primary: #1f1a15;
+  --color-text-secondary: #5a4a3a;
+  --color-accent-primary: #c9a45a;
+  --color-accent-secondary: #8d391f;
+  --color-bronze-depth: #9e7150;
+  --color-nature-accent: #4e4524;
+  --color-dark-foundation: #2b2119;
+  --color-border-subtle: #d8c8b7;
 
-  --primary: #2a201a;
-  --secondary: #6a5b52;
+  --background: var(--color-bg-primary);
+  --foreground: var(--color-text-primary);
+}
 
-  --background: #f9f9f9;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-bg-primary);
 }
 
 body {
-  background: var(--background);
-  color: var(--ink);
-  font-family: var(--font-body);
+  margin: 0;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -24,14 +42,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-display);
-}
-
-html {
-  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  letter-spacing: -0.03em;
 }
 
 ::selection {
-  background: black;
-  color: white;
+  background: var(--color-accent-primary);
+  color: var(--color-dark-foundation);
 }

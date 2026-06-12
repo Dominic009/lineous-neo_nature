@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Container from "../layout/Container";
 import { motion } from "framer-motion";
 import { useRef } from "react";
@@ -39,56 +40,53 @@ export default function Vision() {
   ];
 
   return (
-    <section id="vision" className="py-40 bg-(--sencodary) text-(--primary)">
+    <section id="vision" className="py-40 bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
       <Container className="max-w-5xl text-center">
-        {/* Label */}
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="uppercase tracking-[0.35em] text-xs text-(--primary)/50"
+          className="uppercase tracking-[0.35em] text-xs text-[var(--color-accent-primary)]"
         >
           The Vision
         </motion.span>
 
-        {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-3xl md:text-5xl font-serif mt-6 mb- leading-tight"
+          className="text-3xl md:text-5xl font-bold mt-6 mb-4 leading-tight tracking-[-0.05em]"
         >
           A Bold Alternative to Traditional Resorts
         </motion.h2>
 
-        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg leading-relaxed text-(--primary)/70"
+          className="text-lg leading-relaxed text-[var(--color-text-secondary)]"
         >
           To create Bangladesh’s first futuristic eco-intelligent resort where
           technology, sustainability, and immersive nature merge into a seamless
           luxury experience.
         </motion.p>
 
-        {/* Image with zoom reveal */}
         <motion.div
           ref={ref}
           initial={{ scale: 1.08, opacity: 0 }}
           animate={isInView ? { scale: 1, opacity: 1 } : {}}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1, ease: customEase }}
           className="mt-14"
         >
-          <img
+          <Image
             alt="Vision Section"
             src="/vision/vision-section.png"
-            className="w-full h-[420px] object-cover drop-shadow-2xl rounded-2xl"
+            width={1200}
+            height={504}
+            className="w-full h-[420px] object-cover drop-shadow-2xl rounded-[2rem]"
           />
         </motion.div>
 
-        {/* Keywords */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -107,9 +105,8 @@ export default function Vision() {
                 relative
                 px-5 py-2
                 rounded-full
-                border border-(--sand)
-                text-(--primary)/80
-
+                border border-[var(--color-border-subtle)]
+                text-[var(--color-text-secondary)]
                 tracking-wide
                 overflow-hidden
               "
@@ -119,12 +116,11 @@ export default function Vision() {
           ))}
         </motion.div>
 
-        {/* Quote */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-14 text-(--primary)/40 text-sm tracking-[0.25em] uppercase"
+          className="mt-14 text-[var(--color-accent-primary)] text-sm tracking-[0.25em] uppercase"
         >
           WE WANT AN ARCHITECTURE THAT WILL BE CONTEMPORARY AFTER 20–25+ YEARS
         </motion.div>

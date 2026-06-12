@@ -1,18 +1,11 @@
-import { Libre_Caslon_Text } from "next/font/google";
-import { Hanken_Grotesk } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const libre = Libre_Caslon_Text({
+const urbanist = Urbanist({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-display",
-});
-
-const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-sans",
 });
 
 export default function RootLayout({
@@ -22,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${libre.variable} ${hanken.variable}`}>
+      <body className={urbanist.variable}>
         <Navbar />
         {children}
         <Footer />

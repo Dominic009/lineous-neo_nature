@@ -1,9 +1,8 @@
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-
 import Hero from "@/components/home/Hero";
-import Vision from "@/components/home/Vision";
-import MarketOpportunity from "@/components/home/MarketOpportunity";
+import ProjectBrief from "@/components/home/ProjectBrief";
+import KeyFacts from "@/components/home/KeyFacts";
+import ResortPositioning from "@/components/home/ResortPositioning";
+import KeyFeatures from "@/components/home/KeyFeatures";
 import Masterplan from "@/components/masterplan/Masterplan";
 import Technology from "@/components/technology/Technology";
 import InvestmentStrategy from "@/components/investment/InvestmentStrategy";
@@ -15,10 +14,12 @@ export default function HomePage() {
     <>
       <main>
         <Hero />
-        <Vision />
-        <InvestmentStrategy />
-        <MarketOpportunity />
+        <ProjectBrief />
+        <KeyFacts />
+        <ResortPositioning />
+        <KeyFeatures />
         <Masterplan />
+        <InvestmentStrategy />
         <Technology />
         <VillaCollection />
         <Sustainability />

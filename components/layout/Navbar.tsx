@@ -10,24 +10,28 @@ import {
 } from "framer-motion";
 import { useEffect, useState } from "react";
 import Container from "./Container";
+import BrandIntro from "./BrandIntro";
 import { MenuIcon, X } from "lucide-react";
 
 const NAV_ITEMS = [
-  { label: "Vision", href: "/vision" },
-  { label: "Masterplan", href: "/masterplan" },
-  { label: "Technology", href: "/technology" },
-  { label: "Investment", href: "/investment" },
+  { label: "Home", href: "/" },
+  { label: "Experience", href: "/experience" },
+  { label: "Amenities", href: "/amenities" },
+  { label: "Invest", href: "/investment" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact Us", href: "/contact-us" },
 ];
 
-export default function Navbar() {
+export default function Navbar(): React.JSX.Element {
   const { scrollY } = useScroll();
   const pathname = usePathname();
 
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const isActive = (href: string) =>
-    pathname === href || pathname.startsWith(`${href}/`);
+    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
 
   useEffect(() => {
     return scrollY.on("change", (latest) => {
@@ -43,167 +47,143 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  const width = useTransform(scrollY, [0, 120], ["100%", "80%"]);
+  const width = useTransform(scrollY, [0, 120], ["100%", "92%"]);
 
   return (
-    <motion.header
-      style={{ width }}
-      initial={{ y: -120 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.9, ease: "easeOut" }}
-      className={`
-        fixed
-        top-0
-        md:top-4
-        left-1/2
-        -translate-x-1/2
-        z-50
-        transition-all
-        duration-500
-        ${
-          scrolled
-            ? `
-              rounded-3xl
-              bg-black/40
-              backdrop-blur-3xl
-              shadow-[0_8px_40px_rgba(0,0,0,0.18)]
-            `
-            : `
-              bg-transparent
-            `
-        }
-      `}
-    >
-      <Container>
-        <div
-          className={`
-            flex
-            items-center
-            justify-between
-            transition-all
-            duration-500
-            ${scrolled ? "h-20" : "h-28"}
-          `}
-        >
-          {/* Logo */}
-          <Link
-            href="/"
-            className="group relative text-white font-bold md:text-xl uppercase tracking-[0.35em]"
+    <>
+      <AnimatePresence>
+        {isLoading && (
+          <BrandIntro
+            minimumDuration={3000}
+            onComplete={() => setIsLoading(false)}
+          />
+        )}
+      </AnimatePresence>
+
+      <motion.header
+        style={{ width }}
+        initial={{ y: -120 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+        className={`
+          fixed
+          top-0
+          md:top-4
+          left-1/2
+          -translate-x-1/2
+          z-50
+          transition-all
+          duration-500
+          ${
+            scrolled
+              ? `
+                rounded-3xl
+                bg-[var(--color-dark-foundation)]/85
+                backdrop-blur-3xl
+                shadow-[0_18px_60px_rgba(31,26,21,0.18)]
+              `
+              : `
+                bg-transparent
+              `
+          }
+        `}
+      >
+        <Container>
+          <div
+            className={`
+              flex
+              items-center
+              justify-between
+              transition-all
+              duration-500
+              ${scrolled ? "h-20" : "h-28"}
+            `}
           >
-            <span
-              className="
-                transition-all
-                duration-300
-                group-hover:text-blue-500
-              "
+            <Link
+              href="/"
+              className="group relative text-[var(--color-bg-primary)] font-bold md:text-xl uppercase tracking-[0.35em]"
             >
-              Neo Nature
-            </span>
-
-            <motion.div
-              className="
-                absolute
-                -bottom-2
-                left-0
-                h-0.5
-                bg-blue-500
-              "
-              initial={{ width: 0 }}
-              whileHover={{ width: "100%" }}
-            />
-          </Link>
-
-          {/* Routes */}
-          <nav className="hidden lg:flex gap-3">
-            {NAV_ITEMS.map((item) => (
-              <motion.div
-                key={item.label}
-                whileHover={{ y: -3 }}
-                whileTap={{ scale: 0.95 }}
+              <span
+                className="
+                  transition-all
+                  duration-300
+                  group-hover:text-[var(--color-accent-primary)]
+                "
               >
-                <Link
-                  href={item.href}
-                  className={`
-                    group
-                    relative
-                    block
-                    overflow-hidden
-                    rounded-full
-                    px-5
-                    py-2
-                    transition-all
-                    duration-300
-                    hover:text-white
-                    ${isActive(item.href) ? "bg-cyan-500 text-gray-200 font-semibold" : "      text-white"}
-                  `}
+                Neo Nature
+              </span>
+
+              <motion.div
+                className="
+                  absolute
+                  -bottom-2
+                  left-0
+                  h-0.5
+                  bg-[var(--color-accent-primary)]
+                "
+                initial={{ width: 0 }}
+                whileHover={{ width: "100%" }}
+              />
+            </Link>
+
+            <nav className="hidden lg:flex items-center gap-1 ml-auto">
+              {NAV_ITEMS.map((item) => (
+                <motion.div
+                  key={item.label}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  {/* animated glass hover */}
-                  <span
-                    className="
-                      absolute
-                      inset-0
-                      scale-50
+                  <Link
+                    href={item.href}
+                    className={`
+                      group
+                      relative
+                      block
+                      overflow-hidden
                       rounded-full
-                      bg-linear-to-r
-                      from-blue-500/15
-                      to-cyan-400/15
-                      opacity-0
-                      blur-xl
+                      px-5
+                      py-2
+                      text-sm
+                      uppercase
+                      tracking-[0.2em]
                       transition-all
-                      duration-500
-                      group-hover:scale-100
-                      group-hover:opacity-100
-                    "
-                  />
+                      duration-300
+                      ${
+                        isActive(item.href)
+                          ? "bg-[var(--color-accent-primary)] text-[var(--color-dark-foundation)] font-semibold"
+                          : "text-[var(--color-bg-primary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-dark-foundation)]"
+                      }
+                    `}
+                  >
+                    <span className="relative z-10">{item.label}</span>
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
 
-                  {/* sliding highlight */}
-                  <span
-                    className="
-                      absolute
-                      inset-0
-                      -translate-x-full
-                      bg-linear-to-r
-                      from-transparent
-                      via-white/30
-                      to-transparent
-                      transition-transform
-                      duration-700
-                      group-hover:translate-x-full
-                    "
-                  />
+            <div className="flex items-center gap-4">
+              <Link
+                href="/investment"
+                className="relative overflow-hidden rounded-full border border-[var(--color-accent-primary)] bg-[var(--color-accent-primary)] px-4 md:px-7 py-3 md:py-3 text-xs uppercase tracking-[0.25em] text-[var(--color-dark-foundation)] shadow-[0_0_35px_rgba(201,164,90,0.28)] hidden md:block"
+              >
+                <span className="relative">Investor Preview</span>
+              </Link>
 
-                  <span className="relative z-10">{item.label}</span>
-                </Link>
-              </motion.div>
-            ))}
-          </nav>
-
-          {/* CTA */}
-          <div className="flex items-center gap-4">
-            <motion.button
-              whileHover={{
-                scale: 1.06,
-                rotate: -1,
-              }}
-              whileTap={{ scale: 0.96 }}
-              className="relative overflow-hidden rounded-full border border-blue-500/20 bg-linear-to-r from-blue-500 to-cyan-500 px-4 md:px-7 py-3 md:py-3 text-xs uppercase tracking-[0.25em] text-white shadow-[0_0_35px_rgba(59,130,246,0.35)] hidden md:block"
-            >
-              <span className="relative">Pitch Deck</span>
-            </motion.button>
-
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden relative w-12 h-12 flex items-center justify-center"
-            >
-              <MenuIcon className="text-white" />
-            </button>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="lg:hidden relative w-12 h-12 flex items-center justify-center rounded-full text-[var(--color-bg-primary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-dark-foundation)] transition-colors"
+              >
+                <MenuIcon />
+              </button>
+            </div>
           </div>
-        </div>
+        </Container>
+
         <AnimatePresence>
           {isOpen && (
             <>
               <motion.div
-                className="fixed inset-0 bg-black/50 backdrop-blur-md z-[60] lg:hidden"
+                className="fixed inset-0 bg-[var(--color-dark-foundation)]/70 backdrop-blur-md z-[60] lg:hidden"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -219,33 +199,33 @@ export default function Navbar() {
                   ease: "easeInOut",
                 }}
                 className="
-          fixed
-          top-0
-          right-0
-          bottom-0
-          w-[85vw]
-          max-w-[400px]
-          bg-black
-          border-l
-          border-white/10
-          z-[70]
-          lg:hidden
-        "
+                  fixed
+                  top-0
+                  right-0
+                  bottom-0
+                  w-[85vw]
+                  max-w-[400px]
+                  bg-[var(--color-dark-foundation)]
+                  border-l
+                  border-[var(--color-border-subtle)]
+                  z-[70]
+                  lg:hidden
+                "
               >
                 <div className="h-full flex flex-col">
-                  <div className="p-8 border-b border-white/10 flex items-center justify-between">
-                    <h3 className="text-white uppercase tracking-[0.3em] text-xs">
+                  <div className="p-8 border-b border-[var(--color-border-subtle)]/30 flex items-center justify-between">
+                    <h3 className="text-[var(--color-bg-primary)] uppercase tracking-[0.3em] text-xs">
                       Navigation
                     </h3>
                     <span
                       onClick={() => setIsOpen(false)}
-                      className="text-white cursor-pointer"
+                      className="text-[var(--color-bg-primary)] cursor-pointer"
                     >
                       <X />
                     </span>
                   </div>
 
-                  <div className="flex-1 flex flex-col justify-center px-8 bg-black">
+                  <div className="flex-1 flex flex-col justify-center px-8 bg-[var(--color-dark-foundation)]">
                     {NAV_ITEMS.map((item, index) => (
                       <motion.div
                         key={item.label}
@@ -271,12 +251,14 @@ export default function Navbar() {
                           className={`
                             block
                             text-2xl
-                            font-serif
-                            text-white
                             py-5
                             border-b
-                            border-white/10
-                            ${isActive(item.href) ? "text-blue-400" : ""}
+                            border-[var(--color-border-subtle)]/20
+                            ${
+                              isActive(item.href)
+                                ? "text-[var(--color-accent-primary)]"
+                                : "text-[var(--color-bg-primary)]"
+                            }
                           `}
                         >
                           {item.label}
@@ -289,7 +271,7 @@ export default function Navbar() {
             </>
           )}
         </AnimatePresence>
-      </Container>
-    </motion.header>
+      </motion.header>
+    </>
   );
 }

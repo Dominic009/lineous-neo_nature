@@ -12,20 +12,19 @@ export default function Sustainability() {
       id="sustainability"
       className="
         lg:py-40
-        bg-[#F8F6F3]
+        bg-[var(--color-bg-secondary)]
         overflow-hidden
       "
     >
       <Container>
         <div className="grid lg:grid-cols-2 gap-20">
-          {/* Left */}
           <div className="sticky top-32 self-start">
             <span
               className="
                 uppercase
                 tracking-[0.3em]
                 text-xs
-                text-neutral-500
+                text-[var(--color-accent-primary)]
               "
             >
               Future Infrastructure
@@ -35,9 +34,11 @@ export default function Sustainability() {
               className="
                 text-3xl
                 md:text-5xl
-                font-serif
+                font-bold
                 mt-8
                 leading-none
+                tracking-[-0.05em]
+                text-[var(--color-text-primary)]
               "
             >
               Designed
@@ -49,8 +50,9 @@ export default function Sustainability() {
               className="
                 mt-10
                 text-lg
-                text-neutral-600
+                text-[var(--color-text-secondary)]
                 max-w-md
+                leading-relaxed
               "
             >
               Sustainability is embedded into the architecture, landscape,
@@ -63,7 +65,8 @@ export default function Sustainability() {
                   relative
                   aspect-[4/5]
                   overflow-hidden
-                  rounded-3xl
+                  rounded-[2rem]
+                  bg-[var(--color-surface-muted)]
                 "
               >
                 <Image
@@ -72,17 +75,18 @@ export default function Sustainability() {
                   fill
                   className="object-cover"
                 />
+                <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/15" />
               </div>
             </div>
           </div>
 
-          {/* Right */}
-          <div className="lg:mt-72">
-            {sustainabilityItems.map((item) => (
+          <div className="lg:mt-72 space-y-8">
+            {sustainabilityItems.map((item, index) => (
               <SustainabilityItem
                 key={item.title}
                 title={item.title}
                 description={item.description}
+                index={index}
               />
             ))}
           </div>
