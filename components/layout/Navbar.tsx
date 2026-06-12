@@ -11,7 +11,7 @@ import {
 import { useEffect, useState } from "react";
 import Container from "./Container";
 import BrandIntro from "./BrandIntro";
-import { MenuIcon, X } from "lucide-react";
+import { MenuIcon, MoonIcon, SunIcon, X } from "lucide-react";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
@@ -22,6 +22,15 @@ const NAV_ITEMS = [
   { label: "Contact Us", href: "/contact-us" },
 ];
 
+type Theme = "light" | "dark";
+
+const getInitialTheme = (): Theme => {
+  if (typeof window === "undefined") return "light";
+
+  const storedTheme = window.localStorage.getItem("neo-nature-theme");
+  return storedTheme === "dark" || storedTheme === "light" ? storedTheme : "light";
+};
+
 export default function Navbar(): React.JSX.Element {
   const { scrollY } = useScroll();
   const pathname = usePathname();
@@ -29,6 +38,7 @@ export default function Navbar(): React.JSX.Element {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
@@ -46,6 +56,20 @@ export default function Navbar(): React.JSX.Element {
       document.body.style.overflow = "auto";
     };
   }, [isOpen]);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    window.localStorage.setItem("neo-nature-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    const nextTheme: Theme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    document.documentElement.dataset.theme = nextTheme;
+    document.documentElement.style.colorScheme = nextTheme;
+    window.localStorage.setItem("neo-nature-theme", nextTheme);
+  };
 
   const width = useTransform(scrollY, [0, 120], ["100%", "92%"]);
 
@@ -150,7 +174,7 @@ export default function Navbar(): React.JSX.Element {
                       duration-300
                       ${
                         isActive(item.href)
-                          ? "bg-[var(--color-accent-primary)] text-[var(--color-dark-foundation)] font-semibold"
+                          ? "bg-[var(--color-accent-primary)] text-[var(--color-text-primary)] font-semibold"
                           : "text-[var(--color-bg-primary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-dark-foundation)]"
                       }
                     `}
@@ -164,10 +188,21 @@ export default function Navbar(): React.JSX.Element {
             <div className="flex items-center gap-4">
               <Link
                 href="/investment"
-                className="relative overflow-hidden rounded-full border border-[var(--color-accent-primary)] bg-[var(--color-accent-primary)] px-4 md:px-7 py-3 md:py-3 text-xs uppercase tracking-[0.25em] text-[var(--color-dark-foundation)] shadow-[0_0_35px_rgba(201,164,90,0.28)] hidden md:block"
+                className="relative overflow-hidden rounded-full border border-[var(--color-accent-primary)] bg-[var(--color-accent-primary)] px-4 md:px-7 py-3 md:py-3 text-xs uppercase tracking-[0.25em] text-[var(--color-text-primary)] shadow-[0_0_35px_rgba(201,164,90,0.28)] hidden md:block"
               >
                 <span className="relative">Investor Preview</span>
               </Link>
+
+              <motion.button
+                type="button"
+                whileHover={{ scale: 1.06 }}
+                whileTap={{ scale: 0.94 }}
+                onClick={toggleTheme}
+                aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+                className="relative w-12 h-12 flex items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface)] text-[var(--color-text-primary)] shadow-[0_12px_40px_rgba(31,26,21,0.10)] transition-colors hover:bg-[var(--color-surface-muted)]"
+              >
+                {theme === "dark" ? <SunIcon size={18} /> : <MoonIcon size={18} />}
+              </motion.button>
 
               <button
                 onClick={() => setIsOpen(!isOpen)}
