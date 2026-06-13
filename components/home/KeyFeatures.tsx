@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
 import Container from "../layout/Container";
-import { customEase } from "./Hero";
+import ParallaxImage from "./ParallaxImage";
+import RevealSection from "./RevealSection";
 
 const features = [
   {
@@ -30,31 +29,21 @@ const features = [
 
 export default function KeyFeatures() {
   return (
-    <section id="key-features" className="bg-[var(--color-bg-secondary)] py-24 md:py-32">
-      <Container>
+    <section id="key-features" className="angled-section-top--surface angled-section-top bg-[var(--color-bg-secondary)] py-24 md:py-32">
+      <Container className="relative z-10">
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.9, ease: customEase }}
-            className="relative min-h-[560px] overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]"
-          >
-            <Image
+          <RevealSection className="relative min-h-[560px] overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
+            <ParallaxImage
               src="/prv05.jpg"
               alt="Neo Nature key features"
               fill
+              intensity={1.15}
               className="object-cover"
             />
             <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/20" />
-          </motion.div>
+          </RevealSection>
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.8, ease: customEase }}
-          >
+          <RevealSection delay={0.12}>
             <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-accent-primary)]">
               Key Features
             </p>
@@ -65,12 +54,9 @@ export default function KeyFeatures() {
 
             <div className="mt-10 grid sm:grid-cols-2 gap-4">
               {features.map((feature, index) => (
-                <motion.div
+                <RevealSection
                   key={feature.title}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.6, delay: index * 0.06, ease: customEase }}
+                  delay={0.06 + index * 0.04}
                   className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-6"
                 >
                   <div className="mb-4 h-px w-12 bg-[var(--color-accent-primary)]" />
@@ -80,10 +66,10 @@ export default function KeyFeatures() {
                   <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-secondary)]">
                     {feature.description}
                   </p>
-                </motion.div>
+                </RevealSection>
               ))}
             </div>
-          </motion.div>
+          </RevealSection>
         </div>
       </Container>
     </section>

@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const slides = [
@@ -22,6 +22,9 @@ export const customEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const { scrollY } = useScroll();
+  const heroImageY = useTransform(scrollY, [0, 900], ["0%", "10%"]);
+  const heroImageScale = useTransform(scrollY, [0, 900], [1.06, 1.16]);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -42,6 +45,7 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 1.04 }}
           transition={{ duration: 1.1, ease: customEase }}
+          style={{ y: heroImageY, scale: heroImageScale }}
           className="absolute inset-0 h-full w-full object-cover"
         />
       </AnimatePresence>
@@ -75,7 +79,7 @@ export default function Hero() {
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
                 <a
                   href="/investment"
-                  className="inline-flex items-center justify-center rounded-full bg-[var(--color-accent-primary)] px-8 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-dark-foundation)] transition hover:bg-[var(--color-bronze-depth)] hover:text-[var(--color-bg-primary)]"
+                  className="inline-flex items-center justify-center rounded-full bg-[var(--color-accent-primary)] px-8 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-text-primary)] transition hover:bg-[var(--color-bronze-depth)] hover:text-[var(--color-bg-primary)]"
                 >
                   Investor Preview
                 </a>

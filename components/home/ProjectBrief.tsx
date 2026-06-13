@@ -1,21 +1,15 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
 import Container from "../layout/Container";
-import { customEase } from "./Hero";
+import ParallaxImage from "./ParallaxImage";
+import RevealSection from "./RevealSection";
 
 export default function ProjectBrief() {
   return (
-    <section id="project-brief" className="bg-[var(--color-bg-primary)] py-24 md:py-32">
-      <Container>
+    <section id="project-brief" className="angled-section-top bg-[var(--color-bg-primary)] py-24 md:py-32">
+      <Container className="relative z-10">
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.8, ease: customEase }}
-          >
+          <RevealSection>
             <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-accent-primary)]">
               Project Brief
             </p>
@@ -31,23 +25,18 @@ export default function ProjectBrief() {
               infrastructure, and curated cultural experiences into one cohesive
               resort ecosystem.
             </p>
-          </motion.div>
+          </RevealSection>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.9, ease: customEase }}
-            className="relative min-h-[420px] overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]"
-          >
-            <Image
+          <RevealSection delay={0.12} className="relative min-h-105 overflow-hidden rounded-4xl bg-(--color-surface-muted)">
+            <ParallaxImage
               src="/premiumvilla-privatepool.jpg"
               alt="Neo Nature luxury villa preview"
               fill
+              intensity={1.15}
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/20" />
-          </motion.div>
+            <div className="absolute inset-0 bg-(--color-dark-foundation)/20" />
+          </RevealSection>
         </div>
       </Container>
     </section>

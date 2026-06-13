@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Container from "../layout/Container";
-import { customEase } from "./Hero";
+import RevealSection from "./RevealSection";
 
 const facts = [
   {
@@ -25,22 +24,13 @@ const facts = [
 
 export default function KeyFacts() {
   return (
-    <section id="key-facts" className="bg-[var(--color-bg-secondary)] py-20">
-      <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.8, ease: customEase }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-border-subtle)]"
-        >
+    <section id="key-facts" className="angled-section-top--surface angled-section-top bg-[var(--color-bg-secondary)] py-20">
+      <Container className="relative z-10">
+        <RevealSection className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--color-border-subtle)]">
           {facts.map((fact, index) => (
-            <motion.div
+            <RevealSection
               key={fact.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.7, delay: index * 0.08, ease: customEase }}
+              delay={index * 0.08}
               className="bg-[var(--color-bg-secondary)] p-8 md:p-10"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-accent-primary)]">
@@ -49,9 +39,9 @@ export default function KeyFacts() {
               <p className="mt-5 text-xl md:text-2xl leading-snug font-bold tracking-[-0.03em] text-[var(--color-text-primary)]">
                 {fact.value}
               </p>
-            </motion.div>
+            </RevealSection>
           ))}
-        </motion.div>
+        </RevealSection>
       </Container>
     </section>
   );

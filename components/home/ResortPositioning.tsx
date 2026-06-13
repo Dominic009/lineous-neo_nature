@@ -1,37 +1,26 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
 import Container from "../layout/Container";
-import { customEase } from "./Hero";
+import ParallaxImage from "./ParallaxImage";
+import RevealSection from "./RevealSection";
 
 export default function ResortPositioning() {
   return (
-    <section id="positioning" className="bg-[var(--color-bg-primary)] py-24 md:py-32">
-      <Container>
+    <section id="positioning" className="angled-section-top bg-[var(--color-bg-primary)] py-24 md:py-32">
+      <Container className="relative z-10">
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.9, ease: customEase }}
-            className="relative min-h-[520px] overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]"
-          >
-            <Image
+          <RevealSection className="relative min-h-[520px] overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
+            <ParallaxImage
               src="/Villa-Amann-Phuket-Pool-Area-5.jpg"
               alt="Neo Nature resort positioning"
               fill
+              intensity={1.2}
               className="object-cover"
             />
             <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/15" />
-          </motion.div>
+          </RevealSection>
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.8, ease: customEase }}
-          >
+          <RevealSection delay={0.12}>
             <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-accent-primary)]">
               Resort Positioning
             </p>
@@ -50,18 +39,15 @@ export default function ResortPositioning() {
             <div className="mt-10 grid sm:grid-cols-2 gap-4">
               {["Premium weekend destination", "Eco-intelligent infrastructure", "Private villa ecosystem", "Experience-led revenue"].map(
                 (item) => (
-                  <div
-                    key={item}
-                    className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-5"
-                  >
+                  <RevealSection key={item} delay={0.08} className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-5">
                     <p className="text-sm font-semibold text-[var(--color-text-primary)]">
                       {item}
                     </p>
-                  </div>
+                  </RevealSection>
                 )
               )}
             </div>
-          </motion.div>
+          </RevealSection>
         </div>
       </Container>
     </section>
