@@ -10,7 +10,6 @@ export default function Sustainability() {
     <section
       id="sustainability"
       className="
-        lg:py-40
         bg-[var(--color-bg-secondary)]
         overflow-hidden
       "

@@ -8,6 +8,7 @@ import Technology from "@/components/technology/Technology";
 import InvestmentStrategy from "@/components/investment/InvestmentStrategy";
 import Sustainability from "@/components/sustainability/Sustainability";
 import VillaCollection from "@/components/villas/VillaCollection";
+import MasterplanMap from "@/components/masterplan/MasterPlanMap";
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
         <ResortPositioning />
         <KeyFeatures />
         <Masterplan />
+        {/* <MasterplanMap/> */}
         <InvestmentStrategy />
         <Technology />
         <VillaCollection />

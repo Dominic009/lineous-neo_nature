@@ -21,7 +21,7 @@ export default function Masterplan() {
   return (
     <section
       id="masterplan"
-      className="relative overflow-hidden bg-[var(--color-bg-secondary)] pt-24 md:pt-32"
+      className="relative overflow-hidden bg-(--color-bg-secondary) pt-24 md:pt-32"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(201,164,90,0.22),transparent_34%),radial-gradient(circle_at_20%_80%,rgba(78,69,36,0.16),transparent_36%)]" />
 
@@ -32,7 +32,7 @@ export default function Masterplan() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-accent-primary)]"
+            className="text-xs font-semibold uppercase tracking-[0.4em] text-(--color-accent-primary)"
           >
             Masterplan
           </motion.span>
@@ -42,7 +42,7 @@ export default function Masterplan() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: customEase }}
-            className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-[var(--color-text-primary)]"
+            className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-(--color-text-primary)"
           >
             The heart of Neo Nature.
           </motion.h2>
@@ -52,10 +52,11 @@ export default function Masterplan() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1, ease: customEase }}
-            className="mt-8 max-w-3xl text-lg leading-relaxed text-[var(--color-text-secondary)]"
+            className="mt-8 max-w-3xl text-lg leading-relaxed text-(--color-text-secondary)"
           >
-            A full-bleed resort ecosystem designed around arrival, private villas,
-            waterfront experiences, culture, wellness, and future-ready hospitality.
+            A full-bleed resort ecosystem designed around arrival, private
+            villas, waterfront experiences, culture, wellness, and future-ready
+            hospitality.
           </motion.p>
         </div>
 
@@ -72,63 +73,66 @@ export default function Masterplan() {
           </div>
 
           <div className="space-y-6">
-            <div className="sticky top-28 overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
+            <div className="sticky top-28 overflow-hidden rounded-4xl bg-(--color-surface-muted)">
               <AnimatePresence mode="wait">
                 <motion.div
-                   key={activeIndex}
-                   className="relative h-[62vh] min-h-[520px]"
-                   initial={{ opacity: 0, scale: 1.04 }}
-                   animate={{ opacity: 1, scale: 1 }}
-                   exit={{ opacity: 0, scale: 1.02 }}
-                   transition={{ duration: 0.7, ease: customEase }}
-                 >
-                   <ParallaxImage
-                     src={masterplanSections[activeIndex].image}
-                     alt={masterplanSections[activeIndex].title}
-                     fill
-                     intensity={0.5}
-                     className="object-cover"
-                   />
-                   <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/18" />
-                   <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 bg-gradient-to-t from-[var(--color-dark-foundation)]/70 to-transparent">
-                     <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-accent-primary)]">
-                       Key Location
-                     </p>
-                     <h3 className="mt-3 text-3xl md:text-5xl font-bold leading-none tracking-[-0.04em] text-[var(--color-bg-primary)]">
-                       {masterplanSections[activeIndex].title}
-                     </h3>
-                   </div>
-                 </motion.div>
+                  key={activeIndex}
+                  className="relative h-[62vh] min-h-130"
+                  initial={{ opacity: 0, scale: 1.04 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.02 }}
+                  transition={{ duration: 0.7, ease: customEase }}
+                >
+                  <ParallaxImage
+                    src={masterplanSections[activeIndex].image}
+                    alt={masterplanSections[activeIndex].title}
+                    fill
+                    intensity={0.5}
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-(--color-dark-foundation)/18" />
+                  <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 bg-linear-to-t from-(--color-dark-foundation)/70 to-transparent">
+                    <p className="text-xs font-semibold uppercase tracking-[0.35em] text-(--color-accent-primary)">
+                      Key Location
+                    </p>
+                    <h3 className="mt-3 text-3xl md:text-5xl font-bold leading-none tracking-[-0.04em] text-(--color-bg-primary)">
+                      {masterplanSections[activeIndex].title}
+                    </h3>
+                  </div>
+                </motion.div>
               </AnimatePresence>
             </div>
 
-            <div className="relative overflow-hidden rounded-[2rem] border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-6 md:p-8">
+            <div className="relative overflow-hidden rounded-4xl border border-(--color-border-subtle) bg-(--color-surface) p-6 md:p-8">
               <div className="mb-6 flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-accent-primary)]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-(--color-accent-primary)">
                     Location Map
                   </p>
-                  <h3 className="mt-3 text-2xl font-bold tracking-[-0.03em] text-[var(--color-text-primary)]">
+                  <h3 className="mt-3 text-2xl font-bold tracking-[-0.03em] text-(--color-text-primary)">
                     Same-tone masterplan map
                   </h3>
                 </div>
               </div>
 
-              <div className="relative min-h-[300px] overflow-hidden rounded-2xl bg-[var(--color-bg-secondary)]">
-                <div className="absolute inset-0 opacity-70" style={{
-                  backgroundImage:
-                    "linear-gradient(120deg, rgba(158,113,80,0.18) 1px, transparent 1px), linear-gradient(30deg, rgba(158,113,80,0.14) 1px, transparent 1px)",
-                  backgroundSize: "42px 42px",
-                }} />
-                <div className="absolute inset-6 rounded-[1.5rem] border border-[var(--color-border-subtle)] bg-[var(--color-bg-primary)]/70" />
+              <div className="relative min-h-75 overflow-hidden rounded-2xl bg-(--color-bg-secondary)">
+                <div
+                  className="absolute inset-0 opacity-70"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(120deg, rgba(158,113,80,0.18) 1px, transparent 1px), linear-gradient(30deg, rgba(158,113,80,0.14) 1px, transparent 1px)",
+                    backgroundSize: "42px 42px",
+                  }}
+                />
+                <div className="absolute inset-6 rounded-3xl border border-(--color-border-subtle) bg-(--color-bg-primary)/70" />
                 {mapPoints.map((point) => (
                   <div
                     key={point.label}
                     className="absolute -translate-x-1/2 -translate-y-1/2"
                     style={{ top: point.top, left: point.left }}
                   >
-                    <div className="h-4 w-4 rounded-full bg-[var(--color-accent-primary)] ring-8 ring-[var(--color-accent-primary)]/20" />
-                    <p className="mt-2 whitespace-nowrap rounded-full bg-[var(--color-dark-foundation)]/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-bg-primary)]">
+                    <div className="h-4 w-4 rounded-full bg-(--color-accent-primary) ring-8 ring-(--color-accent-primary)/20" />
+                    <p className="mt-2 whitespace-nowrap rounded-full bg-(--color-dark-foundation)/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-(--color-bg-primary)">
                       {point.label}
                     </p>
                   </div>
