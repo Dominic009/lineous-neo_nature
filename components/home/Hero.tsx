@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
+import ParallaxImage from "./ParallaxImage";
 
 const slides = [
   {
@@ -37,22 +38,28 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-[var(--color-bg-primary)]">
       <AnimatePresence mode="wait">
-        <motion.img
+        <motion.div
           key={slides[activeSlide].src}
-          src={slides[activeSlide].src}
-          alt={slides[activeSlide].alt}
+          className="absolute inset-0 h-full w-full"
           initial={{ opacity: 0, scale: 1.06 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 1.04 }}
           transition={{ duration: 1.1, ease: customEase }}
           style={{ y: heroImageY, scale: heroImageScale }}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        >
+          <ParallaxImage
+            src={slides[activeSlide].src}
+            alt={slides[activeSlide].alt}
+            fill
+            intensity={0.5}
+            className="object-cover"
+          />
+        </motion.div>
       </AnimatePresence>
 
       <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/25" />
-      <div className="absolute inset-0 bg-linear-to-r from-[var(--color-dark-foundation)]/55 via-[var(--color-dark-foundation)]/15 to-transparent" />
-      <div className="absolute inset-0 bg-linear-to-t from-[var(--color-bg-primary)]/55 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-dark-foundation)]/55 via-[var(--color-dark-foundation)]/15 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-primary)]/55 via-transparent to-transparent" />
 
       <div className="relative z-10 min-h-screen">
         <div className="container mx-auto grid h-full min-h-screen items-center px-6 md:px-12 lg:px-20">

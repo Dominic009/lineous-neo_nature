@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { customEase } from "../home/Hero";
+import ParallaxImage from "../home/ParallaxImage";
 
 type Props = {
   name: string;
@@ -37,8 +37,8 @@ export default function VillaShowcase({
       }}
       className="mb-40 grid md:grid-cols-2 md:gap-20"
     >
-      <div className="relative aspect-3/3 overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
-        <Image src={image} alt={name} fill className="object-cover" />
+      <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
+        <ParallaxImage src={image} alt={name} fill intensity={0.5} className="object-cover" />
         <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/10" />
       </div>
 

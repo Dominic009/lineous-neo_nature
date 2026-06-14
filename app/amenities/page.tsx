@@ -1,32 +1,30 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import Container from "@/components/layout/Container";
 import { customEase } from "@/components/home/Hero";
+import ParallaxImage from "@/components/home/ParallaxImage";
 
 const amenities = [
-  "Private pool villas",
-  "Wellness and spa experiences",
-  "Waterfront leisure",
-  "Fine dining and resort restaurants",
-  "Culture and event programming",
-  "Intelligent guest services",
+  "Restaurants",
+  "Culture",
+  "Events",
+  "Waterfront",
 ];
 
 export default function AmenitiesPage() {
   return (
     <main className="bg-[var(--color-bg-primary)]">
       <section id="amenities" className="relative min-h-[75vh] overflow-hidden bg-[var(--color-bg-secondary)]">
-        <Image
+        <ParallaxImage
           src="/prv05.jpg"
           alt="Neo Nature amenities"
           fill
+          intensity={0.5}
           className="object-cover"
-          priority
         />
         <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/25" />
-        <div className="absolute inset-0 bg-linear-to-t from-[var(--color-bg-primary)] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-primary)] via-transparent to-transparent" />
 
         <div className="relative z-10 min-h-[75vh] flex items-end">
           <Container>

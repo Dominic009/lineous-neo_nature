@@ -1,34 +1,30 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import Container from "@/components/layout/Container";
 import { customEase } from "@/components/home/Hero";
+import ParallaxImage from "@/components/home/ParallaxImage";
 
 const zones = [
-  "Lobby / lounge",
+  "Lobby / Lounge",
   "Villas",
   "Hotels",
   "Nature",
-  "Restaurants",
-  "Culture",
-  "Events",
-  "Waterfront",
 ];
 
 export default function ExperiencePage() {
   return (
     <main className="bg-[var(--color-bg-primary)]">
       <section id="experience" className="relative min-h-[75vh] overflow-hidden bg-[var(--color-bg-secondary)]">
-        <Image
+        <ParallaxImage
           src="/premiumvilla-privatepool.jpg"
           alt="Neo Nature experience"
           fill
+          intensity={0.5}
           className="object-cover"
-          priority
         />
         <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/25" />
-        <div className="absolute inset-0 bg-linear-to-t from-[var(--color-bg-primary)] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-primary)] via-transparent to-transparent" />
 
         <div className="relative z-10 min-h-[75vh] flex items-end">
           <Container>
@@ -53,20 +49,21 @@ export default function ExperiencePage() {
         <Container>
           <div className="grid lg:grid-cols-[0.7fr_1.3fr] gap-12 lg:gap-20 items-start">
             <motion.div
-              initial={{ opacity: 0, y: 36 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: customEase }}
-              className="relative min-h-[520px] overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]"
-            >
-              <Image
-                src="/Villa-Amann-Phuket-Pool-Area-5.jpg"
-                alt="Neo Nature experience key image"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/15" />
-            </motion.div>
+               initial={{ opacity: 0, y: 36 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.8, ease: customEase }}
+               className="relative min-h-[520px] overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]"
+             >
+               <ParallaxImage
+                 src="/Villa-Amann-Phuket-Pool-Area-5.jpg"
+                 alt="Neo Nature experience key image"
+                 fill
+                 intensity={0.5}
+                 className="object-cover"
+               />
+               <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/15" />
+             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 36 }}

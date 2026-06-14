@@ -8,19 +8,19 @@ export default function ResortPositioning() {
   return (
     <section id="positioning" className="angled-section-top bg-[var(--color-bg-primary)] py-24 md:py-32">
       <Container className="relative z-10">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center">
-          <RevealSection className="relative min-h-[520px] overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
-            <ParallaxImage
-              src="/Villa-Amann-Phuket-Pool-Area-5.jpg"
-              alt="Neo Nature resort positioning"
-              fill
-              intensity={1.2}
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/15" />
-          </RevealSection>
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-stretch">
+           <div className="relative h-full overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
+               <ParallaxImage
+                 src="/Villa-Amann-Phuket-Pool-Area-5.jpg"
+                 alt="Neo Nature resort positioning"
+                 fill
+                 intensity={1.2}
+                 className="object-cover"
+               />
+               <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/15" />
+             </div>
 
-          <RevealSection delay={0.12}>
+           <RevealSection delay={0.12}>
             <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-accent-primary)]">
               Resort Positioning
             </p>

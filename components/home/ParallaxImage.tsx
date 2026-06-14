@@ -21,23 +21,31 @@ export default function ParallaxImage({
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(
+  // const y = useTransform(
+  //   scrollYProgress,
+  //   [0, 0],
+  //   [`${15 * intensity}%`, `${-15 * intensity}%`]
+  // );
+
+  const scale = useTransform(
     scrollYProgress,
     [0, 1],
-    [`${6 * intensity}%`, `${-9 * intensity}%`]
+    [1.25, 1]
   );
 
   return (
-    <div ref={ref} className={`relative h-full overflow-hidden ${wrapperClassName}`}>
+    <div
+      ref={ref}
+      className={`absolute inset-0 w-full h-full overflow-hidden ${wrapperClassName}`}
+    >
       <motion.div
-        className="absolute -inset-12%"
-        style={{ y }}
+        className="absolute inset-0 w-full h-"
+        style={{ scale }}
       >
         <Image
           {...imageProps}
-          className={`object-cover ${className}`}
-          unoptimized
-          alt="Image"
+          className={`w-full h-full object-cover ${className}`}
+          alt={imageProps.alt || "Image"}
         />
       </motion.div>
     </div>

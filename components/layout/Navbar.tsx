@@ -11,12 +11,26 @@ import {
 import { useEffect, useState } from "react";
 import Container from "./Container";
 import BrandIntro from "./BrandIntro";
-import { MenuIcon, X } from "lucide-react";
+import { MenuIcon, X, ChevronDown } from "lucide-react";
+
+const EXPERIENCE_ITEMS = [
+  { label: "Lobby / Lounge", href: "/experience#lobby" },
+  { label: "Villas", href: "/experience#villas" },
+  { label: "Hotels", href: "/experience#hotels" },
+  { label: "Nature", href: "/experience#nature" },
+];
+
+const AMENITIES_ITEMS = [
+  { label: "Restaurants", href: "/amenities#restaurants" },
+  { label: "Culture", href: "/amenities#culture" },
+  { label: "Events", href: "/amenities#events" },
+  { label: "Waterfront", href: "/amenities#waterfront" },
+];
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
-  { label: "Experience", href: "/experience" },
-  { label: "Amenities", href: "/amenities" },
+  { label: "Experience", href: "/experience", hasDropdown: true, items: EXPERIENCE_ITEMS },
+  { label: "Amenities", href: "/amenities", hasDropdown: true, items: AMENITIES_ITEMS },
   { label: "Invest", href: "/investment" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact Us", href: "/contact-us" },
@@ -29,6 +43,29 @@ export default function Navbar(): React.JSX.Element {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileOpenDropdowns, setMobileOpenDropdowns] = useState<string[]>([]);
+
+  const isDropdownOpen = (label: string) => activeDropdown === label;
+
+  const handleMouseEnter = (label: string, hasDropdown?: boolean) => {
+    if (hasDropdown) setActiveDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveDropdown(null);
+  };
+
+  const toggleMobileDropdown = (label: string) => {
+    setMobileOpenDropdowns((prev) =>
+      prev.includes(label)
+        ? prev.filter((l) => l !== label)
+        : [...prev, label]
+    );
+  };
+
+  const isMobileDropdownOpen = (label: string) =>
+    mobileOpenDropdowns.includes(label);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
@@ -126,49 +163,89 @@ export default function Navbar(): React.JSX.Element {
               />
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-1 ml-auto">
+            <nav className="hidden lg:flex items-center gap-1 ml-auto" onMouseLeave={handleMouseLeave}>
               {NAV_ITEMS.map((item) => (
-                <motion.div
+                <div
                   key={item.label}
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.98 }}
+                  className="relative"
+                  onMouseEnter={() => handleMouseEnter(item.label, item.hasDropdown)}
                 >
-                  <Link
-                    href={item.href}
-                    className={`
-                      group
-                      relative
-                      block
-                      overflow-hidden
-                      rounded-full
-                      px-5
-                      py-2
-                      text-sm
-                      uppercase
-                      tracking-[0.2em]
-                      transition-all
-                      duration-300
-                      ${
-                        isActive(item.href)
-                          ? "bg-[var(--color-accent-primary)] text-[var(--color-dark-foundation)] font-semibold"
-                          : "text-[var(--color-bg-primary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-dark-foundation)]"
-                      }
-                    `}
+                  <motion.div
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    <span className="relative z-10">{item.label}</span>
-                  </Link>
-                </motion.div>
+                    <div className="flex items-center gap-1">
+                      <Link
+                        href={item.href}
+                        className={`
+                          group
+                          relative
+                          flex
+                          items-center
+                          gap-1
+                          overflow-hidden
+                          rounded-full
+                          px-5
+                          py-2
+                          text-sm
+                          uppercase
+                          tracking-[0.2em]
+                          transition-all
+                          duration-300
+                          ${
+                            isActive(item.href)
+                              ? "bg-[var(--color-accent-primary)] text-[var(--color-dark-foundation)] font-semibold"
+                              : "text-[var(--color-bg-primary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-dark-foundation)]"
+                          }
+                        `}
+                      >
+                        <span className="relative z-10">{item.label}</span>
+                      </Link>
+                      {item.hasDropdown && (
+                        <ChevronDown
+                          className={`
+                            w-3.5 h-3.5 transition-transform duration-300
+                            ${isDropdownOpen(item.label) ? "rotate-180" : ""}
+                          `}
+                        />
+                      )}
+                    </div>
+                  </motion.div>
+
+                  {item.hasDropdown && item.items && (
+                    <AnimatePresence>
+                      {isDropdownOpen(item.label) && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                          transition={{ duration: 0.2, ease: "easeOut" }}
+                          className="absolute top-full left-0 mt-2 min-w-[220px] rounded-2xl bg-[var(--color-dark-foundation)]/95 backdrop-blur-2xl border border-[var(--color-border-subtle)]/40 shadow-[0_12px_40px_rgba(31,26,21,0.25)] overflow-hidden z-60"
+                        >
+                          {item.items.map((subItem, index) => (
+                            <motion.div
+                              key={subItem.label}
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: index * 0.05, duration: 0.2 }}
+                            >
+                              <Link
+                                href={subItem.href}
+                                className="block px-5 py-3.5 text-sm uppercase tracking-[0.2em] text-[var(--color-bg-primary)] hover:bg-[var(--color-surface-muted)]/30 hover:text-[var(--color-accent-primary)] transition-all duration-200"
+                              >
+                                {subItem.label}
+                              </Link>
+                            </motion.div>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  )}
+                </div>
               ))}
             </nav>
 
             <div className="flex items-center gap-4">
-              <Link
-                href="/investment"
-                className="relative overflow-hidden rounded-full border border-[var(--color-accent-primary)] bg-[var(--color-accent-primary)] px-4 md:px-7 py-3 md:py-3 text-xs uppercase tracking-[0.25em] text-[var(--color-dark-foundation)] shadow-[0_0_35px_rgba(201,164,90,0.28)] hidden md:block"
-              >
-                <span className="relative">Investor Preview</span>
-              </Link>
-
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="lg:hidden relative w-12 h-12 flex items-center justify-center rounded-full text-[var(--color-bg-primary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-dark-foundation)] transition-colors"
@@ -183,7 +260,7 @@ export default function Navbar(): React.JSX.Element {
           {isOpen && (
             <>
               <motion.div
-                className="fixed inset-0 bg-[var(--color-dark-foundation)]/70 backdrop-blur-md z-[60] lg:hidden"
+                className="fixed inset-0 bg-(--color-dark-foundation)/70 backdrop-blur-md z-60 lg:hidden"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -204,11 +281,11 @@ export default function Navbar(): React.JSX.Element {
                   right-0
                   bottom-0
                   w-[85vw]
-                  max-w-[400px]
-                  bg-[var(--color-dark-foundation)]
+                  max-w-100
+                  bg-(--color-dark-foundation)
                   border-l
-                  border-[var(--color-border-subtle)]
-                  z-[70]
+                  border-(--color-border-subtle)
+                  z-70
                   lg:hidden
                 "
               >
@@ -227,43 +304,116 @@ export default function Navbar(): React.JSX.Element {
 
                   <div className="flex-1 flex flex-col justify-center px-8 bg-[var(--color-dark-foundation)]">
                     {NAV_ITEMS.map((item, index) => (
-                      <motion.div
-                        key={item.label}
-                        initial={{
-                          opacity: 0,
-                          x: 40,
-                        }}
-                        animate={{
-                          opacity: 1,
-                          x: 0,
-                        }}
-                        exit={{
-                          opacity: 0,
-                          x: 40,
-                        }}
-                        transition={{
-                          delay: index * 0.08,
-                        }}
-                      >
-                        <Link
-                          href={item.href}
-                          onClick={() => setIsOpen(false)}
-                          className={`
-                            block
-                            text-2xl
-                            py-5
-                            border-b
-                            border-[var(--color-border-subtle)]/20
-                            ${
-                              isActive(item.href)
-                                ? "text-[var(--color-accent-primary)]"
-                                : "text-[var(--color-bg-primary)]"
-                            }
-                          `}
-                        >
-                          {item.label}
-                        </Link>
-                      </motion.div>
+                      <div key={item.label}>
+                        {item.hasDropdown ? (
+                          <motion.div
+                            initial={{
+                              opacity: 0,
+                              x: 40,
+                            }}
+                            animate={{
+                              opacity: 1,
+                              x: 0,
+                            }}
+                            exit={{
+                              opacity: 0,
+                              x: 40,
+                            }}
+                            transition={{
+                              delay: index * 0.08,
+                            }}
+                          >
+                            <button
+                              onClick={() => toggleMobileDropdown(item.label)}
+                              className={`
+                                flex
+                                items-center
+                                justify-between
+                                w-full
+                                text-2xl
+                                py-5
+                                border-b
+                                border-[var(--color-border-subtle)]/20
+                                ${
+                                  isActive(item.href)
+                                    ? "text-[var(--color-accent-primary)]"
+                                    : "text-[var(--color-bg-primary)]"
+                                }
+                              `}
+                            >
+                              <span>{item.label}</span>
+                              <ChevronDown
+                                className={`
+                                  w-5 h-5 transition-transform duration-300
+                                  ${isMobileDropdownOpen(item.label) ? "rotate-180" : ""}
+                                `}
+                              />
+                            </button>
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            initial={{
+                              opacity: 0,
+                              x: 40,
+                            }}
+                            animate={{
+                              opacity: 1,
+                              x: 0,
+                            }}
+                            exit={{
+                              opacity: 0,
+                              x: 40,
+                            }}
+                            transition={{
+                              delay: index * 0.08,
+                            }}
+                          >
+                            <Link
+                              href={item.href}
+                              onClick={() => setIsOpen(false)}
+                              className={`
+                                block
+                                text-2xl
+                                py-5
+                                border-b
+                                border-[var(--color-border-subtle)]/20
+                                ${
+                                  isActive(item.href)
+                                    ? "text-[var(--color-accent-primary)]"
+                                    : "text-[var(--color-bg-primary)]"
+                                }
+                              `}
+                            >
+                              {item.label}
+                            </Link>
+                          </motion.div>
+                        )}
+
+                        {item.hasDropdown && item.items && (
+                          <AnimatePresence>
+                            {isMobileDropdownOpen(item.label) && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="ml-6 mt-2 space-y-2 overflow-hidden"
+                              >
+                                {item.items.map((subItem) => (
+                                  <Link
+                                    key={subItem.label}
+                                    href={subItem.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className="block text-lg py-2 text-[var(--color-bg-primary)]/70 hover:text-[var(--color-accent-primary)]"
+                                  >
+                                    {subItem.label}
+                                  </Link>
+                                ))}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        )}
+                      </div>
                     ))}
                   </div>
                 </div>

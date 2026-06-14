@@ -8,8 +8,8 @@ export default function ProjectBrief() {
   return (
     <section id="project-brief" className="angled-section-top bg-[var(--color-bg-primary)] py-24 md:py-32">
       <Container className="relative z-10">
-        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-center">
-          <RevealSection>
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-stretch">
+           <RevealSection>
             <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-accent-primary)]">
               Project Brief
             </p>
@@ -27,7 +27,7 @@ export default function ProjectBrief() {
             </p>
           </RevealSection>
 
-          <RevealSection delay={0.12} className="relative min-h-105 overflow-hidden rounded-4xl bg-(--color-surface-muted)">
+          <div className="relative h-full overflow-hidden rounded-4xl bg-[var(--color-surface-muted)]">
             <ParallaxImage
               src="/premiumvilla-privatepool.jpg"
               alt="Neo Nature luxury villa preview"
@@ -35,8 +35,8 @@ export default function ProjectBrief() {
               intensity={1.15}
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-(--color-dark-foundation)/20" />
-          </RevealSection>
+            <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/20" />
+          </div>
         </div>
       </Container>
     </section>

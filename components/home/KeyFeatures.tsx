@@ -31,17 +31,17 @@ export default function KeyFeatures() {
   return (
     <section id="key-features" className="angled-section-top--surface angled-section-top bg-[var(--color-bg-secondary)] py-24 md:py-32">
       <Container className="relative z-10">
-        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-center">
-          <RevealSection className="relative min-h-[560px] overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
-            <ParallaxImage
-              src="/prv05.jpg"
-              alt="Neo Nature key features"
-              fill
-              intensity={1.15}
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/20" />
-          </RevealSection>
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-stretch">
+           <div className="relative h-full overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
+             <ParallaxImage
+               src="/prv05.jpg"
+               alt="Neo Nature key features"
+               fill
+               intensity={1.15}
+               className="object-cover"
+             />
+             <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/20" />
+           </div>
 
           <RevealSection delay={0.12}>
             <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-accent-primary)]">

@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Container from "../layout/Container";
 import TechnologyFeature from "./TechnologyFeature";
 import { technologyFeatures } from "@/lib/technology-data";
+import ParallaxImage from "../home/ParallaxImage";
 
 export default function Technology() {
   return (
@@ -17,8 +17,8 @@ export default function Technology() {
       "
     >
       <Container>
-        <div className="grid lg:grid-cols-2 gap-20 items-start">
-          <div className="sticky top-32">
+        <div className="grid lg:grid-cols-2 gap-20 items-stretch">
+           <div className="sticky top-32 h-full">
             <span className="uppercase tracking-[0.3em] text-xs text-[var(--color-accent-primary)]">
               Intelligent Infrastructure
             </span>
@@ -52,12 +52,13 @@ export default function Technology() {
               premium, and future-ready.
             </p>
 
-            <div className="mt-12">
-              <div className="aspect-[4/5] relative rounded-[2rem] overflow-hidden bg-[var(--color-surface-muted)]">
-                <Image
+            <div className="mt-12 h-full max-h-[90dvh]">
+              <div className="relative h-full overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
+                <ParallaxImage
                   src="/villa.jpg"
                   alt="Technology"
                   fill
+                  intensity={0.5}
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/15" />

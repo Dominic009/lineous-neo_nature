@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import Container from "@/components/layout/Container";
 import { customEase } from "@/components/home/Hero";
+import ParallaxImage from "@/components/home/ParallaxImage";
 
 const stats = [
   {
@@ -39,15 +39,15 @@ export default function VisionPage() {
   return (
     <main className="bg-[var(--color-bg-primary)]">
       <section className="relative min-h-[85vh] overflow-hidden bg-[var(--color-bg-secondary)]">
-        <Image
+        <ParallaxImage
           src="/vision/vision-section.png"
           alt="Neo Nature vision"
           fill
+          intensity={0.5}
           className="object-cover"
-          priority
         />
         <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/30" />
-        <div className="absolute inset-0 bg-linear-to-t from-[var(--color-bg-primary)] via-[var(--color-dark-foundation)]/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-primary)] via-[var(--color-dark-foundation)]/10 to-transparent" />
 
         <div className="relative z-10 min-h-[85vh] flex items-end">
           <Container>

@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Container from "../layout/Container";
 import { masterplanSections } from "@/lib/masterplan-data";
 import MasterplanCard from "./MasterplanCard";
 import { customEase } from "../home/Hero";
+import ParallaxImage from "../home/ParallaxImage";
 
 const mapPoints = [
   { label: "Arrival Hub", top: "28%", left: "22%" },
@@ -75,30 +75,30 @@ export default function Masterplan() {
             <div className="sticky top-28 overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={activeIndex}
-                  className="relative h-[62vh] min-h-[520px]"
-                  initial={{ opacity: 0, scale: 1.04 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.02 }}
-                  transition={{ duration: 0.7, ease: customEase }}
-                >
-                  <Image
-                    src={masterplanSections[activeIndex].image}
-                    alt={masterplanSections[activeIndex].title}
-                    fill
-                    className="object-cover"
-                    priority={activeIndex === 0}
-                  />
-                  <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/18" />
-                  <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 bg-linear-to-t from-[var(--color-dark-foundation)]/70 to-transparent">
-                    <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-accent-primary)]">
-                      Key Location
-                    </p>
-                    <h3 className="mt-3 text-3xl md:text-5xl font-bold leading-none tracking-[-0.04em] text-[var(--color-bg-primary)]">
-                      {masterplanSections[activeIndex].title}
-                    </h3>
-                  </div>
-                </motion.div>
+                   key={activeIndex}
+                   className="relative h-[62vh] min-h-[520px]"
+                   initial={{ opacity: 0, scale: 1.04 }}
+                   animate={{ opacity: 1, scale: 1 }}
+                   exit={{ opacity: 0, scale: 1.02 }}
+                   transition={{ duration: 0.7, ease: customEase }}
+                 >
+                   <ParallaxImage
+                     src={masterplanSections[activeIndex].image}
+                     alt={masterplanSections[activeIndex].title}
+                     fill
+                     intensity={0.5}
+                     className="object-cover"
+                   />
+                   <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/18" />
+                   <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 bg-gradient-to-t from-[var(--color-dark-foundation)]/70 to-transparent">
+                     <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-accent-primary)]">
+                       Key Location
+                     </p>
+                     <h3 className="mt-3 text-3xl md:text-5xl font-bold leading-none tracking-[-0.04em] text-[var(--color-bg-primary)]">
+                       {masterplanSections[activeIndex].title}
+                     </h3>
+                   </div>
+                 </motion.div>
               </AnimatePresence>
             </div>
 

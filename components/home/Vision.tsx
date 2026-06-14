@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Container from "../layout/Container";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { customEase } from "./Hero";
+import ParallaxImage from "./ParallaxImage";
 
 const container = {
   hidden: {},
@@ -76,14 +76,14 @@ export default function Vision() {
           initial={{ scale: 1.08, opacity: 0 }}
           animate={isInView ? { scale: 1, opacity: 1 } : {}}
           transition={{ duration: 1, ease: customEase }}
-          className="mt-14"
+          className="mt-14 relative h-[420px] overflow-hidden rounded-[2rem]"
         >
-          <Image
-            alt="Vision Section"
+          <ParallaxImage
             src="/vision/vision-section.png"
-            width={1200}
-            height={504}
-            className="w-full h-[420px] object-cover drop-shadow-2xl rounded-[2rem]"
+            alt="Vision Section"
+            fill
+            intensity={0.5}
+            className="object-cover"
           />
         </motion.div>
 

@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
-
 import Container from "../layout/Container";
 import { sustainabilityItems } from "@/lib/sustainability-data";
 import SustainabilityItem from "./SustainabilityItem";
+import ParallaxImage from "../home/ParallaxImage";
 
 export default function Sustainability() {
   return (
@@ -17,8 +16,8 @@ export default function Sustainability() {
       "
     >
       <Container>
-        <div className="grid lg:grid-cols-2 gap-20">
-          <div className="sticky top-32 self-start">
+        <div className="grid lg:grid-cols-2 gap-20 items-stretch">
+           <div className="sticky top-32 self-start h-full">
             <span
               className="
                 uppercase
@@ -59,20 +58,13 @@ export default function Sustainability() {
               infrastructure, and operations of the resort.
             </p>
 
-            <div className="mt-12">
-              <div
-                className="
-                  relative
-                  aspect-[4/5]
-                  overflow-hidden
-                  rounded-[2rem]
-                  bg-[var(--color-surface-muted)]
-                "
-              >
-                <Image
+            <div className="mt-12 h-full max-h-[90dvh]">
+              <div className="relative h-full  overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
+                <ParallaxImage
                   src="/villa.jpg"
                   alt="Sustainability"
                   fill
+                  intensity={0.5}
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/15" />

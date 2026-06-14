@@ -131,7 +131,7 @@ export default function BrandIntro({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-[var(--color-border-subtle)] to-transparent"
+            className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[var(--color-border-subtle)] to-transparent"
           />
         </motion.div>
       )}
