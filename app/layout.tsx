@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
+import WhatsAppButton from "@/components/layout/WhatsAppButton";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -21,6 +22,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <WhatsAppButton />
         </SmoothScroll>
       </body>
     </html>
