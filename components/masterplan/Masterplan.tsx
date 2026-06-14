@@ -21,7 +21,7 @@ export default function Masterplan() {
   return (
     <section
       id="masterplan"
-      className="relative overflow-hidden bg-(--color-bg-secondary) pt-24 md:pt-32"
+      className="relative bg-(--color-bg-secondary) pt-24 md:pt-32 pb-32"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(201,164,90,0.22),transparent_34%),radial-gradient(circle_at_20%_80%,rgba(78,69,36,0.16),transparent_36%)]" />
 
@@ -51,7 +51,7 @@ export default function Masterplan() {
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1, ease: customEase }}
+            transition={{ duration: 0.8, delay: 0.5, ease: customEase }}
             className="mt-8 max-w-3xl text-lg leading-relaxed text-(--color-text-secondary)"
           >
             A full-bleed resort ecosystem designed around arrival, private
@@ -72,38 +72,37 @@ export default function Masterplan() {
             ))}
           </div>
 
-          <div className="space-y-6">
-            <div className="sticky top-28 overflow-hidden rounded-4xl bg-(--color-surface-muted)">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeIndex}
-                  className="relative h-[62vh] min-h-130"
-                  initial={{ opacity: 0, scale: 1.04 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.02 }}
-                  transition={{ duration: 0.7, ease: customEase }}
-                >
-                  <ParallaxImage
-                    src={masterplanSections[activeIndex].image}
-                    alt={masterplanSections[activeIndex].title}
-                    fill
-                    intensity={0.5}
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-(--color-dark-foundation)/18" />
-                  <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 bg-linear-to-t from-(--color-dark-foundation)/70 to-transparent">
-                    <p className="text-xs font-semibold uppercase tracking-[0.35em] text-(--color-accent-primary)">
-                      Key Location
-                    </p>
-                    <h3 className="mt-3 text-3xl md:text-5xl font-bold leading-none tracking-[-0.04em] text-(--color-bg-primary)">
-                      {masterplanSections[activeIndex].title}
-                    </h3>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
+          <div className="sticky top-40 rounded-4xl bg-(--color-surface-muted) overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                className="relative h-[70dvh]"
+                initial={{ opacity: 0, scale: 1.04 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.02 }}
+                transition={{ duration: 0.7, ease: customEase }}
+              >
+                <ParallaxImage
+                  src={masterplanSections[activeIndex].image}
+                  alt={masterplanSections[activeIndex].title}
+                  fill
+                  intensity={0.5}
+                  className="object-cover rounded-4xl"
+                />
+                <div className="absolute inset-0 bg-(--color-dark-foundation)/18" />
+                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 bg-linear-to-t from-(--color-dark-foundation)/70 to-transparent">
+                  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-(--color-accent-primary)">
+                    Key Location
+                  </p>
+                  <h3 className="mt-3 text-3xl md:text-5xl font-bold leading-none tracking-[-0.04em] text-(--color-bg-primary)">
+                    {masterplanSections[activeIndex].title}
+                  </h3>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-            <div className="relative overflow-hidden rounded-4xl border border-(--color-border-subtle) bg-(--color-surface) p-6 md:p-8">
+          {/* <div className="relative rounded-4xl border border-(--color-border-subtle) bg-(--color-surface) p-6 md:p-8">
               <div className="mb-6 flex items-center justify-between gap-4">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.35em] text-(--color-accent-primary)">
@@ -115,7 +114,7 @@ export default function Masterplan() {
                 </div>
               </div>
 
-              <div className="relative min-h-75 overflow-hidden rounded-2xl bg-(--color-bg-secondary)">
+              <div className="relative min-h-75 rounded-2xl bg-(--color-bg-secondary)">
                 <div
                   className="absolute inset-0 opacity-70"
                   style={{
@@ -138,8 +137,7 @@ export default function Masterplan() {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
+            </div> */}
         </div>
       </Container>
     </section>

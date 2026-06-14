@@ -80,7 +80,7 @@ export default function Hero() {
                 Luxury Futuristic Resort
               </p>
 
-              <h1 className="max-w-5xl text-[clamp(3.25rem,9vw,8.5rem)] font-bold leading-[0.88] tracking-[-0.07em] text-(--color-bg-primary) drop-shadow-2xl">
+              <h1 className="max-w-5xl text-[clamp(3.25rem,9vw,7.5rem)] font-bold leading-[0.88] tracking-[-0.07em] text-(--color-bg-primary) drop-shadow-2xl">
                 Neo Nature{" "}
                 <span className="text-(--color-accent-primary)">
                   Resort
