@@ -29,8 +29,18 @@ const AMENITIES_ITEMS = [
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
-  { label: "Experience", href: "/experience", hasDropdown: true, items: EXPERIENCE_ITEMS },
-  { label: "Amenities", href: "/amenities", hasDropdown: true, items: AMENITIES_ITEMS },
+  {
+    label: "Experience",
+    href: "/experience",
+    hasDropdown: true,
+    items: EXPERIENCE_ITEMS,
+  },
+  {
+    label: "Amenities",
+    href: "/amenities",
+    hasDropdown: true,
+    items: AMENITIES_ITEMS,
+  },
   { label: "Invest", href: "/investment" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact Us", href: "/contact-us" },
@@ -58,9 +68,7 @@ export default function Navbar(): React.JSX.Element {
 
   const toggleMobileDropdown = (label: string) => {
     setMobileOpenDropdowns((prev) =>
-      prev.includes(label)
-        ? prev.filter((l) => l !== label)
-        : [...prev, label]
+      prev.includes(label) ? prev.filter((l) => l !== label) : [...prev, label],
     );
   };
 
@@ -68,7 +76,9 @@ export default function Navbar(): React.JSX.Element {
     mobileOpenDropdowns.includes(label);
 
   const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+    href === "/"
+      ? pathname === "/"
+      : pathname === href || pathname.startsWith(`${href}/`);
 
   useEffect(() => {
     return scrollY.on("change", (latest) => {
@@ -163,18 +173,20 @@ export default function Navbar(): React.JSX.Element {
               />
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-1 ml-auto" onMouseLeave={handleMouseLeave}>
+            <nav
+              className="hidden lg:flex items-center gap-1 ml-auto"
+              onMouseLeave={handleMouseLeave}
+            >
               {NAV_ITEMS.map((item) => (
                 <div
                   key={item.label}
                   className="relative"
-                  onMouseEnter={() => handleMouseEnter(item.label, item.hasDropdown)}
+                  onMouseEnter={() =>
+                    handleMouseEnter(item.label, item.hasDropdown)
+                  }
                 >
-                  <motion.div
-                    whileHover={{ y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="flex items-center gap-1">
+                  <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
+                    <div className="flex items-center gap-1 px-5">
                       <Link
                         href={item.href}
                         className={`
@@ -184,8 +196,6 @@ export default function Navbar(): React.JSX.Element {
                           items-center
                           gap-1
                           overflow-hidden
-                          rounded-full
-                          px-5
                           py-2
                           text-sm
                           uppercase
@@ -194,8 +204,8 @@ export default function Navbar(): React.JSX.Element {
                           duration-300
                           ${
                             isActive(item.href)
-                              ? "bg-[var(--color-accent-primary)] text-[var(--color-dark-foundation)] font-semibold"
-                              : "text-[var(--color-bg-primary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-dark-foundation)]"
+                              ? "border-b border-(--color-accent-primary) text-white font-semibold"
+                              : "text-(--color-bg-primary) hover:border-b hover:border-(--color-surface-muted) hover:text-(--color-bg-primary)"
                           }
                         `}
                       >
@@ -204,7 +214,7 @@ export default function Navbar(): React.JSX.Element {
                       {item.hasDropdown && (
                         <ChevronDown
                           className={`
-                            w-3.5 h-3.5 transition-transform duration-300
+                            w-3.5 h-3.5 transition-transform duration-300 text-white
                             ${isDropdownOpen(item.label) ? "rotate-180" : ""}
                           `}
                         />
@@ -227,7 +237,10 @@ export default function Navbar(): React.JSX.Element {
                               key={subItem.label}
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: index * 0.05, duration: 0.2 }}
+                              transition={{
+                                delay: index * 0.05,
+                                duration: 0.2,
+                              }}
                             >
                               <Link
                                 href={subItem.href}
