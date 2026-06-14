@@ -1,60 +1,100 @@
 "use client";
 
 import Container from "../layout/Container";
-import ParallaxImage from "./ParallaxImage";
 import RevealSection from "./RevealSection";
+
+const metrics = [
+  {
+    number: "45M+",
+    title: "Urban Consumers",
+    description:
+      "Millions of residents within reach of premium weekend experiences.",
+  },
+  {
+    number: "90",
+    suffix: "min",
+    title: "From Dhaka",
+    description:
+      "Strategically positioned for short-stay and weekend tourism.",
+  },
+  {
+    number: "0",
+    title: "Direct Competitors",
+    description:
+      "No destination currently combines luxury, nature and technology at this scale.",
+  },
+  {
+    number: "↑",
+    title: "Tourism Demand",
+    description:
+      "Growing demand for premium domestic travel continues to outpace supply.",
+  },
+];
 
 export default function ResortPositioning() {
   return (
     <section
       id="positioning"
-      className="angled-section-top bg-[var(--color-bg-primary)] py-24 md:py-32"
+      className="relative py-24 md:py-32 overflow-hidden"
+      style={{
+        backgroundImage: "url('/Villa-Amann-Phuket-Pool-Area-5.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
     >
-      <Container className="relative z-10">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-stretch">
-          <div className="relative h-full overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
-            <ParallaxImage
-              src="/Villa-Amann-Phuket-Pool-Area-5.jpg"
-              alt="Neo Nature resort positioning"
-              fill
-              intensity={1.2}
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/15" />
-          </div>
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/70" />
 
-          <RevealSection delay={0.12}>
+      <Container className="relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <RevealSection>
             <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-accent-primary)]">
               Resort Positioning
             </p>
 
-            <h2 className="mt-6 text-4xl md:text-6xl font-bold leading-none tracking-[-0.05em] text-[var(--color-text-primary)]">
+            <h2 className="mt-6 text-4xl md:text-6xl font-bold leading-none tracking-[-0.05em] text-[var(--color-bg-primary)]">
               Why NEO-NATURE?
             </h2>
 
-            <p className="mt-8 text-lg leading-relaxed text-[var(--color-text-secondary)]">
-            Positioned between Dhakas expanding urban population and vast natural landscapes, Valuka presents a rare opportunity to create Bangladeshs first eco-inteligent desitination
+            <p className="mt-8 text-lg leading-relaxed text-[var(--color-bg-primary)]/80">
+              Positioned between Dhakas expanding urban population and vast
+              natural landscapes, Valuka presents a rare opportunity to create
+              Bangladeshs first eco-inteligent desitination
             </p>
-
-            <div className="mt-10 grid sm:grid-cols-2 gap-4">
-              {[
-                "Premium weekend destination",
-                "Eco-intelligent infrastructure",
-                "Private villa ecosystem",
-                "Experience-led revenue",
-              ].map((item) => (
-                <RevealSection
-                  key={item}
-                  delay={0.08}
-                  className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-5"
-                >
-                  <p className="text-sm font-semibold text-[var(--color-text-primary)]">
-                    {item}
-                  </p>
-                </RevealSection>
-              ))}
-            </div>
           </RevealSection>
+
+          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {metrics.map((metric, index) => (
+              <RevealSection
+                key={metric.title}
+                delay={index * 0.1}
+                className="group relative rounded-3xl border border-[var(--color-bg-primary)]/20 bg-[var(--color-dark-foundation)]/40 backdrop-blur-sm p-8 text-center transition-all duration-500 hover:border-[var(--color-accent-primary)]/60 hover:bg-[var(--color-dark-foundation)]/60"
+              >
+                <div className="text-5xl md:text-6xl font-bold tracking-tight text-[var(--color-accent-primary)]">
+                  {metric.number}
+                  {metric.suffix && (
+                    <span className="text-2xl md:text-3xl text-[var(--color-bg-primary)]/70 ml-1">
+                      {metric.suffix}
+                    </span>
+                  )}
+                </div>
+
+                <h3 className="mt-4 text-lg font-semibold text-[var(--color-bg-primary)]">
+                  {metric.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-relaxed text-[var(--color-bg-primary)]/70">
+                  {metric.description}
+                </p>
+
+                {/* Decorative corner accent */}
+                <div className="absolute top-0 right-0 w-8 h-8 overflow-hidden rounded-tr-3xl">
+                  <div className="absolute top-0 right-0 w-12 h-12 bg-[var(--color-accent-primary)]/20 rotate-45 translate-x-6 -translate-y-6 transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4" />
+                </div>
+              </RevealSection>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

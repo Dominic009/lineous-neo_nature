@@ -68,7 +68,7 @@ export default function Navbar(): React.JSX.Element {
 
   const toggleMobileDropdown = (label: string) => {
     setMobileOpenDropdowns((prev) =>
-      prev.includes(label) ? prev.filter((l) => l !== label) : [...prev, label],
+      prev.includes(label) ? prev.filter((l) => l !== label) : [...prev, label]
     );
   };
 
@@ -95,6 +95,7 @@ export default function Navbar(): React.JSX.Element {
   }, [isOpen]);
 
   const width = useTransform(scrollY, [0, 120], ["100%", "92%"]);
+  const isHome = pathname === "/";
 
   return (
     <>
@@ -114,23 +115,32 @@ export default function Navbar(): React.JSX.Element {
         transition={{ duration: 0.9, ease: "easeOut" }}
         className={`
           fixed
-          top-0
-          md:top-4
+         ${isHome ? "top-0 md:top-4" : scrolled ? "top-4" : "top-0" }
           left-1/2
           -translate-x-1/2
           z-50
           transition-all
           duration-500
           ${
-            scrolled
-              ? `
-                rounded-3xl
+            pathname === "/"
+              ? scrolled
+                ? `
+                  rounded-3xl
+                  bg-[var(--color-dark-foundation)]/85
+                  backdrop-blur-3xl
+                  shadow-[0_18px_60px_rgba(31,26,21,0.18)]
+                `
+                : `
+                  bg-transparent
+                `
+              : `
                 bg-[var(--color-dark-foundation)]/85
                 backdrop-blur-3xl
-                shadow-[0_18px_60px_rgba(31,26,21,0.18)]
-              `
-              : `
-                bg-transparent
+                ${
+                  scrolled
+                    ? "rounded-3xl shadow-[0_18px_60px_rgba(31,26,21,0.18)]"
+                    : ""
+                }
               `
           }
         `}
@@ -358,7 +368,11 @@ export default function Navbar(): React.JSX.Element {
                               <ChevronDown
                                 className={`
                                   w-5 h-5 transition-transform duration-300
-                                  ${isMobileDropdownOpen(item.label) ? "rotate-180" : ""}
+                                  ${
+                                    isMobileDropdownOpen(item.label)
+                                      ? "rotate-180"
+                                      : ""
+                                  }
                                 `}
                               />
                             </button>

@@ -93,7 +93,7 @@ export default function Hero() {
                 meet.
               </p>
 
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              {/* <div className="mt-10 flex flex-col sm:flex-row gap-4">
                 <a
                   href="/investment"
                   className="inline-flex items-center justify-center rounded-full bg-[var(--color-accent-primary)] px-8 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-text-primary)] transition hover:bg-[var(--color-bronze-depth)] hover:text-[var(--color-bg-primary)]"
@@ -107,7 +107,7 @@ export default function Hero() {
                 >
                   Explore Masterplan
                 </a>
-              </div>
+              </div> */}
             </motion.div>
 
             <motion.div
