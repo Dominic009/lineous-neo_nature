@@ -8,6 +8,8 @@ import SectorsFeature from "@/components/investment/SectorsFeature";
 import FeaturedNews from "@/components/investment/FeaturedNews";
 import ContactForm from "@/components/investment/ContactForm";
 import InvestmentStrategy from "@/components/investment/InvestmentStrategy";
+import ROICalculator from "@/components/investment/ROICalculator";
+import InvestmentMap from "@/components/investment/InvestmentMap";
 
 export default function InvestmentPage() {
   return (
@@ -16,10 +18,12 @@ export default function InvestmentPage() {
       <OpenForBusiness />
       <ValueProposition />
       <InvestmentOpportunities />
-      <EngageWithUs />
+      {/* <EngageWithUs /> */}
       <DiscoverBanner />
-      <SectorsFeature />
-      <FeaturedNews />
+      {/* <SectorsFeature /> */}
+      <ROICalculator />
+      <InvestmentMap />
+      {/* <FeaturedNews /> */}
       <ContactForm />
       {/* <InvestmentStrategy /> */}
     </main>

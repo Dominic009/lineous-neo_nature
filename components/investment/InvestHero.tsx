@@ -8,7 +8,7 @@ const customEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function InvestHero() {
   return (
-    <section className="relative min-h-[70vh] md:min-h-[80vh] overflow-hidden bg-[var(--color-dark-foundation)]">
+    <section className="relative min-h-[70vh] md:min-h-[100dvh] overflow-hidden bg-[var(--color-dark-foundation)] flex items-end">
       <div className="absolute inset-0">
         <Image
           src="/premiumvilla-privatepool.jpg"
@@ -22,7 +22,7 @@ export default function InvestHero() {
         <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
       </div>
 
-      <div className="relative z-10 pt-10 md:pt-12 pb-16 md:pb-20">
+      <div className="relative z-10 pb-30">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -31,7 +31,7 @@ export default function InvestHero() {
             transition={{ duration: 0.8, ease: customEase }}
             className="space-y-6"
           >
-            <h1 className="text-lg md:text-xl font-bold uppercase tracking-[0.35em] text-[var(--color-bg-primary)]">
+            <h1 className="text-lg md:text-7xl font-bold uppercase tracking-[0.35em] text-[var(--color-bg-primary)]">
               INVEST IN NEO-NATURE
             </h1>
           </motion.div>
