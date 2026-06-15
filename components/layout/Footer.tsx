@@ -7,9 +7,17 @@ const customEase: [number, number, number, number] = [0.19, 1, 0.22, 1];
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden">
+    <footer
+      className="relative bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden"
+      style={{
+        backgroundImage: "url('/hexa_pattern.png')",
+        backgroundBlendMode: "screen",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
       {/* Bottom-right honeycomb pattern - bleeding off-screen */}
-      <div className="absolute -right-20 -bottom-90 h-[calc(100%+40px)] w-[600px] opacity-[0.08] pointer-events-none">
+      {/* <div className="absolute -right-20 -bottom-90 h-[calc(100%+40px)] w-[600px] opacity-[0.08] pointer-events-none">
         <svg
           viewBox="0 0 600 800"
           className="h-full w-full"
@@ -68,7 +76,7 @@ export default function Footer() {
             />
           ))}
         </svg>
-      </div>
+      </div> */}
 
       <div className="relative min-h-[80vh] flex items-center justify-center py-32 md:py-40 lg:py-48">
         <div className="max-w-7xl mx-auto px-6 md:px-8 w-full flex flex-col items-center justify-center">

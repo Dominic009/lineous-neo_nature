@@ -40,7 +40,6 @@ export default function Sustainability() {
               "
             >
               Designed
-              <br />
               To Endure
             </h2>
 
@@ -71,7 +70,7 @@ export default function Sustainability() {
             </div>
           </div>
 
-          <div className="lg:mt-72 space-y-8">
+          <div className="lg:mt-56 space-y-8">
             {sustainabilityItems.map((item, index) => (
               <SustainabilityItem
                 key={item.title}

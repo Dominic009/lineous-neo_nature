@@ -187,10 +187,7 @@ export default function Navbar(): React.JSX.Element {
               />
             </Link>
 
-            <nav
-              className="hidden lg:flex items-center gap-1 ml-auto"
-              onMouseLeave={handleMouseLeave}
-            >
+            <nav className="hidden lg:flex items-center gap-1 ml-auto">
               {NAV_ITEMS.map((item) => (
                 <div
                   key={item.label}
@@ -198,6 +195,7 @@ export default function Navbar(): React.JSX.Element {
                   onMouseEnter={() =>
                     handleMouseEnter(item.label, item.hasDropdown)
                   }
+                  onMouseLeave={handleMouseLeave}
                 >
                   <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
                     <div className="flex items-center gap-1 px-5">
@@ -245,6 +243,10 @@ export default function Navbar(): React.JSX.Element {
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ duration: 0.2, ease: "easeOut" }}
                           className="absolute top-full left-0 mt-2 min-w-[220px] rounded-2xl bg-[var(--color-dark-foundation)]/95 backdrop-blur-2xl border border-[var(--color-border-subtle)]/40 shadow-[0_12px_40px_rgba(31,26,21,0.25)] overflow-hidden z-60"
+                          onMouseEnter={() =>
+                            handleMouseEnter(item.label, item.hasDropdown)
+                          }
+                          onMouseLeave={handleMouseLeave}
                         >
                           {item.items.map((subItem, index) => (
                             <motion.div
