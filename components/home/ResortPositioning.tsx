@@ -44,10 +44,10 @@ export default function ResortPositioning() {
       }}
     >
       {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/70" />
+      <div className="absolute inset-0 bg-black/60" />
 
       <Container className="relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto text-center">
           <RevealSection>
             <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-accent-primary)]">
               Resort Positioning
@@ -57,7 +57,7 @@ export default function ResortPositioning() {
               Why NEO-NATURE?
             </h2>
 
-            <p className="mt-8 text-lg leading-relaxed text-[var(--color-bg-primary)]/80">
+            <p className="mt-8 text-lg leading-relaxed max-w-3xl mx-auto text-[var(--color-bg-primary)]/80">
               Positioned between Dhakas expanding urban population and vast
               natural landscapes, Valuka presents a rare opportunity to create
               Bangladeshs first eco-inteligent desitination
@@ -89,9 +89,9 @@ export default function ResortPositioning() {
                 </p>
 
                 {/* Decorative corner accent */}
-                <div className="absolute top-0 right-0 w-8 h-8 overflow-hidden rounded-tr-3xl">
+                {/* <div className="absolute top-0 right-0 w-8 h-8 overflow-hidden rounded-tr-3xl">
                   <div className="absolute top-0 right-0 w-12 h-12 bg-[var(--color-accent-primary)]/20 rotate-45 translate-x-6 -translate-y-6 transition-transform duration-500 group-hover:translate-x-4 group-hover:-translate-y-4" />
-                </div>
+                </div> */}
               </RevealSection>
             ))}
           </div>

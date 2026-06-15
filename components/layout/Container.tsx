@@ -14,7 +14,7 @@ export default function Container({
         max-w-[1440px]
         px-6
         md:px-12
-        lg:px-20
+        lg:px-10
         ${className}
       `}
     >

@@ -68,7 +68,7 @@ export default function Navbar(): React.JSX.Element {
 
   const toggleMobileDropdown = (label: string) => {
     setMobileOpenDropdowns((prev) =>
-      prev.includes(label) ? prev.filter((l) => l !== label) : [...prev, label]
+      prev.includes(label) ? prev.filter((l) => l !== label) : [...prev, label],
     );
   };
 
@@ -115,7 +115,7 @@ export default function Navbar(): React.JSX.Element {
         transition={{ duration: 0.9, ease: "easeOut" }}
         className={`
           fixed
-         ${isHome ? "top-0 md:top-4" : scrolled ? "top-4" : "top-0" }
+         ${isHome ? "top-0 md:top-4" : scrolled ? "top-4" : "top-0"}
           left-1/2
           -translate-x-1/2
           z-50
@@ -158,16 +158,20 @@ export default function Navbar(): React.JSX.Element {
           >
             <Link
               href="/"
-              className="group relative text-[var(--color-bg-primary)] font-bold md:text-xl uppercase tracking-[0.35em]"
+              className="group relative text-[var(--color-bg-primary)] font-bold md:text-lg uppercase tracking-[0.35em] flex "
             >
               <span
                 className="
                   transition-all
                   duration-300
-                  group-hover:text-[var(--color-accent-primary)]
+                  group-hover:text-[var(--color-accent-primary)] flex items-center
                 "
               >
-                Neo Nature
+                <span className="w-28">
+                  {" "}
+                  <img src="/logo_light_beige.png" alt="" className="-ml-10" />
+                </span>
+                <span className="-ml-12 font-normal">Neo Nature</span>
               </span>
 
               <motion.div

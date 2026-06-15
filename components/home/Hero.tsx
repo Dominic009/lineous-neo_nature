@@ -43,8 +43,18 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-(--color-bg-primary)">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src="/demo.mp4" type="video/mp4" />
+      </video>
+
       <AnimatePresence mode="sync">
-        <motion.div
+        {/* <motion.div
           key={slides[activeSlide].src}
           className="absolute inset-0 h-full w-full"
           initial={{ opacity: 0, scale: 1.06 }}
@@ -60,10 +70,10 @@ export default function Hero() {
             intensity={0.5}
             className="object-cover"
           />
-        </motion.div>
+        </motion.div> */}
       </AnimatePresence>
 
-      <div className="absolute inset-0 bg-(--color-dark-foundation)/25 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-(--color-dark-foundation)/25 backdrop-blur-xs" />
       <div className="absolute inset-0 bg-linear-to-r from-(--color-dark-foundation)/55 via-(--color-dark-foundation)/15 to-transparent" />
       <div className="absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-transparent" />
 
@@ -82,9 +92,7 @@ export default function Hero() {
 
               <h1 className="max-w-5xl text-[clamp(3.25rem,9vw,7.5rem)] font-bold leading-[0.88] tracking-[-0.07em] text-(--color-bg-primary) drop-shadow-2xl">
                 Neo Nature{" "}
-                <span className="text-(--color-accent-primary)">
-                  Resort
-                </span>
+                <span className="text-(--color-accent-primary)">Resort</span>
               </h1>
 
               <p className="mt-8 max-w-2xl text-lg md:text-2xl leading-relaxed text-(--color-bg-primary)/88">
@@ -122,13 +130,23 @@ export default function Hero() {
             </motion.div>
           </div>
           <div className="relative flex items-center justify-center h-[75vh] pl-10 pt-20">
-            <Image
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="h-[80%] object-cover rounded-3xl"
+            >
+              <source src="/demo.mp4" type="video/mp4" />
+            </video>
+
+            {/* <Image
               src={slides[activeSlide].src}
               alt={slides[activeSlide].alt}
               width={700}
               height={600}
               className="h-[80%] object-cover rounded-3xl"
-            />
+            /> */}
           </div>
         </div>
       </div>

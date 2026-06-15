@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const customEase: [number, number, number, number] = [0.19, 1, 0.22, 1];
 const shutterEase: [number, number, number, number] = [0.62, 0, 0.78, 0.28];
@@ -52,12 +53,16 @@ export default function BrandIntro({
             times: [0, 0.38, 1],
             ease: shutterEase,
           }}
-          className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
-          style={{
-            background:
-              "radial-gradient(circle at 50% 44%, rgba(201,164,90,0.22), transparent 30%), radial-gradient(circle at 50% 70%, rgba(78,69,36,0.12), transparent 34%), var(--color-bg-primary)",
-          }}
+          className="fixed inset-0 bg-black z-[100] flex items-center justify-center overflow-hidden"
+         
         >
+          <div
+            className="absolute top-0 inset-0 "
+            style={{
+              background:
+                "radial-gradient(circle at 50%, rgba(201,164,90,0.28), transparent 70%)",
+            }}
+          ></div>
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -67,8 +72,23 @@ export default function BrandIntro({
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.05, ease: customEase }}
+              className=""
+            >
+              <Image
+                src="/logo_light_beige.png"
+                alt="Neo Nature Logo"
+                width={200}
+                height={200}
+                className="h-[20%] w-auto object-contain"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.15, ease: customEase }}
-              className="mb-8 flex gap-2"
+              className="flex gap-2"
             >
               {neoLetters.map((letter, index) => (
                 <motion.span
@@ -80,7 +100,7 @@ export default function BrandIntro({
                     delay: 0.35 + index * 0.08,
                     ease: customEase,
                   }}
-                  className="text-[clamp(4.5rem,18vw,13rem)] font-bold leading-none tracking-[-0.08em] text-[var(--color-text-primary)]"
+                  className="text-[clamp(4.5rem,15vw,10rem)] font-bold leading-none tracking-[-0.08em] text-[var(--color-accent-primary)]"
                 >
                   {letter}
                 </motion.span>
