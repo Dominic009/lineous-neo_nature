@@ -62,7 +62,7 @@ export default function ProjectBrief() {
           <div className="relative h-full overflow-visible rounded-4xl bg-(--color-surface-muted)">
             <div
               aria-hidden="true"
-              className="absolute -right-10 bottom-[-7%] z-0 h-[30%] w-[30%] bg-linear-to-br from-(--color-accent-primary)/45 to-(--color-nature-accent)/20 opacity-90 rounded-4xl"
+              className="absolute -right-10 bottom-[-7%] z-0 h-[30%] w-[30%] bg-linear-to-br from-(--color-accent-primary)/40 to-(--color-nature-accent)/20 opacity-85 rounded-4xl"
               style={{
                 clipPath:
                   "polygon(5% 0%, 100% 0%, 100% 94%, 95% 100%, 0% 100%, 0% 6%)",

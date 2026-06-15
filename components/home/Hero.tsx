@@ -73,9 +73,9 @@ export default function Hero() {
         </motion.div> */}
       </AnimatePresence>
 
-      <div className="absolute inset-0 bg-(--color-dark-foundation)/25 backdrop-blur-xs" />
-      <div className="absolute inset-0 bg-linear-to-r from-(--color-dark-foundation)/55 via-(--color-dark-foundation)/15 to-transparent" />
-      <div className="absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-xs" />
+      <div className="absolute inset-0 bg-linear-to-r from-black/50 via-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
 
       <div className="relative z-10 min-h-screen">
         <div className="container mx-auto grid grid-cols-2 gap-5 h-full min-h-screen items-center px-6 md:px-12 lg:px-20">

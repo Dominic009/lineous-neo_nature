@@ -23,7 +23,7 @@ export default function Masterplan() {
       id="masterplan"
       className="relative bg-(--color-bg-secondary) pt-24 md:pt-32 pb-32"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(201,164,90,0.22),transparent_34%),radial-gradient(circle_at_20%_80%,rgba(78,69,36,0.16),transparent_36%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(45,106,79,0.18),transparent_34%),radial-gradient(circle_at_20%_80%,rgba(82,121,111,0.12),transparent_36%)]" />
 
       <Container>
         <div className="relative z-10 mb-16 max-w-5xl">

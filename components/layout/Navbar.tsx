@@ -96,6 +96,18 @@ export default function Navbar(): React.JSX.Element {
 
   const width = useTransform(scrollY, [0, 120], ["100%", "92%"]);
   const isHome = pathname === "/";
+  const isScrolledPastHero = scrolled;
+
+  const navbarTextClass = isHome && !isScrolledPastHero ? "text-(--color-bg-primary)" : "text-(--color-text-primary)";
+  const navbarChevronClass = isHome && !isScrolledPastHero ? "text-white" : "text-(--color-text-primary)";
+  const navbarBorderClass = isHome && !isScrolledPastHero
+    ? "border-(--color-bg-primary)"
+    : "border-(--color-accent-primary)";
+  const navbarHoverBorderClass = isHome && !isScrolledPastHero
+    ? "hover:border-(--color-surface-muted) hover:text-(--color-bg-primary)"
+    : "hover:border-(--color-accent-primary) hover:text-(--color-accent-primary)";
+  const activeNavTextClass = isHome && !isScrolledPastHero ? "text-white font-semibold" : "text-(--color-accent-primary) font-semibold";
+  const activeNavBorderClass = isHome && !isScrolledPastHero ? "border-(--color-accent-primary)" : "border-(--color-accent-primary)";
 
   return (
     <>
@@ -115,32 +127,22 @@ export default function Navbar(): React.JSX.Element {
         transition={{ duration: 0.9, ease: "easeOut" }}
         className={`
           fixed
-         ${isHome ? "top-0 md:top-4" : scrolled ? "top-4" : "top-0"}
+         ${isHome ? "top-0 md:top-4" : isScrolledPastHero ? "top-4" : "top-0"}
           left-1/2
           -translate-x-1/2
           z-50
           transition-all
           duration-500
           ${
-            pathname === "/"
-              ? scrolled
-                ? `
-                  rounded-3xl
-                  bg-[var(--color-dark-foundation)]/85
-                  backdrop-blur-3xl
-                  shadow-[0_18px_60px_rgba(31,26,21,0.18)]
-                `
-                : `
-                  bg-transparent
-                `
+            isHome && !isScrolledPastHero
+              ? `
+                bg-transparent
+              `
               : `
-                bg-[var(--color-dark-foundation)]/85
+                rounded-3xl
+                bg-white/85
                 backdrop-blur-3xl
-                ${
-                  scrolled
-                    ? "rounded-3xl shadow-[0_18px_60px_rgba(31,26,21,0.18)]"
-                    : ""
-                }
+                shadow-[0_18px_60px_rgba(45,106,79,0.08)]
               `
           }
         `}
@@ -153,23 +155,23 @@ export default function Navbar(): React.JSX.Element {
               justify-between
               transition-all
               duration-500
-              ${scrolled ? "h-20" : "h-28"}
+              ${isScrolledPastHero ? "h-20" : "h-28"}
             `}
           >
             <Link
               href="/"
-              className="group relative text-[var(--color-bg-primary)] font-bold md:text-lg uppercase tracking-[0.35em] flex "
+              className="group relative font-bold md:text-lg uppercase tracking-[0.35em] flex "
             >
               <span
                 className="
                   transition-all
                   duration-300
-                  group-hover:text-[var(--color-accent-primary)] flex items-center
+                  group-hover:text-(--color-accent-primary) flex items-center ${navbarTextClass}
                 "
               >
                 <span className="w-28">
                   {" "}
-                  <img src="/logo_light_beige.png" alt="" className="-ml-10" />
+                  <img src="/logo_dark.png" alt="" className="-ml-10" />
                 </span>
                 <span className="-ml-12 font-normal">Neo Nature</span>
               </span>
@@ -180,7 +182,7 @@ export default function Navbar(): React.JSX.Element {
                   -bottom-2
                   left-0
                   h-0.5
-                  bg-[var(--color-accent-primary)]
+                  bg-(--color-accent-primary)
                 "
                 initial={{ width: 0 }}
                 whileHover={{ width: "100%" }}
@@ -216,8 +218,8 @@ export default function Navbar(): React.JSX.Element {
                           duration-300
                           ${
                             isActive(item.href)
-                              ? "border-b border-(--color-accent-primary) text-white font-semibold"
-                              : "text-(--color-bg-primary) hover:border-b hover:border-(--color-surface-muted) hover:text-(--color-bg-primary)"
+                              ? `border-b ${activeNavBorderClass} ${activeNavTextClass}`
+                              : `${navbarTextClass} ${navbarHoverBorderClass}`
                           }
                         `}
                       >
@@ -226,7 +228,7 @@ export default function Navbar(): React.JSX.Element {
                       {item.hasDropdown && (
                         <ChevronDown
                           className={`
-                            w-3.5 h-3.5 transition-transform duration-300 text-white
+                            w-3.5 h-3.5 transition-transform duration-300 ${navbarChevronClass}
                             ${isDropdownOpen(item.label) ? "rotate-180" : ""}
                           `}
                         />
@@ -242,30 +244,30 @@ export default function Navbar(): React.JSX.Element {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ duration: 0.2, ease: "easeOut" }}
-                          className="absolute top-full left-0 mt-2 min-w-[220px] rounded-2xl bg-[var(--color-dark-foundation)]/95 backdrop-blur-2xl border border-[var(--color-border-subtle)]/40 shadow-[0_12px_40px_rgba(31,26,21,0.25)] overflow-hidden z-60"
+                          className="absolute top-full left-0 mt-2 min-w-[220px] rounded-2xl bg-white backdrop-blur-2xl border border-(--color-border-subtle)/40 shadow-[0_12px_40px_rgba(45,106,79,0.08)] overflow-hidden z-60"
                           onMouseEnter={() =>
                             handleMouseEnter(item.label, item.hasDropdown)
                           }
                           onMouseLeave={handleMouseLeave}
                         >
-                          {item.items.map((subItem, index) => (
-                            <motion.div
-                              key={subItem.label}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{
-                                delay: index * 0.05,
-                                duration: 0.2,
-                              }}
-                            >
-                              <Link
-                                href={subItem.href}
-                                className="block px-5 py-3.5 text-sm uppercase tracking-[0.2em] text-[var(--color-bg-primary)] hover:bg-[var(--color-surface-muted)]/30 hover:text-[var(--color-accent-primary)] transition-all duration-200"
-                              >
-                                {subItem.label}
-                              </Link>
-                            </motion.div>
-                          ))}
+                  {item.items.map((subItem, index) => (
+                    <motion.div
+                      key={subItem.label}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{
+                        delay: index * 0.05,
+                        duration: 0.2,
+                      }}
+                    >
+                      <Link
+                        href={subItem.href}
+                        className="block px-5 py-3.5 text-sm uppercase tracking-[0.2em] text-(--color-text-primary) hover:bg-(--color-surface-muted)/30 hover:text-(--color-accent-primary) transition-all duration-200"
+                      >
+                        {subItem.label}
+                      </Link>
+                    </motion.div>
+                  ))}
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -277,7 +279,7 @@ export default function Navbar(): React.JSX.Element {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden relative w-12 h-12 flex items-center justify-center rounded-full text-[var(--color-bg-primary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-dark-foundation)] transition-colors"
+                className="lg:hidden relative w-12 h-12 flex items-center justify-center rounded-full ${navbarTextClass} hover:bg-(--color-surface-muted) hover:text-(--color-text-primary) transition-colors"
               >
                 <MenuIcon />
               </button>
@@ -311,7 +313,7 @@ export default function Navbar(): React.JSX.Element {
                   bottom-0
                   w-[85vw]
                   max-w-100
-                  bg-(--color-dark-foundation)
+                  bg-white
                   border-l
                   border-(--color-border-subtle)
                   z-70
@@ -320,18 +322,18 @@ export default function Navbar(): React.JSX.Element {
               >
                 <div className="h-full flex flex-col">
                   <div className="p-8 border-b border-[var(--color-border-subtle)]/30 flex items-center justify-between">
-                    <h3 className="text-[var(--color-bg-primary)] uppercase tracking-[0.3em] text-xs">
+                    <h3 className="text-(--color-text-primary) uppercase tracking-[0.3em] text-xs">
                       Navigation
                     </h3>
                     <span
                       onClick={() => setIsOpen(false)}
-                      className="text-[var(--color-bg-primary)] cursor-pointer"
+                      className="text-(--color-text-primary) cursor-pointer"
                     >
                       <X />
                     </span>
                   </div>
 
-                  <div className="flex-1 flex flex-col justify-center px-8 bg-[var(--color-dark-foundation)]">
+                  <div className="flex-1 flex flex-col justify-center px-8 bg-white">
                     {NAV_ITEMS.map((item, index) => (
                       <div key={item.label}>
                         {item.hasDropdown ? (
@@ -366,7 +368,7 @@ export default function Navbar(): React.JSX.Element {
                                 ${
                                   isActive(item.href)
                                     ? "text-[var(--color-accent-primary)]"
-                                    : "text-[var(--color-bg-primary)]"
+                                    : "text-(--color-text-primary)"
                                 }
                               `}
                             >
@@ -413,7 +415,7 @@ export default function Navbar(): React.JSX.Element {
                                 ${
                                   isActive(item.href)
                                     ? "text-[var(--color-accent-primary)]"
-                                    : "text-[var(--color-bg-primary)]"
+                                    : "text-(--color-text-primary)"
                                 }
                               `}
                             >
@@ -437,7 +439,7 @@ export default function Navbar(): React.JSX.Element {
                                     key={subItem.label}
                                     href={subItem.href}
                                     onClick={() => setIsOpen(false)}
-                                    className="block text-lg py-2 text-[var(--color-bg-primary)]/70 hover:text-[var(--color-accent-primary)]"
+                                    className="block text-lg py-2 text-(--color-text-secondary) hover:text-(--color-accent-primary)"
                                   >
                                     {subItem.label}
                                   </Link>

@@ -43,8 +43,8 @@ export default function ResortPositioning() {
         backgroundAttachment: "fixed",
       }}
     >
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-black/60" />
+      {/* Light overlay for readability */}
+      <div className="absolute inset-0 bg-black/35" />
 
       <Container className="relative z-10">
         <div className="max-w-7xl mx-auto text-center">

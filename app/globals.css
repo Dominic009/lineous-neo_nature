@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --color-bg-primary: #f8f3ea;
-  --color-bg-secondary: #f1e6d8;
-  --color-surface: #fffdf8;
-  --color-surface-muted: #ebdccb;
-  --color-text-primary: #1f1a15;
-  --color-text-secondary: #5a4a3a;
-  --color-accent-primary: #c9a45a;
-  --color-accent-secondary: #8d391f;
-  --color-bronze-depth: #9e7150;
-  --color-nature-accent: #4e4524;
-  --color-dark-foundation: #2b2119;
-  --color-border-subtle: #d8c8b7;
+  --color-bg-primary: #fafaf8;
+  --color-bg-secondary: #f3f1ec;
+  --color-surface: #ffffff;
+  --color-surface-muted: #e8e5df;
+  --color-text-primary: #1a1d1f;
+  --color-text-secondary: #5a5f65;
+  --color-accent-primary: #2d6a4f;
+  --color-accent-secondary: #40916c;
+  --color-bronze-depth: #7f4f24;
+  --color-nature-accent: #52796f;
+  --color-dark-foundation: #f8f9fa;
+  --color-border-subtle: #dde2e5;
 
   --background: var(--color-bg-primary);
   --foreground: var(--color-text-primary);
@@ -70,5 +70,5 @@ h6 {
 
 ::selection {
   background: var(--color-accent-primary);
-  color: var(--color-dark-foundation);
+  color: var(--color-bg-primary);
 }

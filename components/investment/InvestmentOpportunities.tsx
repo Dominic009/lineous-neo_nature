@@ -28,7 +28,7 @@ export default function InvestmentOpportunities() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.75, delay: index * 0.1, ease: customEase }}
-              className="rounded-[1.5rem] border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-8 md:p-10 transition-shadow hover:shadow-[0_20px_60px_rgba(31,26,21,0.08)]"
+              className="rounded-[1.5rem] border border-(--color-border-subtle) bg-(--color-surface) p-8 md:p-10 transition-shadow hover:shadow-[0_20px_60px_rgba(45,106,79,0.08)]"
             >
               <div className="flex items-baseline gap-3 mb-6">
                 <span className="text-4xl font-light tracking-[-0.04em] text-[var(--color-accent-primary)]">

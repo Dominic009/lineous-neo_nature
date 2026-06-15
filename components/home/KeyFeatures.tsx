@@ -57,7 +57,7 @@ export default function KeyFeatures() {
             >
               <source src="/demo2.mp4" type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/20" />
+            <div className="absolute inset-0 bg-black/15" />
           </div>
 
           <RevealSection delay={0.12}>

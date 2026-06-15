@@ -8,7 +8,7 @@ const customEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function InvestHero() {
   return (
-    <section className="relative min-h-[70vh] md:min-h-[100dvh] overflow-hidden bg-[var(--color-dark-foundation)] flex items-end">
+    <section className="relative min-h-[70vh] md:min-h-[100dvh] overflow-hidden flex items-end">
       <div className="absolute inset-0">
         <Image
           src="/premiumvilla-privatepool.jpg"
@@ -17,8 +17,8 @@ export default function InvestHero() {
           className="object-cover opacity-60"
           priority
         />
-        <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/40" />
-        <div className="absolute inset-0 bg-linear-to-r from-[var(--color-dark-foundation)]/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/50 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
       </div>
 

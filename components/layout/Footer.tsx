@@ -8,10 +8,10 @@ const customEase: [number, number, number, number] = [0.19, 1, 0.22, 1];
 export default function Footer() {
   return (
     <footer
-      className="relative bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] overflow-hidden"
+      className="relative bg-(--color-bg-primary) text-(--color-text-primary) overflow-hidden"
       style={{
         backgroundImage: "url('/hexa_pattern.png')",
-        backgroundBlendMode: "screen",
+        backgroundBlendMode: "multiply",
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}

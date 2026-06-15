@@ -53,7 +53,7 @@ export default function BrandIntro({
             times: [0, 0.38, 1],
             ease: shutterEase,
           }}
-          className="fixed inset-0 bg-black z-[100] flex items-center justify-center overflow-hidden"
+          className="fixed inset-0 bg-(--color-bg-primary) z-[100] flex items-center justify-center overflow-hidden"
          
         >
           <div
@@ -141,7 +141,7 @@ export default function BrandIntro({
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.55, ease: customEase }}
-              className="mt-6 text-[10px] font-semibold uppercase tracking-[0.42em] text-[var(--color-text-secondary)]"
+              className="mt-6 text-[10px] font-semibold uppercase tracking-[0.42em] text-(--color-text-secondary)"
             >
               Luxury Futuristic Resort
             </motion.p>

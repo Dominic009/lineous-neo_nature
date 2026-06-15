@@ -61,7 +61,7 @@ export default function Technology() {
                   intensity={0.5}
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/15" />
+                <div className="absolute inset-0 bg-black/12" />
               </div>
             </div>
           </div>

@@ -76,7 +76,7 @@ export default function InvestmentStrategy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.1, ease: customEase }}
-            className="rounded-[2rem] border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-6 md:p-8 shadow-[0_24px_80px_rgba(31,26,21,0.08)]"
+            className="rounded-[2rem] border border-(--color-border-subtle) bg-(--color-surface) p-6 md:p-8 shadow-[0_24px_80px_rgba(45,106,79,0.06)]"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-accent-primary)]">
               Investor Form
@@ -131,12 +131,12 @@ export default function InvestmentStrategy() {
                   </select>
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full rounded-full bg-[var(--color-accent-secondary)] px-8 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-bg-primary)] transition hover:bg-[var(--color-accent-primary)] hover:text-[var(--color-dark-foundation)]"
-                >
-                  Request Investor Details
-                </button>
+            <button
+              type="submit"
+              className="w-full rounded-full bg-(--color-accent-primary) px-8 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-(--color-surface) transition hover:bg-(--color-text-primary) hover:text-(--color-bg-primary)"
+            >
+              Request Investor Details
+            </button>
               </form>
             )}
           </motion.aside>

@@ -39,7 +39,7 @@ export default function VillaShowcase({
     >
       <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
         <ParallaxImage src={image} alt={name} fill intensity={0.5} className="object-cover" />
-        <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/10" />
+        <div className="absolute inset-0 bg-black/10" />
       </div>
 
       <div className="max-w-4xl mt-12">
