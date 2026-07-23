@@ -12,7 +12,7 @@ import {
   PiggyBank,
 } from "lucide-react";
 
-const customEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const customEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const formatCurrency = (value: number) =>
   new Intl.NumberFormat("en-US", {
@@ -44,7 +44,7 @@ export default function ROICalculator() {
       : 0;
 
   return (
-    <section className="bg-[var(--color-bg-primary)] py-20 md:py-28">
+    <section className="bg-void py-20 md:py-28">
       <Container>
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -54,10 +54,10 @@ export default function ROICalculator() {
             transition={{ duration: 0.8, ease: customEase }}
             className="text-center mb-14 md:mb-20"
           >
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-[-0.05em] text-[var(--color-text-primary)]">
-              ROI <span className="text-[var(--color-accent-primary)]">Calculator</span>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-[-0.05em] text-bone font-display">
+              ROI <span className="text-gradient-chrome">Calculator</span>
             </h2>
-            <p className="mt-4 text-base md:text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">
+            <p className="mt-4 text-base md:text-lg text-haze max-w-2xl mx-auto">
               Estimate your potential returns with our interactive investment calculator.
               Adjust the values to see projected outcomes.
             </p>
@@ -70,16 +70,16 @@ export default function ROICalculator() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.75, ease: customEase }}
-              className="rounded-[1.5rem] border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-7 md:p-10 space-y-8"
+              className="rounded-[1.5rem] border border-line bg-graphite/50 p-7 md:p-10 space-y-8"
             >
               {/* Investment Amount */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-text-primary)] flex items-center gap-2">
-                    <Wallet className="w-4 h-4 text-[var(--color-accent-primary)]" />
+                  <label className="text-xs font-bold uppercase tracking-[0.25em] text-bone flex items-center gap-2 font-mono">
+                    <Wallet className="w-4 h-4 text-chrome1" />
                     Investment Amount
                   </label>
-                  <span className="text-sm font-bold text-[var(--color-accent-primary)]">
+                  <span className="text-sm font-bold text-chrome1">
                     {formatCurrency(investmentAmount)}
                   </span>
                 </div>
@@ -90,9 +90,9 @@ export default function ROICalculator() {
                   step={10000}
                   value={investmentAmount}
                   onChange={(e) => setInvestmentAmount(Number(e.target.value))}
-                  className="w-full h-1 bg-[var(--color-border-subtle)] rounded-full appearance-none cursor-pointer accent-[var(--color-accent-primary)]"
+                  className="w-full h-1 bg-line rounded-full appearance-none cursor-pointer accent-chrome1"
                 />
-                <div className="flex justify-between text-[10px] text-[var(--color-text-secondary)] uppercase tracking-wider">
+                <div className="flex justify-between text-[10px] text-haze uppercase tracking-wider font-mono">
                   <span>$50,000</span>
                   <span>$1,000,000</span>
                 </div>
@@ -101,11 +101,11 @@ export default function ROICalculator() {
               {/* Expected Annual Return */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-text-primary)] flex items-center gap-2">
-                    <Percent className="w-4 h-4 text-[var(--color-accent-primary)]" />
+                  <label className="text-xs font-bold uppercase tracking-[0.25em] text-bone flex items-center gap-2 font-mono">
+                    <Percent className="w-4 h-4 text-chrome1" />
                     Expected Annual Return
                   </label>
-                  <span className="text-sm font-bold text-[var(--color-accent-primary)]">
+                  <span className="text-sm font-bold text-chrome1">
                     {formatPercent(expectedReturn)}
                   </span>
                 </div>
@@ -116,9 +116,9 @@ export default function ROICalculator() {
                   step={0.5}
                   value={expectedReturn}
                   onChange={(e) => setExpectedReturn(Number(e.target.value))}
-                  className="w-full h-1 bg-[var(--color-border-subtle)] rounded-full appearance-none cursor-pointer accent-[var(--color-accent-primary)]"
+                  className="w-full h-1 bg-line rounded-full appearance-none cursor-pointer accent-chrome1"
                 />
-                <div className="flex justify-between text-[10px] text-[var(--color-text-secondary)] uppercase tracking-wider">
+                <div className="flex justify-between text-[10px] text-haze uppercase tracking-wider font-mono">
                   <span>5%</span>
                   <span>50%</span>
                 </div>
@@ -127,11 +127,11 @@ export default function ROICalculator() {
               {/* Investment Period */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-text-primary)] flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-[var(--color-accent-primary)]" />
+                  <label className="text-xs font-bold uppercase tracking-[0.25em] text-bone flex items-center gap-2 font-mono">
+                    <Calendar className="w-4 h-4 text-chrome1" />
                     Investment Period
                   </label>
-                  <span className="text-sm font-bold text-[var(--color-accent-primary)]">
+                  <span className="text-sm font-bold text-chrome1">
                     {years} {years === 1 ? "Year" : "Years"}
                   </span>
                 </div>
@@ -142,9 +142,9 @@ export default function ROICalculator() {
                   step={1}
                   value={years}
                   onChange={(e) => setYears(Number(e.target.value))}
-                  className="w-full h-1 bg-[var(--color-border-subtle)] rounded-full appearance-none cursor-pointer accent-[var(--color-accent-primary)]"
+                  className="w-full h-1 bg-line rounded-full appearance-none cursor-pointer accent-chrome1"
                 />
-                <div className="flex justify-between text-[10px] text-[var(--color-text-secondary)] uppercase tracking-wider">
+                <div className="flex justify-between text-[10px] text-haze uppercase tracking-wider font-mono">
                   <span>1 Year</span>
                   <span>20 Years</span>
                 </div>
@@ -153,11 +153,11 @@ export default function ROICalculator() {
               {/* Monthly Revenue */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-text-primary)] flex items-center gap-2">
-                    <PiggyBank className="w-4 h-4 text-[var(--color-accent-primary)]" />
+                  <label className="text-xs font-bold uppercase tracking-[0.25em] text-bone flex items-center gap-2 font-mono">
+                    <PiggyBank className="w-4 h-4 text-chrome1" />
                     Monthly Revenue
                   </label>
-                  <span className="text-sm font-bold text-[var(--color-accent-primary)]">
+                  <span className="text-sm font-bold text-chrome1">
                     {formatCurrency(monthlyRevenue)}
                   </span>
                 </div>
@@ -168,9 +168,9 @@ export default function ROICalculator() {
                   step={1000}
                   value={monthlyRevenue}
                   onChange={(e) => setMonthlyRevenue(Number(e.target.value))}
-                  className="w-full h-1 bg-[var(--color-border-subtle)] rounded-full appearance-none cursor-pointer accent-[var(--color-accent-primary)]"
+                  className="w-full h-1 bg-line rounded-full appearance-none cursor-pointer accent-chrome1"
                 />
-                <div className="flex justify-between text-[10px] text-[var(--color-text-secondary)] uppercase tracking-wider">
+                <div className="flex justify-between text-[10px] text-haze uppercase tracking-wider font-mono">
                   <span>$1,000</span>
                   <span>$100,000</span>
                 </div>
@@ -183,59 +183,59 @@ export default function ROICalculator() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.75, delay: 0.15, ease: customEase }}
-              className="rounded-[1.5rem] border border-[var(--color-border-subtle)] bg-[var(--color-dark-foundation)] p-7 md:p-10 text-[var(--color-bg-primary)] flex flex-col justify-between"
+              className="rounded-[1.5rem] border border-line bg-void p-7 md:p-10 text-bone flex flex-col justify-between"
             >
               <div className="space-y-8">
                 {/* Main ROI */}
                 <div className="text-center py-6">
-                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-[var(--color-bg-primary)]/60 mb-3">
+                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-bone/60 mb-3 font-mono">
                     Total ROI
                   </p>
                   <div className="flex items-center justify-center gap-3">
-                    <TrendingUp className="w-8 h-8 text-[var(--color-accent-primary)]" />
-                    <span className="text-5xl md:text-6xl font-bold tracking-[-0.05em] text-[var(--color-accent-primary)]">
+                    <TrendingUp className="w-8 h-8 text-chrome1" />
+                    <span className="text-5xl md:text-6xl font-bold tracking-[-0.05em] text-chrome1">
                       {formatPercent(roi)}
                     </span>
                   </div>
-                  <p className="mt-3 text-xs text-[var(--color-bg-primary)]/50 uppercase tracking-widest">
+                  <p className="mt-3 text-xs text-bone/50 uppercase tracking-widest font-mono">
                     Over {years} {years === 1 ? "Year" : "Years"}
                   </p>
                 </div>
 
                 {/* Divider */}
-                <div className="h-[1px] bg-[var(--color-bg-primary)]/10" />
+                <div className="h-[1px] bg-bone/10" />
 
                 {/* Stats Grid */}
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="p-5 rounded-xl bg-white/5 border border-white/10">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-bg-primary)]/50 mb-2">
+                  <div className="p-5 rounded-xl bg-graphite border border-line">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-bone/50 mb-2 font-mono">
                       Future Value
                     </p>
-                    <p className="text-xl font-bold text-[var(--color-bg-primary)]">
+                    <p className="text-xl font-bold text-bone">
                       {formatCurrency(futureValue)}
                     </p>
                   </div>
-                  <div className="p-5 rounded-xl bg-white/5 border border-white/10">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-bg-primary)]/50 mb-2">
+                  <div className="p-5 rounded-xl bg-graphite border border-line">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-bone/50 mb-2 font-mono">
                       Total Revenue
                     </p>
-                    <p className="text-xl font-bold text-[var(--color-bg-primary)]">
+                    <p className="text-xl font-bold text-bone">
                       {formatCurrency(totalRevenue)}
                     </p>
                   </div>
-                  <div className="p-5 rounded-xl bg-white/5 border border-white/10">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-bg-primary)]/50 mb-2">
+                  <div className="p-5 rounded-xl bg-graphite border border-line">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-bone/50 mb-2 font-mono">
                       Annualized ROI
                     </p>
-                    <p className="text-xl font-bold text-[var(--color-accent-primary)]">
+                    <p className="text-xl font-bold text-chrome1">
                       {formatPercent(annualizedROI * 100)}
                     </p>
                   </div>
-                  <div className="p-5 rounded-xl bg-white/5 border border-white/10">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-bg-primary)]/50 mb-2">
+                  <div className="p-5 rounded-xl bg-graphite border border-line">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-bone/50 mb-2 font-mono">
                       Total Return
                     </p>
-                    <p className="text-xl font-bold text-[var(--color-bg-primary)]">
+                    <p className="text-xl font-bold text-bone">
                       {formatCurrency(totalReturn)}
                     </p>
                   </div>
@@ -243,16 +243,16 @@ export default function ROICalculator() {
               </div>
 
               {/* CTA */}
-              <div className="mt-8 pt-6 border-t border-[var(--color-bg-primary)]/10">
+              <div className="mt-8 pt-6 border-t border-bone/10">
                 <a
                   href="#form"
-                  className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-bg-primary)] group"
+                  className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-bone group"
                 >
-                  <span className="w-8 h-[1px] bg-[var(--color-bg-primary)]/50 group-hover:bg-[var(--color-accent-primary)] group-hover:w-12 transition-all" />
-                  <span className="group-hover:text-[var(--color-accent-primary)] transition-colors">
+                  <span className="w-8 h-[1px] bg-bone/50 group-hover:bg-chrome1 group-hover:w-12 transition-all" />
+                  <span className="group-hover:text-chrome1 transition-colors">
                     Start Investing
                   </span>
-                  <ArrowUpRight className="w-4 h-4 text-[var(--color-accent-primary)] group-hover:translate-x-1 transition-transform" />
+                  <ArrowUpRight className="w-4 h-4 text-chrome1 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
             </motion.div>

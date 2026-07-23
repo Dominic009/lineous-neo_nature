@@ -6,12 +6,23 @@ import {
   AnimatePresence,
   motion,
   useScroll,
-  useTransform,
 } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Container from "./Container";
 import BrandIntro from "./BrandIntro";
-import { MenuIcon, X, ChevronDown } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
+import Tooltip from "@/components/Tooltip";
+import {
+  Home,
+  Compass,
+  UtensilsCrossed,
+  TrendingUp,
+  HelpCircle,
+  Mail,
+  ChevronDown,
+  MenuIcon,
+  X,
+} from "lucide-react";
 
 const EXPERIENCE_ITEMS = [
   { label: "Lobby / Lounge", href: "/experience#lobby" },
@@ -28,23 +39,27 @@ const AMENITIES_ITEMS = [
 ];
 
 const NAV_ITEMS = [
-  { label: "Home", href: "/" },
+  { label: "Home", href: "/", icon: Home },
   {
     label: "Experience",
     href: "/experience",
+    icon: Compass,
     hasDropdown: true,
     items: EXPERIENCE_ITEMS,
   },
   {
     label: "Amenities",
     href: "/amenities",
+    icon: UtensilsCrossed,
     hasDropdown: true,
     items: AMENITIES_ITEMS,
   },
-  { label: "Invest", href: "/investment" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact Us", href: "/contact-us" },
+  { label: "Invest", href: "/investment", icon: TrendingUp },
+  { label: "FAQ", href: "/faq", icon: HelpCircle },
+  { label: "Contact", href: "/contact-us", icon: Mail },
 ];
+
+const customEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export default function Navbar(): React.JSX.Element {
   const { scrollY } = useScroll();
@@ -55,20 +70,17 @@ export default function Navbar(): React.JSX.Element {
   const [isLoading, setIsLoading] = useState(true);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileOpenDropdowns, setMobileOpenDropdowns] = useState<string[]>([]);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const isDropdownOpen = (label: string) => activeDropdown === label;
 
-  const handleMouseEnter = (label: string, hasDropdown?: boolean) => {
-    if (hasDropdown) setActiveDropdown(label);
-  };
-
-  const handleMouseLeave = () => {
-    setActiveDropdown(null);
+  const toggleDropdown = (label: string) => {
+    setActiveDropdown((prev) => (prev === label ? null : label));
   };
 
   const toggleMobileDropdown = (label: string) => {
     setMobileOpenDropdowns((prev) =>
-      prev.includes(label) ? prev.filter((l) => l !== label) : [...prev, label]
+      prev.includes(label) ? prev.filter((l) => l !== label) : [...prev, label],
     );
   };
 
@@ -87,15 +99,22 @@ export default function Navbar(): React.JSX.Element {
   }, [scrollY]);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "auto";
-
+    document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 
-  const width = useTransform(scrollY, [0, 120], ["100%", "92%"]);
-  const isHome = pathname === "/";
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setActiveDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <>
@@ -109,128 +128,127 @@ export default function Navbar(): React.JSX.Element {
       </AnimatePresence>
 
       <motion.header
-        style={{ width }}
         initial={{ y: -120 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
         className={`
-          fixed
-         ${isHome ? "top-0 md:top-4" : scrolled ? "top-4" : "top-0" }
-          left-1/2
-          -translate-x-1/2
-          z-50
-          transition-all
-          duration-500
+          fixed inset-x-0 top-0 z-50
+          transition-all duration-500 ease-fluid
           ${
-            pathname === "/"
-              ? scrolled
-                ? `
-                  rounded-3xl
-                  bg-[var(--color-dark-foundation)]/85
-                  backdrop-blur-3xl
-                  shadow-[0_18px_60px_rgba(31,26,21,0.18)]
-                `
-                : `
-                  bg-transparent
-                `
-              : `
-                bg-[var(--color-dark-foundation)]/85
-                backdrop-blur-3xl
-                ${
-                  scrolled
-                    ? "rounded-3xl shadow-[0_18px_60px_rgba(31,26,21,0.18)]"
-                    : ""
-                }
-              `
+            scrolled
+              ? "h-20 bg-void/80 backdrop-blur-md shadow-[0_18px_60px_rgba(0,0,0,0.4)]"
+              : "h-24 bg-void/60 backdrop-blur-sm"
           }
         `}
       >
-        <Container>
-          <div
-            className={`
-              flex
-              items-center
-              justify-between
-              transition-all
-              duration-500
-              ${scrolled ? "h-20" : "h-28"}
-            `}
-          >
+        <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20 h-full">
+          <div className="flex items-center justify-between h-full">
             <Link
               href="/"
-              className="group relative text-[var(--color-bg-primary)] font-bold md:text-xl uppercase tracking-[0.35em]"
+              className="group relative font-display text-xl font-medium tracking-tight text-bone"
             >
               <span
-                className="
-                  transition-all
-                  duration-300
-                  group-hover:text-[var(--color-accent-primary)]
-                "
+                className="transition-all duration-300 group-hover:text-chrome1"
               >
-                Neo Nature
+                NEO NATURE
               </span>
-
               <motion.div
-                className="
-                  absolute
-                  -bottom-2
-                  left-0
-                  h-0.5
-                  bg-[var(--color-accent-primary)]
-                "
+                className="absolute -bottom-2 left-0 h-0.5 bg-chrome1"
                 initial={{ width: 0 }}
                 whileHover={{ width: "100%" }}
               />
             </Link>
 
             <nav
-              className="hidden lg:flex items-center gap-1 ml-auto"
-              onMouseLeave={handleMouseLeave}
+              className="hidden lg:flex items-center gap-2"
+              ref={dropdownRef}
             >
               {NAV_ITEMS.map((item) => (
-                <div
-                  key={item.label}
-                  className="relative"
-                  onMouseEnter={() =>
-                    handleMouseEnter(item.label, item.hasDropdown)
-                  }
-                >
-                  <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
-                    <div className="flex items-center gap-1 px-5">
-                      <Link
-                        href={item.href}
+                <div key={item.label} className="relative">
+                  {item.hasDropdown ? (
+                    <Tooltip text={item.label}>
+                      <button
+                        onClick={() => toggleDropdown(item.label)}
                         className={`
-                          group
-                          relative
-                          flex
-                          items-center
-                          gap-1
-                          overflow-hidden
-                          py-2
-                          text-sm
-                          uppercase
-                          tracking-[0.2em]
-                          transition-all
-                          duration-300
+                          relative flex items-center justify-center
+                          w-12 h-12 rounded-full
+                          transition-all duration-300
                           ${
-                            isActive(item.href)
-                              ? "border-b border-(--color-accent-primary) text-white font-semibold"
-                              : "text-(--color-bg-primary) hover:border-b hover:border-(--color-surface-muted) hover:text-(--color-bg-primary)"
+                            isDropdownOpen(item.label)
+                              ? "text-chrome1 bg-graphite/50"
+                              : "text-haze hover:text-bone hover:bg-graphite/30"
                           }
                         `}
                       >
-                        <span className="relative z-10">{item.label}</span>
-                      </Link>
-                      {item.hasDropdown && (
+                        <item.icon size={26} strokeWidth={1.5} />
+                        {/* Dropdown indicator dot */}
+                        <span className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-chrome1 opacity-0 transition-opacity duration-300" />
+                        {/* Down arrow for dropdown */}
                         <ChevronDown
+                          size={12}
                           className={`
-                            w-3.5 h-3.5 transition-transform duration-300 text-white
-                            ${isDropdownOpen(item.label) ? "rotate-180" : ""}
+                            absolute -bottom-1.5 left-1/2 -translate-x-1/2
+                            transition-all duration-300
+                            ${isDropdownOpen(item.label) ? "text-chrome1 rotate-180" : "text-haze/50"}
                           `}
                         />
-                      )}
-                    </div>
-                  </motion.div>
+                      </button>
+                    </Tooltip>
+                  ) : (
+                    <Tooltip text={item.label}>
+                      <Link
+                        href={item.href}
+                        className={`
+                          relative flex items-center justify-center
+                          w-12 h-12 rounded-full
+                          transition-all duration-300
+                          ${
+                            isActive(item.href)
+                              ? "text-chrome1 bg-graphite/50"
+                              : "text-haze hover:text-bone hover:bg-graphite/30"
+                          }
+                        `}
+                      >
+                        <item.icon size={26} strokeWidth={1.5} />
+                        {/* Active indicator with glow and star-shine animation */}
+                        {isActive(item.href) && (
+                          <>
+                            {/* Glow effect behind the icon */}
+                            <motion.span
+                              className="absolute inset-0 rounded-full bg-chrome1/20 blur-md"
+                              animate={{
+                                scale: [1, 1.2, 1],
+                                opacity: [0.3, 0.6, 0.3],
+                              }}
+                              transition={{
+                                duration: 2.5,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                              }}
+                            />
+                            {/* Star-shine animation */}
+                            <motion.span
+                              className="absolute -top-1 -right-1 w-2 h-2"
+                              animate={{
+                                scale: [0.5, 1.2, 0.5],
+                                opacity: [0, 1, 0],
+                                rotate: [0, 180, 360],
+                              }}
+                              transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                              }}
+                            >
+                              <svg viewBox="0 0 24 24" fill="currentColor" className="text-chrome1">
+                                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
+                              </svg>
+                            </motion.span>
+                          </>
+                        )}
+                      </Link>
+                    </Tooltip>
+                  )}
 
                   {item.hasDropdown && item.items && (
                     <AnimatePresence>
@@ -240,8 +258,14 @@ export default function Navbar(): React.JSX.Element {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ duration: 0.2, ease: "easeOut" }}
-                          className="absolute top-full left-0 mt-2 min-w-[220px] rounded-2xl bg-[var(--color-dark-foundation)]/95 backdrop-blur-2xl border border-[var(--color-border-subtle)]/40 shadow-[0_12px_40px_rgba(31,26,21,0.25)] overflow-hidden z-60"
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 rounded-2xl bg-void/95 backdrop-blur-2xl border border-line shadow-[0_12px_40px_rgba(0,0,0,0.5)] overflow-hidden z-50"
                         >
+                          {/* Parent route name as heading */}
+                          <div className="px-5 py-3 border-b border-line/30">
+                            <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-chrome1 font-mono">
+                              {item.label}
+                            </span>
+                          </div>
                           {item.items.map((subItem, index) => (
                             <motion.div
                               key={subItem.label}
@@ -254,7 +278,8 @@ export default function Navbar(): React.JSX.Element {
                             >
                               <Link
                                 href={subItem.href}
-                                className="block px-5 py-3.5 text-sm uppercase tracking-[0.2em] text-[var(--color-bg-primary)] hover:bg-[var(--color-surface-muted)]/30 hover:text-[var(--color-accent-primary)] transition-all duration-200"
+                                onClick={() => setActiveDropdown(null)}
+                                className="block px-5 py-3.5 text-sm uppercase tracking-[0.2em] text-haze hover:bg-graphite/30 hover:text-chrome1 transition-all duration-200"
                               >
                                 {subItem.label}
                               </Link>
@@ -268,22 +293,23 @@ export default function Navbar(): React.JSX.Element {
               ))}
             </nav>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
+              <ThemeToggle />
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden relative w-12 h-12 flex items-center justify-center rounded-full text-[var(--color-bg-primary)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-dark-foundation)] transition-colors"
+                className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-full text-haze hover:text-bone hover:bg-graphite/50 transition-colors"
               >
-                <MenuIcon />
+                <MenuIcon size={20} strokeWidth={1.5} />
               </button>
             </div>
           </div>
-        </Container>
+        </div>
 
         <AnimatePresence>
           {isOpen && (
             <>
               <motion.div
-                className="fixed inset-0 bg-(--color-dark-foundation)/70 backdrop-blur-md z-60 lg:hidden"
+                className="fixed inset-0 bg-void/70 backdrop-blur-md z-40 lg:hidden"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -299,68 +325,42 @@ export default function Navbar(): React.JSX.Element {
                   ease: "easeInOut",
                 }}
                 className="
-                  fixed
-                  top-0
-                  right-0
-                  bottom-0
-                  w-[85vw]
-                  max-w-100
-                  bg-(--color-dark-foundation)
-                  border-l
-                  border-(--color-border-subtle)
-                  z-70
-                  lg:hidden
+                  fixed top-0 right-0 bottom-0 w-[85vw] max-w-100
+                  bg-void border-l border-line z-50 lg:hidden
                 "
               >
                 <div className="h-full flex flex-col">
-                  <div className="p-8 border-b border-[var(--color-border-subtle)]/30 flex items-center justify-between">
-                    <h3 className="text-[var(--color-bg-primary)] uppercase tracking-[0.3em] text-xs">
+                  <div className="p-8 border-b border-line/30 flex items-center justify-between">
+                    <h3 className="text-bone uppercase tracking-[0.3em] text-xs">
                       Navigation
                     </h3>
                     <span
                       onClick={() => setIsOpen(false)}
-                      className="text-[var(--color-bg-primary)] cursor-pointer"
+                      className="text-bone cursor-pointer"
                     >
-                      <X />
+                      <X size={24} strokeWidth={1.5} />
                     </span>
                   </div>
 
-                  <div className="flex-1 flex flex-col justify-center px-8 bg-[var(--color-dark-foundation)]">
+                  <div className="flex-1 flex flex-col justify-center px-8 bg-void">
                     {NAV_ITEMS.map((item, index) => (
                       <div key={item.label}>
                         {item.hasDropdown ? (
                           <motion.div
-                            initial={{
-                              opacity: 0,
-                              x: 40,
-                            }}
-                            animate={{
-                              opacity: 1,
-                              x: 0,
-                            }}
-                            exit={{
-                              opacity: 0,
-                              x: 40,
-                            }}
-                            transition={{
-                              delay: index * 0.08,
-                            }}
+                            initial={{ opacity: 0, x: 40 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 40 }}
+                            transition={{ delay: index * 0.08 }}
                           >
                             <button
                               onClick={() => toggleMobileDropdown(item.label)}
                               className={`
-                                flex
-                                items-center
-                                justify-between
-                                w-full
-                                text-2xl
-                                py-5
-                                border-b
-                                border-[var(--color-border-subtle)]/20
+                                flex items-center justify-between w-full
+                                text-2xl py-5 border-b border-line/20
                                 ${
                                   isActive(item.href)
-                                    ? "text-[var(--color-accent-primary)]"
-                                    : "text-[var(--color-bg-primary)]"
+                                    ? "text-chrome1"
+                                    : "text-bone"
                                 }
                               `}
                             >
@@ -368,46 +368,27 @@ export default function Navbar(): React.JSX.Element {
                               <ChevronDown
                                 className={`
                                   w-5 h-5 transition-transform duration-300
-                                  ${
-                                    isMobileDropdownOpen(item.label)
-                                      ? "rotate-180"
-                                      : ""
-                                  }
+                                  ${isMobileDropdownOpen(item.label) ? "rotate-180" : ""}
                                 `}
                               />
                             </button>
                           </motion.div>
                         ) : (
                           <motion.div
-                            initial={{
-                              opacity: 0,
-                              x: 40,
-                            }}
-                            animate={{
-                              opacity: 1,
-                              x: 0,
-                            }}
-                            exit={{
-                              opacity: 0,
-                              x: 40,
-                            }}
-                            transition={{
-                              delay: index * 0.08,
-                            }}
+                            initial={{ opacity: 0, x: 40 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 40 }}
+                            transition={{ delay: index * 0.08 }}
                           >
                             <Link
                               href={item.href}
                               onClick={() => setIsOpen(false)}
                               className={`
-                                block
-                                text-2xl
-                                py-5
-                                border-b
-                                border-[var(--color-border-subtle)]/20
+                                block text-2xl py-5 border-b border-line/20
                                 ${
                                   isActive(item.href)
-                                    ? "text-[var(--color-accent-primary)]"
-                                    : "text-[var(--color-bg-primary)]"
+                                    ? "text-chrome1"
+                                    : "text-bone"
                                 }
                               `}
                             >
@@ -431,7 +412,7 @@ export default function Navbar(): React.JSX.Element {
                                     key={subItem.label}
                                     href={subItem.href}
                                     onClick={() => setIsOpen(false)}
-                                    className="block text-lg py-2 text-[var(--color-bg-primary)]/70 hover:text-[var(--color-accent-primary)]"
+                                    className="block text-lg py-2 text-haze hover:text-chrome1"
                                   >
                                     {subItem.label}
                                   </Link>

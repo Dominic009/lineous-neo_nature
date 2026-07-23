@@ -1,41 +1,26 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
-import Container from "../layout/Container";
-
-const customEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function InvestHero() {
   return (
-    <section className="relative min-h-[70vh] md:min-h-[100dvh] overflow-hidden bg-[var(--color-dark-foundation)] flex items-end">
+    <section className="relative min-h-[70vh] md:min-h-[100dvh] overflow-hidden bg-void flex items-end">
       <div className="absolute inset-0">
         <Image
-          src="/premiumvilla-privatepool.jpg"
-          alt="Invest in NEO-NATURE"
+          src="/villa.jpg"
+          alt="Investment Hero"
           fill
-          className="object-cover opacity-60"
-          priority
+          className="object-cover"
         />
-        <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/40" />
-        <div className="absolute inset-0 bg-linear-to-r from-[var(--color-dark-foundation)]/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-void/40" />
+        <div className="absolute inset-0 bg-linear-to-r from-void/60 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
       </div>
 
-      <div className="relative z-10 pb-30">
-        <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: customEase }}
-            className="space-y-6"
-          >
-            <h1 className="text-lg md:text-7xl font-bold uppercase tracking-[0.35em] text-[var(--color-bg-primary)]">
-              INVEST IN NEO-NATURE
-            </h1>
-          </motion.div>
-        </Container>
+      <div className="relative z-10 px-6 pb-16 md:px-12 md:pb-24">
+        <h1 className="text-lg md:text-7xl font-bold uppercase tracking-[0.35em] text-bone font-display">
+          INVEST IN NEO-NATURE
+        </h1>
       </div>
     </section>
   );

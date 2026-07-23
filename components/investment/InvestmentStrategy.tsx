@@ -13,8 +13,9 @@ export default function InvestmentStrategy() {
   return (
     <section
       id="investment"
-      className="bg-[var(--color-bg-primary)] py-24 md:py-32"
+      className="relative bg-void py-24 md:py-32"
     >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(142,197,255,0.06),transparent_40%)] pointer-events-none" />
       <Container>
         <div className="grid lg:grid-cols-[1.25fr_0.75fr] gap-12 lg:gap-20 items-start">
           <motion.div
@@ -23,129 +24,118 @@ export default function InvestmentStrategy() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: customEase }}
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-accent-primary)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-chrome1 font-mono">
               Investment
             </p>
 
-            <h2 className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-[var(--color-text-primary)]">
+            <h2 className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-bone font-display">
               A landmark hospitality investment.
             </h2>
 
-            <p className="mt-8 max-w-3xl text-lg leading-relaxed text-[var(--color-text-secondary)]">
+            <p className="mt-8 max-w-3xl text-lg leading-relaxed text-haze">
               Neo Nature is positioned as a premium, future-ready resort opportunity
               for investors seeking exposure to luxury hospitality, experiential
               tourism, private villa demand, wellness, and intelligent infrastructure.
             </p>
 
             <div className="mt-12 grid sm:grid-cols-2 gap-4">
-              <div className="rounded-[2rem] border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-accent-primary)]">
+              <div className="rounded-[2rem] border border-line bg-graphite/50 p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-chrome1 font-mono">
                   Added Value
                 </p>
-                <p className="mt-4 text-lg font-bold leading-snug tracking-[-0.03em] text-[var(--color-text-primary)]">
+                <p className="mt-4 text-lg font-bold leading-snug tracking-[-0.03em] text-bone">
                   Diversified revenue streams across villas, hospitality, wellness,
                   events, dining, and experience-led programming.
                 </p>
               </div>
 
-              <div className="rounded-[2rem] border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-accent-primary)]">
+              <div className="rounded-[2rem] border border-line bg-graphite/50 p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-chrome1 font-mono">
                   Location Advantage
                 </p>
-                <p className="mt-4 text-lg font-bold leading-snug tracking-[-0.03em] text-[var(--color-text-primary)]">
+                <p className="mt-4 text-lg font-bold leading-snug tracking-[-0.03em] text-bone">
                   Valuka offers proximity to Dhaka demand while delivering a rare
                   nature-led resort environment with long-term land value potential.
                 </p>
               </div>
             </div>
 
-            <div className="mt-10 rounded-[2rem] border border-[var(--color-border-subtle)] bg-[var(--color-bg-secondary)] p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-accent-primary)]">
+            <div className="mt-10 rounded-[2rem] border border-line bg-graphite/50 p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-chrome1 font-mono">
                 Initial Resort Reference
               </p>
-              <p className="mt-4 text-lg leading-relaxed text-[var(--color-text-secondary)]">
+              <p className="mt-4 text-lg leading-relaxed text-haze">
                 Chuti Resort investment information can be introduced initially as
-                a reference point, while the visual language remains premium,
-                restrained, and aligned with the Neo Nature investor-facing identity.
+                a comparable benchmark for valuation and performance metrics.
               </p>
             </div>
           </motion.div>
 
-          <motion.aside
+          <motion.div
             initial={{ opacity: 0, y: 36 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.1, ease: customEase }}
-            className="rounded-[2rem] border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-6 md:p-8 shadow-[0_24px_80px_rgba(31,26,21,0.08)]"
+            className="rounded-[2rem] border border-line bg-graphite/50 p-6 md:p-8 shadow-[0_24px_80px_rgba(0,0,0,0.3)]"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-accent-primary)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-chrome1 font-mono">
               Investor Form
             </p>
 
             {formStatus === "submitted" ? (
-              <div className="mt-8 rounded-2xl bg-[var(--color-bg-secondary)] p-6 text-[var(--color-text-primary)]">
+              <div className="mt-8 rounded-2xl bg-graphite p-6 text-bone">
                 Thank you. Your investor inquiry has been received.
               </div>
             ) : (
-              <form
-                className="mt-8 space-y-5"
-                onSubmit={(event) => {
-                  event.preventDefault();
-                  setFormStatus("submitted");
-                }}
-              >
+              <form onSubmit={(e) => { e.preventDefault(); setFormStatus("submitted"); }} className="mt-8 space-y-6">
                 <div>
-                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-text-secondary)]">
+                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-haze font-mono">
                     Name
                   </label>
                   <input
                     required
-                    className="mt-2 w-full rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-primary)] px-5 py-4 text-[var(--color-text-primary)] outline-none focus:border-[var(--color-accent-primary)]"
+                    className="mt-2 w-full rounded-2xl border border-line bg-void px-5 py-4 text-bone outline-none focus:border-chrome1 transition-colors"
                     placeholder="Investor name"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-text-secondary)]">
+                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-haze font-mono">
                     Email
                   </label>
                   <input
-                    required
                     type="email"
-                    className="mt-2 w-full rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-primary)] px-5 py-4 text-[var(--color-text-primary)] outline-none focus:border-[var(--color-accent-primary)]"
+                    required
+                    className="mt-2 w-full rounded-2xl border border-line bg-void px-5 py-4 text-bone outline-none focus:border-chrome1 transition-colors"
                     placeholder="investor@email.com"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-text-secondary)]">
+                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-haze font-mono">
                     Investment Interest
                   </label>
                   <select
-                    className="mt-2 w-full rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-primary)] px-5 py-4 text-[var(--color-text-primary)] outline-none focus:border-[var(--color-accent-primary)]"
+                    required
+                    className="mt-2 w-full rounded-2xl border border-line bg-void px-5 py-4 text-bone outline-none focus:border-chrome1 transition-colors"
                   >
-                    <option>Villa partnership</option>
-                    <option>Hospitality investment</option>
-                    <option>Strategic partnership</option>
-                    <option>Request pitch deck</option>
+                    <option value="">Select interest</option>
+                    <option value="villas">Private Villas</option>
+                    <option value="hospitality">Hospitality</option>
+                    <option value="wellness">Wellness</option>
+                    <option value="experiences">Experiences</option>
                   </select>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-[var(--color-accent-secondary)] px-8 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-bg-primary)] transition hover:bg-[var(--color-accent-primary)] hover:text-[var(--color-dark-foundation)]"
+                  className="w-full rounded-full bg-chrome2 px-8 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-void transition hover:bg-chrome1"
                 >
-                  Request Investor Details
+                  Submit Inquiry
                 </button>
               </form>
             )}
-          </motion.aside>
-        </div>
-
-        <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {investmentMetrics.map((metric) => (
-            <MetricCard key={metric.label} {...metric} />
-          ))}
+          </motion.div>
         </div>
       </Container>
     </section>

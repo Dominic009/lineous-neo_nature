@@ -1,36 +1,29 @@
 "use client";
 
 import Container from "../layout/Container";
-import VillaShowcase from "./VillaShowcase";
-import { villas } from "@/lib/villas-data";
 
 export default function VillaCollection() {
   return (
     <section
       id="villas"
-      className="py-40 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]"
+      className="relative py-40 bg-void text-bone"
     >
-      <Container>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(142,197,255,0.06),transparent_40%)] pointer-events-none" />
+      <Container className="relative z-10">
         <div className="max-w-4xl mb-20">
-          <span className="uppercase tracking-[0.3em] text-xs text-[var(--color-accent-primary)]">
+          <span className="uppercase tracking-[0.3em] text-xs text-chrome1 font-mono">
             Accommodation Collection
           </span>
 
-          <h2 className="text-3xl md:text-5xl font-bold mt-8 leading-none tracking-[-0.05em]">
-            Distinct Ways
-            <br />
-            To Experience Nature
+          <h2 className="text-4xl md:text-6xl font-bold mt-6 mb-10 leading-none tracking-[-0.05em] text-bone font-display">
+            Private Villa Districts
           </h2>
 
-          <p className="mt-10 text-xl text-[var(--color-text-secondary)] max-w-2xl leading-relaxed">
+          <p className="text-xl text-haze max-w-2xl leading-relaxed">
             Three accommodation concepts designed to redefine hospitality through
-            luxury, immersion, and environmental integration.
+            nature-integrated luxury and intelligent design.
           </p>
         </div>
-
-        {villas.map((villa) => (
-          <VillaShowcase key={villa.id} {...villa} />
-        ))}
       </Container>
     </section>
   );

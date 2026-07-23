@@ -8,11 +8,11 @@ type SmoothScrollProps = {
 };
 
 const lenisOptions = {
-  duration: 1.15,
-  easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  duration: 1.2,
+  easing: (t: number) => Math.min(1, 1 - Math.pow(2, -10 * t)),
   smoothWheel: true,
-  wheelMultiplier: 0.85,
-  touchMultiplier: 1.2,
+  wheelMultiplier: 0.8,
+  touchMultiplier: 1.5,
   autoRaf: true,
 };
 

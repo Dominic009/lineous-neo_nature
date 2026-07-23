@@ -1,23 +1,148 @@
 @import "tailwindcss";
 
-:root {
-  --color-bg-primary: #f8f3ea;
-  --color-bg-secondary: #f1e6d8;
-  --color-surface: #fffdf8;
-  --color-surface-muted: #ebdccb;
-  --color-text-primary: #1f1a15;
-  --color-text-secondary: #5a4a3a;
-  --color-accent-primary: #c9a45a;
-  --color-accent-secondary: #8d391f;
-  --color-bronze-depth: #9e7150;
-  --color-nature-accent: #4e4524;
-  --color-dark-foundation: #2b2119;
-  --color-border-subtle: #d8c8b7;
+@theme {
+  /* Font families */
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 
-  --background: var(--color-bg-primary);
-  --foreground: var(--color-text-primary);
+  /* Color tokens - dark (default) */
+  --color-void: #0A0A0C;
+  --color-graphite: #1A1A1E;
+  --color-line: #2A2A2F;
+  --color-bone: #EDEDE8;
+  --color-haze: #9A9AA0;
+  --color-chrome1: #8EC5FF;
+  --color-chrome2: #C9A9FF;
+  --color-chrome3: #FF9EC4;
+
+  /* Fluid typography */
+  --text-hero-fluid: clamp(3rem, 9vw, 9rem);
+  --text-display-fluid: clamp(2rem, 5vw, 4.5rem);
+
+  /* Letter spacing */
+  --tracking-tightest2: -0.05em;
+  --tracking-widest2: 0.35em;
+
+  /* Transition timing */
+  --ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Light theme overrides */
+[data-theme="light"] {
+  --color-void: #F5F5F0;
+  --color-graphite: #FFFFFF;
+  --color-line: #E5E5E0;
+  --color-bone: #1A1A1E;
+  --color-haze: #6B6B70;
+  --color-chrome1: #5B9FE5;
+  --color-chrome2: #A87BE0;
+  --color-chrome3: #E07BA8;
+}
+
+/* Smooth theme transitions */
+*,
+*::before,
+*::after {
+  transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    fill 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    stroke 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Respect reduced motion for theme transitions */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Hide default cursor for custom cursor (desktop only) */
+* {
+  cursor: none;
+}
+
+@media (max-width: 768px), (hover: none) {
+  * {
+    cursor: auto;
+  }
+}
+
+html {
+  background: var(--color-void);
+  scroll-behavior: auto;
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-bone);
+  font-family: var(--font-display);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-chrome2);
+  color: var(--color-void);
+}
+
+/* Fixed grain overlay for material depth */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("/noise.svg");
+  background-size: 180px;
+}
+
+[data-theme="light"] .grain-overlay {
+  opacity: 0.025;
+}
+
+/* Thin liquid-chrome underline used across links */
+.chrome-underline {
+  position: relative;
+}
+.chrome-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(115deg, var(--color-chrome1), var(--color-chrome2), var(--color-chrome3));
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.chrome-underline:hover::after {
+  transform: scaleX(1);
+}
+
+.text-gradient-chrome {
+  background: linear-gradient(115deg, var(--color-chrome1) 0%, var(--color-chrome2) 45%, var(--color-chrome3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hide scrollbar on horizontal rails while keeping it functional */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Lenis smooth scroll */
 html.lenis {
   height: auto;
 }
@@ -38,37 +163,14 @@ html.lenis {
   pointer-events: none;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  background: var(--color-bg-primary);
-  transition: background-color 600ms ease, color 600ms ease;
-}
-
-body {
-  margin: 0;
-  background: var(--color-bg-primary);
-  color: var(--color-text-primary);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition: background-color 600ms ease, color 600ms ease;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-sans);
-  letter-spacing: -0.03em;
-}
-
-::selection {
-  background: var(--color-accent-primary);
-  color: var(--color-dark-foundation);
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

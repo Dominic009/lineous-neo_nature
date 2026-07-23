@@ -23,7 +23,7 @@ const slides = [
 
 const transition = {
   duration: 1.2,
-  ease: [0.22, 1, 0.36, 1],
+  ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
 };
 
 export default function ProjectBrief() {
@@ -38,19 +38,20 @@ export default function ProjectBrief() {
   }, []);
 
   return (
-    <section id="project-brief" className="bg-(--color-bg-primary)">
+    <section id="project-brief" className="relative bg-void py-24 md:py-32">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(142,197,255,0.08),transparent_40%),radial-gradient(circle_at_70%_80%,rgba(201,169,255,0.05),transparent_40%)] pointer-events-none" />
       <Container className="relative z-10 flex items-center justify-center min-h-screen">
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-stretch min-h-[70dvh]">
           <RevealSection className="flex flex-col justify-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-(--color-accent-primary)">
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-chrome1 font-mono">
               Project Brief
             </p>
 
-            <h2 className="mt-6 text-4xl md:text-6xl font-bold leading-none tracking-tighter text-(--color-text-primary)">
+            <h2 className="mt-6 text-4xl md:text-6xl font-bold leading-none tracking-tighter text-bone font-display">
               A future-ready luxury resort anchored in nature.
             </h2>
 
-            <p className="mt-8 text-lg md:text-xl leading-loose text-(--color-text-secondary)">
+            <p className="mt-8 text-lg md:text-xl leading-loose text-haze font-display">
               Neo Nature is conceived as a premium eco-intelligent destination
               for investors, hospitality partners, and experience-driven
               travelers. The project blends private villas, wellness-led
@@ -59,63 +60,24 @@ export default function ProjectBrief() {
             </p>
           </RevealSection>
 
-          <div className="relative h-full overflow-visible rounded-4xl bg-(--color-surface-muted)">
-            <div
-              aria-hidden="true"
-              className="absolute -right-10 bottom-[-7%] z-0 h-[30%] w-[30%] bg-linear-to-br from-(--color-accent-primary)/45 to-(--color-nature-accent)/20 opacity-90 rounded-4xl"
-              style={{
-                clipPath:
-                  "polygon(5% 0%, 100% 0%, 100% 94%, 95% 100%, 0% 100%, 0% 6%)",
-              }}
-            />
-
-            <div className="relative z-10 h-full overflow-hidden rounded-4xl">
-              {slides.map((slide, index) => {
-                const isActive = index === activeIndex;
-
-                return (
-                  <motion.div
-                    key={slide.src}
-                    aria-hidden={!isActive}
-                    className="absolute inset-0"
-                    style={{
-                      zIndex: isActive ? 2 : 1,
-                    }}
-                    initial={false}
-                    animate={{
-                      opacity: isActive ? 1 : 0,
-                      scale: 1,
-                    }}
-                    transition={{
-                      duration: 1,
-                    }}
-                  >
-                    <Image
-                      src={slide.src}
-                      alt={slide.alt}
-                      fill
-                      priority={index === activeIndex}
-                      sizes="(max-width: 1024px) 90vw, 42vw"
-                      className="object-cover drop-shadow-2xl"
-                    />
-                  </motion.div>
-                );
-              })}
-
-              <div className="absolute inset-0 bg-linear-to-t from-(--color-dark-foundation)/28 via-transparent to-transparent" />
-
-              <div className="absolute bottom-6 left-6 right-6 z-20">
-                <div className="h-px bg-(--color-surface)/25">
-                  <motion.div
-                    key={activeIndex}
-                    className="h-full bg-(--color-accent-primary)"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 5.2, ease: "linear" }}
-                  />
-                </div>
-              </div>
-            </div>
+          <div className="relative h-full overflow-hidden rounded-[2rem] bg-graphite">
+            {slides.map((slide, index) => (
+              <motion.div
+                key={slide.src}
+                className="absolute inset-0"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: index === activeIndex ? 1 : 0 }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <Image
+                  src={slide.src}
+                  alt={slide.alt}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-void/20" />
+              </motion.div>
+            ))}
           </div>
         </div>
       </Container>

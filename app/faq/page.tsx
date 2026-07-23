@@ -29,7 +29,7 @@ const faqs = [
 
 export default function FAQPage() {
   return (
-    <main className="bg-[var(--color-bg-primary)] py-24 md:py-32">
+    <main className="bg-void py-24 md:py-32">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 36 }}
@@ -38,15 +38,15 @@ export default function FAQPage() {
           transition={{ duration: 0.8, ease: customEase }}
           className="max-w-4xl"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--color-accent-primary)]">
+          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-chrome1 font-mono">
             FAQ
           </p>
 
-          <h1 className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-[var(--color-text-primary)]">
+          <h1 className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-bone font-display">
             Frequently asked questions.
           </h1>
 
-          <p className="mt-8 text-lg leading-relaxed text-[var(--color-text-secondary)]">
+          <p className="mt-8 text-lg leading-relaxed text-haze">
             Key information for investors, partners, and guests interested in Neo Nature.
           </p>
         </motion.div>
@@ -59,12 +59,12 @@ export default function FAQPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.06, ease: customEase }}
-              className="rounded-[2rem] border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-8"
+              className="rounded-[2rem] border border-line bg-graphite/50 p-8"
             >
-              <h2 className="text-xl md:text-2xl font-bold tracking-[-0.03em] text-[var(--color-text-primary)]">
+              <h2 className="text-xl md:text-2xl font-bold tracking-[-0.03em] text-bone font-display">
                 {faq.question}
               </h2>
-              <p className="mt-4 text-[var(--color-text-secondary)] leading-relaxed">
+              <p className="mt-4 text-haze leading-relaxed">
                 {faq.answer}
               </p>
             </motion.div>

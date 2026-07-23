@@ -40,13 +40,13 @@ export default function Vision() {
   ];
 
   return (
-    <section id="vision" className="py-40 bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
+    <section id="vision" className="py-40 bg-void text-bone">
       <Container className="max-w-5xl text-center">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="uppercase tracking-[0.35em] text-xs text-[var(--color-accent-primary)]"
+          className="uppercase tracking-[0.35em] text-xs text-chrome1 font-mono"
         >
           The Vision
         </motion.span>
@@ -55,7 +55,7 @@ export default function Vision() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-3xl md:text-5xl font-bold mt-6 mb-4 leading-tight tracking-[-0.05em]"
+          className="text-3xl md:text-5xl font-bold mt-6 mb-4 leading-tight tracking-[-0.05em] font-display"
         >
           A Bold Alternative to Traditional Resorts
         </motion.h2>
@@ -64,9 +64,9 @@ export default function Vision() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg leading-relaxed text-[var(--color-text-secondary)]"
+          className="text-lg leading-relaxed text-haze"
         >
-          To create Bangladesh’s first futuristic eco-intelligent resort where
+          To create Bangladesh&apos;s first futuristic eco-intelligent resort where
           technology, sustainability, and immersive nature merge into a seamless
           luxury experience.
         </motion.p>
@@ -105,8 +105,8 @@ export default function Vision() {
                 relative
                 px-5 py-2
                 rounded-full
-                border border-[var(--color-border-subtle)]
-                text-[var(--color-text-secondary)]
+                border border-line
+                text-haze
                 tracking-wide
                 overflow-hidden
               "
@@ -120,7 +120,7 @@ export default function Vision() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-14 text-[var(--color-accent-primary)] text-sm tracking-[0.25em] uppercase"
+          className="mt-14 text-chrome1 text-sm tracking-[0.25em] uppercase font-mono"
         >
           WE WANT AN ARCHITECTURE THAT WILL BE CONTEMPORARY AFTER 20–25+ YEARS
         </motion.div>

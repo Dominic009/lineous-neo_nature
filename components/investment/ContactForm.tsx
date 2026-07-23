@@ -1,361 +1,157 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
 import Container from "../layout/Container";
-
-const customEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+import { motion } from "framer-motion";
+import { customEase } from "../home/Hero";
 
 export default function ContactForm() {
   return (
-    <section className="relative bg-[var(--color-dark-foundation)] py-20 md:py-28">
+    <section className="relative bg-void py-20 md:py-28">
       <div className="absolute inset-0 pointer-events-none">
-        <Image
-          src="/premiumvilla-privatepool.jpg"
-          alt=""
-          fill
-          className="object-cover opacity-[0.07]"
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            background:
+              "radial-gradient(circle at 30% 20%, rgba(142,197,255,0.15), transparent 40%), radial-gradient(circle at 70% 80%, rgba(201,169,255,0.1), transparent 40%)",
+          }}
         />
       </div>
 
       <Container>
-        <div className="relative z-10 grid lg:grid-cols-[1fr_1fr] gap-14 lg:gap-20">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: customEase }}
-            className="space-y-8"
-          >
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-[-0.05em] text-(--color-bg-primary)">
-              We just need
-              <br />
-              your{" "}
-              <span className="text-[var(--color-accent-primary)]">
-                contact
-              </span>{" "}
-              details
-            </h2>
-          </motion.div>
+        <motion.h2
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: customEase }}
+          className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-[-0.05em] text-bone mb-8 font-display"
+        >
+          We just need{" "}
+          <span className="text-gradient-chrome">your contact</span>
+        </motion.h2>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: customEase }}
-          >
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-bg-primary)]/80">
-                    First name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full bg-transparent border-0 border-b border-[var(--color-bg-primary)]/25 px-0 py-4 text-[var(--color-bg-primary)] placeholder:text-[var(--color-bg-primary)]/40 focus:outline-none focus:border-[var(--color-accent-primary)] transition-colors"
-                    placeholder="First name"
-                    maxLength={40}
-                  />
-                </div>
+        <motion.p
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1, ease: customEase }}
+          className="text-lg md:text-xl text-haze mb-14 max-w-2xl"
+        >
+          Fill out the form below and our team will reach out within 24 hours.
+        </motion.p>
 
-                <div className="space-y-2">
-                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-bg-primary)]/80">
-                    Last name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full bg-transparent border-0 border-b border-[var(--color-bg-primary)]/25 px-0 py-4 text-[var(--color-bg-primary)] placeholder:text-[var(--color-bg-primary)]/40 focus:outline-none focus:border-[var(--color-accent-primary)] transition-colors"
-                    placeholder="Last name"
-                    maxLength={80}
-                  />
-                </div>
-              </div>
-
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2, ease: customEase }}
+          className="max-w-2xl"
+        >
+          <form className="space-y-8">
+            <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-bg-primary)]/80">
-                  Business Email address
-                </label>
-                <input
-                  type="email"
-                  className="w-full bg-transparent border-0 border-b border-[var(--color-bg-primary)]/25 px-0 py-4 text-[var(--color-bg-primary)] placeholder:text-[var(--color-bg-primary)]/40 focus:outline-none focus:border-[var(--color-accent-primary)] transition-colors"
-                  placeholder="Business Email address"
-                  maxLength={100}
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-bg-primary)]/80">
-                  Phone number
-                </label>
-                <div className="flex gap-3">
-                  <select className="w-28 bg-transparent border-0 border-b border-[var(--color-bg-primary)]/25 px-2 py-4 text-[var(--color-bg-primary)] focus:outline-none focus:border-[var(--color-accent-primary)] transition-colors cursor-pointer">
-                    <option
-                      value="+966"
-                      className="bg-[var(--color-dark-foundation)]"
-                    >
-                      SA +966
-                    </option>
-                    <option
-                      value="+1"
-                      className="bg-[var(--color-dark-foundation)]"
-                    >
-                      US +1
-                    </option>
-                    <option
-                      value="+44"
-                      className="bg-[var(--color-dark-foundation)]"
-                    >
-                      UK +44
-                    </option>
-                  </select>
-                  <input
-                    type="tel"
-                    className="flex-1 bg-transparent border-0 border-b border-[var(--color-bg-primary)]/25 px-0 py-4 text-[var(--color-bg-primary)] placeholder:text-[var(--color-bg-primary)]/40 focus:outline-none focus:border-[var(--color-accent-primary)] transition-colors"
-                    placeholder="Phone number"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-bg-primary)]/80">
-                  Job role
-                </label>
-                <select className="w-full bg-transparent border-0 border-b border-[var(--color-bg-primary)]/25 px-0 py-4 text-[var(--color-bg-primary)] focus:outline-none focus:border-[var(--color-accent-primary)] transition-colors cursor-pointer">
-                  <option
-                    value=""
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Please select
-                  </option>
-                  <option
-                    value="c-suite"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    C-suite
-                  </option>
-                  <option
-                    value="department-head"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Department head
-                  </option>
-                  <option
-                    value="senior-manager"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Senior manager
-                  </option>
-                  <option
-                    value="mid-level"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Mid-level manager
-                  </option>
-                  <option
-                    value="executive"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Executive
-                  </option>
-                  <option
-                    value="other"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Other
-                  </option>
-                </select>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-bg-primary)]/80">
-                  Company name
+                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono">
+                  First name
                 </label>
                 <input
                   type="text"
-                  className="w-full bg-transparent border-0 border-b border-[var(--color-bg-primary)]/25 px-0 py-4 text-[var(--color-bg-primary)] placeholder:text-[var(--color-bg-primary)]/40 focus:outline-none focus:border-[var(--color-accent-primary)] transition-colors"
-                  placeholder="Company name"
-                  maxLength={100}
+                  className="w-full bg-transparent border-0 border-b border-bone/25 px-0 py-4 text-bone placeholder:text-bone/40 focus:outline-none focus:border-chrome1 transition-colors"
+                  placeholder="First name"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-bg-primary)]/80">
-                  Company website
+                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono">
+                  Last name
                 </label>
                 <input
-                  type="url"
-                  className="w-full bg-transparent border-0 border-b border-[var(--color-bg-primary)]/25 px-0 py-4 text-[var(--color-bg-primary)] placeholder:text-[var(--color-bg-primary)]/40 focus:outline-none focus:border-[var(--color-accent-primary)] transition-colors"
-                  placeholder="Company website"
-                  maxLength={100}
+                  type="text"
+                  className="w-full bg-transparent border-0 border-b border-bone/25 px-0 py-4 text-bone placeholder:text-bone/40 focus:outline-none focus:border-chrome1 transition-colors"
+                  placeholder="Last name"
                 />
               </div>
+            </div>
 
-              <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-bg-primary)]/80">
-                  Company Size
-                </label>
-                <select className="w-full bg-transparent border-0 border-b border-[var(--color-bg-primary)]/25 px-0 py-4 text-[var(--color-bg-primary)] focus:outline-none focus:border-[var(--color-accent-primary)] transition-colors cursor-pointer">
-                  <option
-                    value=""
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Please select
-                  </option>
-                  <option
-                    value="1-49"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    1-49 Employees
-                  </option>
-                  <option
-                    value="50-499"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    50-499 Employees
-                  </option>
-                  <option
-                    value="500-999"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    500-999 Employees
-                  </option>
-                  <option
-                    value="1000+"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    1000+ Employees
-                  </option>
+            <div className="space-y-2">
+              <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono">
+                Business Email address
+              </label>
+              <input
+                type="email"
+                className="w-full bg-transparent border-0 border-b border-bone/25 px-0 py-4 text-bone placeholder:text-bone/40 focus:outline-none focus:border-chrome1 transition-colors"
+                placeholder="Business Email address"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono">
+                Phone number
+              </label>
+              <div className="flex gap-3">
+                <select className="w-28 bg-transparent border-0 border-b border-bone/25 px-2 py-4 text-bone focus:outline-none focus:border-chrome1 transition-colors cursor-pointer">
+                  <option value="+880">+880</option>
                 </select>
+                <input
+                  type="tel"
+                  className="flex-1 bg-transparent border-0 border-b border-bone/25 px-0 py-4 text-bone placeholder:text-bone/40 focus:outline-none focus:border-chrome1 transition-colors"
+                  placeholder="Phone number"
+                />
               </div>
+            </div>
 
-              <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-bg-primary)]/80">
-                  Company Headquarters
-                </label>
-                <select className="w-full bg-transparent border-0 border-b border-[var(--color-bg-primary)]/25 px-0 py-4 text-[var(--color-bg-primary)] focus:outline-none focus:border-[var(--color-accent-primary)] transition-colors cursor-pointer">
-                  <option
-                    value=""
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Select Location
-                  </option>
-                  <option
-                    value="saudi"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Saudi Arabia
-                  </option>
-                  <option
-                    value="usa"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    United States
-                  </option>
-                  <option
-                    value="uk"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    United Kingdom
-                  </option>
-                  <option
-                    value="uae"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    United Arab Emirates
-                  </option>
-                </select>
-              </div>
+            <div className="space-y-2">
+              <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono">
+                Company name
+              </label>
+              <input
+                type="text"
+                className="w-full bg-transparent border-0 border-b border-bone/25 px-0 py-4 text-bone placeholder:text-bone/40 focus:outline-none focus:border-chrome1 transition-colors"
+                placeholder="Company name"
+              />
+            </div>
 
-              <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-bg-primary)]/80">
-                  Industry
-                </label>
-                <select className="w-full bg-transparent border-0 border-b border-[var(--color-bg-primary)]/25 px-0 py-4 text-[var(--color-bg-primary)] focus:outline-none focus:border-[var(--color-accent-primary)] transition-colors cursor-pointer">
-                  <option
-                    value=""
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Please select
-                  </option>
-                  <option
-                    value="tech"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Technology, IT Services & Digital
-                  </option>
-                  <option
-                    value="finance"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Financial services & Professional services
-                  </option>
-                  <option
-                    value="real-estate"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Real Estate
-                  </option>
-                  <option
-                    value="construction"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Construction
-                  </option>
-                  <option
-                    value="energy"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Energy
-                  </option>
-                  <option
-                    value="other"
-                    className="bg-[var(--color-dark-foundation)]"
-                  >
-                    Other
-                  </option>
-                </select>
-              </div>
+            <div className="space-y-2">
+              <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono">
+                Company website
+              </label>
+              <input
+                type="url"
+                className="w-full bg-transparent border-0 border-b border-bone/25 px-0 py-4 text-bone placeholder:text-bone/40 focus:outline-none focus:border-chrome1 transition-colors"
+                placeholder="Company website"
+              />
+            </div>
 
-              <div className="space-y-4 pt-4">
-                <label className="flex items-start gap-3 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    className="mt-1 w-4 h-4 rounded-sm border border-[var(--color-bg-primary)]/40 bg-transparent checked:bg-[var(--color-accent-primary)] checked:border-[var(--color-accent-primary)] accent-[var(--color-accent-primary)]"
-                  />
-                  <span className="text-xs leading-relaxed text-[var(--color-bg-primary)]/70">
-                    By completing this form you are agreeing to being contacted
-                    by NEO-NATURE. If you would also like to hear updates from
-                    other parts of NEO-NATURE please select Yes. We will treat
-                    your information carefully. See our{" "}
-                    <a
-                      href="/terms-of-use"
-                      className="underline text-[var(--color-accent-primary)] hover:text-[var(--color-bg-primary)] transition-colors"
-                    >
-                      terms of use
-                    </a>{" "}
-                    and{" "}
-                    <a
-                      href="/privacy-policy"
-                      className="underline text-[var(--color-accent-primary)] hover:text-[var(--color-bg-primary)] transition-colors"
-                    >
-                      privacy policy
-                    </a>{" "}
-                    for more details.
-                  </span>
-                </label>
-              </div>
+            <div className="space-y-2">
+              <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono">
+                Investment Interest
+              </label>
+              <select className="w-full bg-transparent border-0 border-b border-bone/25 px-0 py-4 text-bone focus:outline-none focus:border-chrome1 transition-colors cursor-pointer">
+                <option value="">Select interest</option>
+                <option value="villas">Private Villas</option>
+                <option value="hospitality">Hospitality</option>
+                <option value="wellness">Wellness</option>
+                <option value="experiences">Experiences</option>
+              </select>
+            </div>
 
-              <div className="pt-4">
-                <button
-                  type="submit"
-                  className="px-12 py-5 rounded-full bg-[var(--color-accent-secondary)] text-[var(--color-bg-primary)] text-xs font-bold uppercase tracking-[0.28em] hover:bg-[var(--color-accent-primary)] hover:text-[var(--color-dark-foundation)] transition-colors"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
-          </motion.div>
-        </div>
+            <div className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                className="mt-1 w-4 h-4 rounded-sm border border-bone/40 bg-transparent checked:bg-chrome1 checked:border-chrome1 accent-chrome1"
+              />
+              <span className="text-xs leading-relaxed text-bone/70">
+                By completing this form you are agreeing to being contacted
+                by our team.
+              </span>
+            </div>
+
+            <button
+              type="submit"
+              className="px-12 py-5 rounded-full bg-chrome2 text-void text-xs font-bold uppercase tracking-[0.28em] hover:bg-chrome1 transition-colors"
+            >
+              Submit Inquiry
+            </button>
+          </form>
+        </motion.div>
       </Container>
     </section>
   );

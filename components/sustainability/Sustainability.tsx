@@ -10,10 +10,11 @@ export default function Sustainability() {
     <section
       id="sustainability"
       className="
-        bg-[var(--color-bg-secondary)]
+        relative bg-void
         overflow-hidden
       "
     >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(201,169,255,0.05),transparent_40%),radial-gradient(circle_at_30%_70%,rgba(142,197,255,0.04),transparent_40%)] pointer-events-none" />
       <Container>
         <div className="grid lg:grid-cols-2 gap-20 items-stretch">
            <div className="sticky top-32 self-start h-full">
@@ -22,7 +23,8 @@ export default function Sustainability() {
                 uppercase
                 tracking-[0.3em]
                 text-xs
-                text-[var(--color-accent-primary)]
+                text-chrome1
+                font-mono
               "
             >
               Future Infrastructure
@@ -36,7 +38,8 @@ export default function Sustainability() {
                 mt-8
                 leading-none
                 tracking-[-0.05em]
-                text-[var(--color-text-primary)]
+                text-bone
+                font-display
               "
             >
               Designed
@@ -48,7 +51,7 @@ export default function Sustainability() {
               className="
                 mt-10
                 text-lg
-                text-[var(--color-text-secondary)]
+                text-haze
                 max-w-md
                 leading-relaxed
               "
@@ -58,7 +61,7 @@ export default function Sustainability() {
             </p>
 
             <div className="mt-12 h-full max-h-[90dvh]">
-              <div className="relative h-full  overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
+              <div className="relative h-full  overflow-hidden rounded-[2rem] bg-graphite">
                 <ParallaxImage
                   src="/villa.jpg"
                   alt="Sustainability"
@@ -66,7 +69,7 @@ export default function Sustainability() {
                   intensity={0.5}
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/15" />
+                <div className="absolute inset-0 bg-void/15" />
               </div>
             </div>
           </div>

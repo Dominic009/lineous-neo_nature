@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const customEase: [number, number, number, number] = [0.19, 1, 0.22, 1];
+const customEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 const shutterEase: [number, number, number, number] = [0.62, 0, 0.78, 0.28];
 const exitDuration = 1150;
 
@@ -55,7 +55,7 @@ export default function BrandIntro({
           className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden"
           style={{
             background:
-              "radial-gradient(circle at 50% 44%, rgba(201,164,90,0.22), transparent 30%), radial-gradient(circle at 50% 70%, rgba(78,69,36,0.12), transparent 34%), var(--color-bg-primary)",
+              "radial-gradient(circle at 50% 44%, rgba(142,197,255,0.15), transparent 30%), radial-gradient(circle at 50% 70%, rgba(201,169,255,0.1), transparent 34%), var(--color-void)",
           }}
         >
           <motion.div
@@ -80,7 +80,7 @@ export default function BrandIntro({
                     delay: 0.35 + index * 0.08,
                     ease: customEase,
                   }}
-                  className="text-[clamp(4.5rem,18vw,13rem)] font-bold leading-none tracking-[-0.08em] text-[var(--color-text-primary)]"
+                  className="text-[clamp(4.5rem,18vw,13rem)] font-bold leading-none tracking-[-0.08em] text-bone font-display"
                 >
                   {letter}
                 </motion.span>
@@ -103,7 +103,7 @@ export default function BrandIntro({
                     delay: 0.72 + index * 0.075,
                     ease: customEase,
                   }}
-                  className="text-[clamp(2.2rem,8vw,6.5rem)] font-bold leading-none tracking-[-0.07em] text-[var(--color-accent-primary)]"
+                  className="text-[clamp(2.2rem,8vw,6.5rem)] font-bold leading-none tracking-[-0.07em] text-gradient-chrome font-display"
                 >
                   {letter}
                 </motion.span>
@@ -114,16 +114,16 @@ export default function BrandIntro({
               initial={{ opacity: 0, scaleX: 0 }}
               animate={{ opacity: 1, scaleX: 1 }}
               transition={{ duration: 1.1, delay: 1.35, ease: customEase }}
-              className="h-px w-32 bg-[var(--color-accent-primary)]"
+              className="h-px w-32 bg-chrome1"
             />
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.55, ease: customEase }}
-              className="mt-6 text-[10px] font-semibold uppercase tracking-[0.42em] text-[var(--color-text-secondary)]"
+              className="mt-6 text-[10px] font-semibold uppercase tracking-[0.42em] text-haze font-mono"
             >
-              Luxury Futuristic Resort
+              Regenerative Hospitality
             </motion.p>
           </motion.div>
 
@@ -131,7 +131,7 @@ export default function BrandIntro({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[var(--color-border-subtle)] to-transparent"
+            className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-line to-transparent"
           />
         </motion.div>
       )}
