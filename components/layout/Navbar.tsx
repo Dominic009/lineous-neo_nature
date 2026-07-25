@@ -210,7 +210,7 @@ export default function Navbar(): React.JSX.Element {
                         `}
                       >
                         <item.icon size={26} strokeWidth={1.5} />
-                        {/* Active indicator with glow and star-shine animation */}
+                        {/* Active indicator with glow and shine sweep */}
                         {isActive(item.href) && (
                           <>
                             {/* Glow effect behind the icon */}
@@ -226,24 +226,22 @@ export default function Navbar(): React.JSX.Element {
                                 ease: "easeInOut",
                               }}
                             />
-                            {/* Star-shine animation */}
+                            {/* Shine line sweeping across the icon bg */}
                             <motion.span
-                              className="absolute -top-1 -right-1 w-2 h-2"
+                              className="absolute inset-0 rounded-full"
+                              style={{
+                                background: "linear-gradient(135deg, transparent 30%, rgba(142,197,255,0.4) 50%, transparent 70%)",
+                                backgroundSize: "200% 200%",
+                              }}
                               animate={{
-                                scale: [0.5, 1.2, 0.5],
-                                opacity: [0, 1, 0],
-                                rotate: [0, 180, 360],
+                                backgroundPosition: ["0% 0%", "100% 100%"],
                               }}
                               transition={{
                                 duration: 2,
                                 repeat: Infinity,
                                 ease: "easeInOut",
                               }}
-                            >
-                              <svg viewBox="0 0 24 24" fill="currentColor" className="text-chrome1">
-                                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
-                              </svg>
-                            </motion.span>
+                            />
                           </>
                         )}
                       </Link>
