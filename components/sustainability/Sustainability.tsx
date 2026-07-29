@@ -14,7 +14,19 @@ export default function Sustainability() {
         overflow-hidden
       "
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(201,169,255,0.05),transparent_40%),radial-gradient(circle_at_30%_70%,rgba(142,197,255,0.04),transparent_40%)] pointer-events-none" />
+      {/* Full-bleed background image */}
+      <div className="absolute inset-0">
+        <ParallaxImage
+          src="/purura_resort_images/purura_render_10.jpg"
+          alt="Sustainability"
+          fill
+          intensity={0.3}
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-void/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-void/50 via-transparent to-void/80" />
+      </div>
+
       <Container>
         <div className="grid lg:grid-cols-2 gap-20 items-stretch">
            <div className="sticky top-32 self-start h-full">
@@ -59,19 +71,6 @@ export default function Sustainability() {
               Sustainability is embedded into the architecture, landscape,
               infrastructure, and operations of the resort.
             </p>
-
-            <div className="mt-12 h-full max-h-[90dvh]">
-              <div className="relative h-full  overflow-hidden rounded-[2rem] bg-graphite">
-                <ParallaxImage
-                  src="/villa.jpg"
-                  alt="Sustainability"
-                  fill
-                  intensity={0.5}
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-void/15" />
-              </div>
-            </div>
           </div>
 
           <div className="lg:mt-72 space-y-8">

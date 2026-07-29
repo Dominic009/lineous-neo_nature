@@ -8,22 +8,27 @@ const features = [
   {
     title: "Private Villa Districts",
     description: "Luxury villas, private pools, elevated stays, and nature-integrated accommodation clusters.",
+    image: "/purura_resort_images/purura_render_11.jpg",
   },
   {
     title: "Wellness and Waterfront",
     description: "Bio-filtered landscapes, reflective water experiences, and restorative wellness programming.",
+    image: "/purura_resort_images/purura_render_10.jpg",
   },
   {
     title: "Intelligent Hospitality",
     description: "Smart guest journeys, AI-enabled services, and seamless resort operations.",
+    image: "/purura_resort_images/purura_render_19.jpg",
   },
   {
     title: "Culture and Experiences",
     description: "Curated cultural programming, events, dining, and immersive destination experiences.",
+    image: "/purura_resort_images/purura_render_16.jpg",
   },
   {
     title: "Investor-Ready Ecosystem",
     description: "Diversified revenue streams across hospitality, villas, events, wellness, and experiences.",
+    image: "/purura_resort_images/purura_render_20.jpg",
   },
 ];
 
@@ -35,7 +40,7 @@ export default function KeyFeatures() {
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-stretch">
           <div className="relative h-full overflow-hidden rounded-[2rem] bg-graphite">
             <ParallaxImage
-              src="/prv05.jpg"
+              src="/purura_resort_images/purura_render_03.jpg"
               alt="Neo Nature key features"
               fill
               intensity={1.15}
@@ -58,15 +63,27 @@ export default function KeyFeatures() {
                 <RevealSection
                   key={feature.title}
                   delay={0.06 + index * 0.04}
-                  className="rounded-2xl border border-line bg-graphite/50 p-6"
+                  className="group relative rounded-2xl border border-line bg-graphite/50 overflow-hidden"
                 >
-                  <div className="mb-4 h-px w-12 bg-chrome1" />
-                  <h3 className="text-lg font-bold tracking-[-0.02em] text-bone font-display">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-haze font-display">
-                    {feature.description}
-                  </p>
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <ParallaxImage
+                      src={feature.image}
+                      alt={feature.title}
+                      fill
+                      intensity={0.5}
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-void/80 via-void/20 to-transparent" />
+                  </div>
+                  <div className="p-6">
+                    <div className="mb-4 h-px w-12 bg-chrome1" />
+                    <h3 className="text-lg font-bold tracking-[-0.02em] text-bone font-display">
+                      {feature.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-haze font-display">
+                      {feature.description}
+                    </p>
+                  </div>
                 </RevealSection>
               ))}
             </div>

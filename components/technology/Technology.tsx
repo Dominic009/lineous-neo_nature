@@ -13,8 +13,18 @@ export default function Technology() {
       id="technology"
       className="relative bg-void text-bone overflow-hidden"
     >
-      {/* Atmospheric gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(201,169,255,0.08),transparent_40%),radial-gradient(circle_at_70%_30%,rgba(142,197,255,0.06),transparent_40%)] pointer-events-none" />
+      {/* Full-bleed background image */}
+      <div className="absolute inset-0">
+        <ParallaxImage
+          src="/purura_resort_images/purura_render_19.jpg"
+          alt="Technology"
+          fill
+          intensity={0.3}
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-void/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-void via-void/70 to-void/50" />
+      </div>
 
       {/* Chrome accent line at top */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-chrome1/50 to-transparent" />
@@ -22,18 +32,6 @@ export default function Technology() {
       <div className="relative z-10">
         {/* Hero area - full width with image */}
         <div className="relative min-h-[70vh] flex items-end pb-20 md:pb-32 overflow-hidden">
-          {/* Background image with parallax */}
-          <div className="absolute inset-0 opacity-30">
-            <ParallaxImage
-              src="/villa.jpg"
-              alt="Technology"
-              fill
-              intensity={0.3}
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-void via-void/80 to-void/40" />
-          </div>
-
           <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20 w-full">
             <motion.div
               initial={{ opacity: 0, y: 40 }}

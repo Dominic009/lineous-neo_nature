@@ -60,11 +60,6 @@
   }
 }
 
-/* Hide default cursor for custom cursor (desktop only) */
-* {
-  cursor: none;
-}
-
 @media (max-width: 768px), (hover: none) {
   * {
     cursor: auto;

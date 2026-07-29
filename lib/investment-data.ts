@@ -72,7 +72,7 @@ export const investmentOpportunities = [
 
 export const engageCards = [
   {
-    image: "/villa.jpg",
+    image: "/purura_resort_images/purura_render_02.jpg",
     title: "NEO-NATURE INVESTMENT OFFICE",
     description:
       "The NEO-NATURE Investment Office (NIO) is the representative body responsible for attracting capital to build our regions, identifying business opportunities for private and public participation.",
@@ -80,7 +80,7 @@ export const engageCards = [
     linkLabel: "FIND OUT MORE",
   },
   {
-    image: "/premiumvilla-privatepool.jpg",
+    image: "/purura_resort_images/purura_render_19.jpg",
     title: "NEO-NATURE INVESTMENT FUND",
     description:
       "NEO-NATURE Investment Fund (NIF) is our strategic investment arm, supporting economic sectors through new commercial businesses. We back impactful solutions, enabling them to be piloted and scaled.",
@@ -91,7 +91,7 @@ export const engageCards = [
 
 export const sectorsPartners = [
   {
-    image: "/prv05.jpg",
+    image: "/purura_resort_images/purura_render_03.jpg",
     title: "NEO-NATURE x WORLD ECONOMIC FORUM",
     description:
       "As a strategic partner of the World Economic Forum, NEO-NATURE is committed to addressing the most important global challenges to secure a better future. NEO-NATURE and the World Economic Forum are collaborating on initiatives to develop progressive solutions for our societies.",
@@ -99,7 +99,7 @@ export const sectorsPartners = [
     linkLabel: "FIND OUT MORE",
   },
   {
-    image: "/villa.jpg",
+    image: "/purura_resort_images/purura_render_09.jpg",
     title: "NEO-NATURE x FII INSTITUTE",
     description:
       "NEO-NATURE and the Future Investment Initiative Institute (FII), a non-profit foundation, are reimagining the future of business, finance and investment to shape a better world for all. By bringing together the top minds in science, academia, technology and finance, we will empower them to drive change.",

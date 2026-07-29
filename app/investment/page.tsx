@@ -11,7 +11,7 @@ export default function InvestmentPage() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_30%,rgba(142,197,255,0.06),transparent_50%)] pointer-events-none" />
       <section className="relative min-h-[75vh] overflow-hidden bg-void">
         <ParallaxImage
-          src="/villa.jpg"
+          src="/purura_resort_images/purura_render_20.jpg"
           alt="Neo Nature investment"
           fill
           intensity={0.5}

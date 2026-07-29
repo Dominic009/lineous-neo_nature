@@ -10,14 +10,28 @@ const villas = [
     subtitle: "Accommodation",
     description:
       "Floating above reflective lagoons, these pavilions merge indoor luxury with the rhythm of water.",
-    image: "/villa.jpg",
+    image: "/purura_resort_images/purura_render_11.jpg",
   },
   {
     name: "The Canopy Suite",
     subtitle: "Accommodation",
     description:
       "Elevated among the canopy, these suites offer immersive nature views with private terraces.",
-    image: "/premiumvilla-privatepool.jpg",
+    image: "/purura_resort_images/purura_render_12.jpg",
+  },
+  {
+    name: "The Horizon Villa",
+    subtitle: "Accommodation",
+    description:
+      "Panoramic glass walls frame uninterrupted views of the horizon, blending indoor comfort with outdoor grandeur.",
+    image: "/purura_resort_images/purura_render_13.jpg",
+  },
+  {
+    name: "The Garden Retreat",
+    subtitle: "Accommodation",
+    description:
+      "Private garden sanctuaries with outdoor showers, native landscaping, and seamless indoor-outdoor flow.",
+    image: "/purura_resort_images/purura_render_14.jpg",
   },
 ];
 

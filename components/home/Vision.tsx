@@ -79,7 +79,7 @@ export default function Vision() {
           className="mt-14 relative h-[420px] overflow-hidden rounded-[2rem]"
         >
           <ParallaxImage
-            src="/vision/vision-section.png"
+            src="/purura_resort_images/purura_render_20.jpg"
             alt="Vision Section"
             fill
             intensity={0.5}

@@ -8,16 +8,16 @@ import RevealSection from "./RevealSection";
 
 const slides = [
   {
-    src: "/premiumvilla-privatepool.jpg",
-    alt: "Neo Nature luxury villa preview",
+    src: "/purura_resort_images/purura_render_02.jpg",
+    alt: "Neo Nature aerial resort view",
   },
   {
-    src: "/Villa-Amann-Phuket-Pool-Area-5.jpg",
-    alt: "Neo Nature private pool villa",
+    src: "/purura_resort_images/purura_render_09.jpg",
+    alt: "Neo Nature villa exterior",
   },
   {
-    src: "/villa.jpg",
-    alt: "Neo Nature resort villa exterior",
+    src: "/purura_resort_images/purura_render_04.jpg",
+    alt: "Neo Nature resort landscape",
   },
 ];
 

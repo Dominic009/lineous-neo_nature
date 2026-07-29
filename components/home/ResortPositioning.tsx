@@ -2,6 +2,7 @@
 
 import Container from "../layout/Container";
 import RevealSection from "./RevealSection";
+import ParallaxImage from "./ParallaxImage";
 
 const metrics = [
   {
@@ -36,16 +37,19 @@ export default function ResortPositioning() {
     <section
       id="positioning"
       className="relative py-24 md:py-32 overflow-hidden"
-      style={{
-        backgroundImage: "url('/Villa-Amann-Phuket-Pool-Area-5.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
     >
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-void/70" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(142,197,255,0.08),transparent_50%)] pointer-events-none" />
+      {/* Full-bleed background image */}
+      <div className="absolute inset-0">
+        <ParallaxImage
+          src="/purura_resort_images/purura_render_06.jpg"
+          alt="Neo Nature landscape"
+          fill
+          intensity={0.3}
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-void/75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-void via-void/40 to-void/70" />
+      </div>
 
       <Container className="relative z-10">
         <div className="max-w-4xl mx-auto text-center">

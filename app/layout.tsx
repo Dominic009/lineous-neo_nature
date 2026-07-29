@@ -5,7 +5,6 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
-import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
@@ -43,7 +42,6 @@ export default function RootLayout({
         <ThemeProvider>
           <SmoothScroll>
             <div className="grain-overlay" />
-            <CustomCursor />
             <ScrollProgress />
             <Navbar />
             {children}

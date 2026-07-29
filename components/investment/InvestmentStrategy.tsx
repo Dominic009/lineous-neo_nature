@@ -6,6 +6,7 @@ import Container from "../layout/Container";
 import MetricCard from "./MetricCard";
 import { investmentMetrics } from "@/lib/investment-data";
 import { customEase } from "../home/Hero";
+import ParallaxImage from "../home/ParallaxImage";
 
 export default function InvestmentStrategy() {
   const [formStatus, setFormStatus] = useState<"idle" | "submitted">("idle");
@@ -15,7 +16,19 @@ export default function InvestmentStrategy() {
       id="investment"
       className="relative bg-void py-24 md:py-32"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(142,197,255,0.06),transparent_40%)] pointer-events-none" />
+      {/* Full-bleed background image */}
+      <div className="absolute inset-0">
+        <ParallaxImage
+          src="/purura_resort_images/purura_render_20.jpg"
+          alt="Neo Nature investment"
+          fill
+          intensity={0.3}
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-void/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-void/60 via-transparent to-void/90" />
+      </div>
+
       <Container>
         <div className="grid lg:grid-cols-[1.25fr_0.75fr] gap-12 lg:gap-20 items-start">
           <motion.div

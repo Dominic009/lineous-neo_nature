@@ -10,7 +10,7 @@ export default function TechnologyPage() {
     <main className="bg-void">
       <section className="relative min-h-[75vh] overflow-hidden bg-void">
         <ParallaxImage
-          src="/villa.jpg"
+          src="/purura_resort_images/purura_render_19.jpg"
           alt="Neo Nature technology"
           fill
           intensity={0.5}

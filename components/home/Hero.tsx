@@ -26,25 +26,30 @@ export default function Hero() {
       className="relative flex h-[100svh] w-full flex-col justify-end overflow-hidden"
       style={{ backgroundColor: "var(--color-void)" }}
     >
-      {/* Animated parametric grid backdrop */}
+      {/* Resort render backdrop */}
       <motion.div
         style={{ y: bgY, scale }}
         className="absolute inset-0"
       >
-        <ParametricField />
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/purura_resort_images/purura_render_01.jpg')",
+          }}
+        />
         {/* Theme-aware gradient overlays */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, var(--color-void) 0%, var(--color-void) 40%, transparent 100%)",
+              "linear-gradient(to top, var(--color-void) 0%, var(--color-void) 50%, transparent 100%)",
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, var(--color-void) 0%, transparent 25%)",
+              "linear-gradient(to bottom, var(--color-void) 0%, transparent 30%)",
           }}
         />
       </motion.div>
@@ -120,42 +125,3 @@ export default function Hero() {
   );
 }
 
-function ParametricField() {
-  const rows = 20;
-  const cols = 32;
-
-  return (
-    <svg
-      viewBox="0 0 1400 900"
-      preserveAspectRatio="xMidYMid slice"
-      className="h-full w-full"
-      style={{ opacity: "var(--hero-grid-opacity, 0.65)" }}
-    >
-      <defs>
-        <linearGradient id="fieldGradient" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="var(--color-chrome1)" />
-          <stop offset="50%" stopColor="var(--color-chrome2)" />
-          <stop offset="100%" stopColor="var(--color-chrome3)" />
-        </linearGradient>
-      </defs>
-      {Array.from({ length: rows }).map((_, r) => {
-        const points = Array.from({ length: cols }).map((__, c) => {
-          const x = (c / (cols - 1)) * 1400;
-          const wave = Math.sin(c * 0.35 + r * 0.5) * 26;
-          const y = (r / (rows - 1)) * 900 + wave;
-          return `${x},${y}`;
-        });
-        return (
-          <polyline
-            key={r}
-            points={points.join(" ")}
-            fill="none"
-            stroke="url(#fieldGradient)"
-            strokeWidth="1"
-            opacity={0.25 + (r / rows) * 0.55}
-          />
-        );
-      })}
-    </svg>
-  );
-}

@@ -1,6 +1,7 @@
 "use client";
 
 import Container from "../layout/Container";
+import ParallaxImage from "../home/ParallaxImage";
 
 export default function VillaCollection() {
   return (
@@ -23,6 +24,53 @@ export default function VillaCollection() {
             Three accommodation concepts designed to redefine hospitality through
             nature-integrated luxury and intelligent design.
           </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-graphite">
+            <ParallaxImage
+              src="/purura_resort_images/purura_render_04.jpg"
+              alt="Pod Villas"
+              fill
+              intensity={0.5}
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-void/20" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-void/80 to-transparent">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-chrome1 font-mono">Pod Villas</p>
+              <p className="text-lg font-bold text-bone mt-2">Responsive Living</p>
+            </div>
+          </div>
+
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-graphite">
+            <ParallaxImage
+              src="/purura_resort_images/purura_render_05.jpg"
+              alt="Tree-Level Sky Villas"
+              fill
+              intensity={0.5}
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-void/20" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-void/80 to-transparent">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-chrome1 font-mono">Tree-Level Sky Villas</p>
+              <p className="text-lg font-bold text-bone mt-2">Vertical Living</p>
+            </div>
+          </div>
+
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-graphite">
+            <ParallaxImage
+              src="/purura_resort_images/purura_render_06.jpg"
+              alt="Floating Villas"
+              fill
+              intensity={0.5}
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-void/20" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-void/80 to-transparent">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-chrome1 font-mono">Floating Villas</p>
+              <p className="text-lg font-bold text-bone mt-2">Aquatic Horizon</p>
+            </div>
+          </div>
         </div>
       </Container>
     </section>

@@ -10,7 +10,7 @@ export default function MasterplanPage() {
     <main className="bg-void">
       <section className="relative min-h-[75vh] overflow-hidden bg-void">
         <ParallaxImage
-          src="/masterplan_map.png"
+          src="/purura_resort_images/purura_render_02.jpg"
           alt="Neo Nature masterplan"
           fill
           intensity={0.5}

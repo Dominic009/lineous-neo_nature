@@ -18,7 +18,7 @@ export default function ExperiencePage() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(142,197,255,0.06),transparent_50%)] pointer-events-none" />
       <section id="experience" className="relative min-h-[75vh] overflow-hidden bg-void">
         <ParallaxImage
-          src="/premiumvilla-privatepool.jpg"
+          src="/purura_resort_images/purura_render_15.jpg"
           alt="Neo Nature experience"
           fill
           intensity={0.5}
@@ -50,21 +50,21 @@ export default function ExperiencePage() {
         <Container>
           <div className="grid lg:grid-cols-[0.7fr_1.3fr] gap-12 lg:gap-20 items-start">
             <motion.div
-               initial={{ opacity: 0, y: 36 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.8, ease: customEase }}
-               className="relative min-h-[520px] overflow-hidden rounded-[2rem] bg-graphite"
-             >
-               <ParallaxImage
-                 src="/Villa-Amann-Phuket-Pool-Area-5.jpg"
-                 alt="Neo Nature experience key image"
-                 fill
-                 intensity={0.5}
-                 className="object-cover"
-               />
-               <div className="absolute inset-0 bg-void/15" />
-             </motion.div>
+              initial={{ opacity: 0, y: 36 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: customEase }}
+              className="relative min-h-[520px] overflow-hidden rounded-[2rem] bg-graphite"
+            >
+              <ParallaxImage
+                src="/purura_resort_images/purura_render_16.jpg"
+                alt="Neo Nature experience key image"
+                fill
+                intensity={0.5}
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-void/15" />
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 36 }}

@@ -7,7 +7,7 @@ export default function InvestHero() {
     <section className="relative min-h-[70vh] md:min-h-[100dvh] overflow-hidden bg-void flex items-end">
       <div className="absolute inset-0">
         <Image
-          src="/villa.jpg"
+          src="/purura_resort_images/purura_render_20.jpg"
           alt="Investment Hero"
           fill
           className="object-cover"
