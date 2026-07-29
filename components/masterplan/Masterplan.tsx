@@ -90,6 +90,9 @@ export default function Masterplan() {
                   className="object-cover rounded-4xl"
                 />
                 <div className="absolute inset-0 bg-void/18" />
+                <div className="absolute -bottom-4 -left-4 md:-bottom-8 md:-left-8 text-outlined text-[18vw] md:text-[12vw] leading-none opacity-100 uppercase">
+                  {masterplanSections[activeIndex].title.split(" ")[0]}
+                </div>
                 <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 bg-linear-to-t from-void/70 to-transparent">
                   {/* <p className="text-xs font-semibold uppercase tracking-[0.35em] text-chrome1 font-mono">
                     Key Location
