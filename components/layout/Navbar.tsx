@@ -8,17 +8,10 @@ import {
   useScroll,
 } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-import Container from "./Container";
 import BrandIntro from "./BrandIntro";
 import ThemeToggle from "@/components/ThemeToggle";
-import Tooltip from "@/components/Tooltip";
+import { useTheme } from "@/components/ThemeProvider";
 import {
-  Home,
-  Compass,
-  UtensilsCrossed,
-  TrendingUp,
-  HelpCircle,
-  Mail,
   ChevronDown,
   MenuIcon,
   X,
@@ -39,24 +32,22 @@ const AMENITIES_ITEMS = [
 ];
 
 const NAV_ITEMS = [
-  { label: "Home", href: "/", icon: Home },
+  { label: "Home", href: "/" },
   {
     label: "Experience",
     href: "/experience",
-    icon: Compass,
     hasDropdown: true,
     items: EXPERIENCE_ITEMS,
   },
   {
     label: "Amenities",
     href: "/amenities",
-    icon: UtensilsCrossed,
     hasDropdown: true,
     items: AMENITIES_ITEMS,
   },
-  { label: "Invest", href: "/investment", icon: TrendingUp },
-  { label: "FAQ", href: "/faq", icon: HelpCircle },
-  { label: "Contact", href: "/contact-us", icon: Mail },
+  { label: "Invest", href: "/investment" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact-us" },
 ];
 
 const customEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -64,6 +55,7 @@ const customEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 export default function Navbar(): React.JSX.Element {
   const { scrollY } = useScroll();
   const pathname = usePathname();
+  const { theme } = useTheme();
 
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -74,8 +66,12 @@ export default function Navbar(): React.JSX.Element {
 
   const isDropdownOpen = (label: string) => activeDropdown === label;
 
-  const toggleDropdown = (label: string) => {
-    setActiveDropdown((prev) => (prev === label ? null : label));
+  const openDropdown = (label: string) => {
+    setActiveDropdown(label);
+  };
+
+  const closeDropdown = () => {
+    setActiveDropdown(null);
   };
 
   const toggleMobileDropdown = (label: string) => {
@@ -136,8 +132,8 @@ export default function Navbar(): React.JSX.Element {
           transition-all duration-500 ease-fluid
           ${
             scrolled
-              ? "h-20 bg-void/80 backdrop-blur-md shadow-[0_18px_60px_rgba(0,0,0,0.4)]"
-              : "h-24 bg-void/60 backdrop-blur-sm"
+              ? `h-20 bg-void/80 backdrop-blur-md ${theme === "light" ? "shadow-[0_18px_60px_rgba(0,0,0,0.08)]" : "shadow-[0_18px_60px_rgba(0,0,0,0.4)]"}`
+              : `h-24 bg-void/60 backdrop-blur-sm ${theme === "light" ? "shadow-[0_4px_20px_rgba(0,0,0,0.04)]" : ""}`
           }
         `}
       >
@@ -160,92 +156,70 @@ export default function Navbar(): React.JSX.Element {
             </Link>
 
             <nav
-              className="hidden lg:flex items-center gap-2"
+              className="hidden lg:flex items-center gap-8"
               ref={dropdownRef}
             >
               {NAV_ITEMS.map((item) => (
-                <div key={item.label} className="relative">
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => item.hasDropdown && openDropdown(item.label)}
+                  onMouseLeave={closeDropdown}
+                >
                   {item.hasDropdown ? (
-                    <Tooltip text={item.label}>
-                      <button
-                        onClick={() => toggleDropdown(item.label)}
+                    <button
+                      className={`
+                        relative flex items-center gap-1.5
+                        py-2 text-sm uppercase tracking-[0.2em]
+                        transition-all duration-300
+                        ${
+                          isDropdownOpen(item.label)
+                            ? "text-chrome1"
+                            : "text-haze hover:text-bone"
+                        }
+                      `}
+                    >
+                      <span>{item.label}</span>
+                      <ChevronDown
+                        size={14}
                         className={`
-                          relative flex items-center justify-center
-                          w-12 h-12 rounded-full
                           transition-all duration-300
-                          ${
-                            isDropdownOpen(item.label)
-                              ? "text-chrome1 bg-graphite/50"
-                              : "text-haze hover:text-bone hover:bg-graphite/30"
-                          }
+                          ${isDropdownOpen(item.label) ? "text-chrome1 rotate-180" : "text-haze/50"}
                         `}
-                      >
-                        <item.icon size={26} strokeWidth={1.5} />
-                        {/* Dropdown indicator dot */}
-                        <span className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-chrome1 opacity-0 transition-opacity duration-300" />
-                        {/* Down arrow for dropdown */}
-                        <ChevronDown
-                          size={12}
-                          className={`
-                            absolute -bottom-1.5 left-1/2 -translate-x-1/2
-                            transition-all duration-300
-                            ${isDropdownOpen(item.label) ? "text-chrome1 rotate-180" : "text-haze/50"}
-                          `}
+                      />
+                      {/* Active underline */}
+                      {isActive(item.href) && (
+                        <motion.span
+                          className="absolute -bottom-1 left-0 right-0 h-px bg-chrome1"
+                          layoutId="nav-underline"
+                          transition={{ duration: 0.3, ease: "easeOut" }}
                         />
-                      </button>
-                    </Tooltip>
+                      )}
+                    </button>
                   ) : (
-                    <Tooltip text={item.label}>
-                      <Link
-                        href={item.href}
-                        className={`
-                          relative flex items-center justify-center
-                          w-12 h-12 rounded-full
-                          transition-all duration-300
-                          ${
-                            isActive(item.href)
-                              ? "text-chrome1 bg-graphite/50"
-                              : "text-haze hover:text-bone hover:bg-graphite/30"
-                          }
-                        `}
-                      >
-                        <item.icon size={26} strokeWidth={1.5} />
-                        {/* Active indicator with glow and shine sweep */}
-                        {isActive(item.href) && (
-                          <>
-                            {/* Glow effect behind the icon */}
-                            <motion.span
-                              className="absolute inset-0 rounded-full bg-chrome1/20 blur-md"
-                              animate={{
-                                scale: [1, 1.2, 1],
-                                opacity: [0.3, 0.6, 0.3],
-                              }}
-                              transition={{
-                                duration: 2.5,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                              }}
-                            />
-                            {/* Shine line sweeping across the icon bg */}
-                            <motion.span
-                              className="absolute inset-0 rounded-full"
-                              style={{
-                                background: "linear-gradient(135deg, transparent 30%, rgba(142,197,255,0.4) 50%, transparent 70%)",
-                                backgroundSize: "200% 200%",
-                              }}
-                              animate={{
-                                backgroundPosition: ["0% 0%", "100% 100%"],
-                              }}
-                              transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                              }}
-                            />
-                          </>
-                        )}
-                      </Link>
-                    </Tooltip>
+                    <Link
+                      href={item.href}
+                      className={`
+                        relative flex items-center py-2
+                        text-sm uppercase tracking-[0.2em]
+                        transition-all duration-300
+                        ${
+                          isActive(item.href)
+                            ? "text-chrome1"
+                            : "text-haze hover:text-bone"
+                        }
+                      `}
+                    >
+                      {item.label}
+                      {/* Active underline */}
+                      {isActive(item.href) && (
+                        <motion.span
+                          className="absolute -bottom-1 left-0 right-0 h-px bg-chrome1"
+                          layoutId="nav-underline"
+                          transition={{ duration: 0.3, ease: "easeOut" }}
+                        />
+                      )}
+                    </Link>
                   )}
 
                   {item.hasDropdown && item.items && (

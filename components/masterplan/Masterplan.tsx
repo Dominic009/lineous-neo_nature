@@ -72,11 +72,11 @@ export default function Masterplan() {
             ))}
           </div>
 
-          <div className="sticky top-40 rounded-4xl bg-graphite overflow-hidden">
+          <div className="sticky top-40 rounded-4xl bg-graphite overflow-hidden drop-shadow-2xl">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
-                className="relative h-[70dvh]"
+                className="relative h-[70dvh] drop-shadow-2xl"
                 initial={{ opacity: 0, scale: 1.04 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.02 }}
@@ -91,12 +91,12 @@ export default function Masterplan() {
                 />
                 <div className="absolute inset-0 bg-void/18" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 bg-linear-to-t from-void/70 to-transparent">
-                  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-chrome1 font-mono">
+                  {/* <p className="text-xs font-semibold uppercase tracking-[0.35em] text-chrome1 font-mono">
                     Key Location
                   </p>
                   <h3 className="mt-3 text-3xl md:text-5xl font-bold leading-none tracking-[-0.04em] text-bone">
                     {masterplanSections[activeIndex].title}
-                  </h3>
+                  </h3> */}
                 </div>
               </motion.div>
             </AnimatePresence>

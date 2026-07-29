@@ -39,6 +39,11 @@
   --color-chrome3: #E07BA8;
 }
 
+/* Light mode image brightness */
+[data-theme="light"] img {
+  filter: brightness(1.08);
+}
+
 /* Smooth theme transitions */
 *,
 *::before,
