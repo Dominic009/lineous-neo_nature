@@ -72,15 +72,15 @@ export default function Masterplan() {
             ))}
           </div>
 
-          <div className="sticky top-40 rounded-4xl bg-graphite overflow-hidden drop-shadow-2xl">
-            <AnimatePresence mode="wait">
+          <div className="sticky top-40 rounded-4xl bg-graphite overflow-hidden drop-shadow-2xl relative h-[70dvh]">
+            <AnimatePresence mode="sync">
               <motion.div
                 key={activeIndex}
-                className="relative h-[70dvh] drop-shadow-2xl"
-                initial={{ opacity: 0, scale: 1.04 }}
+                className="absolute inset-0 drop-shadow-2xl"
+                initial={{ opacity: 0, scale: 1.05 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.02 }}
-                transition={{ duration: 0.7, ease: customEase }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.6, ease: customEase }}
               >
                 <ParallaxImage
                   src={masterplanSections[activeIndex].image}
