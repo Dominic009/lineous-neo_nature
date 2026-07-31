@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Container from "@/components/layout/Container";
 import {
@@ -10,10 +10,6 @@ import {
   ArrowUpRight,
   Percent,
 } from "lucide-react";
-import {
-  investmentTypes,
-  durationOptions,
-} from "@/lib/roi-calculator-data";
 import type { InvestmentType } from "@/lib/roi-calculator-data";
 
 const customEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -27,12 +23,51 @@ const formatCurrency = (value: number) =>
 
 const formatPercent = (value: number) => `${value.toFixed(1)}%`;
 
+interface CalculatorConfig {
+  version: number;
+  updatedAt: string;
+  updatedBy: string;
+  calculator: {
+    defaults: {
+      investmentAmount: number;
+      duration: number;
+      typeId: string;
+    };
+    limits: {
+      investmentMin: number;
+      investmentMax: number;
+      investmentStep: number;
+    };
+    investmentTypes: InvestmentType[];
+    durationOptions: number[];
+  };
+}
+
 export default function ROICalculator() {
   const [investmentAmount, setInvestmentAmount] = useState<number>(300000);
   const [duration, setDuration] = useState<number>(10);
-  const [selectedType, setSelectedType] = useState<InvestmentType>(investmentTypes[1]);
-  const yieldRate = selectedType.yield;
-  const appreciationRate = selectedType.appreciation;
+  const [config, setConfig] = useState<CalculatorConfig | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  const selectedType =
+    config?.calculator.investmentTypes.find(
+      (t) => t.id === config.calculator.defaults.typeId
+    ) ?? null;
+  const durationOptions = config?.calculator.durationOptions ?? [5, 10, 15, 20];
+  const investmentTypes = config?.calculator.investmentTypes ?? [];
+
+  const yieldRate = selectedType?.yield ?? 0;
+  const appreciationRate = selectedType?.appreciation ?? 0;
+
+  useEffect(() => {
+    fetch("/api/roi-config")
+      .then((res) => res.json())
+      .then((data: CalculatorConfig) => {
+        setConfig(data);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, []);
 
   const yearlyData: Array<{
     year: number;
@@ -179,26 +214,35 @@ export default function ROICalculator() {
                 <label className="text-xs font-bold uppercase tracking-[0.25em] text-bone font-mono">
                   Investment Type
                 </label>
-                <div className="space-y-2">
-                  {investmentTypes.map((type) => (
-                    <button
-                      key={type.id}
-                      onClick={() => setSelectedType(type)}
-                      className={`w-full rounded-xl border p-3 text-left transition-all ${
-                        selectedType.id === type.id
-                          ? "border-chrome1 bg-chrome1/10 text-bone"
-                          : "border-line bg-void/50 text-haze hover:text-bone"
-                      }`}
-                    >
-                      <p className="text-xs font-bold uppercase tracking-wider">
-                        {type.name}
-                      </p>
-                      <p className="mt-0.5 text-[10px] text-haze">
-                        {type.description}
-                      </p>
-                    </button>
-                  ))}
-                </div>
+                {loading ? (
+                  <div className="h-20 rounded-xl bg-void/50 animate-pulse" />
+                ) : (
+                  <div className="space-y-2">
+                    {investmentTypes.map((type: InvestmentType) => (
+                      <button
+                        key={type.id}
+                        onClick={() => {
+                          if (!config) return;
+                          const newConfig = { ...config };
+                          newConfig.calculator.defaults.typeId = type.id;
+                          setConfig(newConfig);
+                        }}
+                        className={`w-full rounded-xl border p-3 text-left transition-all ${
+                          selectedType?.id === type.id
+                            ? "border-chrome1 bg-chrome1/10 text-bone"
+                            : "border-line bg-void/50 text-haze hover:text-bone"
+                        }`}
+                      >
+                        <p className="text-xs font-bold uppercase tracking-wider">
+                          {type.name}
+                        </p>
+                        <p className="mt-0.5 text-[10px] text-haze">
+                          {type.description}
+                        </p>
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
             </motion.div>

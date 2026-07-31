@@ -46,9 +46,10 @@ export default function InvestmentStrategy() {
             </h2>
 
             <p className="mt-8 max-w-3xl text-lg leading-relaxed text-haze">
-              Neo Nature is positioned as a premium, future-ready resort opportunity
-              for investors seeking exposure to luxury hospitality, experiential
-              tourism, private villa demand, wellness, and intelligent infrastructure.
+              Neo Nature is positioned as a premium, future-ready resort
+              opportunity for investors seeking exposure to luxury hospitality,
+              experiential tourism, private villa demand, wellness, and
+              intelligent infrastructure.
             </p>
 
             <div className="mt-12 grid sm:grid-cols-2 gap-4">
@@ -57,8 +58,8 @@ export default function InvestmentStrategy() {
                   Added Value
                 </p>
                 <p className="mt-4 text-lg font-bold leading-snug tracking-[-0.03em] text-bone">
-                  Diversified revenue streams across villas, hospitality, wellness,
-                  events, dining, and experience-led programming.
+                  Diversified revenue streams across villas, hospitality,
+                  wellness, events, dining, and experience-led programming.
                 </p>
               </div>
 
@@ -67,8 +68,9 @@ export default function InvestmentStrategy() {
                   Location Advantage
                 </p>
                 <p className="mt-4 text-lg font-bold leading-snug tracking-[-0.03em] text-bone">
-                  Valuka offers proximity to Dhaka demand while delivering a rare
-                  nature-led resort environment with long-term land value potential.
+                  Valuka offers proximity to Dhaka demand while delivering a
+                  rare nature-led resort environment with long-term land value
+                  potential.
                 </p>
               </div>
             </div>
@@ -78,8 +80,8 @@ export default function InvestmentStrategy() {
                 Initial Resort Reference
               </p>
               <p className="mt-4 text-lg leading-relaxed text-haze">
-                Chuti Resort investment information can be introduced initially as
-                a comparable benchmark for valuation and performance metrics.
+                Chuti Resort investment information can be introduced initially
+                as a comparable benchmark for valuation and performance metrics.
               </p>
             </div>
           </motion.div>
@@ -100,7 +102,13 @@ export default function InvestmentStrategy() {
                 Thank you. Your investor inquiry has been received.
               </div>
             ) : (
-              <form onSubmit={(e) => { e.preventDefault(); setFormStatus("submitted"); }} className="mt-8 space-y-6">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setFormStatus("submitted");
+                }}
+                className="mt-8 space-y-6"
+              >
                 <div>
                   <label className="text-xs font-semibold uppercase tracking-[0.25em] text-haze font-mono">
                     Name
