@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Container from "@/components/layout/Container";
 import { customEase } from "@/components/home/Hero";
 import ParallaxImage from "@/components/home/ParallaxImage";
+import ROICalculator from "@/components/investment/ROICalculator";
 
 export default function InvestmentPage() {
   return (
@@ -63,7 +64,9 @@ export default function InvestmentPage() {
             </p>
           </motion.div>
         </Container>
-      </section>
-    </main>
+       </section>
+
+       <ROICalculator />
+     </main>
   );
 }
