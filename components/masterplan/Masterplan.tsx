@@ -72,7 +72,7 @@ export default function Masterplan() {
             ))}
           </div>
 
-          <div className="sticky top-40 rounded-4xl bg-graphite overflow-hidden drop-shadow-2xl relative h-[70dvh]">
+          <div className="top-40 rounded-4xl bg-graphite overflow-hidden drop-shadow-2xl relative h-[70dvh]">
             <AnimatePresence mode="sync">
               <motion.div
                 key={activeIndex}

@@ -20,8 +20,14 @@ export default function MasterplanExplorer() {
   // Mouse parallax values
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const springX = useSpring(useTransform(mouseX, [-0.5, 0.5], [8, -8]), { damping: 30, stiffness: 120 });
-  const springY = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), { damping: 30, stiffness: 120 });
+  const springX = useSpring(useTransform(mouseX, [-0.5, 0.5], [8, -8]), {
+    damping: 30,
+    stiffness: 120,
+  });
+  const springY = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), {
+    damping: 30,
+    stiffness: 120,
+  });
 
   // Detect mobile
   useEffect(() => {
@@ -59,7 +65,8 @@ export default function MasterplanExplorer() {
     mouseY.set(0);
   }, [mouseX, mouseY]);
 
-  const activeLocation = masterplanLocations.find((l) => l.id === activeLocationId) || null;
+  const activeLocation =
+    masterplanLocations.find((l) => l.id === activeLocationId) || null;
 
   // Calculate panel anchor point for connection line (center of panel)
   const panelAnchorX = isMobile ? 50 : 82; // percentage from left
@@ -95,8 +102,8 @@ export default function MasterplanExplorer() {
           className="object-cover"
         />
         {/* Cinematic overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-void/60 via-void/20 to-void/40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-void/30 via-transparent to-void/30" />
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-void/60 via-void/20 to-void/40" /> */}
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-void/30 via-transparent to-void/30" /> */}
       </motion.div>
 
       {/* Ambient particles */}
@@ -187,10 +194,10 @@ export default function MasterplanExplorer() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3, ease: customEase }}
       >
-        <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-bone/50 mb-1">
+        <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-white mb-1">
           Neo Nature Resort
         </p>
-        <h2 className="text-lg md:text-xl font-bold text-bone/90 font-display tracking-tight">
+        <h2 className="text-lg md:text-xl font-bold text-white font-display tracking-tight">
           Masterplan Explorer
         </h2>
       </motion.div>
@@ -202,10 +209,10 @@ export default function MasterplanExplorer() {
         animate={{ opacity: activeLocationId ? 0 : 0.5 }}
         transition={{ duration: 0.4 }}
       >
-        <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-bone/40 flex items-center gap-2">
-          <span className="w-1 h-1 rounded-full bg-bone/40" />
+        <p className="text-[15px] font-mono uppercase tracking-[0.2em] text-white flex items-center gap-2">
+          <span className="w-1 h-1 rounded-full bg-white" />
           Hover over markers to explore
-          <span className="w-1 h-1 rounded-full bg-bone/40" />
+          <span className="w-1 h-1 rounded-full bg-white" />
         </p>
       </motion.div>
     </section>

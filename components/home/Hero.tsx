@@ -27,42 +27,42 @@ export default function Hero() {
       style={{ backgroundColor: "var(--color-void)" }}
     >
       {/* Resort render backdrop */}
-      <motion.div
-        style={{ y: bgY, scale }}
-        className="absolute inset-0"
-      >
+      <motion.div style={{ y: bgY, scale }} className="absolute inset-0">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/purura_resort_images/purura_render_01.jpg')",
+            backgroundImage:
+              "url('/purura_resort_images/purura_render_01.jpg')",
           }}
         />
         {/* Theme-aware gradient overlays */}
+        {/* Bottom one */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, var(--color-void) 0%, var(--color-void) 50%, transparent 100%)",
+              "linear-gradient(to top, var(--color-void) 30%, transparent 100%)",
           }}
         />
-        <div
+        {/* Top one */}
+        {/* <div
           className="absolute inset-0"
           style={{
             background:
               "linear-gradient(to bottom, var(--color-void) 0%, transparent 30%)",
           }}
-        />
+        /> */}
       </motion.div>
 
       {/* Large soft chrome glow for visual depth */}
-      <div
+      {/* <div
         className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           background:
             "radial-gradient(ellipse 100% 80% at 50% 30%, var(--color-chrome1) 0%, var(--color-chrome2) 35%, transparent 65%)",
           opacity: "var(--hero-glow-opacity, 0.12)",
         }}
-      />
+      /> */}
 
       <motion.div
         style={{ opacity }}
@@ -124,4 +124,3 @@ export default function Hero() {
     </section>
   );
 }
-

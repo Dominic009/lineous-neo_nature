@@ -7,27 +7,32 @@ import RevealSection from "./RevealSection";
 const features = [
   {
     title: "Private Villa Districts",
-    description: "Luxury villas, private pools, elevated stays, and nature-integrated accommodation clusters.",
+    description:
+      "Luxury villas, private pools, elevated stays, and nature-integrated accommodation clusters.",
     image: "/purura_resort_images/purura_render_11.jpg",
   },
   {
     title: "Wellness and Waterfront",
-    description: "Bio-filtered landscapes, reflective water experiences, and restorative wellness programming.",
+    description:
+      "Bio-filtered landscapes, reflective water experiences, and restorative wellness programming.",
     image: "/purura_resort_images/purura_render_10.jpg",
   },
   {
     title: "Intelligent Hospitality",
-    description: "Smart guest journeys, AI-enabled services, and seamless resort operations.",
+    description:
+      "Smart guest journeys, AI-enabled services, and seamless resort operations.",
     image: "/purura_resort_images/purura_render_19.jpg",
   },
   {
     title: "Culture and Experiences",
-    description: "Curated cultural programming, events, dining, and immersive destination experiences.",
+    description:
+      "Curated cultural programming, events, dining, and immersive destination experiences.",
     image: "/purura_resort_images/purura_render_16.jpg",
   },
   {
     title: "Investor-Ready Ecosystem",
-    description: "Diversified revenue streams across hospitality, villas, events, wellness, and experiences.",
+    description:
+      "Diversified revenue streams across hospitality, villas, events, wellness, and experiences.",
     image: "/purura_resort_images/purura_render_20.jpg",
   },
 ];
@@ -46,7 +51,7 @@ export default function KeyFeatures() {
               intensity={1.15}
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-void/20" />
+            <div className="absolute inset-0" />
           </div>
 
           <RevealSection delay={0.12}>
@@ -73,7 +78,7 @@ export default function KeyFeatures() {
                       intensity={0.5}
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-void/80 via-void/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-void/10 to-transparent" />
                   </div>
                   <div className="p-6">
                     <div className="mb-4 h-px w-12 bg-chrome1" />

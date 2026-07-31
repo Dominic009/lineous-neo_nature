@@ -3,7 +3,7 @@ import ProjectBrief from "@/components/home/ProjectBrief";
 import KeyFacts from "@/components/home/KeyFacts";
 import ResortPositioning from "@/components/home/ResortPositioning";
 import KeyFeatures from "@/components/home/KeyFeatures";
-import Masterplan from "@/components/masterplan/Masterplan";
+import MasterplanExplorer from "@/components/masterplan/MasterplanExplorer";
 import Technology from "@/components/technology/Technology";
 import InvestmentStrategy from "@/components/investment/InvestmentStrategy";
 import Sustainability from "@/components/sustainability/Sustainability";
@@ -18,7 +18,7 @@ export default function HomePage() {
         <KeyFacts />
         <ResortPositioning />
         <KeyFeatures />
-        <Masterplan />
+        <MasterplanExplorer />
         {/* <MasterplanMap/> */}
         <InvestmentStrategy />
         <Technology />

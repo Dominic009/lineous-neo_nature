@@ -1,7 +1,15 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X, MapPin, Zap, Leaf, Users, Calendar, ChevronRight } from "lucide-react";
+import {
+  X,
+  MapPin,
+  Zap,
+  Leaf,
+  Users,
+  Calendar,
+  ChevronRight,
+} from "lucide-react";
 import { MasterplanLocation } from "@/lib/masterplan-locations";
 
 interface InfoPanelProps {
@@ -11,13 +19,29 @@ interface InfoPanelProps {
   panelRef: React.RefObject<HTMLDivElement | null>;
 }
 
-const statusStyles: Record<string, { label: string; color: string; bg: string }> = {
+const statusStyles: Record<
+  string,
+  { label: string; color: string; bg: string }
+> = {
   planned: { label: "Planned", color: "#C9A9FF", bg: "rgba(201,169,255,0.1)" },
-  "under-construction": { label: "In Progress", color: "#C9A45A", bg: "rgba(201,164,90,0.1)" },
-  completed: { label: "Completed", color: "#4a8c3f", bg: "rgba(74,140,63,0.1)" },
+  "under-construction": {
+    label: "In Progress",
+    color: "#C9A45A",
+    bg: "rgba(201,164,90,0.1)",
+  },
+  completed: {
+    label: "Completed",
+    color: "#4a8c3f",
+    bg: "rgba(74,140,63,0.1)",
+  },
 };
 
-export default function InfoPanel({ location, isOpen, onClose, panelRef }: InfoPanelProps) {
+export default function InfoPanel({
+  location,
+  isOpen,
+  onClose,
+  panelRef,
+}: InfoPanelProps) {
   if (!location) return null;
 
   const status = statusStyles[location.status] || statusStyles.planned;
@@ -85,7 +109,10 @@ export default function InfoPanel({ location, isOpen, onClose, panelRef }: InfoP
                   className="p-2.5 rounded-xl"
                   style={{ backgroundColor: `${location.accentColor}15` }}
                 >
-                  <MapPin className="w-5 h-5" style={{ color: location.accentColor }} />
+                  <MapPin
+                    className="w-5 h-5"
+                    style={{ color: location.accentColor }}
+                  />
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-xl font-bold text-bone tracking-tight font-display">
@@ -112,7 +139,9 @@ export default function InfoPanel({ location, isOpen, onClose, panelRef }: InfoP
 
             {/* Description */}
             <div className="px-6 pb-4">
-              <p className="text-sm leading-relaxed text-haze/80">{location.description}</p>
+              <p className="text-sm leading-relaxed text-haze/80">
+                {location.description}
+              </p>
             </div>
 
             {/* Divider */}
@@ -132,7 +161,9 @@ export default function InfoPanel({ location, isOpen, onClose, panelRef }: InfoP
                     <span className="text-[10px] font-mono text-haze/60 uppercase tracking-wider">
                       {feature.label}
                     </span>
-                    <span className="text-xs font-medium text-bone/80">{feature.value}</span>
+                    <span className="text-xs font-medium text-bone/80">
+                      {feature.value}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -144,7 +175,10 @@ export default function InfoPanel({ location, isOpen, onClose, panelRef }: InfoP
             {/* Technology */}
             <div className="p-6 pb-4">
               <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-3 h-3" style={{ color: location.accentColor }} />
+                <Zap
+                  className="w-3 h-3"
+                  style={{ color: location.accentColor }}
+                />
                 <h4 className="text-[10px] font-mono uppercase tracking-[0.25em] text-bone/40">
                   Technology
                 </h4>
@@ -164,7 +198,10 @@ export default function InfoPanel({ location, isOpen, onClose, panelRef }: InfoP
             {/* Sustainability */}
             <div className="px-6 pb-4">
               <div className="flex items-center gap-2 mb-3">
-                <Leaf className="w-3 h-3" style={{ color: location.accentColor }} />
+                <Leaf
+                  className="w-3 h-3"
+                  style={{ color: location.accentColor }}
+                />
                 <h4 className="text-[10px] font-mono uppercase tracking-[0.25em] text-bone/40">
                   Sustainability
                 </h4>
@@ -189,11 +226,15 @@ export default function InfoPanel({ location, isOpen, onClose, panelRef }: InfoP
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-1.5">
                   <Users className="w-3 h-3 text-haze/40" />
-                  <span className="text-[10px] font-mono text-haze/50">{location.capacity}</span>
+                  <span className="text-[10px] font-mono text-haze/50">
+                    {location.capacity}
+                  </span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Calendar className="w-3 h-3 text-haze/40" />
-                  <span className="text-[10px] font-mono text-haze/50">{location.completion}</span>
+                  <span className="text-[10px] font-mono text-haze/50">
+                    {location.completion}
+                  </span>
                 </div>
               </div>
               <motion.button
