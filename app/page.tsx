@@ -21,9 +21,9 @@ export default function HomePage() {
         <MasterplanExplorer />
         {/* <MasterplanMap/> */}
         <InvestmentStrategy />
-        <Technology />
         <VillaCollection />
-        <Sustainability />
+        <Technology />
+        {/* <Sustainability /> */}
       </main>
     </>
   );

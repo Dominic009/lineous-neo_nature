@@ -24,10 +24,10 @@ export default function Sustainability() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-void/75" />
-        <div className="absolute inset-0 bg-gradient-to-b from-void/50 via-transparent to-void/80" />
+        <div className="absolute inset-0 bg-linear-to-b from-void/50 via-transparent to-void/80" />
       </div>
 
-      <Container>
+      <Container className="relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-stretch">
            <div className="sticky top-32 self-start h-full">
             <span

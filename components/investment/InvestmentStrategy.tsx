@@ -14,7 +14,7 @@ export default function InvestmentStrategy() {
   return (
     <section
       id="investment"
-      className="relative bg-void py-24 md:py-32"
+      className="relative bg-void py-24 md:py-32 min-h-screen"
     >
       {/* Full-bleed background image */}
       <div className="absolute inset-0">
@@ -29,7 +29,7 @@ export default function InvestmentStrategy() {
         <div className="absolute inset-0 bg-gradient-to-b from-void/60 via-transparent to-void/90" />
       </div>
 
-      <Container>
+      <Container className="relative z-10">
         <div className="grid lg:grid-cols-[1.25fr_0.75fr] gap-12 lg:gap-20 items-start">
           <motion.div
             initial={{ opacity: 0, y: 36 }}

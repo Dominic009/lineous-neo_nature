@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import BrandIntro from "./BrandIntro";
-import ThemeToggle from "@/components/ThemeToggle";
+import ThemeSelector from "@/components/ThemeSelector";
 import { useTheme } from "@/components/ThemeProvider";
 import {
   ChevronDown,
@@ -266,7 +266,7 @@ export default function Navbar(): React.JSX.Element {
             </nav>
 
             <div className="flex items-center gap-3">
-              <ThemeToggle />
+              <ThemeSelector />
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-full text-haze hover:text-bone hover:bg-graphite/50 transition-colors"
