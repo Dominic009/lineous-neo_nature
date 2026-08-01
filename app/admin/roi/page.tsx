@@ -1,17 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState, useEffect } from "react";
+import { useToast } from "@/components/ui/Toast";
 
 export default function AdminROI() {
   const [password, setPassword] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
-  const [config, setConfig] = useState<any>(null);
+  const [config, setConfig] = useState<Record<string, any> | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [message, setMessage] = useState<{
-    type: "success" | "error" | null;
-    text: string;
-  }>({ type: null, text: "" });
+  const { success, error, confirm } = useToast();
 
   // Check if already authenticated via cookie
   useEffect(() => {
@@ -44,14 +43,13 @@ export default function AdminROI() {
       const data = await configRes.json();
       setConfig(data);
     } else {
-      setMessage({ type: "error", text: "Invalid password" });
+      error("Invalid password");
     }
   };
 
   const handleSave = async () => {
     if (!config) return;
     setSaving(true);
-    setMessage({ type: null, text: "" });
 
     const res = await fetch("/api/admin/roi-config", {
       method: "POST",
@@ -60,30 +58,27 @@ export default function AdminROI() {
     });
 
     if (res.ok) {
-      setMessage({ type: "success", text: "Configuration saved successfully" });
+      success("Configuration saved successfully");
     } else {
       const err = await res.json();
-      setMessage({ type: "error", text: err.error || "Failed to save" });
+      error(err.error || "Failed to save");
     }
 
     setSaving(false);
   };
 
   const handleRestoreDefaults = async () => {
-    if (!confirm("Are you sure you want to restore all defaults? This will overwrite your current configuration.")) return;
+    const confirmed = await confirm("Are you sure you want to restore all defaults? This will overwrite your current configuration.");
+    if (!confirmed) return;
     setSaving(true);
-    setMessage({ type: null, text: "" });
 
     try {
-      const defaultsRes = await fetch("/api/roi-config");
-      // We can't fetch defaults directly, so we'll use a hardcoded defaults approach
-      // For now, just reload the current config
       const configRes = await fetch("/api/roi-config");
       const data = await configRes.json();
       setConfig(data);
-      setMessage({ type: "success", text: "Defaults restored" });
+      success("Defaults restored");
     } catch {
-      setMessage({ type: "error", text: "Failed to restore defaults" });
+      error("Failed to restore defaults");
     }
 
     setSaving(false);
@@ -100,8 +95,6 @@ export default function AdminROI() {
     current[keys[keys.length - 1]] = value;
     setConfig(newConfig);
   };
-
-  console.log(password);
 
   if (!authenticated) {
     return (
@@ -127,9 +120,7 @@ export default function AdminROI() {
                   placeholder="Enter password"
                 />
               </div>
-              {message.type === "error" && (
-                <p className="text-sm text-red-400">{message.text}</p>
-              )}
+              {false}
               <button
                 type="submit"
                 className="w-full rounded-full bg-chrome2 px-6 py-3 text-xs font-bold uppercase tracking-[0.28em] text-void transition hover:bg-chrome1"
@@ -188,18 +179,6 @@ export default function AdminROI() {
             </button>
           </div>
         </div>
-
-        {message.type && (
-          <div
-            className={`mb-6 p-4 rounded-xl text-sm ${
-              message.type === "success"
-                ? "bg-chrome1/10 text-chrome1 border border-chrome1/20"
-                : "bg-red-500/10 text-red-400 border border-red-500/20"
-            }`}
-          >
-            {message.text}
-          </div>
-        )}
 
         {/* Defaults */}
         <section className="mb-8">

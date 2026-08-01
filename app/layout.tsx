@@ -7,6 +7,7 @@ import SmoothScroll from "@/components/layout/SmoothScroll";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import ScrollProgress from "@/components/ScrollProgress";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { ToastProvider } from "@/components/ui/Toast";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -39,16 +40,18 @@ export default function RootLayout({
       className={`${display.variable} ${mono.variable}`}
     >
       <body>
-        <ThemeProvider>
-          <SmoothScroll>
-            <div className="grain-overlay" />
-            <ScrollProgress />
-            <Navbar />
-            {children}
-            <Footer />
-            <WhatsAppButton />
-          </SmoothScroll>
-        </ThemeProvider>
+        <ToastProvider>
+          <ThemeProvider>
+            <SmoothScroll>
+              <div className="grain-overlay" />
+              <ScrollProgress />
+              <Navbar />
+              {children}
+              <Footer />
+              <WhatsAppButton />
+            </SmoothScroll>
+          </ThemeProvider>
+        </ToastProvider>
       </body>
     </html>
   );
