@@ -25,12 +25,12 @@ const SESSION_THEME_KEY = "theme-session";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [defaultTheme, setDefaultThemeState] = useState<Theme>(() => {
-    if (typeof window === "undefined") return "dark";
-    return (localStorage.getItem(DEFAULT_THEME_KEY) as Theme | null) || "dark";
+    if (typeof window === "undefined") return "light";
+    return (localStorage.getItem(DEFAULT_THEME_KEY) as Theme | null) || "light";
   });
 
   const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window === "undefined") return "dark";
+    if (typeof window === "undefined") return "light";
     const session = localStorage.getItem(SESSION_THEME_KEY) as Theme | null;
     if (session) return session;
     return defaultTheme;

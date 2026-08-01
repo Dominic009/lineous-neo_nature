@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
@@ -70,7 +71,7 @@ export default function Hero() {
       >
         <div className="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-widest2 text-haze">
           <span className="h-px w-8 bg-haze" />
-          Valuka, Bangladesh — Regenerative Hospitality
+          Valuka, Bangladesh
         </div>
 
         <h1 className="font-display font-light leading-[0.92] text-bone">
@@ -84,7 +85,7 @@ export default function Hero() {
                   delay: 0.15 + i * 0.12,
                   ease: customEase,
                 }}
-                className={`block text-hero-fluid ${
+                className={`block text-4xl md:text-5xl lg:text-8xl ${
                   i === 2 ? "text-gradient-chrome" : ""
                 }`}
               >
@@ -98,11 +99,25 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7, ease: customEase }}
-          className="mt-8 max-w-lg font-display text-base leading-relaxed text-haze md:text-lg"
+          className="mt-6 max-w-lg font-display text-sm leading-relaxed text-haze md:text-base"
         >
           A premium eco-intelligent destination where regenerative landscapes,
           luxury hospitality, and future-ready technology converge.
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.9, ease: customEase }}
+          className="mt-8"
+        >
+          <Link
+            href="/investment"
+            className="inline-flex items-center gap-2 rounded-full bg-chrome2 px-8 py-3 text-xs font-bold uppercase tracking-[0.28em] text-void transition hover:bg-chrome1"
+          >
+            Investment Opportunities
+          </Link>
+        </motion.div>
       </motion.div>
 
       <motion.div
