@@ -10,12 +10,21 @@ import InvestmentInquiry from "@/components/investment/InvestmentInquiry";
 import InquirySuccess from "@/components/investment/InquirySuccess";
 import WhyInvest from "@/components/investment/WhyInvest";
 import WhatHappensNext from "@/components/investment/WhatHappensNext";
+import SectionNav from "@/components/layout/SectionNav";
 
 export default function InvestmentPage() {
   const [inquirySubmitted, setInquirySubmitted] = useState(false);
 
   return (
     <main className="relative bg-void">
+      <SectionNav
+        items={[
+          { label: "Why Invest", href: "#why-invest" },
+          { label: "Process", href: "#process" },
+          { label: "Investment Inquiry", href: "#inquiry" },
+          { label: "ROI Calculator", href: "#roi-calculator" },
+        ]}
+      />
       {/* ── Parallax Hero ── */}
       <section className="relative min-h-[75vh] overflow-hidden bg-void">
         <ParallaxImage

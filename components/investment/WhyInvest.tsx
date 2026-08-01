@@ -53,7 +53,7 @@ const whyInvestItems = [
 
 export default function WhyInvest() {
   return (
-    <section className="relative bg-void py-20 md:py-28">
+    <section id="why-invest" className="relative bg-void py-20 md:py-28">
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute inset-0 opacity-20"

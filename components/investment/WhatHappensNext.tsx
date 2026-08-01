@@ -44,7 +44,7 @@ const timelineSteps = [
 
 export default function WhatHappensNext() {
   return (
-    <section className="relative bg-void py-20 md:py-28">
+    <section id="process" className="relative bg-void py-20 md:py-28">
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute inset-0 opacity-15"

@@ -8,11 +8,23 @@ import Technology from "@/components/technology/Technology";
 import InvestmentStrategy from "@/components/investment/InvestmentStrategy";
 import VillaCollection from "@/components/villas/VillaCollection";
 import InvestmentInquiry from "@/components/investment/InvestmentInquiry";
+import SectionNav from "@/components/layout/SectionNav";
 
 export default function HomePage() {
   return (
     <>
       <main>
+        <SectionNav
+          items={[
+            { label: "Project Brief", href: "#project-brief" },
+            { label: "Resort Position", href: "#positioning" },
+            { label: "Key Features", href: "#key-features" },
+            { label: "Masterplan", href: "#masterplan-explorer" },
+            { label: "Investment Strategy", href: "#investment" },
+            { label: "Villa Collection", href: "#villas" },
+            { label: "Technology", href: "#technology" },
+          ]}
+        />
         <Hero />
         <ProjectBrief />
         <KeyFacts />
