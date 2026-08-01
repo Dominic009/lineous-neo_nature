@@ -73,9 +73,9 @@ export default function AdminROI() {
     setSaving(true);
 
     try {
-      const configRes = await fetch("/api/roi-config");
-      const data = await configRes.json();
-      setConfig(data);
+      const defaultsRes = await fetch("/api/admin/roi-config-defaults");
+      const defaults = await defaultsRes.json();
+      setConfig(defaults);
       success("Defaults restored");
     } catch {
       error("Failed to restore defaults");

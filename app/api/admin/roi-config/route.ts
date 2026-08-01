@@ -87,12 +87,19 @@ export async function POST(req: Request) {
       );
     }
 
-    // Create backup before writing
+    // Create backup only if it doesn't already exist
+    // This preserves the original defaults as a fallback
     try {
-      const existing = await fs.readFile(CONFIG_PATH, "utf-8");
-      await fs.writeFile(BACKUP_PATH, existing);
+      await fs.access(BACKUP_PATH);
+      // Backup already exists, don't overwrite it
     } catch {
-      // No existing file to backup, that's fine
+      // No backup exists yet, create one from current config
+      try {
+        const existing = await fs.readFile(CONFIG_PATH, "utf-8");
+        await fs.writeFile(BACKUP_PATH, existing);
+      } catch {
+        // No existing file to backup, that's fine
+      }
     }
 
     // Write new config

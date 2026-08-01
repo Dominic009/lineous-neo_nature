@@ -21,7 +21,7 @@
       },
       {
         "id": "premium",
-        "name": "Premium Villa",
+        "name": "Premium V",
         "yield": 10,
         "appreciation": 5,
         "description": "Spacious suite with private terrace"
@@ -41,6 +41,6 @@
       20
     ]
   },
-  "updatedAt": "2026-08-01T05:00:54.732Z",
+  "updatedAt": "2026-08-01T07:44:55.597Z",
   "updatedBy": "Admin"
 }
