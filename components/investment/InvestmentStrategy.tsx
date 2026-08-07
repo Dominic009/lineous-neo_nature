@@ -25,8 +25,8 @@ export default function InvestmentStrategy() {
           intensity={0.3}
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-void/80" />
-        <div className="absolute inset-0 bg-gradient-to-b from-void/60 via-transparent to-void/90" />
+        <div className="absolute inset-0 bg-overlay/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-overlay/60 via-transparent to-overlay/90" />
       </div>
 
       <Container className="relative z-10">

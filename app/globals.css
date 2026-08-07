@@ -15,6 +15,9 @@
   --color-chrome2: #C9A9FF;
   --color-chrome3: #FF9EC4;
 
+  /* Overlay color - stays dark in both themes for image overlays */
+  --color-overlay: #0A0A0C;
+
   /* Fluid typography */
   --text-hero-fluid: clamp(3rem, 9vw, 9rem);
   --text-display-fluid: clamp(2rem, 5vw, 4.5rem);
@@ -37,11 +40,6 @@
   --color-chrome1: #5B9FE5;
   --color-chrome2: #A87BE0;
   --color-chrome3: #E07BA8;
-}
-
-/* Light mode image brightness */
-[data-theme="light"] img {
-  filter: brightness(1.08);
 }
 
 /* Smooth theme transitions */

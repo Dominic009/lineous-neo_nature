@@ -75,7 +75,7 @@ export default function ProjectBrief() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-void/20" />
+                <div className="absolute inset-0 bg-overlay/20" />
               </motion.div>
             ))}
           </div>

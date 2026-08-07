@@ -12,8 +12,8 @@ export default function InvestHero() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-void/40" />
-        <div className="absolute inset-0 bg-linear-to-r from-void/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-overlay/40" />
+        <div className="absolute inset-0 bg-linear-to-r from-overlay/60 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
       </div>
 

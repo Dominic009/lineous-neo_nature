@@ -50,7 +50,7 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, var(--color-void) 0%, transparent 30%)",
+              "linear-gradient(to bottom, var(--color-overlay) 0%, transparent 30%)",
           }}
         /> */}
       </motion.div>

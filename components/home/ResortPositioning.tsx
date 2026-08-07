@@ -47,8 +47,8 @@ export default function ResortPositioning() {
           intensity={0.3}
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-void/75" />
-        <div className="absolute inset-0 bg-gradient-to-t from-void via-void/40 to-void/70" />
+        <div className="absolute inset-0 bg-overlay/75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-overlay via-overlay/40 to-overlay/70" />
       </div>
 
       <Container className="relative z-10">

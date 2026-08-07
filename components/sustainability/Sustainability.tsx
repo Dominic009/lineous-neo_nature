@@ -23,8 +23,8 @@ export default function Sustainability() {
           intensity={0.3}
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-void/75" />
-        <div className="absolute inset-0 bg-linear-to-b from-void/50 via-transparent to-void/80" />
+        <div className="absolute inset-0 bg-overlay/75" />
+        <div className="absolute inset-0 bg-linear-to-b from-overlay/50 via-transparent to-overlay/80" />
       </div>
 
       <Container className="relative z-10">

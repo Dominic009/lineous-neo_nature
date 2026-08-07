@@ -45,7 +45,7 @@ export default function EngageWithUs() {
                   alt={card.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-void/30" />
+                <div className="absolute inset-0 bg-overlay/30" />
               </div>
 
               <div className="p-7 md:p-8 space-y-4">

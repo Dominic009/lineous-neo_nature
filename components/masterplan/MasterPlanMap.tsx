@@ -352,7 +352,7 @@ export default function MasterplanMap() {
 
               {/* Spot Image */}
               <div className="relative h-64 w-full overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-void z-10" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-overlay z-10" />
                 <Image
                   src={selectedSpot.image}
                   alt={selectedSpot.label}

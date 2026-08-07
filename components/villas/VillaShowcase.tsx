@@ -66,7 +66,7 @@ export default function VillaShowcase() {
                 intensity={0.5}
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-void/10" />
+              <div className="absolute inset-0 bg-overlay/10" />
             </div>
           </div>
         ))}

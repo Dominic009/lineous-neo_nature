@@ -22,8 +22,8 @@ export default function Technology() {
           intensity={0.3}
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-void/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-void via-void/70 to-void/50" />
+        <div className="absolute inset-0 bg-overlay/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-overlay via-overlay/70 to-overlay/50" />
       </div>
 
       {/* Chrome accent line at top */}
