@@ -1,4 +1,4 @@
-import Hero from "@/components/home/Hero";
+import HeroCinematic from "@/components/home/HeroCinematic";
 import ProjectBrief from "@/components/home/ProjectBrief";
 import KeyFacts from "@/components/home/KeyFacts";
 import ResortPositioning from "@/components/home/ResortPositioning";
@@ -25,7 +25,7 @@ export default function HomePage() {
             { label: "Technology", href: "#technology" },
           ]}
         />
-        <Hero />
+        <HeroCinematic />
         <ProjectBrief />
         <KeyFacts />
         <ResortPositioning />

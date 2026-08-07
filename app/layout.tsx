@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -23,6 +23,13 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
+const serif = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Neo Nature — Regenerative Hospitality",
   description:
@@ -38,7 +45,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="light"
-      className={`${display.variable} ${mono.variable}`}
+      className={`${display.variable} ${mono.variable} ${serif.variable}`}
     >
       <body>
         <ToastProvider>
