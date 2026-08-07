@@ -7,6 +7,7 @@
 
   /* Color tokens - dark (default) */
   --color-void: #0A0A0C;
+  --color-secondary: #1b281c;
   --color-graphite: #1A1A1E;
   --color-line: #2A2A2F;
   --color-bone: #EDEDE8;
@@ -19,6 +20,8 @@
   --text-hero-fluid: clamp(3rem, 9vw, 9rem);
   --text-display-fluid: clamp(2rem, 5vw, 4.5rem);
 
+  --color-overlay: #0A0A0C;
+
   /* Letter spacing */
   --tracking-tightest2: -0.05em;
   --tracking-widest2: 0.35em;
@@ -30,6 +33,7 @@
 /* Light theme overrides */
 [data-theme="light"] {
   --color-void: #F5F5F0;
+  --color-secondary: #d3ffcf;
   --color-graphite: #FFFFFF;
   --color-line: #E5E5E0;
   --color-bone: #1A1A1E;
@@ -40,9 +44,9 @@
 }
 
 /* Light mode image brightness */
-[data-theme="light"] img {
+/* [data-theme="light"] img {
   filter: brightness(1.08);
-}
+} */
 
 /* Smooth theme transitions */
 *,

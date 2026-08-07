@@ -35,7 +35,7 @@ export default function VillaCollection() {
               intensity={0.5}
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-void/20" />
+            <div className="absolute inset-0 bg-overlay/20" />
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-void/80 to-transparent">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-chrome1 font-mono">Pod Villas</p>
               <p className="text-lg font-bold text-bone mt-2">Responsive Living</p>
@@ -50,7 +50,7 @@ export default function VillaCollection() {
               intensity={0.5}
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-void/20" />
+            <div className="absolute inset-0 bg-overlay/20" />
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-void/80 to-transparent">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-chrome1 font-mono">Tree-Level Sky Villas</p>
               <p className="text-lg font-bold text-bone mt-2">Vertical Living</p>
@@ -65,7 +65,7 @@ export default function VillaCollection() {
               intensity={0.5}
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-void/20" />
+            <div className="absolute inset-0 bg-overlay/20" />
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-void/80 to-transparent">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-chrome1 font-mono">Floating Villas</p>
               <p className="text-lg font-bold text-bone mt-2">Aquatic Horizon</p>

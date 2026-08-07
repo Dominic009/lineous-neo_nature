@@ -6,16 +6,13 @@ import {
   AnimatePresence,
   motion,
   useScroll,
+  useTransform,
 } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
+import Container from "./Container";
 import BrandIntro from "./BrandIntro";
-import ThemeSelector from "@/components/ThemeSelector";
-import { useTheme } from "@/components/ThemeProvider";
-import {
-  ChevronDown,
-  MenuIcon,
-  X,
-} from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
+import { MenuIcon, X, ChevronDown } from "lucide-react";
 
 const EXPERIENCE_ITEMS = [
   { label: "Lobby / Lounge", href: "/experience#lobby" },
@@ -47,36 +44,32 @@ const NAV_ITEMS = [
   },
   { label: "Invest", href: "/investment" },
   { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact-us" },
+  { label: "Contact Us", href: "/contact-us" },
 ];
-
-const customEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export default function Navbar(): React.JSX.Element {
   const { scrollY } = useScroll();
   const pathname = usePathname();
-  const { theme } = useTheme();
 
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileOpenDropdowns, setMobileOpenDropdowns] = useState<string[]>([]);
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const isDropdownOpen = (label: string) => activeDropdown === label;
 
-  const openDropdown = (label: string) => {
-    setActiveDropdown(label);
+  const handleMouseEnter = (label: string, hasDropdown?: boolean) => {
+    if (hasDropdown) setActiveDropdown(label);
   };
 
-  const closeDropdown = () => {
+  const handleMouseLeave = () => {
     setActiveDropdown(null);
   };
 
   const toggleMobileDropdown = (label: string) => {
     setMobileOpenDropdowns((prev) =>
-      prev.includes(label) ? prev.filter((l) => l !== label) : [...prev, label],
+      prev.includes(label) ? prev.filter((l) => l !== label) : [...prev, label]
     );
   };
 
@@ -95,22 +88,15 @@ export default function Navbar(): React.JSX.Element {
   }, [scrollY]);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = "auto";
     };
   }, [isOpen]);
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setActiveDropdown(null);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  const width = useTransform(scrollY, [0, 120], ["100%", "92%"]);
+  const isHome = pathname === "/";
 
   return (
     <>
@@ -124,103 +110,130 @@ export default function Navbar(): React.JSX.Element {
       </AnimatePresence>
 
       <motion.header
+        style={{ width }}
         initial={{ y: -120 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
         className={`
-          fixed inset-x-0 top-0 z-50
-          transition-all duration-500 ease-fluid
+          fixed
+         ${isHome ? "top-0 md:top-4" : scrolled ? "top-4" : "top-0"}
+          left-1/2
+          -translate-x-1/2
+          z-50
+          transition-all
+          duration-500
           ${
-            scrolled
-              ? `h-20 bg-void/80 backdrop-blur-md ${theme === "light" ? "shadow-[0_18px_60px_rgba(0,0,0,0.08)]" : "shadow-[0_18px_60px_rgba(0,0,0,0.4)]"}`
-              : `h-24 bg-void/60 backdrop-blur-sm ${theme === "light" ? "shadow-[0_4px_20px_rgba(0,0,0,0.04)]" : ""}`
+            pathname === "/"
+              ? scrolled
+                ? `
+                  rounded-3xl
+                  bg-[var(--color-void)]/85
+                  backdrop-blur-3xl
+                  shadow-[0_18px_60px_rgba(10,10,12,0.4)]
+                `
+                : `
+                  bg-transparent
+                `
+              : `
+                bg-[var(--color-void)]/85
+                backdrop-blur-3xl
+                ${
+                  scrolled
+                    ? "rounded-3xl shadow-[0_18px_60px_rgba(10,10,12,0.4)]"
+                    : ""
+                }
+              `
           }
         `}
       >
-        <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20 h-full">
-          <div className="flex items-center justify-between h-full">
+        <Container>
+          <div
+            className={`
+              flex
+              items-center
+              justify-between
+              transition-all
+              duration-500
+              ${scrolled ? "h-20" : "h-28"}
+            `}
+          >
             <Link
               href="/"
-              className="group relative font-display text-xl font-medium tracking-tight text-bone"
+              className="group relative text-[var(--color-bone)] font-bold md:text-lg uppercase tracking-[0.35em] flex "
             >
               <span
-                className="transition-all duration-300 group-hover:text-chrome1"
+                className="
+                  transition-all
+                  duration-300
+                  group-hover:text-[var(--color-chrome2)] flex items-center
+                "
               >
-                NEO NATURE
+                <span className="w-28">
+                  {" "}
+                  <img src="/logo_light_beige.png" alt="" className="-ml-10" />
+                </span>
+                <span className="-ml-12 font-normal">Neo Nature</span>
               </span>
+
               <motion.div
-                className="absolute -bottom-2 left-0 h-0.5 bg-chrome1"
+                className="
+                  absolute
+                  -bottom-2
+                  left-0
+                  h-0.5
+                  bg-[var(--color-chrome2)]
+                "
                 initial={{ width: 0 }}
                 whileHover={{ width: "100%" }}
               />
             </Link>
 
-            <nav
-              className="hidden lg:flex items-center gap-8"
-              ref={dropdownRef}
-            >
+            <nav className="hidden lg:flex items-center gap-1 ml-auto">
               {NAV_ITEMS.map((item) => (
                 <div
                   key={item.label}
                   className="relative"
-                  onMouseEnter={() => item.hasDropdown && openDropdown(item.label)}
-                  onMouseLeave={closeDropdown}
+                  onMouseEnter={() =>
+                    handleMouseEnter(item.label, item.hasDropdown)
+                  }
+                  onMouseLeave={handleMouseLeave}
                 >
-                  {item.hasDropdown ? (
-                    <button
-                      className={`
-                        relative flex items-center gap-1.5
-                        py-2 text-sm uppercase tracking-[0.2em]
-                        transition-all duration-300
-                        ${
-                          isDropdownOpen(item.label)
-                            ? "text-chrome1"
-                            : "text-haze hover:text-bone"
-                        }
-                      `}
-                    >
-                      <span>{item.label}</span>
-                      <ChevronDown
-                        size={14}
+                  <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
+                    <div className="flex items-center gap-1 px-5">
+                      <Link
+                        href={item.href}
                         className={`
-                          transition-all duration-300
-                          ${isDropdownOpen(item.label) ? "text-chrome1 rotate-180" : "text-haze/50"}
+                          group
+                          relative
+                          flex
+                          items-center
+                          gap-1
+                          overflow-hidden
+                          py-2
+                          text-sm
+                          uppercase
+                          tracking-[0.2em]
+                          transition-all
+                          duration-300
+                          ${
+                            isActive(item.href)
+                              ? "border-b border-(--color-chrome2) text-white font-semibold"
+                              : "text-(--color-bone) hover:border-b hover:border-(--color-graphite) hover:text-(--color-bone)"
+                          }
                         `}
-                      />
-                      {/* Active underline */}
-                      {isActive(item.href) && (
-                        <motion.span
-                          className="absolute -bottom-1 left-0 right-0 h-px bg-chrome1"
-                          layoutId="nav-underline"
-                          transition={{ duration: 0.3, ease: "easeOut" }}
+                      >
+                        <span className="relative z-10">{item.label}</span>
+                      </Link>
+                      {item.hasDropdown && (
+                        <ChevronDown
+                          className={`
+                            w-3.5 h-3.5 transition-transform duration-300 text-(--color-bone)
+                            ${isDropdownOpen(item.label) ? "rotate-180" : ""}
+                          `}
                         />
                       )}
-                    </button>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className={`
-                        relative flex items-center py-2
-                        text-sm uppercase tracking-[0.2em]
-                        transition-all duration-300
-                        ${
-                          isActive(item.href)
-                            ? "text-chrome1"
-                            : "text-haze hover:text-bone"
-                        }
-                      `}
-                    >
-                      {item.label}
-                      {/* Active underline */}
-                      {isActive(item.href) && (
-                        <motion.span
-                          className="absolute -bottom-1 left-0 right-0 h-px bg-chrome1"
-                          layoutId="nav-underline"
-                          transition={{ duration: 0.3, ease: "easeOut" }}
-                        />
-                      )}
-                    </Link>
-                  )}
+                    </div>
+                  </motion.div>
 
                   {item.hasDropdown && item.items && (
                     <AnimatePresence>
@@ -230,14 +243,12 @@ export default function Navbar(): React.JSX.Element {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ duration: 0.2, ease: "easeOut" }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 rounded-2xl bg-void/95 backdrop-blur-2xl border border-line shadow-[0_12px_40px_rgba(0,0,0,0.5)] overflow-hidden z-50"
+                          className="absolute top-full left-0 mt-2 min-w-[220px] rounded-2xl bg-[var(--color-void)]/95 backdrop-blur-2xl border border-[var(--color-line)]/40 shadow-[0_12px_40px_rgba(10,10,12,0.4)] overflow-hidden z-60"
+                          onMouseEnter={() =>
+                            handleMouseEnter(item.label, item.hasDropdown)
+                          }
+                          onMouseLeave={handleMouseLeave}
                         >
-                          {/* Parent route name as heading */}
-                          <div className="px-5 py-3 border-b border-line/30">
-                            <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-chrome1 font-mono">
-                              {item.label}
-                            </span>
-                          </div>
                           {item.items.map((subItem, index) => (
                             <motion.div
                               key={subItem.label}
@@ -250,8 +261,7 @@ export default function Navbar(): React.JSX.Element {
                             >
                               <Link
                                 href={subItem.href}
-                                onClick={() => setActiveDropdown(null)}
-                                className="block px-5 py-3.5 text-sm uppercase tracking-[0.2em] text-haze hover:bg-graphite/30 hover:text-chrome1 transition-all duration-200"
+                                className="block px-5 py-3.5 text-sm uppercase tracking-[0.2em] text-[var(--color-bone)] hover:bg-[var(--color-graphite)]/30 hover:text-[var(--color-chrome2)] transition-all duration-200"
                               >
                                 {subItem.label}
                               </Link>
@@ -265,23 +275,23 @@ export default function Navbar(): React.JSX.Element {
               ))}
             </nav>
 
-            <div className="flex items-center gap-3">
-              <ThemeSelector />
+            <div className="flex items-center gap-4">
+              <ThemeToggle />
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-full text-haze hover:text-bone hover:bg-graphite/50 transition-colors"
+                className="lg:hidden relative w-12 h-12 flex items-center justify-center rounded-full text-[var(--color-bone)] hover:bg-[var(--color-graphite)] hover:text-[var(--color-void)] transition-colors"
               >
-                <MenuIcon size={20} strokeWidth={1.5} />
+                <MenuIcon />
               </button>
             </div>
           </div>
-        </div>
+        </Container>
 
         <AnimatePresence>
           {isOpen && (
             <>
               <motion.div
-                className="fixed inset-0 bg-void/70 backdrop-blur-md z-40 lg:hidden"
+                className="fixed inset-0 bg-(--color-void)/70 backdrop-blur-md z-60 lg:hidden"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -297,70 +307,115 @@ export default function Navbar(): React.JSX.Element {
                   ease: "easeInOut",
                 }}
                 className="
-                  fixed top-0 right-0 bottom-0 w-[85vw] max-w-100
-                  bg-void border-l border-line z-50 lg:hidden
+                  fixed
+                  top-0
+                  right-0
+                  bottom-0
+                  w-[85vw]
+                  max-w-100
+                  bg-(--color-void)
+                  border-l
+                  border-(--color-line)
+                  z-70
+                  lg:hidden
                 "
               >
                 <div className="h-full flex flex-col">
-                  <div className="p-8 border-b border-line/30 flex items-center justify-between">
-                    <h3 className="text-bone uppercase tracking-[0.3em] text-xs">
+                  <div className="p-8 border-b border-[var(--color-line)]/30 flex items-center justify-between">
+                    <h3 className="text-[var(--color-bone)] uppercase tracking-[0.3em] text-xs">
                       Navigation
                     </h3>
                     <span
                       onClick={() => setIsOpen(false)}
-                      className="text-bone cursor-pointer"
+                      className="text-[var(--color-bone)] cursor-pointer"
                     >
-                      <X size={24} strokeWidth={1.5} />
+                      <X />
                     </span>
                   </div>
 
-                  <div className="flex-1 flex flex-col justify-center px-8 bg-void">
+                  <div className="flex-1 flex flex-col justify-center px-8 bg-[var(--color-void)]">
                     {NAV_ITEMS.map((item, index) => (
                       <div key={item.label}>
                         {item.hasDropdown ? (
                           <motion.div
-                            initial={{ opacity: 0, x: 40 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: 40 }}
-                            transition={{ delay: index * 0.08 }}
+                            initial={{
+                              opacity: 0,
+                              x: 40,
+                            }}
+                            animate={{
+                              opacity: 1,
+                              x: 0,
+                            }}
+                            exit={{
+                              opacity: 0,
+                              x: 40,
+                            }}
+                            transition={{
+                              delay: index * 0.08,
+                            }}
                           >
                             <button
                               onClick={() => toggleMobileDropdown(item.label)}
                               className={`
-                                flex items-center justify-between w-full
-                                text-2xl py-5 border-b border-line/20
+                                flex
+                                items-center
+                                justify-between
+                                w-full
+                                text-2xl
+                                py-5
+                                border-b
+                                border-[var(--color-line)]/20
                                 ${
                                   isActive(item.href)
-                                    ? "text-chrome1"
-                                    : "text-bone"
+                                    ? "text-[var(--color-chrome2)]"
+                                    : "text-[var(--color-bone)]"
                                 }
                               `}
                             >
                               <span>{item.label}</span>
                               <ChevronDown
                                 className={`
-                                  w-5 h-5 transition-transform duration-300
-                                  ${isMobileDropdownOpen(item.label) ? "rotate-180" : ""}
+                                  w-5 h-5 transition-transform duration-300 text-(--color-bone)
+                                  ${
+                                    isMobileDropdownOpen(item.label)
+                                      ? "rotate-180"
+                                      : ""
+                                  }
                                 `}
                               />
                             </button>
                           </motion.div>
                         ) : (
                           <motion.div
-                            initial={{ opacity: 0, x: 40 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: 40 }}
-                            transition={{ delay: index * 0.08 }}
+                            initial={{
+                              opacity: 0,
+                              x: 40,
+                            }}
+                            animate={{
+                              opacity: 1,
+                              x: 0,
+                            }}
+                            exit={{
+                              opacity: 0,
+                              x: 40,
+                            }}
+                            transition={{
+                              delay: index * 0.08,
+                            }}
                           >
                             <Link
                               href={item.href}
                               onClick={() => setIsOpen(false)}
                               className={`
-                                block text-2xl py-5 border-b border-line/20
+                                block
+                                text-2xl
+                                py-5
+                                border-b
+                                border-[var(--color-line)]/20
                                 ${
                                   isActive(item.href)
-                                    ? "text-chrome1"
-                                    : "text-bone"
+                                    ? "text-[var(--color-chrome2)]"
+                                    : "text-[var(--color-bone)]"
                                 }
                               `}
                             >
@@ -384,7 +439,7 @@ export default function Navbar(): React.JSX.Element {
                                     key={subItem.label}
                                     href={subItem.href}
                                     onClick={() => setIsOpen(false)}
-                                    className="block text-lg py-2 text-haze hover:text-chrome1"
+                                    className="block text-lg py-2 text-[var(--color-bone)]/70 hover:text-[var(--color-chrome2)]"
                                   >
                                     {subItem.label}
                                   </Link>
