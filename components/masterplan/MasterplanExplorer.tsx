@@ -102,8 +102,8 @@ export default function MasterplanExplorer() {
           className="object-cover"
         />
         {/* Cinematic overlay */}
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-void/60 via-void/20 to-void/40" /> */}
-        {/* <div className="absolute inset-0 bg-gradient-to-r from-void/30 via-transparent to-void/30" /> */}
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-overlay/60 via-overlay/20 to-overlay/40" /> */}
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-overlay/30 via-transparent to-overlay/30" /> */}
       </motion.div>
 
       {/* Ambient particles */}
@@ -146,7 +146,7 @@ export default function MasterplanExplorer() {
 
       {/* Dim overlay when active */}
       <motion.div
-        className="absolute inset-0 pointer-events-none bg-void/40"
+        className="absolute inset-0 pointer-events-none bg-overlay/40"
         animate={{ opacity: activeLocationId ? 1 : 0 }}
         transition={{ duration: 0.4 }}
         style={{ zIndex: 6 }}

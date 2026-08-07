@@ -79,7 +79,7 @@ export default function InvestmentMap() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-void/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-overlay/30 pointer-events-none" />
 
           {mapPoints.map((spot) => (
             <div

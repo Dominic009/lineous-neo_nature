@@ -78,7 +78,7 @@ export default function KeyFeatures() {
                       intensity={0.5}
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-void/10 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-overlay/10 to-transparent" />
                   </div>
                   <div className="p-6">
                     <div className="mb-4 h-px w-12 bg-chrome1" />
