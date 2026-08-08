@@ -16,17 +16,6 @@
   --color-chrome2: #C9A9FF;
   --color-chrome3: #FF9EC4;
 
-  /* Overlay color - stays dark in both themes for image overlays */
-  --color-overlay: #0A0A0C;
-
-  /* Warm natural palette for cinematic hero */
-  --color-ivory: #F5F0E8;
-  --color-cream: #EDE4D3;
-  --color-charcoal-warm: #2C2823;
-  --color-sand: #C2B280;
-  --color-muted-gold: #B8A88A;
-  --color-olive: #6B705C;
-
   /* Fluid typography */
   --text-hero-fluid: clamp(3rem, 9vw, 9rem);
   --text-display-fluid: clamp(2rem, 5vw, 4.5rem);
@@ -44,7 +33,9 @@
 /* Light theme overrides */
 [data-theme="light"] {
   --color-void: #F5F5F0;
-  --color-secondary: #d3ffcf;
+  --color-secondary-lime: #086300;
+  --color-secondary-mid: #032800;
+  --color-secondary-bg: #032800;
   --color-graphite: #FFFFFF;
   --color-line: #E5E5E0;
   --color-bone: #1A1A1E;

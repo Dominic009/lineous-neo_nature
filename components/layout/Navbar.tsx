@@ -217,7 +217,7 @@ export default function Navbar(): React.JSX.Element {
                           duration-300
                           ${
                             isActive(item.href)
-                              ? "border-b border-(--color-chrome2) text-white font-semibold"
+                              ? "border-b border-(--color-chrome2) text-[var(--color-secondary-lime)] font-semibold"
                               : "text-(--color-bone) hover:border-b hover:border-(--color-graphite) hover:text-(--color-bone)"
                           }
                         `}

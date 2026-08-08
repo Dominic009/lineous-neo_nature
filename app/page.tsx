@@ -9,6 +9,7 @@ import InvestmentStrategy from "@/components/investment/InvestmentStrategy";
 import VillaCollection from "@/components/villas/VillaCollection";
 import InvestmentInquiry from "@/components/investment/InvestmentInquiry";
 import SectionNav from "@/components/layout/SectionNav";
+import Hero from "@/components/home/Hero";
 
 export default function HomePage() {
   return (
@@ -25,7 +26,8 @@ export default function HomePage() {
             { label: "Technology", href: "#technology" },
           ]}
         />
-        <HeroCinematic />
+        {/* <HeroCinematic /> */}
+        <Hero/>
         <ProjectBrief />
         <KeyFacts />
         <ResortPositioning />
