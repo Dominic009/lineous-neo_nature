@@ -1,44 +1,58 @@
 import HeroCinematic from "@/components/home/HeroCinematic";
-import ProjectBrief from "@/components/home/ProjectBrief";
-import KeyFacts from "@/components/home/KeyFacts";
-import ResortPositioning from "@/components/home/ResortPositioning";
-import KeyFeatures from "@/components/home/KeyFeatures";
+import Philosophy from "@/components/home/Philosophy";
+import TheLand from "@/components/home/TheLand";
+import TheResort from "@/components/home/TheResort";
+import Architecture from "@/components/home/Architecture";
 import MasterplanExplorer from "@/components/masterplan/MasterplanExplorer";
-import Technology from "@/components/technology/Technology";
-import InvestmentStrategy from "@/components/investment/InvestmentStrategy";
+import Experiences from "@/components/home/Experiences";
+import Residences from "@/components/home/Residences";
+import Investment from "@/components/home/Investment";
+import Legacy from "@/components/home/Legacy";
 import VillaCollection from "@/components/villas/VillaCollection";
+import Technology from "@/components/technology/Technology";
 import InvestmentInquiry from "@/components/investment/InvestmentInquiry";
 import SectionNav from "@/components/layout/SectionNav";
-import Hero from "@/components/home/Hero";
+import SectionTransition from "@/components/home/SectionTransition";
+import ScrollColorTransition from "@/components/home/ScrollColorTransition";
 
 export default function HomePage() {
   return (
     <>
       <main>
+        <ScrollColorTransition />
         <SectionNav
           items={[
-            { label: "Project Brief", href: "#project-brief" },
-            { label: "Resort Position", href: "#positioning" },
-            { label: "Key Features", href: "#key-features" },
+            { label: "Philosophy", href: "#philosophy" },
+            { label: "The Land", href: "#the-land" },
+            { label: "The Resort", href: "#the-resort" },
+            { label: "Architecture", href: "#architecture" },
             { label: "Masterplan", href: "#masterplan-explorer" },
-            { label: "Investment Strategy", href: "#investment" },
-            { label: "Villa Collection", href: "#villas" },
-            { label: "Technology", href: "#technology" },
+            { label: "Experiences", href: "#experiences" },
+            { label: "Residences", href: "#residences" },
+            { label: "Investment", href: "#investment" },
+            { label: "Legacy", href: "#legacy" },
           ]}
         />
-        {/* <HeroCinematic /> */}
-        <Hero/>
-        <ProjectBrief />
-        <KeyFacts />
-        <ResortPositioning />
-        <KeyFeatures />
+        <HeroCinematic />
+        <SectionTransition fromBg="bg-void" toBg="bg-ivory" />
+        <Philosophy />
+        <SectionTransition fromBg="bg-ivory" toBg="bg-void" />
+        <TheLand />
+        <TheResort />
+        <SectionTransition fromBg="bg-void" toBg="bg-void" />
+        <Architecture />
         <MasterplanExplorer />
-        {/* <MasterplanMap/> */}
-        {/* <InvestmentStrategy /> */}
-        <InvestmentInquiry />
+        <SectionTransition fromBg="bg-void" toBg="bg-ivory" />
+        <Experiences />
+        <SectionTransition fromBg="bg-ivory" toBg="bg-forest" />
+        <Residences />
+        <SectionTransition fromBg="bg-forest" toBg="bg-stone" />
+        <Investment />
+        <SectionTransition fromBg="bg-stone" toBg="bg-void" />
+        <Legacy />
         <VillaCollection />
         <Technology />
-        {/* <Sustainability /> */}
+        <InvestmentInquiry />
       </main>
     </>
   );
