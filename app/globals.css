@@ -45,7 +45,7 @@
 }
 
 /* Light theme overrides */
-[data-theme="light"] {
+html:not(.dark) {
   --color-void: #F5F5F0;
   --color-secondary-lime: #086300;
   --color-secondary-mid: #032800;
@@ -117,7 +117,7 @@ body {
   background-size: 180px;
 }
 
-[data-theme="light"] .grain-overlay {
+html:not(.dark) .grain-overlay {
   opacity: 0.025;
 }
 
@@ -219,15 +219,15 @@ html.lenis {
 }
 
 /* Dark theme support for light sections */
-[data-theme="dark"] .dark\:bg-void {
+.dark .dark\:bg-void {
   background-color: var(--color-void);
 }
 
-[data-theme="dark"] .dark\:text-bone {
+.dark .dark\:text-bone {
   color: var(--color-bone);
 }
 
-[data-theme="dark"] .dark\:text-charcoal {
+.dark .dark\:text-charcoal {
   color: var(--color-charcoal);
 }
 

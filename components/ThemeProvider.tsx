@@ -37,13 +37,23 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   });
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
+    const root = document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
   }, [theme]);
 
   const setTheme = useCallback(
     (newTheme: Theme) => {
       setThemeState(newTheme);
-      document.documentElement.setAttribute("data-theme", newTheme);
+      const root = document.documentElement;
+      if (newTheme === "dark") {
+        root.classList.add("dark");
+      } else {
+        root.classList.remove("dark");
+      }
       localStorage.setItem(SESSION_THEME_KEY, newTheme);
     },
     []
