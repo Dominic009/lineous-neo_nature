@@ -201,6 +201,36 @@ html.lenis {
   }
 }
 
+/* Text shadow for readability over images */
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-md {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow-light {
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3), 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Dark theme support for light sections */
+[data-theme="dark"] .dark\:bg-void {
+  background-color: var(--color-void);
+}
+
+[data-theme="dark"] .dark\:text-bone {
+  color: var(--color-bone);
+}
+
+[data-theme="dark"] .dark\:text-charcoal {
+  color: var(--color-charcoal);
+}
+
 /* Architectural annotation style */
 .annotation {
   font-family: var(--font-mono);

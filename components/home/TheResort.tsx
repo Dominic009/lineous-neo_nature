@@ -63,13 +63,13 @@ export default function TheResort() {
         <div className="absolute top-12 left-8 md:top-16 md:left-16 lg:top-20 lg:left-24 z-20">
           <motion.p
             style={{ x: titleX }}
-            className="annotation text-bone/50 mb-4"
+            className="annotation text-bone/70 mb-4 text-shadow-sm"
           >
             THE RESORT
           </motion.p>
           <motion.h2
             style={{ x: titleX }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-[-0.04em] text-bone font-display"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-[-0.04em] text-bone font-display text-shadow-md"
           >
             A journey through
             <br />
@@ -110,14 +110,14 @@ export default function TheResort() {
                   {/* Caption and description — architectural style */}
                   <div className="mt-4">
                     <div className="flex items-center justify-between mb-2">
-                      <p className="annotation text-bone/40">
+                      <p className="annotation text-bone/70 text-shadow-sm">
                         {image.caption}
                       </p>
-                      <p className="annotation text-bone/30">
+                      <p className="annotation text-bone/60 text-shadow-sm">
                         0{index + 1} / 0{resortImages.length}
                       </p>
                     </div>
-                    <p className="text-sm text-bone/60 font-display max-w-xs">
+                    <p className="text-sm text-bone/80 font-display max-w-xs text-shadow-sm">
                       {image.description}
                     </p>
                   </div>

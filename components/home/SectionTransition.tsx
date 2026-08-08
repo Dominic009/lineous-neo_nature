@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { customEase } from "./Hero";
 
 interface SectionTransitionProps {
@@ -11,18 +12,27 @@ interface SectionTransitionProps {
 
 export default function SectionTransition({
   fromBg = "bg-void",
-  toBg = "bg-secondary-lime",
+  toBg = "bg-void",
   direction = "down",
 }: SectionTransitionProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 1]);
+
   return (
-    <div className={`relative h-24 md:h-32 ${fromBg} overflow-hidden`}>
+    <div
+      ref={ref}
+      className={`relative h-24 md:h-32 ${fromBg} overflow-hidden`}
+    >
       {/* Gradient transition */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-b ${
-          direction === "down"
-            ? "from-transparent to-black/20"
-            : "from-black/20 to-transparent"
-        }`}
+      <motion.div
+        style={{ opacity, scale }}
+        className={`absolute inset-0 bg-gradient-to-b ${direction === "down" ? "from-transparent to-black/20" : "from-black/20 to-transparent"}`}
       />
 
       {/* Thin architectural line */}

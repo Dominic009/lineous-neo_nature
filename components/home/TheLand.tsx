@@ -47,7 +47,7 @@ export default function TheLand() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2, ease: customEase }}
-              className="annotation text-bone/50 mb-6"
+              className="annotation text-bone/70 mb-6 text-shadow-sm"
             >
               THE LAND / 200+ ACRES
             </motion.p>
@@ -58,7 +58,7 @@ export default function TheLand() {
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, delay: 0.4, ease: customEase }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-[-0.04em] text-bone font-display max-w-4xl"
+              className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-[-0.04em] text-bone font-display max-w-4xl text-shadow-md"
             >
               Where nature
               <br />
@@ -73,7 +73,7 @@ export default function TheLand() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.6, ease: customEase }}
-              className="mt-8 max-w-xl text-lg md:text-xl leading-relaxed text-bone/70 font-display"
+              className="mt-8 max-w-xl text-lg md:text-xl leading-relaxed text-bone/80 font-display text-shadow-sm"
             >
               200 acres of pristine landscape, reimagined through regenerative
               design. Every element of the resort responds to the land&rsquo;s

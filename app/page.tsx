@@ -50,7 +50,7 @@ export default function HomePage() {
         <Investment />
         <SectionTransition fromBg="bg-stone" toBg="bg-void" />
         <Legacy />
-        <VillaCollection />
+        {/* <VillaCollection /> */}
         <Technology />
         <InvestmentInquiry />
       </main>

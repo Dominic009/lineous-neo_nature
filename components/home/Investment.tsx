@@ -35,7 +35,7 @@ export default function Investment() {
   return (
     <section
       ref={ref}
-      className="relative py-32 md:py-40 bg-stone text-charcoal overflow-hidden"
+      className="relative py-32 md:py-40 bg-stone dark:bg-void text-charcoal dark:text-bone overflow-hidden"
     >
       {/* Section header */}
       <div className="px-6 md:px-12 lg:px-20 mb-16 md:mb-24">
@@ -44,7 +44,7 @@ export default function Investment() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 1, delay: 0.2, ease: customEase }}
-            className="annotation text-charcoal/40 mb-6"
+            className="annotation text-charcoal/60 dark:text-bone/60 mb-6"
           >
             INVESTMENT STRATEGY / 01
           </motion.p>

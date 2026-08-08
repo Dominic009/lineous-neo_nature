@@ -21,7 +21,7 @@ export default function Legacy() {
         transition={{ duration: 1.2, delay: 0.3, ease: customEase }}
         className="absolute top-12 left-8 md:top-16 md:left-16 lg:top-20 lg:left-24 z-10"
       >
-        <p className="annotation text-bone/40">
+        <p className="annotation text-bone/60">
           37° 41&rsquo; 22&Prime;N / VALUKA / BANGLADESH
         </p>
       </motion.div>
@@ -35,7 +35,7 @@ export default function Legacy() {
               initial={{ opacity: 0, y: 80, filter: "blur(10px)" }}
               animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 80, filter: "blur(10px)" }}
               transition={{ duration: 1.6, delay: 0.5, ease: customEase }}
-              className="text-giant font-display text-bone/90 max-w-6xl mx-auto"
+              className="text-giant font-display text-bone max-w-6xl mx-auto text-shadow-lg"
             >
               THE FUTURE
               <br />

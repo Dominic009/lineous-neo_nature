@@ -45,7 +45,7 @@ export default function Residences() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 1, delay: 0.2, ease: customEase }}
-            className="annotation text-bone/40 mb-6"
+            className="annotation text-bone/60 mb-6"
           >
             RESIDENCES
           </motion.p>
@@ -99,13 +99,13 @@ export default function Residences() {
                 </div>
 
                 {/* Content */}
-                <p className="annotation text-champagne/80 mb-3">
+                <p className="annotation text-champagne/90 mb-3 text-shadow-sm">
                   {villa.subtitle}
                 </p>
-                <h3 className="text-2xl md:text-3xl font-bold tracking-[-0.03em] text-bone font-display mb-4">
+                <h3 className="text-2xl md:text-3xl font-bold tracking-[-0.03em] text-bone font-display mb-4 text-shadow-sm">
                   {villa.title}
                 </h3>
-                <p className="text-base leading-relaxed text-bone/60 font-display">
+                <p className="text-base leading-relaxed text-bone/70 font-display text-shadow-sm">
                   {villa.description}
                 </p>
               </motion.div>
