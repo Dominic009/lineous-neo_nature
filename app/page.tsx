@@ -34,21 +34,21 @@ export default function HomePage() {
           ]}
         />
         <HeroCinematic />
-        <SectionTransition fromBg="bg-void" toBg="bg-ivory" />
+        {/* <SectionTransition fromBg="bg-void" toBg="bg-ivory" /> */}
         <Philosophy />
-        <SectionTransition fromBg="bg-ivory" toBg="bg-void" />
+        {/* <SectionTransition fromBg="bg-ivory" toBg="bg-void" /> */}
         <TheLand />
         <TheResort />
-        <SectionTransition fromBg="bg-void" toBg="bg-void" />
+        {/* <SectionTransition fromBg="bg-void" toBg="bg-void" /> */}
         <Architecture />
         <MasterplanExplorer />
-        <SectionTransition fromBg="bg-void" toBg="bg-ivory" />
+        {/* <SectionTransition fromBg="bg-void" toBg="bg-ivory" /> */}
         <Experiences />
-        <SectionTransition fromBg="bg-ivory" toBg="bg-forest" />
+        {/* <SectionTransition fromBg="bg-ivory" toBg="bg-forest" /> */}
         <Residences />
-        <SectionTransition fromBg="bg-forest" toBg="bg-stone" />
+        {/* <SectionTransition fromBg="bg-forest" toBg="bg-stone" /> */}
         <Investment />
-        <SectionTransition fromBg="bg-stone" toBg="bg-void" />
+        {/* <SectionTransition fromBg="bg-stone" toBg="bg-void" />o */}
         <Legacy />
         {/* <VillaCollection /> */}
         <Technology />

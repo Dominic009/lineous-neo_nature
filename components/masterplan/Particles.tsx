@@ -35,12 +35,12 @@ export default function Particles({ count = 35, className = "" }: ParticlesProps
 
       return {
         id: i,
-        left: `${r1 * 100}%`,
-        top: `${r2 * 100}%`,
-        size: r3 * 2 + 1,
-        duration: r4 * 8 + 6,
-        delay: r5 * 5,
-        opacity: r6 * 0.4 + 0.1,
+        left: `${(r1 * 100).toFixed(2)}%`,
+        top: `${(r2 * 100).toFixed(2)}%`,
+        size: Math.round(r3 * 2 + 1),
+        duration: Math.round(r4 * 8 + 6),
+        delay: Math.round(r5 * 5),
+        opacity: Math.round(r6 * 0.4 + 0.1),
       };
     });
   }, [count]);

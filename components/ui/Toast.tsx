@@ -10,9 +10,18 @@ import {
   useState,
   useCallback,
   useRef,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
+
+function useIsClient() {
+  return useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
+}
 
 /* ── Types ─────────────────────────────────────────── */
 
@@ -55,6 +64,7 @@ export function ToastProvider({ children }: ToastProviderProps) {
     message: string;
     resolve: (value: boolean) => void;
   } | null>(null);
+  const isClient = useIsClient();
   const idCounter = useRef(0);
 
   const addToast = useCallback((type: ToastType, message: string) => {
@@ -116,38 +126,31 @@ export function ToastProvider({ children }: ToastProviderProps) {
       value={{ toast, success, error, info, alert, confirm }}
     >
       {children}
-      {typeof document !== "undefined" &&
+      {isClient &&
         createPortal(
-          <>
-            {/* Toast container */}
-            <div
-              className="fixed top-4 right-4 z-[9999] flex flex-col gap-2 pointer-events-none"
-              style={{ maxWidth: "420px", width: "calc(100vw - 2rem)" }}
-            >
-              {toasts.map((t) => (
-                <ToastItem key={t.id} type={t.type} message={t.message} />
-              ))}
-            </div>
-
-            {/* Alert dialog */}
-            {alertState && (
-              <AlertDialog
-                message={alertState.message}
-                onClose={dismissAlert}
-              />
-            )}
-
-            {/* Confirm dialog */}
-            {confirmState && (
-              <ConfirmDialog
-                message={confirmState.message}
-                onConfirm={() => dismissConfirm(true)}
-                onCancel={() => dismissConfirm(false)}
-              />
-            )}
-          </>,
+          <div
+            className="fixed top-4 right-4 z-[9999] flex flex-col gap-2 pointer-events-none"
+            style={{ maxWidth: "420px", width: "calc(100vw - 2rem)" }}
+          >
+            {toasts.map((t) => (
+              <ToastItem key={t.id} type={t.type} message={t.message} />
+            ))}
+          </div>,
           document.body
         )}
+      {alertState && (
+        <AlertDialog
+          message={alertState.message}
+          onClose={dismissAlert}
+        />
+      )}
+      {confirmState && (
+        <ConfirmDialog
+          message={confirmState.message}
+          onConfirm={() => dismissConfirm(true)}
+          onCancel={() => dismissConfirm(false)}
+        />
+      )}
     </ToastContext.Provider>
   );
 }
