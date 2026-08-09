@@ -36,7 +36,7 @@ export default function Residences() {
   return (
     <section
       ref={ref}
-      className="relative py-32 md:py-40 bg-forest text-bone overflow-hidden"
+      className="relative py-32 md:py-40 bg-[#1b281c] text-[#EDEDE8] dark:text-[#1A1A1E] overflow-hidden"
     >
       {/* Section header */}
       <div className="px-6 md:px-12 lg:px-20 mb-16 md:mb-24">
@@ -45,7 +45,7 @@ export default function Residences() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 1, delay: 0.2, ease: customEase }}
-            className="annotation text-bone/60 mb-6"
+            className="annotation text-[#EDEDE8]/60 dark:text-[#1A1A1E]/60 mb-6"
           >
             RESIDENCES
           </motion.p>
@@ -53,17 +53,17 @@ export default function Residences() {
             initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
             animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 40, filter: "blur(10px)" }}
             transition={{ duration: 1.2, delay: 0.4, ease: customEase }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-[-0.04em] text-bone font-display max-w-4xl"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-[-0.04em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display max-w-4xl"
           >
             Private villa
             <br />
-            <span className="text-champagne">districts</span>
+            <span className="text-[#C9A45A]">districts</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 1, delay: 0.6, ease: customEase }}
-            className="mt-8 max-w-xl text-lg md:text-xl leading-relaxed text-bone/60 font-display"
+            className="mt-8 max-w-xl text-lg md:text-xl leading-relaxed text-[#EDEDE8]/60 dark:text-[#1A1A1E]/60 font-display"
           >
             Three accommodation concepts designed to redefine hospitality through
             nature-integrated luxury and intelligent design.
@@ -99,13 +99,13 @@ export default function Residences() {
                 </div>
 
                 {/* Content */}
-                <p className="annotation text-champagne/90 mb-3 text-shadow-sm">
+                <p className="annotation text-[#C9A45A]/90 mb-3 text-shadow-sm">
                   {villa.subtitle}
                 </p>
-                <h3 className="text-2xl md:text-3xl font-bold tracking-[-0.03em] text-bone font-display mb-4 text-shadow-sm">
+                <h3 className="text-2xl md:text-3xl font-bold tracking-[-0.03em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display mb-4 text-shadow-sm">
                   {villa.title}
                 </h3>
-                <p className="text-base leading-relaxed text-bone/70 font-display text-shadow-sm">
+                <p className="text-base leading-relaxed text-[#EDEDE8]/70 dark:text-[#1A1A1E]/70 font-display text-shadow-sm">
                   {villa.description}
                 </p>
               </motion.div>
@@ -115,7 +115,7 @@ export default function Residences() {
       </div>
 
       {/* Thin architectural line */}
-      <div className="absolute bottom-0 inset-x-0 h-px bg-bone/10" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-[#EDEDE8]/10 dark:bg-[#1A1A1E]/10" />
     </section>
   );
 }

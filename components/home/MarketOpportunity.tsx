@@ -34,18 +34,18 @@ const metrics = [
 
 export default function MarketOpportunity() {
   return (
-    <section className="bg-void py-40 overflow-hidden">
+    <section className="bg-[#0A0A0C] dark:bg-[#F5F5F0] py-40 overflow-hidden">
       <Container>
         <div className="max-w-4xl mb-20">
-          <span className="uppercase tracking-[0.4em] text-xs text-chrome1 font-mono">
+          <span className="uppercase tracking-[0.4em] text-xs text-[#8EC5FF] dark:text-[#5B9FE5] font-mono">
             Market Opportunity
           </span>
 
-          <h2 className="text-6xl md:text-5xl font-bold mt-8 mb-10 leading-none tracking-[-0.06em] text-bone font-display">
+          <h2 className="text-6xl md:text-5xl font-bold mt-8 mb-10 leading-none tracking-[-0.06em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display">
             Why Neo Nature?
           </h2>
 
-          <p className="text-xl text-haze max-w-2xl leading-relaxed">
+          <p className="text-xl text-[#9A9AA0] dark:text-[#6B6B70] max-w-2xl leading-relaxed">
             Positioned between Dhakas expanding urban population and vast natural
             landscapes, Valuka presents a rare opportunity to create Bangladeshs
             first eco-intelligent destination.
@@ -74,9 +74,9 @@ export default function MarketOpportunity() {
               }}
               className="
                 group
-                bg-graphite/50
+                bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50
                 border
-                border-line
+                border-[#2A2A2F] dark:border-[#E5E5E0]
                 min-h-[420px]
                 p-10
                 rounded-[2rem]
@@ -86,7 +86,7 @@ export default function MarketOpportunity() {
                 cursor-pointer
                 transition-all
                 duration-500
-                hover:border-chrome1/40
+                hover:border-[#8EC5FF]/40 dark:border-[#5B9FE5]/40
               "
             >
               <div>
@@ -100,12 +100,12 @@ export default function MarketOpportunity() {
                     transition-all
                     duration-500
                     group-hover:translate-x-2
-                    text-bone
+                    text-[#EDEDE8] dark:text-[#1A1A1E]
                   "
                 >
                   {item.number}
                   {item.suffix && (
-                    <span className="text-3xl ml-2 text-chrome1">
+                    <span className="text-3xl ml-2 text-[#8EC5FF] dark:text-[#5B9FE5]">
                       {item.suffix}
                     </span>
                   )}
@@ -113,17 +113,17 @@ export default function MarketOpportunity() {
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold mb-4 tracking-[-0.03em] text-bone">
+                <h3 className="text-2xl font-bold mb-4 tracking-[-0.03em] text-[#EDEDE8] dark:text-[#1A1A1E]">
                   {item.title}
                 </h3>
 
                 <p
                   className="
-                    text-haze
+                    text-[#9A9AA0] dark:text-[#6B6B70]
                     leading-relaxed
                     transition-all
                     duration-500
-                    group-hover:text-chrome2
+                    group-hover:text-[#C9A9FF] dark:text-[#A87BE0]
                   "
                 >
                   {item.description}

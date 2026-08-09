@@ -16,7 +16,7 @@ export default function InvestmentPage() {
   const [inquirySubmitted, setInquirySubmitted] = useState(false);
 
   return (
-    <main className="relative bg-void">
+    <main className="relative bg-[#0A0A0C] dark:bg-[#F5F5F0]">
       <SectionNav
         items={[
           { label: "Why Invest", href: "#why-invest" },
@@ -26,7 +26,7 @@ export default function InvestmentPage() {
         ]}
       />
       {/* ── Parallax Hero ── */}
-      <section className="relative min-h-[75vh] overflow-hidden bg-void">
+      <section className="relative min-h-[75vh] overflow-hidden bg-[#0A0A0C] dark:bg-[#F5F5F0]">
         <ParallaxImage
           src="/purura_resort_images/purura_render_20.jpg"
           alt="Neo Nature investment consultation"
@@ -34,8 +34,8 @@ export default function InvestmentPage() {
           intensity={0.5}
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-void/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[#0A0A0C]/25 dark:bg-[#F5F5F0]/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0C] dark:from-[#F5F5F0] via-transparent to-transparent" />
 
         <div className="relative z-10 min-h-[75vh] flex items-end">
           <Container>
@@ -45,10 +45,10 @@ export default function InvestmentPage() {
               transition={{ duration: 0.8, ease: customEase }}
               className="max-w-5xl pb-24"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-bone font-mono">
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#EDEDE8] dark:text-[#1A1A1E] font-mono">
                 Investment
               </p>
-              <h1 className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-bone font-display">
+              <h1 className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display">
                 Investment Consultation
               </h1>
             </motion.div>

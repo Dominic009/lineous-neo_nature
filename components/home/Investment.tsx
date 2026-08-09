@@ -35,7 +35,7 @@ export default function Investment() {
   return (
     <section
       ref={ref}
-      className="relative py-32 md:py-40 bg-stone dark:bg-void text-charcoal dark:text-bone overflow-hidden"
+      className="relative py-32 md:py-40 bg-[#E5E5E0] dark:bg-[#0A0A0C] text-[#1A1A1E] dark:text-[#EDEDE8] overflow-hidden"
     >
       {/* Section header */}
       <div className="px-6 md:px-12 lg:px-20 mb-16 md:mb-24">
@@ -44,7 +44,7 @@ export default function Investment() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 1, delay: 0.2, ease: customEase }}
-            className="annotation text-charcoal/60 dark:text-bone/60 mb-6"
+            className="annotation text-[#1A1A1E]/60 dark:text-[#EDEDE8]/60 mb-6"
           >
             INVESTMENT STRATEGY / 01
           </motion.p>
@@ -52,17 +52,17 @@ export default function Investment() {
             initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
             animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 40, filter: "blur(10px)" }}
             transition={{ duration: 1.2, delay: 0.4, ease: customEase }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-[-0.04em] text-charcoal font-display max-w-4xl"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-[-0.04em] text-[#1A1A1E] font-display max-w-4xl"
           >
             A rare
             <br />
-            <span className="text-champagne">opportunity</span>
+            <span className="text-[#C9A45A]">opportunity</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 1, delay: 0.6, ease: customEase }}
-            className="mt-8 max-w-xl text-lg md:text-xl leading-relaxed text-charcoal/60 font-display"
+            className="mt-8 max-w-xl text-lg md:text-xl leading-relaxed text-[#1A1A1E]/60 font-display"
           >
             Positioned between Dhaka&rsquo;s expanding urban population and vast natural
             landscapes, Valuka presents a rare opportunity to create Bangladesh&rsquo;s
@@ -74,7 +74,7 @@ export default function Investment() {
       {/* Metrics — highly structured, minimal decoration */}
       <div className="px-6 md:px-12 lg:px-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-charcoal/10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#1A1A1E]/10">
             {metrics.map((metric, index) => (
               <motion.div
                 key={index}
@@ -85,20 +85,20 @@ export default function Investment() {
                   delay: 0.8 + index * 0.1,
                   ease: customEase,
                 }}
-                className="bg-stone p-8 md:p-10"
+                className="bg-[#E5E5E0] p-8 md:p-10"
               >
-                <p className="annotation text-charcoal/40 mb-4">
+                <p className="annotation text-[#1A1A1E]/40 mb-4">
                   {metric.label}
                 </p>
-                <p className="text-4xl md:text-5xl font-bold tracking-[-0.03em] text-charcoal font-display mb-4">
+                <p className="text-4xl md:text-5xl font-bold tracking-[-0.03em] text-[#1A1A1E] font-display mb-4">
                   {metric.number}
                   {metric.suffix && (
-                    <span className="text-xl text-champagne ml-2">
+                    <span className="text-xl text-[#C9A45A] ml-2">
                       {metric.suffix}
                     </span>
                   )}
                 </p>
-                <p className="text-sm leading-relaxed text-charcoal/50 font-display">
+                <p className="text-sm leading-relaxed text-[#1A1A1E]/50 font-display">
                   {metric.description}
                 </p>
               </motion.div>
@@ -108,7 +108,7 @@ export default function Investment() {
       </div>
 
       {/* Thin architectural line */}
-      <div className="absolute bottom-0 inset-x-0 h-px bg-charcoal/10" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-[#1A1A1E]/10" />
     </section>
   );
 }

@@ -130,8 +130,8 @@ COORDINATE MOVEMENT
      relative
      min-h-screen
      overflow-hidden
-     bg-bone
-     text-charcoal
+     bg-[#EDEDE8] dark:bg-[#1A1A1E]
+     text-[#1A1A1E] dark:text-white
    "
     >
       {/* =====================================================
@@ -149,6 +149,7 @@ ARCHITECTURAL BACKGROUND
         inset-0
         opacity-[0.035]
         bg-[linear-gradient(to_right,#20201d_1px,transparent_1px),linear-gradient(to_bottom,#20201d_1px,transparent_1px)]
+        dark:bg-[linear-gradient(to_right,#EDEDE8_1px,transparent_1px),linear-gradient(to_bottom,#EDEDE8_1px,transparent_1px)]
         bg-[size:80px_80px]
       "
         />
@@ -167,7 +168,8 @@ ARCHITECTURAL BACKGROUND
         w-[70vw]
         h-[70vw]
         rounded-full
-        bg-charcoal/[0.015]
+        bg-[#1A1A1E]/[0.015]
+        dark:bg-[#EDEDE8]/[0.015]
         blur-3xl
       "
         />
@@ -189,7 +191,8 @@ ARCHITECTURAL BACKGROUND
         h-[55vw]
         rounded-full
         border
-        border-charcoal/[0.07]
+        border-[#1A1A1E]/[0.07]
+        dark:border-[#EDEDE8]/[0.07]
       "
         >
           <div
@@ -198,7 +201,8 @@ ARCHITECTURAL BACKGROUND
           inset-[10%]
           rounded-full
           border
-          border-charcoal/[0.05]
+          border-[#1A1A1E]/[0.05]
+          dark:border-[#EDEDE8]/[0.05]
         "
           />
 
@@ -208,7 +212,8 @@ ARCHITECTURAL BACKGROUND
           inset-[22%]
           rounded-full
           border
-          border-charcoal/[0.04]
+          border-[#1A1A1E]/[0.04]
+          dark:border-[#EDEDE8]/[0.04]
         "
           />
 
@@ -218,7 +223,8 @@ ARCHITECTURAL BACKGROUND
           inset-[34%]
           rounded-full
           border
-          border-charcoal/[0.035]
+          border-[#1A1A1E]/[0.035]
+          dark:border-[#EDEDE8]/[0.035]
         "
           />
 
@@ -232,7 +238,8 @@ ARCHITECTURAL BACKGROUND
           w-2
           h-2
           rounded-full
-          bg-charcoal/20
+          bg-[#1A1A1E]/20
+          dark:bg-[#EDEDE8]/20
         "
           />
 
@@ -246,7 +253,8 @@ ARCHITECTURAL BACKGROUND
           w-1.5
           h-1.5
           rounded-full
-          bg-charcoal/15
+          bg-[#1A1A1E]/15
+          dark:bg-[#EDEDE8]/15
         "
           />
         </motion.div>
@@ -262,7 +270,8 @@ ARCHITECTURAL BACKGROUND
         left-0
         right-0
         h-px
-        bg-charcoal/[0.055]
+        bg-[#1A1A1E]/[0.055]
+        dark:bg-[#EDEDE8]/[0.055]
       "
         />
 
@@ -273,7 +282,8 @@ ARCHITECTURAL BACKGROUND
         left-0
         right-0
         h-px
-        bg-charcoal/[0.055]
+        bg-[#1A1A1E]/[0.055]
+        dark:bg-[#EDEDE8]/[0.055]
       "
         />
 
@@ -288,7 +298,8 @@ ARCHITECTURAL BACKGROUND
         bottom-0
         left-[12%]
         w-px
-        bg-charcoal/[0.05]
+        bg-[#1A1A1E]/[0.05]
+        dark:bg-[#EDEDE8]/[0.05]
       "
         />
 
@@ -299,7 +310,8 @@ ARCHITECTURAL BACKGROUND
         bottom-0
         right-[12%]
         w-px
-        bg-charcoal/[0.05]
+        bg-[#1A1A1E]/[0.05]
+        dark:bg-[#EDEDE8]/[0.05]
       "
         />
 
@@ -315,7 +327,8 @@ ARCHITECTURAL BACKGROUND
         absolute
         w-[120vw]
         h-px
-        bg-charcoal/[0.045]
+        bg-[#1A1A1E]/[0.045]
+        dark:bg-[#EDEDE8]/[0.045]
         rotate-[-17deg]
         top-[48%]
         left-[-10%]
@@ -334,7 +347,8 @@ ARCHITECTURAL BACKGROUND
         absolute
         w-[100vw]
         h-px
-        bg-charcoal/[0.035]
+        bg-[#1A1A1E]/[0.035]
+        dark:bg-[#EDEDE8]/[0.035]
         rotate-[12deg]
         top-[34%]
         left-[20%]
@@ -366,7 +380,8 @@ ARCHITECTURAL BACKGROUND
           font-display
           font-bold
           tracking-[-0.08em]
-          text-charcoal/[0.025]
+          text-[#1A1A1E]/[0.025]
+          dark:text-[#EDEDE8]/[0.025]
         "
           >
             PURURA
@@ -411,11 +426,11 @@ ARCHITECTURAL BACKGROUND
       gap-4
     "
       >
-        <span className="annotation text-charcoal/50">PURURA</span>
+        <span className="annotation text-[#1A1A1E]/50 dark:text-[#EDEDE8]/50">PURURA</span>
 
-        <div className="w-10 md:w-16 h-px bg-charcoal/20" />
+        <div className="w-10 md:w-16 h-px bg-[#1A1A1E]/20 dark:bg-[#EDEDE8]/20" />
 
-        <span className="annotation text-charcoal/30">01 / PHILOSOPHY</span>
+        <span className="annotation text-[#1A1A1E]/30 dark:text-[#EDEDE8]/30">01 / PHILOSOPHY</span>
       </motion.div>
       {/* =====================================================
       RIGHT COORDINATE MARKERS
@@ -438,13 +453,13 @@ ARCHITECTURAL BACKGROUND
       pointer-events-none
     "
       >
-        <span className="annotation text-charcoal/20">23°43′ N</span>
+        <span className="annotation text-[#1A1A1E]/20 dark:text-[#EDEDE8]/20">23°43′ N</span>
 
-        <span className="annotation text-charcoal/20">090°24′ E</span>
+        <span className="annotation text-[#1A1A1E]/20 dark:text-[#EDEDE8]/20">090°24′ E</span>
 
-        <div className="w-12 h-px bg-charcoal/15 my-2" />
+        <div className="w-12 h-px bg-[#1A1A1E]/15 dark:bg-[#EDEDE8]/15 my-2" />
 
-        <span className="annotation text-charcoal/20">VALUKA</span>
+        <span className="annotation text-[#1A1A1E]/20 dark:text-[#EDEDE8]/20">VALUKA</span>
       </motion.div>
       {/* =====================================================
       LEFT SITE INFORMATION
@@ -464,14 +479,14 @@ ARCHITECTURAL BACKGROUND
       pointer-events-none
     "
       >
-        <span className="annotation text-charcoal/20">MASTERPLAN</span>
+        <span className="annotation text-[#1A1A1E]/20 dark:text-[#EDEDE8]/20">MASTERPLAN</span>
 
-        <span className="annotation text-charcoal/15">SITE / 200 ACRES</span>
+        <span className="annotation text-[#1A1A1E]/15 dark:text-[#EDEDE8]/15">SITE / 200 ACRES</span>
 
         <div className="flex items-center gap-3">
-          <div className="w-8 h-px bg-charcoal/15" />
+          <div className="w-8 h-px bg-[#1A1A1E]/15 dark:bg-[#EDEDE8]/15" />
 
-          <span className="annotation text-charcoal/20">01</span>
+          <span className="annotation text-[#1A1A1E]/20 dark:text-[#EDEDE8]/20">01</span>
         </div>
       </div>
       {/* =====================================================
@@ -520,7 +535,8 @@ ARCHITECTURAL BACKGROUND
                 }}
                 className="
               annotation
-              text-charcoal/40
+              text-[#1A1A1E]/40
+              dark:text-[#EDEDE8]/40
               mb-8
               md:mb-10
             "
@@ -539,7 +555,8 @@ ARCHITECTURAL BACKGROUND
               font-medium
               leading-[0.82]
               tracking-[-0.065em]
-              text-charcoal/90
+              text-[#1A1A1E]/90
+              dark:text-[#EDEDE8]/90
             "
               >
                 <RevealLine progress={scrollYProgress} start={0.08} end={0.18}>
@@ -565,7 +582,8 @@ ARCHITECTURAL BACKGROUND
                   className="
                 ml-[2vw]
                 md:ml-[3vw]
-                text-charcoal/30
+                text-[#1A1A1E]/30
+                dark:text-[#EDEDE8]/30
               "
                 >
                   ESCAPE
@@ -614,7 +632,8 @@ ARCHITECTURAL BACKGROUND
               top-0
               bottom-0
               w-px
-              bg-charcoal/15
+              bg-[#1A1A1E]/15
+              dark:bg-[#EDEDE8]/15
             "
               />
 
@@ -685,13 +704,14 @@ ARCHITECTURAL BACKGROUND
                     }}
                     className="
         annotation
-        text-charcoal/40
+        text-[#1A1A1E]/40
+        dark:text-[#EDEDE8]/40
       "
                   >
                     ARCHITECTURAL VISION / 01
                   </motion.p>
 
-                  <span className="annotation text-charcoal/20">PURURA</span>
+                  <span className="annotation text-[#1A1A1E]/20 dark:text-[#EDEDE8]/20">PURURA</span>
                 </div>
               </motion.div>
             </div>
@@ -732,7 +752,7 @@ ARCHITECTURAL BACKGROUND
                 }}
                 className="md:col-span-2"
               >
-                <span className="annotation text-charcoal/30">01</span>
+                <span className="annotation text-[#1A1A1E]/30 dark:text-[#EDEDE8]/30">01</span>
               </motion.div>
 
               {/* Line */}
@@ -763,7 +783,8 @@ ARCHITECTURAL BACKGROUND
               md:block
               md:col-span-2
               h-px
-              bg-charcoal/15
+              bg-[#1A1A1E]/15
+              dark:bg-[#EDEDE8]/15
               mt-3
             "
               />
@@ -797,7 +818,8 @@ ARCHITECTURAL BACKGROUND
               md:text-xl
               lg:text-2xl
               leading-[1.5]
-              text-charcoal/60
+              text-[#1A1A1E]/60
+              dark:text-[#EDEDE8]/60
               font-display
             "
               >
@@ -838,7 +860,8 @@ ARCHITECTURAL BACKGROUND
       bottom-0
       inset-x-0
       h-px
-      bg-charcoal/10
+      bg-[#1A1A1E]/10
+      dark:bg-[#EDEDE8]/10
     "
       />
     </section>

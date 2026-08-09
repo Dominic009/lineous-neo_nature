@@ -144,7 +144,7 @@ export default function Hotspot({
         transition={{ duration: 0.4 }}
       >
         {/* Inner bright core */}
-        <div className="w-2 h-2 rounded-full bg-bone" />
+        <div className="w-2 h-2 rounded-full bg-[#EDEDE8] dark:bg-[#1A1A1E]" />
       </motion.div>
 
       {/* Sparkle particles around core */}

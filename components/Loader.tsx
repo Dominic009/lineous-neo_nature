@@ -19,7 +19,7 @@ export default function Loader() {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[200] flex items-center justify-center bg-void"
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-[#0A0A0C] dark:bg-[#F5F5F0]"
       animate={controls}
       onAnimationComplete={() => {
         // Hide loader after animation
@@ -32,7 +32,7 @@ export default function Loader() {
     >
       <div className="flex flex-col items-center gap-8">
         <motion.h1
-          className="font-display text-4xl font-light tracking-tight text-bone md:text-6xl"
+          className="font-display text-4xl font-light tracking-tight text-[#EDEDE8] dark:text-[#1A1A1E] md:text-6xl"
           initial={{ letterSpacing: "0.5em", opacity: 0 }}
           animate={{
             letterSpacing: "-0.02em",
@@ -47,7 +47,7 @@ export default function Loader() {
         </motion.h1>
 
         {/* Chrome progress bar */}
-        <div className="h-[1px] w-48 overflow-hidden rounded-full bg-line">
+        <div className="h-[1px] w-48 overflow-hidden rounded-full bg-[#2A2A2F] dark:bg-[#E5E5E0]">
           <motion.div
             className="h-full w-full origin-left"
             style={{

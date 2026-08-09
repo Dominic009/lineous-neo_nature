@@ -7,7 +7,7 @@ import ParallaxImage from "@/components/home/ParallaxImage";
 
 export default function VisionPage() {
   return (
-    <main className="relative bg-void py-40">
+    <main className="relative bg-[#0A0A0C] dark:bg-[#F5F5F0] py-40">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(142,197,255,0.06),transparent_50%)] pointer-events-none" />
       <Container className="max-w-5xl text-center">
         <motion.span
@@ -15,7 +15,7 @@ export default function VisionPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="uppercase tracking-[0.35em] text-xs text-chrome1 font-mono"
+          className="uppercase tracking-[0.35em] text-xs text-[#8EC5FF] dark:text-[#5B9FE5] font-mono"
         >
           The Vision
         </motion.span>
@@ -25,7 +25,7 @@ export default function VisionPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-3xl md:text-5xl font-bold mt-6 mb-4 leading-tight tracking-[-0.05em] text-bone font-display"
+          className="text-3xl md:text-5xl font-bold mt-6 mb-4 leading-tight tracking-[-0.05em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display"
         >
           A Bold Alternative to Traditional Resorts
         </motion.h2>
@@ -35,7 +35,7 @@ export default function VisionPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg leading-relaxed text-haze"
+          className="text-lg leading-relaxed text-[#9A9AA0] dark:text-[#6B6B70]"
         >
           To create Bangladesh&apos;s first futuristic eco-intelligent resort where
           technology, sustainability, and immersive nature merge into a seamless

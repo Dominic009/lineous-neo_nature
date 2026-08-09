@@ -34,11 +34,11 @@ export default function SustainabilityItem({
       }}
       className="
         border-b
-        border-line
+        border-[#2A2A2F] dark:border-[#E5E5E0]
         py-10
       "
     >
-      <div className="mb-4 h-px w-12 bg-chrome1" />
+      <div className="mb-4 h-px w-12 bg-[#8EC5FF] dark:bg-[#5B9FE5]" />
       <h3
         className="
           text-xl
@@ -46,7 +46,7 @@ export default function SustainabilityItem({
           font-bold
           mb-4
           tracking-[-0.03em]
-          text-bone
+          text-[#EDEDE8] dark:text-[#1A1A1E]
           font-display
         "
       >
@@ -55,7 +55,7 @@ export default function SustainabilityItem({
 
       <p
         className="
-          text-haze
+          text-[#9A9AA0] dark:text-[#6B6B70]
           lg:text-lg
           leading-relaxed
           max-w-2xl

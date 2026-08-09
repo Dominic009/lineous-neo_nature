@@ -7,7 +7,7 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 
 export default function InquirySuccess() {
   return (
-    <section className="relative bg-void py-20 md:py-28">
+    <section className="relative bg-[#0A0A0C] dark:bg-[#F5F5F0] py-20 md:py-28">
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute inset-0 opacity-15"
@@ -30,10 +30,10 @@ export default function InquirySuccess() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: customEase }}
-            className="inline-flex items-center gap-2 rounded-full border border-chrome1/30 bg-chrome1/10 px-4 py-2 mb-8"
+            className="inline-flex items-center gap-2 rounded-full border border-[#8EC5FF]/30 dark:border-[#5B9FE5]/30 bg-[#8EC5FF]/10 dark:bg-[#5B9FE5]/10 px-4 py-2 mb-8"
           >
-            <CheckCircle2 className="w-4 h-4 text-chrome1" />
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-chrome1 font-mono">
+            <CheckCircle2 className="w-4 h-4 text-[#8EC5FF] dark:text-[#5B9FE5]" />
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8EC5FF] dark:text-[#5B9FE5] font-mono">
               Inquiry Received
             </span>
           </motion.div>
@@ -42,7 +42,7 @@ export default function InquirySuccess() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2, ease: customEase }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-[-0.05em] text-bone font-display"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-[-0.05em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display"
           >
             Thank you for your
             <span className="text-gradient-chrome"> interest</span>
@@ -52,7 +52,7 @@ export default function InquirySuccess() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3, ease: customEase }}
-            className="mt-6 text-lg leading-relaxed text-haze max-w-md mx-auto"
+            className="mt-6 text-lg leading-relaxed text-[#9A9AA0] dark:text-[#6B6B70] max-w-md mx-auto"
           >
             Our investment team will review your inquiry and prepare a tailored
             proposal. You can expect to hear from us within 24 hours.
@@ -63,9 +63,9 @@ export default function InquirySuccess() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4, ease: customEase }}
-            className="mt-10 rounded-[1.5rem] border border-line bg-graphite/50 backdrop-blur-sm p-6 md:p-8 text-left"
+            className="mt-10 rounded-[1.5rem] border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50 backdrop-blur-sm p-6 md:p-8 text-left"
           >
-            <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-chrome1 font-mono mb-6">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8EC5FF] dark:text-[#5B9FE5] font-mono mb-6">
               What happens next
             </h3>
             <ol className="space-y-5">
@@ -96,12 +96,12 @@ export default function InquirySuccess() {
                   transition={{ duration: 0.4, delay: 0.5 + index * 0.1, ease: customEase }}
                   className="flex items-start gap-4"
                 >
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full border border-chrome1/30 bg-chrome1/10 flex items-center justify-center text-xs font-bold text-chrome1 font-mono">
+                  <span className="flex-shrink-0 w-8 h-8 rounded-full border border-[#8EC5FF]/30 dark:border-[#5B9FE5]/30 bg-[#8EC5FF]/10 dark:bg-[#5B9FE5]/10 flex items-center justify-center text-xs font-bold text-[#8EC5FF] dark:text-[#5B9FE5] font-mono">
                     {item.step}
                   </span>
                   <div>
-                    <p className="text-sm font-bold text-bone">{item.title}</p>
-                    <p className="mt-1 text-sm text-haze">{item.description}</p>
+                    <p className="text-sm font-bold text-[#EDEDE8] dark:text-[#1A1A1E]">{item.title}</p>
+                    <p className="mt-1 text-sm text-[#9A9AA0] dark:text-[#6B6B70]">{item.description}</p>
                   </div>
                 </motion.li>
               ))}
@@ -113,13 +113,13 @@ export default function InquirySuccess() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.7, ease: customEase }}
             href="#inquiry"
-            className="mt-10 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-bone group"
+            className="mt-10 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-[#EDEDE8] dark:text-[#1A1A1E] group"
           >
-            <span className="w-8 h-[1px] bg-bone/50 group-hover:bg-chrome1 group-hover:w-12 transition-all" />
-            <span className="group-hover:text-chrome1 transition-colors">
+            <span className="w-8 h-[1px] bg-[#EDEDE8]/50 dark:bg-[#1A1A1E]/50 group-hover:bg-[#8EC5FF] dark:bg-[#5B9FE5] group-hover:w-12 transition-all" />
+            <span className="group-hover:text-[#8EC5FF] dark:text-[#5B9FE5] transition-colors">
               Submit another inquiry
             </span>
-            <ArrowRight className="w-4 h-4 text-chrome1 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-[#8EC5FF] dark:text-[#5B9FE5] group-hover:translate-x-1 transition-transform" />
           </motion.a>
         </motion.div>
       </Container>

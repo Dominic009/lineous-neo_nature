@@ -6,7 +6,7 @@ import { customEase } from "@/components/home/Hero";
 
 export default function ContactUsPage() {
   return (
-    <main className="relative bg-void py-24 md:py-32">
+    <main className="relative bg-[#0A0A0C] dark:bg-[#F5F5F0] py-24 md:py-32">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(142,197,255,0.06),transparent_50%)] pointer-events-none" />
       <Container>
         <motion.div
@@ -16,15 +16,15 @@ export default function ContactUsPage() {
           transition={{ duration: 0.8, ease: customEase }}
           className="max-w-4xl"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-chrome1 font-mono">
+          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#8EC5FF] dark:text-[#5B9FE5] font-mono">
             Contact Us
           </p>
 
-          <h1 className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-bone font-display">
+          <h1 className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display">
             Get in touch.
           </h1>
 
-          <p className="mt-8 text-lg leading-relaxed text-haze">
+          <p className="mt-8 text-lg leading-relaxed text-[#9A9AA0] dark:text-[#6B6B70]">
             Have questions about investment, partnerships, or hospitality? Reach out
             and our team will respond within 24 hours.
           </p>
@@ -40,53 +40,53 @@ export default function ContactUsPage() {
           <form className="space-y-8">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono">
+                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80 font-mono">
                   First name
                 </label>
                 <input
                   type="text"
-                  className="w-full bg-transparent border-0 border-b border-bone/25 px-0 py-4 text-bone placeholder:text-bone/40 focus:outline-none focus:border-chrome1 transition-colors"
+                  className="w-full bg-transparent border-0 border-b border-[#EDEDE8]/25 dark:border-[#1A1A1E]/25 px-0 py-4 text-[#EDEDE8] dark:text-[#1A1A1E] placeholder:text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40 focus:outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors"
                   placeholder="First name"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono">
+                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80 font-mono">
                   Last name
                 </label>
                 <input
                   type="text"
-                  className="w-full bg-transparent border-0 border-b border-bone/25 px-0 py-4 text-bone placeholder:text-bone/40 focus:outline-none focus:border-chrome1 transition-colors"
+                  className="w-full bg-transparent border-0 border-b border-[#EDEDE8]/25 dark:border-[#1A1A1E]/25 px-0 py-4 text-[#EDEDE8] dark:text-[#1A1A1E] placeholder:text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40 focus:outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors"
                   placeholder="Last name"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono">
+              <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80 font-mono">
                 Email
               </label>
               <input
                 type="email"
-                className="w-full bg-transparent border-0 border-b border-bone/25 px-0 py-4 text-bone placeholder:text-bone/40 focus:outline-none focus:border-chrome1 transition-colors"
+                className="w-full bg-transparent border-0 border-b border-[#EDEDE8]/25 dark:border-[#1A1A1E]/25 px-0 py-4 text-[#EDEDE8] dark:text-[#1A1A1E] placeholder:text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40 focus:outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors"
                 placeholder="your@email.com"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono">
+              <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80 font-mono">
                 Message
               </label>
               <textarea
                 rows={5}
-                className="w-full bg-transparent border-0 border-b border-bone/25 px-0 py-4 text-bone placeholder:text-bone/40 focus:outline-none focus:border-chrome1 transition-colors resize-none"
+                className="w-full bg-transparent border-0 border-b border-[#EDEDE8]/25 dark:border-[#1A1A1E]/25 px-0 py-4 text-[#EDEDE8] dark:text-[#1A1A1E] placeholder:text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40 focus:outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors resize-none"
                 placeholder="Tell us about your interest..."
               />
             </div>
 
             <button
               type="submit"
-              className="px-12 py-5 rounded-full bg-chrome2 text-void text-xs font-bold uppercase tracking-[0.28em] hover:bg-chrome1 transition-colors"
+              className="px-12 py-5 rounded-full bg-[#C9A9FF] dark:bg-[#A87BE0] text-[#0A0A0C] dark:text-[#F5F5F0] text-xs font-bold uppercase tracking-[0.28em] hover:bg-[#8EC5FF] dark:bg-[#5B9FE5] transition-colors"
             >
               Send Message
             </button>

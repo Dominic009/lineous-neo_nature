@@ -80,7 +80,7 @@ export default function BrandIntro({
                     delay: 0.35 + index * 0.08,
                     ease: customEase,
                   }}
-                  className="text-[clamp(4.5rem,18vw,13rem)] font-bold leading-none tracking-[-0.08em] text-bone font-display"
+                  className="text-[clamp(4.5rem,18vw,13rem)] font-bold leading-none tracking-[-0.08em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display"
                 >
                   {letter}
                 </motion.span>
@@ -114,14 +114,14 @@ export default function BrandIntro({
               initial={{ opacity: 0, scaleX: 0 }}
               animate={{ opacity: 1, scaleX: 1 }}
               transition={{ duration: 1.1, delay: 1.35, ease: customEase }}
-              className="h-px w-32 bg-chrome1"
+              className="h-px w-32 bg-[#8EC5FF] dark:bg-[#5B9FE5]"
             />
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.55, ease: customEase }}
-              className="mt-6 text-[10px] font-semibold uppercase tracking-[0.42em] text-haze font-mono"
+              className="mt-6 text-[10px] font-semibold uppercase tracking-[0.42em] text-[#9A9AA0] dark:text-[#6B6B70] font-mono"
             >
               Regenerative Hospitality
             </motion.p>
@@ -131,7 +131,7 @@ export default function BrandIntro({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-line to-transparent"
+            className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#2A2A2F] dark:via-[#E5E5E0] to-transparent"
           />
         </motion.div>
       )}

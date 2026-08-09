@@ -14,7 +14,7 @@ export default function InvestmentStrategy() {
   return (
     <section
       id="investment"
-      className="relative bg-void py-24 md:py-32 min-h-screen"
+      className="relative bg-[#0A0A0C] dark:bg-[#F5F5F0] py-24 md:py-32 min-h-screen"
     >
       {/* Full-bleed background image */}
       <div className="absolute inset-0">
@@ -25,8 +25,8 @@ export default function InvestmentStrategy() {
           intensity={0.3}
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-overlay/80" />
-        <div className="absolute inset-0 bg-gradient-to-b from-overlay/60 via-transparent to-overlay/90" />
+        <div className="absolute inset-0 bg-[#0A0A0C]/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/60 via-transparent to-[#0A0A0C]/90" />
       </div>
 
       <Container className="relative z-10">
@@ -37,15 +37,15 @@ export default function InvestmentStrategy() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: customEase }}
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-chrome1 font-mono">
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#8EC5FF] dark:text-[#5B9FE5] font-mono">
               Investment
             </p>
 
-            <h2 className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-bone font-display">
+            <h2 className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display">
               A landmark hospitality investment.
             </h2>
 
-            <p className="mt-8 max-w-3xl text-lg leading-relaxed text-haze">
+            <p className="mt-8 max-w-3xl text-lg leading-relaxed text-[#9A9AA0] dark:text-[#6B6B70]">
               Neo Nature is positioned as a premium, future-ready resort
               opportunity for investors seeking exposure to luxury hospitality,
               experiential tourism, private villa demand, wellness, and
@@ -53,21 +53,21 @@ export default function InvestmentStrategy() {
             </p>
 
             <div className="mt-12 grid sm:grid-cols-2 gap-4">
-              <div className="rounded-[2rem] border border-line bg-graphite/50 p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-chrome1 font-mono">
+              <div className="rounded-[2rem] border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50 p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8EC5FF] dark:text-[#5B9FE5] font-mono">
                   Added Value
                 </p>
-                <p className="mt-4 text-lg font-bold leading-snug tracking-[-0.03em] text-bone">
+                <p className="mt-4 text-lg font-bold leading-snug tracking-[-0.03em] text-[#EDEDE8] dark:text-[#1A1A1E]">
                   Diversified revenue streams across villas, hospitality,
                   wellness, events, dining, and experience-led programming.
                 </p>
               </div>
 
-              <div className="rounded-[2rem] border border-line bg-graphite/50 p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-chrome1 font-mono">
+              <div className="rounded-[2rem] border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50 p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8EC5FF] dark:text-[#5B9FE5] font-mono">
                   Location Advantage
                 </p>
-                <p className="mt-4 text-lg font-bold leading-snug tracking-[-0.03em] text-bone">
+                <p className="mt-4 text-lg font-bold leading-snug tracking-[-0.03em] text-[#EDEDE8] dark:text-[#1A1A1E]">
                   Valuka offers proximity to Dhaka demand while delivering a
                   rare nature-led resort environment with long-term land value
                   potential.
@@ -75,11 +75,11 @@ export default function InvestmentStrategy() {
               </div>
             </div>
 
-            <div className="mt-10 rounded-[2rem] border border-line bg-graphite/50 p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-chrome1 font-mono">
+            <div className="mt-10 rounded-[2rem] border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50 p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8EC5FF] dark:text-[#5B9FE5] font-mono">
                 Initial Resort Reference
               </p>
-              <p className="mt-4 text-lg leading-relaxed text-haze">
+              <p className="mt-4 text-lg leading-relaxed text-[#9A9AA0] dark:text-[#6B6B70]">
                 Chuti Resort investment information can be introduced initially
                 as a comparable benchmark for valuation and performance metrics.
               </p>
@@ -91,14 +91,14 @@ export default function InvestmentStrategy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.1, ease: customEase }}
-            className="rounded-[2rem] border border-line bg-graphite/50 p-6 md:p-8 shadow-[0_24px_80px_rgba(0,0,0,0.3)]"
+            className="rounded-[2rem] border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50 p-6 md:p-8 shadow-[0_24px_80px_rgba(0,0,0,0.3)]"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-chrome1 font-mono">
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#8EC5FF] dark:text-[#5B9FE5] font-mono">
               Investor Form
             </p>
 
             {formStatus === "submitted" ? (
-              <div className="mt-8 rounded-2xl bg-graphite p-6 text-bone">
+              <div className="mt-8 rounded-2xl bg-[#1A1A1E] dark:bg-[#FFFFFF] p-6 text-[#EDEDE8] dark:text-[#1A1A1E]">
                 Thank you. Your investor inquiry has been received.
               </div>
             ) : (
@@ -110,35 +110,35 @@ export default function InvestmentStrategy() {
                 className="mt-8 space-y-6"
               >
                 <div>
-                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-haze font-mono">
+                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[#9A9AA0] dark:text-[#6B6B70] font-mono">
                     Name
                   </label>
                   <input
                     required
-                    className="mt-2 w-full rounded-2xl border border-line bg-void px-5 py-4 text-bone outline-none focus:border-chrome1 transition-colors"
+                    className="mt-2 w-full rounded-2xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C] dark:bg-[#F5F5F0] px-5 py-4 text-[#EDEDE8] dark:text-[#1A1A1E] outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors"
                     placeholder="Investor name"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-haze font-mono">
+                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[#9A9AA0] dark:text-[#6B6B70] font-mono">
                     Email
                   </label>
                   <input
                     type="email"
                     required
-                    className="mt-2 w-full rounded-2xl border border-line bg-void px-5 py-4 text-bone outline-none focus:border-chrome1 transition-colors"
+                    className="mt-2 w-full rounded-2xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C] dark:bg-[#F5F5F0] px-5 py-4 text-[#EDEDE8] dark:text-[#1A1A1E] outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors"
                     placeholder="investor@email.com"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-haze font-mono">
+                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[#9A9AA0] dark:text-[#6B6B70] font-mono">
                     Investment Interest
                   </label>
                   <select
                     required
-                    className="mt-2 w-full rounded-2xl border border-line bg-void px-5 py-4 text-bone outline-none focus:border-chrome1 transition-colors"
+                    className="mt-2 w-full rounded-2xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C] dark:bg-[#F5F5F0] px-5 py-4 text-[#EDEDE8] dark:text-[#1A1A1E] outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors"
                   >
                     <option value="">Select interest</option>
                     <option value="villas">Private Villas</option>
@@ -150,7 +150,7 @@ export default function InvestmentStrategy() {
 
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-chrome2 px-8 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-void transition hover:bg-chrome1"
+                  className="w-full rounded-full bg-[#C9A9FF] dark:bg-[#A87BE0] px-8 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#0A0A0C] dark:text-[#F5F5F0] transition hover:bg-[#8EC5FF] dark:bg-[#5B9FE5]"
                 >
                   Submit Inquiry
                 </button>

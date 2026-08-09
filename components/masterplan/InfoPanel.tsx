@@ -88,10 +88,10 @@ export default function InfoPanel({
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-graphite/40 hover:bg-graphite/60 transition-colors backdrop-blur-sm border border-line/30"
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-[#1A1A1E]/40 dark:bg-[#FFFFFF]/40 hover:bg-[#1A1A1E]/60 dark:bg-[#FFFFFF]/60 transition-colors backdrop-blur-sm border border-[#2A2A2F]/30 dark:border-[#E5E5E0]/30"
               aria-label="Close panel"
             >
-              <X className="w-4 h-4 text-bone/70" />
+              <X className="w-4 h-4 text-[#EDEDE8]/70 dark:text-[#1A1A1E]/70" />
             </button>
 
             {/* Header */}
@@ -115,7 +115,7 @@ export default function InfoPanel({
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-xl font-bold text-bone tracking-tight font-display">
+                  <h3 className="text-xl font-bold text-[#EDEDE8] dark:text-[#1A1A1E] tracking-tight font-display">
                     {location.title}
                   </h3>
                   <div className="flex items-center gap-2 mt-1.5">
@@ -129,7 +129,7 @@ export default function InfoPanel({
                     >
                       {status.label}
                     </span>
-                    <span className="text-[10px] font-mono text-haze/60 tracking-wider">
+                    <span className="text-[10px] font-mono text-[#9A9AA0]/60 dark:text-[#6B6B70]/60 tracking-wider">
                       {location.completion}
                     </span>
                   </div>
@@ -139,29 +139,29 @@ export default function InfoPanel({
 
             {/* Description */}
             <div className="px-6 pb-4">
-              <p className="text-sm leading-relaxed text-haze/80">
+              <p className="text-sm leading-relaxed text-[#9A9AA0]/80 dark:text-[#6B6B70]/80">
                 {location.description}
               </p>
             </div>
 
             {/* Divider */}
-            <div className="mx-6 h-px bg-gradient-to-r from-transparent via-line to-transparent" />
+            <div className="mx-6 h-px bg-gradient-to-r from-transparent via-[#2A2A2F] dark:via-[#E5E5E0] to-transparent" />
 
             {/* Features Grid */}
             <div className="p-6 pb-4">
-              <h4 className="text-[10px] font-mono uppercase tracking-[0.25em] text-bone/40 mb-3">
+              <h4 className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40 mb-3">
                 Key Features
               </h4>
               <div className="grid grid-cols-2 gap-2">
                 {location.features.map((feature) => (
                   <div
                     key={feature.label}
-                    className="flex items-center justify-between p-2.5 rounded-lg bg-graphite/20 border border-line/20"
+                    className="flex items-center justify-between p-2.5 rounded-lg bg-[#1A1A1E]/20 dark:bg-[#FFFFFF]/20 border border-[#2A2A2F]/20 dark:border-[#E5E5E0]/20"
                   >
-                    <span className="text-[10px] font-mono text-haze/60 uppercase tracking-wider">
+                    <span className="text-[10px] font-mono text-[#9A9AA0]/60 dark:text-[#6B6B70]/60 uppercase tracking-wider">
                       {feature.label}
                     </span>
-                    <span className="text-xs font-medium text-bone/80">
+                    <span className="text-xs font-medium text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80">
                       {feature.value}
                     </span>
                   </div>
@@ -170,7 +170,7 @@ export default function InfoPanel({
             </div>
 
             {/* Divider */}
-            <div className="mx-6 h-px bg-gradient-to-r from-transparent via-line to-transparent" />
+            <div className="mx-6 h-px bg-gradient-to-r from-transparent via-[#2A2A2F] dark:via-[#E5E5E0] to-transparent" />
 
             {/* Technology */}
             <div className="p-6 pb-4">
@@ -179,7 +179,7 @@ export default function InfoPanel({
                   className="w-3 h-3"
                   style={{ color: location.accentColor }}
                 />
-                <h4 className="text-[10px] font-mono uppercase tracking-[0.25em] text-bone/40">
+                <h4 className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40">
                   Technology
                 </h4>
               </div>
@@ -187,7 +187,7 @@ export default function InfoPanel({
                 {location.technology.map((tech) => (
                   <span
                     key={tech}
-                    className="px-2 py-1 rounded-md text-[10px] font-mono text-bone/60 bg-graphite/20 border border-line/15"
+                    className="px-2 py-1 rounded-md text-[10px] font-mono text-[#EDEDE8]/60 dark:text-[#1A1A1E]/60 bg-[#1A1A1E]/20 dark:bg-[#FFFFFF]/20 border border-[#2A2A2F]/15 dark:border-[#E5E5E0]/15"
                   >
                     {tech}
                   </span>
@@ -202,7 +202,7 @@ export default function InfoPanel({
                   className="w-3 h-3"
                   style={{ color: location.accentColor }}
                 />
-                <h4 className="text-[10px] font-mono uppercase tracking-[0.25em] text-bone/40">
+                <h4 className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40">
                   Sustainability
                 </h4>
               </div>
@@ -210,7 +210,7 @@ export default function InfoPanel({
                 {location.sustainability.map((item) => (
                   <span
                     key={item}
-                    className="px-2 py-1 rounded-md text-[10px] font-mono text-bone/60 bg-graphite/20 border border-line/15"
+                    className="px-2 py-1 rounded-md text-[10px] font-mono text-[#EDEDE8]/60 dark:text-[#1A1A1E]/60 bg-[#1A1A1E]/20 dark:bg-[#FFFFFF]/20 border border-[#2A2A2F]/15 dark:border-[#E5E5E0]/15"
                   >
                     {item}
                   </span>
@@ -219,20 +219,20 @@ export default function InfoPanel({
             </div>
 
             {/* Divider */}
-            <div className="mx-6 h-px bg-gradient-to-r from-transparent via-line to-transparent" />
+            <div className="mx-6 h-px bg-gradient-to-r from-transparent via-[#2A2A2F] dark:via-[#E5E5E0] to-transparent" />
 
             {/* Footer stats */}
             <div className="p-6 flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-1.5">
-                  <Users className="w-3 h-3 text-haze/40" />
-                  <span className="text-[10px] font-mono text-haze/50">
+                  <Users className="w-3 h-3 text-[#9A9AA0]/40 dark:text-[#6B6B70]/40" />
+                  <span className="text-[10px] font-mono text-[#9A9AA0]/50 dark:text-[#6B6B70]/50">
                     {location.capacity}
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <Calendar className="w-3 h-3 text-haze/40" />
-                  <span className="text-[10px] font-mono text-haze/50">
+                  <Calendar className="w-3 h-3 text-[#9A9AA0]/40 dark:text-[#6B6B70]/40" />
+                  <span className="text-[10px] font-mono text-[#9A9AA0]/50 dark:text-[#6B6B70]/50">
                     {location.completion}
                   </span>
                 </div>

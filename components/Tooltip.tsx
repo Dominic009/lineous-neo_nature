@@ -43,12 +43,12 @@ export default function Tooltip({ text, children, side = "bottom" }: TooltipProp
             className={`absolute z-50 ${sideClasses[side]}`}
           >
             <div
-              className="relative px-3 py-1.5 rounded-full bg-graphite border border-line shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl"
+              className="relative px-3 py-1.5 rounded-full bg-[#1A1A1E] dark:bg-[#FFFFFF] border border-[#2A2A2F] dark:border-[#E5E5E0] shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl"
             >
-              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-bone whitespace-nowrap">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#EDEDE8] dark:text-[#1A1A1E] whitespace-nowrap">
                 {text}
               </span>
-              <div className={`absolute w-2 h-2 rotate-45 bg-graphite border-l border-b border-line ${arrowClasses[side]}`} />
+              <div className={`absolute w-2 h-2 rotate-45 bg-[#1A1A1E] dark:bg-[#FFFFFF] border-l border-b border-[#2A2A2F] dark:border-[#E5E5E0] ${arrowClasses[side]}`} />
             </div>
           </motion.div>
         )}

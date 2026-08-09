@@ -10,7 +10,7 @@ export default function Sustainability() {
     <section
       id="sustainability"
       className="
-        relative bg-void
+        relative bg-[#0A0A0C] dark:bg-[#F5F5F0]
         overflow-hidden
       "
     >
@@ -23,8 +23,8 @@ export default function Sustainability() {
           intensity={0.3}
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-overlay/70" />
-        <div className="absolute inset-0 bg-linear-to-b from-void/50 via-transparent to-void/80" />
+        <div className="absolute inset-0 bg-[#0A0A0C]/70" />
+        <div className="absolute inset-0 bg-linear-to-b from-[#0A0A0C]/50 dark:from-[#F5F5F0]/50 via-transparent to-[#0A0A0C]/80 dark:to-[#F5F5F0]/80" />
       </div>
 
       <Container className="relative z-10">
@@ -35,7 +35,7 @@ export default function Sustainability() {
                 uppercase
                 tracking-[0.3em]
                 text-xs
-                text-chrome1
+                text-[#8EC5FF] dark:text-[#5B9FE5]
                 font-mono
               "
             >
@@ -50,7 +50,7 @@ export default function Sustainability() {
                 mt-8
                 leading-none
                 tracking-[-0.05em]
-                text-bone
+                text-[#EDEDE8] dark:text-[#1A1A1E]
                 font-display
               "
             >
@@ -63,7 +63,7 @@ export default function Sustainability() {
               className="
                 mt-10
                 text-lg
-                text-haze
+                text-[#9A9AA0] dark:text-[#6B6B70]
                 max-w-md
                 leading-relaxed
               "

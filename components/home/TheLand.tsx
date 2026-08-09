@@ -18,7 +18,7 @@ export default function TheLand() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen bg-void overflow-hidden"
+      className="relative min-h-screen bg-[#0A0A0C] dark:bg-[#F5F5F0] overflow-hidden"
     >
       {/* Full-bleed tall landscape image — extends beyond viewport */}
       <motion.div
@@ -47,7 +47,7 @@ export default function TheLand() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2, ease: customEase }}
-              className="annotation text-bone/70 mb-6 text-shadow-sm"
+              className="annotation text-[#EDEDE8]/70 dark:text-[#1A1A1E]/70 mb-6 text-shadow-sm"
             >
               THE LAND / 200+ ACRES
             </motion.p>
@@ -58,13 +58,13 @@ export default function TheLand() {
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, delay: 0.4, ease: customEase }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-[-0.04em] text-bone font-display max-w-4xl text-shadow-md"
+              className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-[-0.04em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display max-w-4xl text-shadow-md"
             >
               Where nature
               <br />
               becomes
               <br />
-              <span className="text-chrome1">architecture</span>
+              <span className="text-[#8EC5FF] dark:text-[#5B9FE5]">architecture</span>
             </motion.h2>
 
             {/* Description — minimal, with breathing room */}
@@ -73,7 +73,7 @@ export default function TheLand() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.6, ease: customEase }}
-              className="mt-8 max-w-xl text-lg md:text-xl leading-relaxed text-bone/80 font-display text-shadow-sm"
+              className="mt-8 max-w-xl text-lg md:text-xl leading-relaxed text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80 font-display text-shadow-sm"
             >
               200 acres of pristine landscape, reimagined through regenerative
               design. Every element of the resort responds to the land&rsquo;s
@@ -84,7 +84,7 @@ export default function TheLand() {
       </div>
 
       {/* Thin architectural line */}
-      <div className="absolute bottom-0 inset-x-0 h-px bg-bone/10" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-[#EDEDE8]/10 dark:bg-[#1A1A1E]/10" />
     </section>
   );
 }

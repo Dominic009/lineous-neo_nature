@@ -45,6 +45,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${display.variable} ${mono.variable} ${serif.variable}`}
+      suppressHydrationWarning
     >
       <body>
         <ToastProvider>

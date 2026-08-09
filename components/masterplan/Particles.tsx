@@ -50,7 +50,7 @@ export default function Particles({ count = 35, className = "" }: ParticlesProps
       {particles.map((p) => (
         <span
           key={p.id}
-          className="absolute rounded-full bg-bone"
+          className="absolute rounded-full bg-[#EDEDE8] dark:bg-[#1A1A1E]"
           style={{
             left: p.left,
             top: p.top,

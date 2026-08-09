@@ -128,7 +128,7 @@ export default function ROICalculator() {
     .join(" ");
 
   return (
-    <section className="bg-void py-20 md:py-28">
+    <section className="bg-[#0A0A0C] dark:bg-[#F5F5F0] py-20 md:py-28">
       <Container>
         <div className="max-w-5xl mx-auto">
           {/* Header */}
@@ -139,10 +139,10 @@ export default function ROICalculator() {
             transition={{ duration: 0.8, ease: customEase }}
             className="text-center mb-14 md:mb-20"
           >
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-[-0.05em] text-bone font-display">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.95] tracking-[-0.05em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display">
               Investment <span className="text-gradient-chrome">Projection</span>
             </h2>
-            <p className="mt-4 text-base md:text-lg text-haze max-w-2xl mx-auto">
+            <p className="mt-4 text-base md:text-lg text-[#9A9AA0] dark:text-[#6B6B70] max-w-2xl mx-auto">
               Estimate your potential returns in seconds. Adjust the amount and
               duration to explore different scenarios.
             </p>
@@ -155,16 +155,16 @@ export default function ROICalculator() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.75, ease: customEase }}
-              className="lg:col-span-2 rounded-[1.5rem] border border-line bg-graphite/50 p-6 md:p-8 space-y-6"
+              className="lg:col-span-2 rounded-[1.5rem] border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50 p-6 md:p-8 space-y-6"
             >
               {/* Investment Amount */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-bold uppercase tracking-[0.25em] text-bone flex items-center gap-2 font-mono">
-                    <Wallet className="w-4 h-4 text-chrome1" />
+                  <label className="text-xs font-bold uppercase tracking-[0.25em] text-[#EDEDE8] dark:text-[#1A1A1E] flex items-center gap-2 font-mono">
+                    <Wallet className="w-4 h-4 text-[#8EC5FF] dark:text-[#5B9FE5]" />
                     Investment Amount
                   </label>
-                  <span className="text-sm font-bold text-chrome1">
+                  <span className="text-sm font-bold text-[#8EC5FF] dark:text-[#5B9FE5]">
                     {formatCurrency(investmentAmount)}
                   </span>
                 </div>
@@ -175,9 +175,9 @@ export default function ROICalculator() {
                   step={10000}
                   value={investmentAmount}
                   onChange={(e) => setInvestmentAmount(Number(e.target.value))}
-                  className="w-full h-1 bg-line rounded-full appearance-none cursor-pointer accent-chrome1"
+                  className="w-full h-1 bg-[#2A2A2F] dark:bg-[#E5E5E0] rounded-full appearance-none cursor-pointer accent-chrome1"
                 />
-                <div className="flex justify-between text-[10px] text-haze uppercase tracking-wider font-mono">
+                <div className="flex justify-between text-[10px] text-[#9A9AA0] dark:text-[#6B6B70] uppercase tracking-wider font-mono">
                   <span>$100K</span>
                   <span>$2M</span>
                 </div>
@@ -185,8 +185,8 @@ export default function ROICalculator() {
 
               {/* Investment Duration */}
               <div className="space-y-3">
-                <label className="text-xs font-bold uppercase tracking-[0.25em] text-bone flex items-center gap-2 font-mono">
-                  <Calendar className="w-4 h-4 text-chrome1" />
+                <label className="text-xs font-bold uppercase tracking-[0.25em] text-[#EDEDE8] dark:text-[#1A1A1E] flex items-center gap-2 font-mono">
+                  <Calendar className="w-4 h-4 text-[#8EC5FF] dark:text-[#5B9FE5]" />
                   Investment Duration
                 </label>
                 <div className="grid grid-cols-4 gap-2">
@@ -196,12 +196,12 @@ export default function ROICalculator() {
                       onClick={() => setDuration(opt)}
                       className={`rounded-xl border py-2.5 text-center transition-all ${
                         duration === opt
-                          ? "border-chrome1 bg-chrome1/10 text-bone"
-                          : "border-line bg-void/50 text-haze hover:text-bone"
+                          ? "border-[#8EC5FF] dark:border-[#5B9FE5] bg-[#8EC5FF]/10 dark:bg-[#5B9FE5]/10 text-[#EDEDE8] dark:text-[#1A1A1E]"
+                          : "border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C]/50 dark:bg-[#F5F5F0]/50 text-[#9A9AA0] dark:text-[#6B6B70] hover:text-[#EDEDE8] dark:text-[#1A1A1E]"
                       }`}
                     >
                       <span className="text-sm font-bold">{opt}</span>
-                      <span className="block text-[10px] text-haze mt-0.5">
+                      <span className="block text-[10px] text-[#9A9AA0] dark:text-[#6B6B70] mt-0.5">
                         Years
                       </span>
                     </button>
@@ -211,11 +211,11 @@ export default function ROICalculator() {
 
               {/* Investment Type */}
               <div className="space-y-3">
-                <label className="text-xs font-bold uppercase tracking-[0.25em] text-bone font-mono">
+                <label className="text-xs font-bold uppercase tracking-[0.25em] text-[#EDEDE8] dark:text-[#1A1A1E] font-mono">
                   Investment Type
                 </label>
                 {loading ? (
-                  <div className="h-20 rounded-xl bg-void/50 animate-pulse" />
+                  <div className="h-20 rounded-xl bg-[#0A0A0C]/50 dark:bg-[#F5F5F0]/50 animate-pulse" />
                 ) : (
                   <div className="space-y-2">
                     {investmentTypes.map((type: InvestmentType) => (
@@ -229,14 +229,14 @@ export default function ROICalculator() {
                         }}
                         className={`w-full rounded-xl border p-3 text-left transition-all ${
                           selectedType?.id === type.id
-                            ? "border-chrome1 bg-chrome1/10 text-bone"
-                            : "border-line bg-void/50 text-haze hover:text-bone"
+                            ? "border-[#8EC5FF] dark:border-[#5B9FE5] bg-[#8EC5FF]/10 dark:bg-[#5B9FE5]/10 text-[#EDEDE8] dark:text-[#1A1A1E]"
+                            : "border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C]/50 dark:bg-[#F5F5F0]/50 text-[#9A9AA0] dark:text-[#6B6B70] hover:text-[#EDEDE8] dark:text-[#1A1A1E]"
                         }`}
                       >
                         <p className="text-xs font-bold uppercase tracking-wider">
                           {type.name}
                         </p>
-                        <p className="mt-0.5 text-[10px] text-haze">
+                        <p className="mt-0.5 text-[10px] text-[#9A9AA0] dark:text-[#6B6B70]">
                           {type.description}
                         </p>
                       </button>
@@ -283,15 +283,15 @@ export default function ROICalculator() {
                 ].map((metric) => (
                   <div
                     key={metric.label}
-                    className="rounded-2xl border border-line bg-graphite/50 p-5 md:p-6"
+                    className="rounded-2xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50 p-5 md:p-6"
                   >
                     <div className="flex items-center gap-2 mb-3">
-                      <metric.icon className="w-4 h-4 text-chrome1" />
-                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-haze font-mono">
+                      <metric.icon className="w-4 h-4 text-[#8EC5FF] dark:text-[#5B9FE5]" />
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#9A9AA0] dark:text-[#6B6B70] font-mono">
                         {metric.label}
                       </p>
                     </div>
-                    <p className="text-2xl md:text-3xl font-bold text-bone tracking-[-0.03em]">
+                    <p className="text-2xl md:text-3xl font-bold text-[#EDEDE8] dark:text-[#1A1A1E] tracking-[-0.03em]">
                       {metric.value}
                     </p>
                   </div>
@@ -299,8 +299,8 @@ export default function ROICalculator() {
               </div>
 
               {/* Growth Chart */}
-              <div className="rounded-2xl border border-line bg-graphite/50 p-5 md:p-6">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-haze font-mono mb-4">
+              <div className="rounded-2xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50 p-5 md:p-6">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#9A9AA0] dark:text-[#6B6B70] font-mono mb-4">
                   Growth Projection
                 </p>
                 <div className="overflow-x-auto">
@@ -490,13 +490,13 @@ export default function ROICalculator() {
               <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
                 <a
                   href="#form"
-                  className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-bone group"
+                  className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-[#EDEDE8] dark:text-[#1A1A1E] group"
                 >
-                  <span className="w-8 h-[1px] bg-bone/50 group-hover:bg-chrome1 group-hover:w-12 transition-all" />
-                  <span className="group-hover:text-chrome1 transition-colors">
+                  <span className="w-8 h-[1px] bg-[#EDEDE8]/50 dark:bg-[#1A1A1E]/50 group-hover:bg-[#8EC5FF] dark:bg-[#5B9FE5] group-hover:w-12 transition-all" />
+                  <span className="group-hover:text-[#8EC5FF] dark:text-[#5B9FE5] transition-colors">
                     Request Investment Proposal
                   </span>
-                  <ArrowUpRight className="w-4 h-4 text-chrome1 group-hover:translate-x-1 transition-transform" />
+                  <ArrowUpRight className="w-4 h-4 text-[#8EC5FF] dark:text-[#5B9FE5] group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
             </motion.div>

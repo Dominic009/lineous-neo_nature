@@ -55,7 +55,7 @@ export default function TheResort() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[300vh] bg-void"
+      className="relative h-[300vh] bg-[#0A0A0C] dark:bg-[#F5F5F0]"
     >
       {/* Pinned container */}
       <div className="sticky top-0 h-screen overflow-hidden">
@@ -63,17 +63,17 @@ export default function TheResort() {
         <div className="absolute top-12 left-8 md:top-16 md:left-16 lg:top-20 lg:left-24 z-20">
           <motion.p
             style={{ x: titleX }}
-            className="annotation text-bone/70 mb-4 text-shadow-sm"
+            className="annotation text-[#EDEDE8]/70 dark:text-[#1A1A1E]/70 mb-4 text-shadow-sm"
           >
             THE RESORT
           </motion.p>
           <motion.h2
             style={{ x: titleX }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-[-0.04em] text-bone font-display text-shadow-md"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-[-0.04em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display text-shadow-md"
           >
             A journey through
             <br />
-            <span className="text-chrome1">extraordinary</span> spaces
+            <span className="text-[#8EC5FF] dark:text-[#5B9FE5]">extraordinary</span> spaces
           </motion.h2>
         </div>
 
@@ -110,14 +110,14 @@ export default function TheResort() {
                   {/* Caption and description — architectural style */}
                   <div className="mt-4">
                     <div className="flex items-center justify-between mb-2">
-                      <p className="annotation text-bone/70 text-shadow-sm">
+                      <p className="annotation text-[#EDEDE8]/70 dark:text-[#1A1A1E]/70 text-shadow-sm">
                         {image.caption}
                       </p>
-                      <p className="annotation text-bone/60 text-shadow-sm">
+                      <p className="annotation text-[#EDEDE8]/60 dark:text-[#1A1A1E]/60 text-shadow-sm">
                         0{index + 1} / 0{resortImages.length}
                       </p>
                     </div>
-                    <p className="text-sm text-bone/80 font-display max-w-xs text-shadow-sm">
+                    <p className="text-sm text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80 font-display max-w-xs text-shadow-sm">
                       {image.description}
                     </p>
                   </div>
@@ -133,7 +133,7 @@ export default function TheResort() {
             {resortImages.map((_, index) => (
               <div
                 key={index}
-                className="w-8 h-px bg-bone/20"
+                className="w-8 h-px bg-[#EDEDE8]/20 dark:bg-[#1A1A1E]/20"
               />
             ))}
           </div>

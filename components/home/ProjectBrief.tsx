@@ -38,20 +38,20 @@ export default function ProjectBrief() {
   }, []);
 
   return (
-    <section id="project-brief" className="relative bg-void py-24 md:py-32">
+    <section id="project-brief" className="relative bg-[#0A0A0C] dark:bg-[#F5F5F0] py-24 md:py-32">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(142,197,255,0.08),transparent_40%),radial-gradient(circle_at_70%_80%,rgba(201,169,255,0.05),transparent_40%)] pointer-events-none" />
       <Container className="relative z-10 flex items-center justify-center min-h-screen">
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-stretch min-h-[70dvh]">
           <RevealSection className="flex flex-col justify-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-chrome1 font-mono">
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#8EC5FF] dark:text-[#5B9FE5] font-mono">
               Project Brief
             </p>
 
-            <h2 className="mt-6 text-4xl md:text-6xl font-bold leading-none tracking-tighter text-bone font-display">
+            <h2 className="mt-6 text-4xl md:text-6xl font-bold leading-none tracking-tighter text-[#EDEDE8] dark:text-[#1A1A1E] font-display">
               A future-ready luxury resort anchored in nature.
             </h2>
 
-            <p className="mt-8 text-lg md:text-xl leading-loose text-haze font-display">
+            <p className="mt-8 text-lg md:text-xl leading-loose text-[#9A9AA0] dark:text-[#6B6B70] font-display">
               Neo Nature is conceived as a premium eco-intelligent destination
               for investors, hospitality partners, and experience-driven
               travelers. The project blends private villas, wellness-led
@@ -60,7 +60,7 @@ export default function ProjectBrief() {
             </p>
           </RevealSection>
 
-          <div className="relative h-full overflow-hidden rounded-[2rem] bg-graphite">
+          <div className="relative h-full overflow-hidden rounded-[2rem] bg-[#1A1A1E] dark:bg-[#FFFFFF]">
             {slides.map((slide, index) => (
               <motion.div
                 key={slide.src}
@@ -75,7 +75,7 @@ export default function ProjectBrief() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-overlay/20" />
+                <div className="absolute inset-0 bg-[#0A0A0C]/20" />
               </motion.div>
             ))}
           </div>

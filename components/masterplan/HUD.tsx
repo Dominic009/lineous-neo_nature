@@ -55,10 +55,10 @@ export default function HUD({ accentColor, className = "" }: HUDProps) {
       {/* Mini progress bar */}
       <div className="absolute bottom-6 left-6 w-24">
         <div className="flex items-center justify-between mb-1">
-          <span className="text-[9px] font-mono uppercase tracking-widest text-bone/40">Progress</span>
-          <span className="text-[9px] font-mono text-bone/40">78%</span>
+          <span className="text-[9px] font-mono uppercase tracking-widest text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40">Progress</span>
+          <span className="text-[9px] font-mono text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40">78%</span>
         </div>
-        <div className="h-0.5 w-full bg-line/50 rounded-full overflow-hidden">
+        <div className="h-0.5 w-full bg-[#2A2A2F]/50 dark:bg-[#E5E5E0]/50 rounded-full overflow-hidden">
           <motion.div
             className="h-full rounded-full"
             style={{ backgroundColor: accentColor }}
@@ -71,7 +71,7 @@ export default function HUD({ accentColor, className = "" }: HUDProps) {
 
       {/* Coordinate label */}
       <div className="absolute top-4 left-4">
-        <span className="text-[9px] font-mono text-bone/30 tracking-widest">
+        <span className="text-[9px] font-mono text-[#EDEDE8]/30 dark:text-[#1A1A1E]/30 tracking-widest">
           {accentColor === "#C9A45A" ? "21.47°N 89.82°E" : "21.47°N 89.82°E"}
         </span>
       </div>
@@ -84,7 +84,7 @@ export default function HUD({ accentColor, className = "" }: HUDProps) {
           animate={{ opacity: [1, 0.3, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
         />
-        <span className="text-[9px] font-mono text-bone/40 uppercase tracking-widest">Live</span>
+        <span className="text-[9px] font-mono text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40 uppercase tracking-widest">Live</span>
       </div>
     </div>
   );

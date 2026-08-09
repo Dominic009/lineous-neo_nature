@@ -21,7 +21,7 @@ export default function Masterplan() {
   return (
     <section
       id="masterplan"
-      className="relative bg-void pt-24 md:pt-32 pb-32"
+      className="relative bg-[#0A0A0C] dark:bg-[#F5F5F0] pt-24 md:pt-32 pb-32"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(142,197,255,0.12),transparent_34%),radial-gradient(circle_at_20%_80%,rgba(201,169,255,0.08),transparent_36%)]" />
 
@@ -32,7 +32,7 @@ export default function Masterplan() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-xs font-semibold uppercase tracking-[0.4em] text-chrome1 font-mono"
+            className="text-xs font-semibold uppercase tracking-[0.4em] text-[#8EC5FF] dark:text-[#5B9FE5] font-mono"
           >
             Masterplan
           </motion.span>
@@ -42,7 +42,7 @@ export default function Masterplan() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: customEase }}
-            className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-bone font-display"
+            className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display"
           >
             The heart of Neo Nature.
           </motion.h2>
@@ -52,7 +52,7 @@ export default function Masterplan() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5, ease: customEase }}
-            className="mt-8 max-w-3xl text-lg leading-relaxed text-haze font-display"
+            className="mt-8 max-w-3xl text-lg leading-relaxed text-[#9A9AA0] dark:text-[#6B6B70] font-display"
           >
             A full-bleed resort ecosystem designed around arrival, private
             villas, waterfront experiences, culture, wellness, and future-ready
@@ -72,7 +72,7 @@ export default function Masterplan() {
             ))}
           </div>
 
-          <div className="top-40 rounded-4xl bg-graphite overflow-hidden drop-shadow-2xl relative h-[70dvh]">
+          <div className="top-40 rounded-4xl bg-[#1A1A1E] dark:bg-[#FFFFFF] overflow-hidden drop-shadow-2xl relative h-[70dvh]">
             <AnimatePresence mode="sync">
               <motion.div
                 key={activeIndex}
@@ -89,15 +89,15 @@ export default function Masterplan() {
                   intensity={0.5}
                   className="object-cover rounded-4xl"
                 />
-                <div className="absolute inset-0 bg-overlay/18" />
+                <div className="absolute inset-0 bg-[#0A0A0C]/18" />
                 <div className="absolute -bottom-4 -left-4 md:-bottom-8 md:-left-8 text-outlined text-[18vw] md:text-[12vw] leading-none opacity-100 uppercase">
                   {masterplanSections[activeIndex].title.split(" ")[0]}
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 bg-linear-to-t from-overlay/70 to-transparent">
-                  {/* <p className="text-xs font-semibold uppercase tracking-[0.35em] text-chrome1 font-mono">
+                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 bg-linear-to-t from-[#0A0A0C]/70 to-transparent">
+                  {/* <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8EC5FF] dark:text-[#5B9FE5] font-mono">
                     Key Location
                   </p>
-                  <h3 className="mt-3 text-3xl md:text-5xl font-bold leading-none tracking-[-0.04em] text-bone">
+                  <h3 className="mt-3 text-3xl md:text-5xl font-bold leading-none tracking-[-0.04em] text-[#EDEDE8] dark:text-[#1A1A1E]">
                     {masterplanSections[activeIndex].title}
                   </h3> */}
                 </div>

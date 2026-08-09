@@ -73,7 +73,7 @@ export default function Hero() {
         </motion.div> */}
       </AnimatePresence>
 
-      <div className="absolute inset-0 bg-overlay/30 backdrop-blur-xs" />
+      <div className="absolute inset-0 bg-[#0A0A0C]/30 backdrop-blur-xs" />
       {/* <div className="absolute inset-0 bg-linear-to-r from-(--color-void)/55 via-(--color-void)/15 to-transparent" />
       <div className="absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-transparent" /> */}
 
@@ -86,16 +86,16 @@ export default function Hero() {
               transition={{ duration: 0.9, ease: customEase, delay: 0.2 }}
               className="max-w-5xl"
             >
-              <p className="mb-6 text-xs font-semibold uppercase tracking-[0.45em] text-bone">
+              <p className="mb-6 text-xs font-semibold uppercase tracking-[0.45em] text-[#EDEDE8] dark:text-[#1A1A1E]">
                 Luxury Futuristic Resort
               </p>
 
               <h1 className="max-w-5xl text-[clamp(3.25rem,9vw,7.5rem)] font-bold leading-[0.88] tracking-[-0.07em] text-[var(--color-secondary)] drop-shadow-2xl">
                 Neo Nature{" "}
-                <span className="text-bone">Resort</span>
+                <span className="text-[#EDEDE8] dark:text-[#1A1A1E]">Resort</span>
               </h1>
 
-              <p className="mt-8 max-w-2xl text-lg md:text-2xl leading-relaxed text-bone/88">
+              <p className="mt-8 max-w-2xl text-lg md:text-2xl leading-relaxed text-[#EDEDE8]/88 dark:text-[#1A1A1E]/88">
                 A premium eco-intelligent destination where regenerative
                 landscapes, luxury hospitality, and future-ready technology
                 meet.
@@ -122,7 +122,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: customEase, delay: 0.45 }}
-              className="mt-16 flex flex-wrap gap-6 text-xs uppercase tracking-[0.32em] text-bone/70"
+              className="mt-16 flex flex-wrap gap-6 text-xs uppercase tracking-[0.32em] text-[#EDEDE8]/70 dark:text-[#1A1A1E]/70"
             >
               <span>Valuka, Bangladesh</span>
               <span>Regenerative Hospitality</span>

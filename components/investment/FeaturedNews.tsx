@@ -6,14 +6,14 @@ import { customEase } from "../home/Hero";
 
 export default function FeaturedNews() {
   return (
-    <section className="bg-void py-20 md:py-28">
+    <section className="bg-[#0A0A0C] dark:bg-[#F5F5F0] py-20 md:py-28">
       <Container>
         <motion.h2
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: customEase }}
-          className="text-3xl md:text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-bone mb-6 font-display"
+          className="text-3xl md:text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[#EDEDE8] dark:text-[#1A1A1E] mb-6 font-display"
         >
           Featured <span className="text-gradient-chrome">News</span>
         </motion.h2>
@@ -23,16 +23,16 @@ export default function FeaturedNews() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1, ease: customEase }}
-          className="text-base md:text-lg text-haze mb-12 max-w-xl"
+          className="text-base md:text-lg text-[#9A9AA0] dark:text-[#6B6B70] mb-12 max-w-xl"
         >
           Stay updated with the latest developments and investment insights from Neo Nature.
         </motion.p>
 
         <a
           href="#"
-          className="inline-flex items-center gap-4 text-xs font-bold uppercase tracking-[0.28em] text-bone group hover:text-chrome1 transition-colors"
+          className="inline-flex items-center gap-4 text-xs font-bold uppercase tracking-[0.28em] text-[#EDEDE8] dark:text-[#1A1A1E] group hover:text-[#8EC5FF] dark:text-[#5B9FE5] transition-colors"
         >
-          <span className="w-10 h-[1px] bg-bone group-hover:bg-chrome1 group-hover:w-14 transition-all" />
+          <span className="w-10 h-[1px] bg-[#EDEDE8] dark:bg-[#1A1A1E] group-hover:bg-[#8EC5FF] dark:bg-[#5B9FE5] group-hover:w-14 transition-all" />
           <span>Explore more</span>
         </a>
       </Container>

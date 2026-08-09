@@ -11,8 +11,8 @@ interface SectionTransitionProps {
 }
 
 export default function SectionTransition({
-  fromBg = "bg-void",
-  toBg = "bg-void",
+  fromBg = "bg-[#0A0A0C] dark:bg-[#F5F5F0]",
+  toBg = "bg-[#0A0A0C] dark:bg-[#F5F5F0]",
   direction = "down",
 }: SectionTransitionProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -36,7 +36,7 @@ export default function SectionTransition({
       />
 
       {/* Thin architectural line */}
-      <div className="absolute bottom-0 inset-x-0 h-px bg-bone/10" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-[#EDEDE8]/10 dark:bg-[#1A1A1E]/10" />
 
       {/* Subtle decorative element */}
       <motion.div
@@ -44,7 +44,7 @@ export default function SectionTransition({
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: customEase }}
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 w-16 h-px bg-bone/20"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 w-16 h-px bg-[#EDEDE8]/20 dark:bg-[#1A1A1E]/20"
       />
     </div>
   );

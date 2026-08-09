@@ -40,13 +40,13 @@ export default function Vision() {
   ];
 
   return (
-    <section id="vision" className="py-40 bg-void text-bone">
+    <section id="vision" className="py-40 bg-[#0A0A0C] dark:bg-[#F5F5F0] text-[#EDEDE8] dark:text-[#1A1A1E]">
       <Container className="max-w-5xl text-center">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="uppercase tracking-[0.35em] text-xs text-chrome1 font-mono"
+          className="uppercase tracking-[0.35em] text-xs text-[#8EC5FF] dark:text-[#5B9FE5] font-mono"
         >
           The Vision
         </motion.span>
@@ -64,7 +64,7 @@ export default function Vision() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg leading-relaxed text-haze"
+          className="text-lg leading-relaxed text-[#9A9AA0] dark:text-[#6B6B70]"
         >
           To create Bangladesh&apos;s first futuristic eco-intelligent resort where
           technology, sustainability, and immersive nature merge into a seamless
@@ -105,8 +105,8 @@ export default function Vision() {
                 relative
                 px-5 py-2
                 rounded-full
-                border border-line
-                text-haze
+                border border-[#2A2A2F] dark:border-[#E5E5E0]
+                text-[#9A9AA0] dark:text-[#6B6B70]
                 tracking-wide
                 overflow-hidden
               "
@@ -120,7 +120,7 @@ export default function Vision() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-14 text-chrome1 text-sm tracking-[0.25em] uppercase font-mono"
+          className="mt-14 text-[#8EC5FF] dark:text-[#5B9FE5] text-sm tracking-[0.25em] uppercase font-mono"
         >
           WE WANT AN ARCHITECTURE THAT WILL BE CONTEMPORARY AFTER 20–25+ YEARS
         </motion.div>

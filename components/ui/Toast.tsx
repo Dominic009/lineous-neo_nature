@@ -175,28 +175,28 @@ function ToastItem({ type, message }: ToastItemProps) {
       ? "border-emerald-500/30"
       : type === "error"
       ? "border-red-500/30"
-      : "border-chrome1/30";
+      : "border-[#8EC5FF]/30 dark:border-[#5B9FE5]/30";
 
   const bgColor =
     type === "success"
       ? "bg-emerald-500/10"
       : type === "error"
       ? "bg-red-500/10"
-      : "bg-chrome1/10";
+      : "bg-[#8EC5FF]/10 dark:bg-[#5B9FE5]/10";
 
   const textColor =
     type === "success"
       ? "text-emerald-400"
       : type === "error"
       ? "text-red-400"
-      : "text-chrome1";
+      : "text-[#8EC5FF] dark:text-[#5B9FE5]";
 
   const iconColor =
     type === "success"
       ? "text-emerald-400"
       : type === "error"
       ? "text-red-400"
-      : "text-chrome1";
+      : "text-[#8EC5FF] dark:text-[#5B9FE5]";
 
   return (
     <div
@@ -239,20 +239,20 @@ interface AlertDialogProps {
 function AlertDialog({ message, onClose }: AlertDialogProps) {
   return (
     <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/60 backdrop-blur-sm">
-      <div className="w-full max-w-sm mx-4 rounded-2xl border border-line bg-graphite/95 backdrop-blur-xl shadow-2xl shadow-black/50 p-6 space-y-4 animate-in zoom-in-95 duration-200">
+      <div className="w-full max-w-sm mx-4 rounded-2xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#1A1A1E]/95 dark:bg-[#FFFFFF]/95 backdrop-blur-xl shadow-2xl shadow-black/50 p-6 space-y-4 animate-in zoom-in-95 duration-200">
         <div className="flex items-start gap-3">
-          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-chrome1/10 flex items-center justify-center text-chrome1 mt-0.5">
+          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#8EC5FF]/10 dark:bg-[#5B9FE5]/10 flex items-center justify-center text-[#8EC5FF] dark:text-[#5B9FE5] mt-0.5">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="10" />
               <line x1="12" y1="16" x2="12" y2="12" />
               <line x1="12" y1="8" x2="12.01" y2="8" />
             </svg>
           </div>
-          <p className="text-sm text-bone leading-relaxed">{message}</p>
+          <p className="text-sm text-[#EDEDE8] dark:text-[#1A1A1E] leading-relaxed">{message}</p>
         </div>
         <button
           onClick={onClose}
-          className="w-full rounded-full bg-chrome2 px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-void transition hover:bg-chrome1 focus:outline-none focus:ring-2 focus:ring-chrome1/50"
+          className="w-full rounded-full bg-[#C9A9FF] dark:bg-[#A87BE0] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-[#0A0A0C] dark:text-[#F5F5F0] transition hover:bg-[#8EC5FF] dark:bg-[#5B9FE5] focus:outline-none focus:ring-2 focus:ring-[#8EC5FF]/50 dark:ring-[#5B9FE5]/50"
         >
           OK
         </button>
@@ -272,7 +272,7 @@ interface ConfirmDialogProps {
 function ConfirmDialog({ message, onConfirm, onCancel }: ConfirmDialogProps) {
   return (
     <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/60 backdrop-blur-sm">
-      <div className="w-full max-w-sm mx-4 rounded-2xl border border-line bg-graphite/95 backdrop-blur-xl shadow-2xl shadow-black/50 p-6 space-y-4 animate-in zoom-in-95 duration-200">
+      <div className="w-full max-w-sm mx-4 rounded-2xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#1A1A1E]/95 dark:bg-[#FFFFFF]/95 backdrop-blur-xl shadow-2xl shadow-black/50 p-6 space-y-4 animate-in zoom-in-95 duration-200">
         <div className="flex items-start gap-3">
           <div className="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center text-red-400 mt-0.5">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -281,18 +281,18 @@ function ConfirmDialog({ message, onConfirm, onCancel }: ConfirmDialogProps) {
               <line x1="12" y1="16" x2="12.01" y2="16" />
             </svg>
           </div>
-          <p className="text-sm text-bone leading-relaxed">{message}</p>
+          <p className="text-sm text-[#EDEDE8] dark:text-[#1A1A1E] leading-relaxed">{message}</p>
         </div>
         <div className="flex gap-3">
           <button
             onClick={onCancel}
-            className="flex-1 rounded-full border border-line bg-void/50 px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-haze transition hover:text-bone hover:border-chrome1/30 focus:outline-none focus:ring-2 focus:ring-line"
+            className="flex-1 rounded-full border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C]/50 dark:bg-[#F5F5F0]/50 px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-[#9A9AA0] dark:text-[#6B6B70] transition hover:text-[#EDEDE8] dark:text-[#1A1A1E] hover:border-[#8EC5FF]/30 dark:border-[#5B9FE5]/30 focus:outline-none focus:ring-2 focus:ring-[#2A2A2F] dark:ring-[#E5E5E0]"
           >
             Cancel
           </button>
           <button
             onClick={onConfirm}
-            className="flex-1 rounded-full bg-red-500/90 px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-void transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/50"
+            className="flex-1 rounded-full bg-red-500/90 px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-[#0A0A0C] dark:text-[#F5F5F0] transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/50"
           >
             Confirm
           </button>

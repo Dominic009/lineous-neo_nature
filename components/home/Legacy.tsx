@@ -12,7 +12,7 @@ export default function Legacy() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen bg-void overflow-hidden"
+      className="relative min-h-screen bg-[#0A0A0C] dark:bg-[#F5F5F0] overflow-hidden"
     >
       {/* Architectural annotation — top left */}
       <motion.div
@@ -21,7 +21,7 @@ export default function Legacy() {
         transition={{ duration: 1.2, delay: 0.3, ease: customEase }}
         className="absolute top-12 left-8 md:top-16 md:left-16 lg:top-20 lg:left-24 z-10"
       >
-        <p className="annotation text-bone/60">
+        <p className="annotation text-[#EDEDE8]/60 dark:text-[#1A1A1E]/60">
           37° 41&rsquo; 22&Prime;N / VALUKA / BANGLADESH
         </p>
       </motion.div>
@@ -35,7 +35,7 @@ export default function Legacy() {
               initial={{ opacity: 0, y: 80, filter: "blur(10px)" }}
               animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 80, filter: "blur(10px)" }}
               transition={{ duration: 1.6, delay: 0.5, ease: customEase }}
-              className="text-giant font-display text-bone max-w-6xl mx-auto text-shadow-lg"
+              className="text-giant font-display text-[#EDEDE8] dark:text-[#1A1A1E] max-w-6xl mx-auto text-shadow-lg"
             >
               THE FUTURE
               <br />
@@ -62,7 +62,7 @@ export default function Legacy() {
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 1, delay: 1.8, ease: customEase }}
-                className="mt-4 annotation text-bone/40"
+                className="mt-4 annotation text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40"
               >
                 Architectural Vision / FINAL
               </motion.p>
@@ -73,7 +73,7 @@ export default function Legacy() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 1.2, delay: 1.6, ease: customEase }}
-              className="mt-16 md:mt-24 max-w-xl text-lg md:text-xl leading-relaxed text-bone/50 font-display mx-auto"
+              className="mt-16 md:mt-24 max-w-xl text-lg md:text-xl leading-relaxed text-[#EDEDE8]/50 dark:text-[#1A1A1E]/50 font-display mx-auto"
             >
               Where nature, technology, and human aspiration converge into
               something timeless.
@@ -83,7 +83,7 @@ export default function Legacy() {
       </div>
 
       {/* Thin architectural line */}
-      <div className="absolute bottom-0 inset-x-0 h-px bg-bone/10" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-[#EDEDE8]/10 dark:bg-[#1A1A1E]/10" />
     </section>
   );
 }

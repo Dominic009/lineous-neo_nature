@@ -107,7 +107,7 @@ function ChapterContent({
       className="absolute left-0 bottom-0 max-w-3xl will-change-transform"
     >
       {/* Subtitle */}
-      <p className="annotation text-champagne/80 mb-4">
+      <p className="annotation text-[#C9A45A]/80 mb-4">
         {chapter.subtitle}
       </p>
 
@@ -120,7 +120,7 @@ function ChapterContent({
           font-bold
           leading-[0.88]
           tracking-[-0.055em]
-          text-bone
+          text-[#EDEDE8] dark:text-[#1A1A1E]
           font-display
           mb-6
         "
@@ -135,7 +135,7 @@ function ChapterContent({
           md:text-lg
           lg:text-xl
           leading-relaxed
-          text-bone/70
+          text-[#EDEDE8]/70 dark:text-[#1A1A1E]/70
           font-display
           max-w-xl
         "
@@ -366,10 +366,10 @@ export default function Architecture() {
                         duration-700
                         ${
                           activeIndex === index
-                            ? "text-champagne opacity-100"
+                            ? "text-[#C9A45A] opacity-100"
                             : activeIndex > index
-                              ? "text-bone/50"
-                              : "text-bone/25"
+                              ? "text-[#EDEDE8]/50 dark:text-[#1A1A1E]/50"
+                              : "text-[#EDEDE8]/25 dark:text-[#1A1A1E]/25"
                         }
                       `}
                     >
@@ -377,9 +377,9 @@ export default function Architecture() {
                     </span>
 
                     {index < chapters.length - 1 && (
-                      <div className="relative w-8 md:w-12 h-px bg-bone/20 overflow-hidden">
+                      <div className="relative w-8 md:w-12 h-px bg-[#EDEDE8]/20 dark:bg-[#1A1A1E]/20 overflow-hidden">
                         <motion.div
-                          className="absolute inset-y-0 left-0 bg-champagne"
+                          className="absolute inset-y-0 left-0 bg-[#C9A45A]"
                           animate={{
                             width:
                               activeIndex > index
@@ -440,13 +440,13 @@ export default function Architecture() {
         >
           <div className="flex flex-col items-end gap-2">
 
-            <span className="annotation text-bone/40">
+            <span className="annotation text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40">
               {chapters[activeIndex].number}
             </span>
 
-            <div className="w-24 md:w-32 h-px bg-bone/20 relative overflow-hidden">
+            <div className="w-24 md:w-32 h-px bg-[#EDEDE8]/20 dark:bg-[#1A1A1E]/20 relative overflow-hidden">
               <motion.div
-                className="absolute inset-y-0 left-0 bg-champagne"
+                className="absolute inset-y-0 left-0 bg-[#C9A45A]"
                 style={{
                   scaleX: scrollYProgress,
                   transformOrigin: "left",
@@ -454,7 +454,7 @@ export default function Architecture() {
               />
             </div>
 
-            <span className="annotation text-bone/30">
+            <span className="annotation text-[#EDEDE8]/30 dark:text-[#1A1A1E]/30">
               {chapters.length
                 .toString()
                 .padStart(2, "0")}
@@ -466,7 +466,7 @@ export default function Architecture() {
             ARCHITECTURAL BASELINE
             ===================================================== */}
 
-        <div className="absolute bottom-0 inset-x-0 h-px bg-bone/10 z-20" />
+        <div className="absolute bottom-0 inset-x-0 h-px bg-[#EDEDE8]/10 dark:bg-[#1A1A1E]/10 z-20" />
       </div>
     </section>
   );

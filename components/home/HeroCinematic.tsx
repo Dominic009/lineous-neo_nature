@@ -54,11 +54,11 @@ export default function HeroCinematic() {
         aria-hidden="true"
       />
       <div
-        className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-charcoal-warm/80 via-charcoal-warm/40 to-transparent"
+        className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#1A1A1E]-warm/80 via-[#1A1A1E]-warm/40 to-transparent"
         aria-hidden="true"
       />
       <div
-        className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-charcoal-warm/25 to-transparent"
+        className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-[#1A1A1E]-warm/25 to-transparent"
         aria-hidden="true"
       />
       <div
@@ -85,7 +85,7 @@ export default function HeroCinematic() {
             delay: 0.8,
             ease: [0.16, 1, 0.3, 1],
           }}
-          className="absolute top-12 left-8 md:top-16 md:left-16 lg:top-20 lg:left-24 font-mono text-[11px] uppercase tracking-[0.45em] text-sand/75"
+          className="absolute top-12 left-8 md:top-16 md:left-16 lg:top-20 lg:left-24 font-mono text-[11px] uppercase tracking-[0.45em] text-[#D5D5D0]/75"
         >
           Valuka, Bangladesh
         </motion.p>
@@ -162,7 +162,7 @@ export default function HeroCinematic() {
           >
             <Link
               href="/investment"
-              className="group inline-flex items-center rounded-2xl bg-ivory px-10 py-4 text-sm font-semibold uppercase tracking-[0.24em] text-charcoal-warm transition-all duration-300 hover:bg-cream"
+              className="group inline-flex items-center rounded-2xl bg-ivory px-10 py-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#1A1A1E]-warm transition-all duration-300 hover:bg-[#EDEDE8]"
             >
               Investment Opportunities
             </Link>

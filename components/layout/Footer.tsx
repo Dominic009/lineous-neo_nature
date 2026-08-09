@@ -7,7 +7,7 @@ const customEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export default function Footer() {
   return (
-    <footer className="relative bg-void text-bone overflow-hidden">
+    <footer className="relative bg-[#0A0A0C] dark:bg-[#F5F5F0] text-[#EDEDE8] dark:text-[#1A1A1E] overflow-hidden">
       {/* Atmospheric gradient overlays */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(142,197,255,0.1),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(201,169,255,0.08),transparent_35%)] pointer-events-none" />
 
@@ -96,7 +96,7 @@ export default function Footer() {
       </div>
 
       {/* Chrome accent line at top */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-chrome1/50 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#8EC5FF]/50 dark:via-[#5B9FE5]/50 to-transparent" />
 
       <div className="relative min-h-[80vh] flex items-center justify-center py-32 md:py-40 lg:py-48">
         <div className="max-w-7xl mx-auto px-6 md:px-8 w-full flex flex-col items-center justify-center">
@@ -108,7 +108,7 @@ export default function Footer() {
             transition={{ duration: 1.2, ease: customEase }}
             className="flex flex-col items-center mb-10"
           >
-            <h3 className="text-2xl md:text-3xl font-bold tracking-[-0.03em] text-bone font-display">
+            <h3 className="text-2xl md:text-3xl font-bold tracking-[-0.03em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display">
               Neo-Nature
             </h3>
             <motion.p
@@ -116,7 +116,7 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0, letterSpacing: "0.35em" }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2, ease: customEase }}
-              className="mt-2 text-xs font-semibold uppercase text-chrome1 font-mono"
+              className="mt-2 text-xs font-semibold uppercase text-[#8EC5FF] dark:text-[#5B9FE5] font-mono"
             >
               Regenerative Hospitality
             </motion.p>
@@ -139,7 +139,7 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, delay: 0.15, ease: customEase }}
-              className="text-3xl md:text-4xl lg:text-5xl italic font-light text-chrome2 relative -mt-6 mb-12 font-display"
+              className="text-3xl md:text-4xl lg:text-5xl italic font-light text-[#C9A9FF] dark:text-[#A87BE0] relative -mt-6 mb-12 font-display"
             >
               to exclusive investment opportunity
             </motion.p>
@@ -155,13 +155,13 @@ export default function Footer() {
           >
             <Link
               href="/contact-us"
-              className="group relative inline-flex items-center justify-center px-16 py-8 rounded-full border-2 border-chrome1 text-bone text-xs font-semibold uppercase tracking-[0.35em] transition-all duration-500 hover:text-void overflow-hidden"
+              className="group relative inline-flex items-center justify-center px-16 py-8 rounded-full border-2 border-[#8EC5FF] dark:border-[#5B9FE5] text-[#EDEDE8] dark:text-[#1A1A1E] text-xs font-semibold uppercase tracking-[0.35em] transition-all duration-500 hover:text-[#0A0A0C] dark:text-[#F5F5F0] overflow-hidden"
             >
               <span className="relative z-10 transition-colors duration-500">
                 Contact Us
               </span>
               <motion.div
-                className="absolute inset-0 bg-chrome1"
+                className="absolute inset-0 bg-[#8EC5FF] dark:bg-[#5B9FE5]"
                 initial={{ scaleX: 0, opacity: 0.8 }}
                 whileHover={{ scaleX: 1, opacity: 1 }}
                 transition={{ duration: 0.7, ease: customEase }}
@@ -178,7 +178,7 @@ export default function Footer() {
             transition={{ duration: 0.8, delay: 0.5, ease: customEase }}
             className="absolute bottom-12 left-6 md:left-8 lg:left-12"
           >
-            <p className="text-[10px] uppercase tracking-[0.25em] text-haze font-mono">
+            <p className="text-[10px] uppercase tracking-[0.25em] text-[#9A9AA0] dark:text-[#6B6B70] font-mono">
               © 2025 Neo Nature. All rights reserved.
             </p>
           </motion.div>

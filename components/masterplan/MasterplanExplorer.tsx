@@ -75,7 +75,7 @@ export default function MasterplanExplorer() {
   return (
     <section
       id="masterplan-explorer"
-      className="relative w-full h-screen overflow-hidden bg-void"
+      className="relative w-full h-screen overflow-hidden bg-[#0A0A0C] dark:bg-[#F5F5F0]"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -102,8 +102,8 @@ export default function MasterplanExplorer() {
           className="object-cover"
         />
         {/* Cinematic overlay */}
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-overlay/60 via-overlay/20 to-overlay/40" /> */}
-        {/* <div className="absolute inset-0 bg-gradient-to-r from-overlay/30 via-transparent to-overlay/30" /> */}
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0C]/60 via-[#0A0A0C]/20 to-[#0A0A0C]/40" /> */}
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0C]/30 via-transparent to-[#0A0A0C]/30" /> */}
       </motion.div>
 
       {/* Ambient particles */}
@@ -146,7 +146,7 @@ export default function MasterplanExplorer() {
 
       {/* Dim overlay when active */}
       <motion.div
-        className="absolute inset-0 pointer-events-none bg-overlay/40"
+        className="absolute inset-0 pointer-events-none bg-[#0A0A0C]/40"
         animate={{ opacity: activeLocationId ? 1 : 0 }}
         transition={{ duration: 0.4 }}
         style={{ zIndex: 6 }}

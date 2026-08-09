@@ -14,6 +14,7 @@ import InvestmentInquiry from "@/components/investment/InvestmentInquiry";
 import SectionNav from "@/components/layout/SectionNav";
 import SectionTransition from "@/components/home/SectionTransition";
 import ScrollColorTransition from "@/components/home/ScrollColorTransition";
+import Hero from "@/components/home/Hero";
 
 export default function HomePage() {
   return (
@@ -33,22 +34,22 @@ export default function HomePage() {
             { label: "Legacy", href: "#legacy" },
           ]}
         />
-        <HeroCinematic />
-        <SectionTransition fromBg="bg-void" toBg="bg-ivory" />
+        <Hero/>
+        <SectionTransition fromBg="bg-[#0A0A0C] dark:bg-[#F5F5F0]" toBg="bg-ivory" />
         <Philosophy />
-        <SectionTransition fromBg="bg-ivory" toBg="bg-void" />
+        <SectionTransition fromBg="bg-ivory" toBg="bg-[#0A0A0C] dark:bg-[#F5F5F0]" />
         <TheLand />
         <TheResort />
-        <SectionTransition fromBg="bg-void" toBg="bg-void" />
+        <SectionTransition fromBg="bg-[#0A0A0C] dark:bg-[#F5F5F0]" toBg="bg-[#0A0A0C] dark:bg-[#F5F5F0]" />
         <Architecture />
         <MasterplanExplorer />
-        <SectionTransition fromBg="bg-void" toBg="bg-ivory" />
+        <SectionTransition fromBg="bg-[#0A0A0C] dark:bg-[#F5F5F0]" toBg="bg-ivory" />
         <Experiences />
-        <SectionTransition fromBg="bg-ivory" toBg="bg-forest" />
+        <SectionTransition fromBg="bg-ivory" toBg="bg-[#1b281c]" />
         <Residences />
-        <SectionTransition fromBg="bg-forest" toBg="bg-stone" />
+        <SectionTransition fromBg="bg-[#1b281c]" toBg="bg-[#E5E5E0]" />
         <Investment />
-        <SectionTransition fromBg="bg-stone" toBg="bg-void" />
+        <SectionTransition fromBg="bg-[#E5E5E0]" toBg="bg-[#0A0A0C] dark:bg-[#F5F5F0]" />
         <Legacy />
         {/* <VillaCollection /> */}
         <Technology />

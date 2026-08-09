@@ -98,32 +98,32 @@ export default function AdminROI() {
 
   if (!authenticated) {
     return (
-      <main className="min-h-screen bg-void flex items-center justify-center">
+      <main className="min-h-screen bg-[#0A0A0C] dark:bg-[#F5F5F0] flex items-center justify-center">
         <div className="w-full max-w-md">
-          <div className="rounded-2xl border border-line bg-graphite/50 p-8">
-            <h1 className="text-2xl font-bold text-bone font-display tracking-[-0.03em] mb-2">
+          <div className="rounded-2xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50 p-8">
+            <h1 className="text-2xl font-bold text-[#EDEDE8] dark:text-[#1A1A1E] font-display tracking-[-0.03em] mb-2">
               Admin Access
             </h1>
-            <p className="text-sm text-haze mb-6">
+            <p className="text-sm text-[#9A9AA0] dark:text-[#6B6B70] mb-6">
               Enter your password to access the ROI configuration panel.
             </p>
             <form onSubmit={handleLogin} className="space-y-4">
               <div>
-                <label className="text-xs font-bold uppercase tracking-[0.2em] text-bone font-mono block mb-2">
+                <label className="text-xs font-bold uppercase tracking-[0.2em] text-[#EDEDE8] dark:text-[#1A1A1E] font-mono block mb-2">
                   Password
                 </label>
                 <input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full rounded-xl border border-line bg-void px-4 py-3 text-bone outline-none focus:border-chrome1 transition-colors"
+                  className="w-full rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C] dark:bg-[#F5F5F0] px-4 py-3 text-[#EDEDE8] dark:text-[#1A1A1E] outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors"
                   placeholder="Enter password"
                 />
               </div>
               {false}
               <button
                 type="submit"
-                className="w-full rounded-full bg-chrome2 px-6 py-3 text-xs font-bold uppercase tracking-[0.28em] text-void transition hover:bg-chrome1"
+                className="w-full rounded-full bg-[#C9A9FF] dark:bg-[#A87BE0] px-6 py-3 text-xs font-bold uppercase tracking-[0.28em] text-[#0A0A0C] dark:text-[#F5F5F0] transition hover:bg-[#8EC5FF] dark:bg-[#5B9FE5]"
               >
                 Sign In
               </button>
@@ -136,22 +136,22 @@ export default function AdminROI() {
 
   if (loading || !config) {
     return (
-      <main className="min-h-screen bg-void flex items-center justify-center">
-        <p className="text-haze font-mono text-sm">Loading configuration...</p>
+      <main className="min-h-screen bg-[#0A0A0C] dark:bg-[#F5F5F0] flex items-center justify-center">
+        <p className="text-[#9A9AA0] dark:text-[#6B6B70] font-mono text-sm">Loading configuration...</p>
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-void mt-20">
+    <main className="min-h-screen bg-[#0A0A0C] dark:bg-[#F5F5F0] mt-20">
       <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-20 py-12">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-2xl font-bold text-bone font-display tracking-[-0.03em]">
+            <h1 className="text-2xl font-bold text-[#EDEDE8] dark:text-[#1A1A1E] font-display tracking-[-0.03em]">
               ROI Configuration
             </h1>
-            <p className="text-sm text-haze mt-1">
+            <p className="text-sm text-[#9A9AA0] dark:text-[#6B6B70] mt-1">
               Last updated: {config.updatedAt
                 ? new Date(config.updatedAt).toLocaleDateString("en-US", {
                     year: "numeric",
@@ -166,14 +166,14 @@ export default function AdminROI() {
             <button
               onClick={handleRestoreDefaults}
               disabled={saving}
-              className="px-4 py-2 rounded-xl border border-line bg-void/50 text-haze hover:text-bone text-xs font-bold uppercase tracking-wider font-mono transition-colors"
+              className="px-4 py-2 rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C]/50 dark:bg-[#F5F5F0]/50 text-[#9A9AA0] dark:text-[#6B6B70] hover:text-[#EDEDE8] dark:text-[#1A1A1E] text-xs font-bold uppercase tracking-wider font-mono transition-colors"
             >
               Restore Defaults
             </button>
             <button
               onClick={handleSave}
               disabled={saving}
-              className="px-6 py-2 rounded-full bg-chrome2 text-void text-xs font-bold uppercase tracking-wider hover:bg-chrome1 transition-colors"
+              className="px-6 py-2 rounded-full bg-[#C9A9FF] dark:bg-[#A87BE0] text-[#0A0A0C] dark:text-[#F5F5F0] text-xs font-bold uppercase tracking-wider hover:bg-[#8EC5FF] dark:bg-[#5B9FE5] transition-colors"
             >
               {saving ? "Saving..." : "Save Changes"}
             </button>
@@ -182,7 +182,7 @@ export default function AdminROI() {
 
         {/* Defaults */}
         <section className="mb-8">
-          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-haze font-mono mb-4">
+          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-[#9A9AA0] dark:text-[#6B6B70] font-mono mb-4">
             Defaults
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -204,7 +204,7 @@ export default function AdminROI() {
               },
             ].map((field) => (
               <div key={field.key} className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-wider text-haze font-mono block">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-[#9A9AA0] dark:text-[#6B6B70] font-mono block">
                   {field.label}
                 </label>
                 <input
@@ -224,7 +224,7 @@ export default function AdminROI() {
                         : e.target.value
                     )
                   }
-                  className="w-full rounded-xl border border-line bg-void px-4 py-2.5 text-bone outline-none focus:border-chrome1 transition-colors"
+                  className="w-full rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C] dark:bg-[#F5F5F0] px-4 py-2.5 text-[#EDEDE8] dark:text-[#1A1A1E] outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors"
                 />
               </div>
             ))}
@@ -233,7 +233,7 @@ export default function AdminROI() {
 
         {/* Limits */}
         <section className="mb-8">
-          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-haze font-mono mb-4">
+          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-[#9A9AA0] dark:text-[#6B6B70] font-mono mb-4">
             Limits
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -255,7 +255,7 @@ export default function AdminROI() {
               },
             ].map((field) => (
               <div key={field.key} className="space-y-2">
-                <label className="text-[10px] font-bold uppercase tracking-wider text-haze font-mono block">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-[#9A9AA0] dark:text-[#6B6B70] font-mono block">
                   {field.label}
                 </label>
                 <input
@@ -270,7 +270,7 @@ export default function AdminROI() {
                   onChange={(e) =>
                     updateCalculator(field.key, Number(e.target.value))
                   }
-                  className="w-full rounded-xl border border-line bg-void px-4 py-2.5 text-bone outline-none focus:border-chrome1 transition-colors"
+                  className="w-full rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C] dark:bg-[#F5F5F0] px-4 py-2.5 text-[#EDEDE8] dark:text-[#1A1A1E] outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors"
                 />
               </div>
             ))}
@@ -279,7 +279,7 @@ export default function AdminROI() {
 
         {/* Investment Types */}
         <section className="mb-8">
-          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-haze font-mono mb-4">
+          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-[#9A9AA0] dark:text-[#6B6B70] font-mono mb-4">
             Investment Types
           </h2>
           <div className="space-y-4">
@@ -287,11 +287,11 @@ export default function AdminROI() {
               (type: any, index: number) => (
                 <div
                   key={type.id}
-                  className="rounded-2xl border border-line bg-graphite/50 p-5 space-y-4"
+                  className="rounded-2xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50 p-5 space-y-4"
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-haze font-mono block mb-1">
+                      <label className="text-[10px] font-bold uppercase tracking-wider text-[#9A9AA0] dark:text-[#6B6B70] font-mono block mb-1">
                         Name
                       </label>
                       <input
@@ -307,11 +307,11 @@ export default function AdminROI() {
                             newTypes
                           );
                         }}
-                        className="w-full rounded-xl border border-line bg-void px-4 py-2.5 text-bone outline-none focus:border-chrome1 transition-colors"
+                        className="w-full rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C] dark:bg-[#F5F5F0] px-4 py-2.5 text-[#EDEDE8] dark:text-[#1A1A1E] outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-haze font-mono block mb-1">
+                      <label className="text-[10px] font-bold uppercase tracking-wider text-[#9A9AA0] dark:text-[#6B6B70] font-mono block mb-1">
                         Description
                       </label>
                       <input
@@ -327,13 +327,13 @@ export default function AdminROI() {
                             newTypes
                           );
                         }}
-                        className="w-full rounded-xl border border-line bg-void px-4 py-2.5 text-bone outline-none focus:border-chrome1 transition-colors"
+                        className="w-full rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C] dark:bg-[#F5F5F0] px-4 py-2.5 text-[#EDEDE8] dark:text-[#1A1A1E] outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors"
                       />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-haze font-mono block mb-1">
+                      <label className="text-[10px] font-bold uppercase tracking-wider text-[#9A9AA0] dark:text-[#6B6B70] font-mono block mb-1">
                         Yield (%)
                       </label>
                       <input
@@ -350,11 +350,11 @@ export default function AdminROI() {
                             newTypes
                           );
                         }}
-                        className="w-full rounded-xl border border-line bg-void px-4 py-2.5 text-bone outline-none focus:border-chrome1 transition-colors"
+                        className="w-full rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C] dark:bg-[#F5F5F0] px-4 py-2.5 text-[#EDEDE8] dark:text-[#1A1A1E] outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-haze font-mono block mb-1">
+                      <label className="text-[10px] font-bold uppercase tracking-wider text-[#9A9AA0] dark:text-[#6B6B70] font-mono block mb-1">
                         Appreciation (%)
                       </label>
                       <input
@@ -373,7 +373,7 @@ export default function AdminROI() {
                             newTypes
                           );
                         }}
-                        className="w-full rounded-xl border border-line bg-void px-4 py-2.5 text-bone outline-none focus:border-chrome1 transition-colors"
+                        className="w-full rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C] dark:bg-[#F5F5F0] px-4 py-2.5 text-[#EDEDE8] dark:text-[#1A1A1E] outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors"
                       />
                     </div>
                   </div>
@@ -385,7 +385,7 @@ export default function AdminROI() {
 
         {/* Duration Options */}
         <section className="mb-8">
-          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-haze font-mono mb-4">
+          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-[#9A9AA0] dark:text-[#6B6B70] font-mono mb-4">
             Duration Options
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -404,9 +404,9 @@ export default function AdminROI() {
                       newOptions
                     );
                   }}
-                  className="w-20 rounded-xl border border-line bg-void px-4 py-2.5 text-bone outline-none focus:border-chrome1 transition-colors"
+                  className="w-20 rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C] dark:bg-[#F5F5F0] px-4 py-2.5 text-[#EDEDE8] dark:text-[#1A1A1E] outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors"
                 />
-                <span className="text-xs text-haze font-mono">Years</span>
+                <span className="text-xs text-[#9A9AA0] dark:text-[#6B6B70] font-mono">Years</span>
               </div>
             ))}
           </div>

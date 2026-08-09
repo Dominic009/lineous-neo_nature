@@ -7,8 +7,8 @@ import ParallaxImage from "@/components/home/ParallaxImage";
 
 export default function TechnologyPage() {
   return (
-    <main className="bg-void">
-      <section className="relative min-h-[75vh] overflow-hidden bg-void">
+    <main className="bg-[#0A0A0C] dark:bg-[#F5F5F0]">
+      <section className="relative min-h-[75vh] overflow-hidden bg-[#0A0A0C] dark:bg-[#F5F5F0]">
         <ParallaxImage
           src="/purura_resort_images/purura_render_19.jpg"
           alt="Neo Nature technology"
@@ -16,8 +16,8 @@ export default function TechnologyPage() {
           intensity={0.5}
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-void/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[#0A0A0C]/25 dark:bg-[#F5F5F0]/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0C] dark:from-[#F5F5F0] via-transparent to-transparent" />
 
         <div className="relative z-10 min-h-[75vh] flex items-end">
           <Container>
@@ -27,10 +27,10 @@ export default function TechnologyPage() {
               transition={{ duration: 0.8, ease: customEase }}
               className="max-w-5xl pb-24"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-bone font-mono">
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#EDEDE8] dark:text-[#1A1A1E] font-mono">
                 Technology
               </p>
-              <h1 className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-bone font-display">
+              <h1 className="mt-6 text-5xl md:text-7xl font-bold leading-none tracking-[-0.06em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display">
                 Powered by intelligence.
               </h1>
             </motion.div>
@@ -47,15 +47,15 @@ export default function TechnologyPage() {
             transition={{ duration: 0.8, ease: customEase }}
             className="max-w-4xl"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-chrome1 font-mono">
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#8EC5FF] dark:text-[#5B9FE5] font-mono">
               Intelligent Infrastructure
             </p>
 
-            <h2 className="mt-6 text-4xl md:text-6xl font-bold leading-none tracking-[-0.05em] text-bone font-display">
+            <h2 className="mt-6 text-4xl md:text-6xl font-bold leading-none tracking-[-0.05em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display">
               Technology embedded into every guest interaction.
             </h2>
 
-            <p className="mt-8 text-lg leading-relaxed text-haze">
+            <p className="mt-8 text-lg leading-relaxed text-[#9A9AA0] dark:text-[#6B6B70]">
               Technology is embedded into every guest interaction, every villa, and
               every experience, creating a resort ecosystem that feels seamless,
               premium, and future-ready.

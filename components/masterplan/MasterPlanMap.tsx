@@ -246,7 +246,7 @@ export default function MasterplanMap() {
           
           {/* Inner pulse */}
           <motion.div
-            className="absolute h-3 w-3 rounded-full bg-bone"
+            className="absolute h-3 w-3 rounded-full bg-[#EDEDE8] dark:bg-[#1A1A1E]"
             animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
@@ -264,9 +264,9 @@ export default function MasterplanMap() {
             >
               <div
                 className="px-4 py-2 rounded-full
-                  bg-graphite/50 backdrop-blur-xl
-                  border border-line
-                  text-bone text-xs tracking-widest font-medium
+                  bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50 backdrop-blur-xl
+                  border border-[#2A2A2F] dark:border-[#E5E5E0]
+                  text-[#EDEDE8] dark:text-[#1A1A1E] text-xs tracking-widest font-medium
                   shadow-[0_8px_32px_rgba(0,0,0,0.4)]
                   flex items-center gap-2"
               >
@@ -274,7 +274,7 @@ export default function MasterplanMap() {
                 {spot.label}
               </div>
               {/* Tooltip arrow */}
-              <div className="absolute left-1/2 -translate-x-1/2 -bottom-1 w-2 h-2 bg-graphite/50 rotate-45 border-r border-b border-line" />
+              <div className="absolute left-1/2 -translate-x-1/2 -bottom-1 w-2 h-2 bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50 rotate-45 border-r border-b border-[#2A2A2F] dark:border-[#E5E5E0]" />
             </motion.div>
           )}
         </AnimatePresence>
@@ -285,7 +285,7 @@ export default function MasterplanMap() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-screen overflow-hidden bg-void"
+      className="relative w-full h-screen overflow-hidden bg-[#0A0A0C] dark:bg-[#F5F5F0]"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -323,10 +323,10 @@ export default function MasterplanMap() {
         {/* ─── COMPASS DECORATION ──────────────────────── */}
         <div className="absolute bottom-8 right-8 opacity-60">
           <div className="relative w-16 h-16">
-            <div className="absolute inset-0 rounded-full border border-chrome1/40" />
-            <div className="absolute inset-2 rounded-full border border-chrome1/20" />
-            <Compass className="absolute inset-0 m-auto w-8 h-8 text-chrome1" />
-            <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-chrome1 text-xs font-bold tracking-widest">N</span>
+            <div className="absolute inset-0 rounded-full border border-[#8EC5FF]/40 dark:border-[#5B9FE5]/40" />
+            <div className="absolute inset-2 rounded-full border border-[#8EC5FF]/20 dark:border-[#5B9FE5]/20" />
+            <Compass className="absolute inset-0 m-auto w-8 h-8 text-[#8EC5FF] dark:text-[#5B9FE5]" />
+            <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-[#8EC5FF] dark:text-[#5B9FE5] text-xs font-bold tracking-widest">N</span>
           </div>
         </div>
       </motion.div>
@@ -341,18 +341,18 @@ export default function MasterplanMap() {
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="absolute right-0 top-0 h-full w-[420px] max-w-[90vw] z-30"
           >
-            <div className="h-full bg-void/95 backdrop-blur-2xl border-l border-line shadow-2xl overflow-y-auto">
+            <div className="h-full bg-[#0A0A0C]/95 dark:bg-[#F5F5F0]/95 backdrop-blur-2xl border-l border-[#2A2A2F] dark:border-[#E5E5E0] shadow-2xl overflow-y-auto">
               {/* Close button */}
               <button
                 onClick={handleCloseZoom}
-                className="absolute top-6 right-6 z-10 p-2 rounded-full bg-graphite/50 hover:bg-graphite/70 transition-colors"
+                className="absolute top-6 right-6 z-10 p-2 rounded-full bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50 hover:bg-[#1A1A1E]/70 dark:bg-[#FFFFFF]/70 transition-colors"
               >
-                <X className="w-5 h-5 text-bone" />
+                <X className="w-5 h-5 text-[#EDEDE8] dark:text-[#1A1A1E]" />
               </button>
 
               {/* Spot Image */}
               <div className="relative h-64 w-full overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-overlay z-10" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0A0A0C] z-10" />
                 <Image
                   src={selectedSpot.image}
                   alt={selectedSpot.label}
@@ -367,15 +367,15 @@ export default function MasterplanMap() {
                     >
                       {selectedSpot.icon}
                     </div>
-                    <span className="text-chrome2 text-xs tracking-widest uppercase">Location</span>
+                    <span className="text-[#C9A9FF] dark:text-[#A87BE0] text-xs tracking-widest uppercase">Location</span>
                   </div>
-                  <h2 className="text-3xl font-bold text-bone">{selectedSpot.label}</h2>
+                  <h2 className="text-3xl font-bold text-[#EDEDE8] dark:text-[#1A1A1E]">{selectedSpot.label}</h2>
                 </div>
               </div>
 
               {/* Content */}
               <div className="p-8 space-y-6">
-                <p className="text-haze text-sm leading-relaxed">
+                <p className="text-[#9A9AA0] dark:text-[#6B6B70] text-sm leading-relaxed">
                   {selectedSpot.description}
                 </p>
 
@@ -387,15 +387,15 @@ export default function MasterplanMap() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.1 }}
-                      className="p-3 rounded-lg bg-graphite/30 border border-line/50 hover:bg-graphite/50 transition-colors"
+                      className="p-3 rounded-lg bg-[#1A1A1E]/30 dark:bg-[#FFFFFF]/30 border border-[#2A2A2F]/50 dark:border-[#E5E5E0]/50 hover:bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50 transition-colors"
                     >
-                      <span className="text-bone/80 text-xs font-medium">{feature}</span>
+                      <span className="text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80 text-xs font-medium">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
 
                 {/* CTA */}
-                <button className="w-full py-4 rounded-full bg-gradient-to-r from-chrome1 to-chrome2 text-void font-bold text-sm tracking-widest uppercase hover:shadow-[0_0_30px_rgba(142,197,255,0.3)] transition-shadow">
+                <button className="w-full py-4 rounded-full bg-gradient-to-r from-[#8EC5FF] dark:from-[#5B9FE5] to-[#C9A9FF] dark:to-[#A87BE0] text-[#0A0A0C] dark:text-[#F5F5F0] font-bold text-sm tracking-widest uppercase hover:shadow-[0_0_30px_rgba(142,197,255,0.3)] transition-shadow">
                   Explore This Location
                 </button>
               </div>
@@ -413,10 +413,10 @@ export default function MasterplanMap() {
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-8 left-8 z-20"
           >
-            <h1 className="text-bone/90 text-sm tracking-[0.3em] uppercase font-light mb-1">
+            <h1 className="text-[#EDEDE8]/90 dark:text-[#1A1A1E]/90 text-sm tracking-[0.3em] uppercase font-light mb-1">
               Thuwal Private Island
             </h1>
-            <p className="text-chrome2 text-xs tracking-widest uppercase">
+            <p className="text-[#C9A9FF] dark:text-[#A87BE0] text-xs tracking-widest uppercase">
               Interactive Masterplan
             </p>
           </motion.div>
@@ -432,7 +432,7 @@ export default function MasterplanMap() {
             exit={{ opacity: 0 }}
             className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
           >
-            <p className="text-haze/40 text-xs tracking-widest uppercase flex items-center gap-2">
+            <p className="text-[#9A9AA0]/40 dark:text-[#6B6B70]/40 text-xs tracking-widest uppercase flex items-center gap-2">
               <MapPin className="w-3 h-3" />
               Click any location to explore
             </p>

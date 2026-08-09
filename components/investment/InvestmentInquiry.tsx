@@ -81,7 +81,7 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
   }
 
   return (
-    <section id="inquiry" className="relative bg-void py-20 md:py-28">
+    <section id="inquiry" className="relative bg-[#0A0A0C] dark:bg-[#F5F5F0] py-20 md:py-28">
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute inset-0 opacity-20"
@@ -103,17 +103,17 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
             transition={{ duration: 0.8, ease: customEase }}
             className="lg:col-span-2 space-y-8"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-chrome1 font-mono">
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#8EC5FF] dark:text-[#5B9FE5] font-mono">
               Investment Consultation
             </p>
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-bone font-display">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[#EDEDE8] dark:text-[#1A1A1E] font-display">
               Your next
               <span className="text-gradient-chrome"> investment</span>
               starts here
             </h2>
 
-            <p className="text-lg leading-relaxed text-haze">
+            <p className="text-lg leading-relaxed text-[#9A9AA0] dark:text-[#6B6B70]">
               Valuka is poised at the intersection of luxury hospitality and
               regenerative tourism. Our investors gain access to a premium
               destination with multiple revenue streams, long-term appreciation
@@ -141,10 +141,10 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
                 },
               ].map((item) => (
                 <div key={item.text} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-chrome1/10 flex items-center justify-center text-chrome1 mt-0.5">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#8EC5FF]/10 dark:bg-[#5B9FE5]/10 flex items-center justify-center text-[#8EC5FF] dark:text-[#5B9FE5] mt-0.5">
                     <item.icon size={12} />
                   </div>
-                  <p className="text-sm text-haze leading-relaxed">
+                  <p className="text-sm text-[#9A9AA0] dark:text-[#6B6B70] leading-relaxed">
                     {item.text}
                   </p>
                 </div>
@@ -162,12 +162,12 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
           >
             <form
               onSubmit={handleSubmit}
-              className="rounded-3xl border border-line bg-graphite/50 backdrop-blur-sm p-6 md:p-8 space-y-6"
+              className="rounded-3xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#1A1A1E]/50 dark:bg-[#FFFFFF]/50 backdrop-blur-sm p-6 md:p-8 space-y-6"
             >
               {/* ── Row: Name ── */}
               <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono flex items-center gap-2">
-                  <User className="w-3.5 h-3.5 text-chrome1" />
+                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80 font-mono flex items-center gap-2">
+                  <User className="w-3.5 h-3.5 text-[#8EC5FF] dark:text-[#5B9FE5]" />
                   Full Name
                 </label>
                 <input
@@ -176,7 +176,7 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full rounded-xl border border-line bg-void/60 px-4 py-3.5 text-bone placeholder:text-bone/40 focus:outline-none focus:border-chrome1 transition-colors text-sm"
+                  className="w-full rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C]/60 dark:bg-[#F5F5F0]/60 px-4 py-3.5 text-[#EDEDE8] dark:text-[#1A1A1E] placeholder:text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40 focus:outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors text-sm"
                   placeholder="Your full name"
                 />
               </div>
@@ -184,8 +184,8 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
               {/* ── Row: Email + Phone ── */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono flex items-center gap-2">
-                    <Mail className="w-3.5 h-3.5 text-chrome1" />
+                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80 font-mono flex items-center gap-2">
+                    <Mail className="w-3.5 h-3.5 text-[#8EC5FF] dark:text-[#5B9FE5]" />
                     Email
                   </label>
                   <input
@@ -194,14 +194,14 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-line bg-void/60 px-4 py-3.5 text-bone placeholder:text-bone/40 focus:outline-none focus:border-chrome1 transition-colors text-sm"
+                    className="w-full rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C]/60 dark:bg-[#F5F5F0]/60 px-4 py-3.5 text-[#EDEDE8] dark:text-[#1A1A1E] placeholder:text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40 focus:outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors text-sm"
                     placeholder="you@domain.com"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono flex items-center gap-2">
-                    <Phone className="w-3.5 h-3.5 text-chrome1" />
+                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80 font-mono flex items-center gap-2">
+                    <Phone className="w-3.5 h-3.5 text-[#8EC5FF] dark:text-[#5B9FE5]" />
                     Phone
                   </label>
                   <input
@@ -210,7 +210,7 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-line bg-void/60 px-4 py-3.5 text-bone placeholder:text-bone/40 focus:outline-none focus:border-chrome1 transition-colors text-sm"
+                    className="w-full rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C]/60 dark:bg-[#F5F5F0]/60 px-4 py-3.5 text-[#EDEDE8] dark:text-[#1A1A1E] placeholder:text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40 focus:outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors text-sm"
                     placeholder="+880 1XXX XXXXXX"
                   />
                 </div>
@@ -219,8 +219,8 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
               {/* ── Row: Country + Budget ── */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono flex items-center gap-2">
-                    <Globe className="w-3.5 h-3.5 text-chrome1" />
+                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80 font-mono flex items-center gap-2">
+                    <Globe className="w-3.5 h-3.5 text-[#8EC5FF] dark:text-[#5B9FE5]" />
                     Country
                   </label>
                   <input
@@ -229,14 +229,14 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
                     required
                     value={formData.country}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-line bg-void/60 px-4 py-3.5 text-bone placeholder:text-bone/40 focus:outline-none focus:border-chrome1 transition-colors text-sm"
+                    className="w-full rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C]/60 dark:bg-[#F5F5F0]/60 px-4 py-3.5 text-[#EDEDE8] dark:text-[#1A1A1E] placeholder:text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40 focus:outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors text-sm"
                     placeholder="Your country"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono flex items-center gap-2">
-                    <DollarSign className="w-3.5 h-3.5 text-chrome1" />
+                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80 font-mono flex items-center gap-2">
+                    <DollarSign className="w-3.5 h-3.5 text-[#8EC5FF] dark:text-[#5B9FE5]" />
                     Budget Range
                   </label>
                   <select
@@ -244,7 +244,7 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
                     required
                     value={formData.budget}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-line bg-void/60 px-4 py-3.5 text-bone focus:outline-none focus:border-chrome1 transition-colors cursor-pointer text-sm"
+                    className="w-full rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C]/60 dark:bg-[#F5F5F0]/60 px-4 py-3.5 text-[#EDEDE8] dark:text-[#1A1A1E] focus:outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors cursor-pointer text-sm"
                   >
                     <option value="">Select budget range</option>
                     {budgetRanges.map((range) => (
@@ -259,8 +259,8 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
               {/* ── Row: Interest Type + Timeline ── */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono flex items-center gap-2">
-                    <Target className="w-3.5 h-3.5 text-chrome1" />
+                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80 font-mono flex items-center gap-2">
+                    <Target className="w-3.5 h-3.5 text-[#8EC5FF] dark:text-[#5B9FE5]" />
                     Interest Type
                   </label>
                   <select
@@ -268,7 +268,7 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
                     required
                     value={formData.interest}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-line bg-void/60 px-4 py-3.5 text-bone focus:outline-none focus:border-chrome1 transition-colors cursor-pointer text-sm"
+                    className="w-full rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C]/60 dark:bg-[#F5F5F0]/60 px-4 py-3.5 text-[#EDEDE8] dark:text-[#1A1A1E] focus:outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors cursor-pointer text-sm"
                   >
                     <option value="">Select interest type</option>
                     {interestTypes.map((type) => (
@@ -280,8 +280,8 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono flex items-center gap-2">
-                    <Clock className="w-3.5 h-3.5 text-chrome1" />
+                  <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80 font-mono flex items-center gap-2">
+                    <Clock className="w-3.5 h-3.5 text-[#8EC5FF] dark:text-[#5B9FE5]" />
                     Timeline
                   </label>
                   <select
@@ -289,7 +289,7 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
                     required
                     value={formData.timeline}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-line bg-void/60 px-4 py-3.5 text-bone focus:outline-none focus:border-chrome1 transition-colors cursor-pointer text-sm"
+                    className="w-full rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C]/60 dark:bg-[#F5F5F0]/60 px-4 py-3.5 text-[#EDEDE8] dark:text-[#1A1A1E] focus:outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors cursor-pointer text-sm"
                   >
                     <option value="">Select timeline</option>
                     {timelineOptions.map((opt) => (
@@ -303,8 +303,8 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
 
               {/* ── Message ── */}
               <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-bone/80 font-mono flex items-center gap-2">
-                  <MessageSquare className="w-3.5 h-3.5 text-chrome1" />
+                <label className="text-xs font-semibold uppercase tracking-[0.25em] text-[#EDEDE8]/80 dark:text-[#1A1A1E]/80 font-mono flex items-center gap-2">
+                  <MessageSquare className="w-3.5 h-3.5 text-[#8EC5FF] dark:text-[#5B9FE5]" />
                   Message
                 </label>
                 <textarea
@@ -312,14 +312,14 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full rounded-xl border border-line bg-void/60 px-4 py-3.5 text-bone placeholder:text-bone/40 focus:outline-none focus:border-chrome1 transition-colors text-sm resize-none"
+                  className="w-full rounded-xl border border-[#2A2A2F] dark:border-[#E5E5E0] bg-[#0A0A0C]/60 dark:bg-[#F5F5F0]/60 px-4 py-3.5 text-[#EDEDE8] dark:text-[#1A1A1E] placeholder:text-[#EDEDE8]/40 dark:text-[#1A1A1E]/40 focus:outline-none focus:border-[#8EC5FF] dark:border-[#5B9FE5] transition-colors text-sm resize-none"
                   placeholder="Tell us about your investment goals..."
                 />
               </div>
 
               {/* ── Trust note ── */}
-              <p className="text-xs text-haze/70 font-mono flex items-center gap-2">
-                <Shield className="w-3 h-3 text-chrome1/60" />
+              <p className="text-xs text-[#9A9AA0]/70 dark:text-[#6B6B70]/70 font-mono flex items-center gap-2">
+                <Shield className="w-3 h-3 text-[#8EC5FF]/60 dark:text-[#5B9FE5]/60" />
                 Your information is kept confidential and will only be used by
                 our investment advisory team.
               </p>
@@ -329,7 +329,7 @@ export default function InvestmentInquiry({ onSuccess }: InvestmentInquiryProps)
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full rounded-full bg-chrome2 px-8 py-4 text-xs font-bold uppercase tracking-[0.28em] text-void transition hover:bg-chrome1 flex items-center justify-center gap-3"
+                className="w-full rounded-full bg-[#C9A9FF] dark:bg-[#A87BE0] px-8 py-4 text-xs font-bold uppercase tracking-[0.28em] text-[#0A0A0C] dark:text-[#F5F5F0] transition hover:bg-[#8EC5FF] dark:bg-[#5B9FE5] flex items-center justify-center gap-3"
               >
                 Request Investment Proposal
                 <ArrowRight className="w-4 h-4" />

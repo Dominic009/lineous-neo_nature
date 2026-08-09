@@ -37,7 +37,7 @@ const villas = [
 
 export default function VillaShowcase() {
   return (
-    <section className="py-24 md:py-32 bg-void text-bone">
+    <section className="py-24 md:py-32 bg-[#0A0A0C] dark:bg-[#F5F5F0] text-[#EDEDE8] dark:text-[#1A1A1E]">
       <Container className="relative z-10">
         {villas.map((villa, index) => (
           <div
@@ -45,20 +45,20 @@ export default function VillaShowcase() {
             className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 last:mb-0`}
           >
             <RevealSection delay={index * 0.1}>
-              <span className="uppercase tracking-[0.3em] text-xs text-chrome1 font-mono">
+              <span className="uppercase tracking-[0.3em] text-xs text-[#8EC5FF] dark:text-[#5B9FE5] font-mono">
                 {villa.subtitle}
               </span>
 
-              <h3 className="text-5xl md:text-4xl font-bold mt-6 leading-none tracking-[-0.05em] text-bone">
+              <h3 className="text-5xl md:text-4xl font-bold mt-6 leading-none tracking-[-0.05em] text-[#EDEDE8] dark:text-[#1A1A1E]">
                 {villa.name}
               </h3>
 
-              <p className="mt-4 text-lg text-haze leading-relaxed max-w-2xl">
+              <p className="mt-4 text-lg text-[#9A9AA0] dark:text-[#6B6B70] leading-relaxed max-w-2xl">
                 {villa.description}
               </p>
             </RevealSection>
 
-            <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-graphite">
+            <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-[#1A1A1E] dark:bg-[#FFFFFF]">
               <ParallaxImage
                 src={villa.image}
                 alt={villa.name}
@@ -66,7 +66,7 @@ export default function VillaShowcase() {
                 intensity={0.5}
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-overlay/10" />
+              <div className="absolute inset-0 bg-[#0A0A0C]/10" />
             </div>
           </div>
         ))}

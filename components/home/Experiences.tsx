@@ -194,8 +194,8 @@ BACKGROUND MOVEMENT
       className="
      relative
      overflow-hidden
-     bg-bone
-     text-charcoal
+     bg-[#EDEDE8] dark:bg-[#1A1A1E]
+     text-[#1A1A1E]
      py-32
      md:py-40
      lg:py-48
@@ -232,7 +232,7 @@ BACKGROUND MOVEMENT
         h-[65vw]
         rounded-full
         border
-        border-charcoal/[0.045]
+        border-[#1A1A1E]/[0.045]
       "
         >
           <div
@@ -241,7 +241,7 @@ BACKGROUND MOVEMENT
           inset-[15%]
           rounded-full
           border
-          border-charcoal/[0.035]
+          border-[#1A1A1E]/[0.035]
         "
           />
 
@@ -251,7 +251,7 @@ BACKGROUND MOVEMENT
           inset-[30%]
           rounded-full
           border
-          border-charcoal/[0.03]
+          border-[#1A1A1E]/[0.03]
         "
           />
         </motion.div>
@@ -265,7 +265,7 @@ BACKGROUND MOVEMENT
         left-0
         right-0
         h-px
-        bg-charcoal/[0.045]
+        bg-[#1A1A1E]/[0.045]
       "
         />
 
@@ -276,7 +276,7 @@ BACKGROUND MOVEMENT
         left-0
         right-0
         h-px
-        bg-charcoal/[0.045]
+        bg-[#1A1A1E]/[0.045]
       "
         />
 
@@ -289,7 +289,7 @@ BACKGROUND MOVEMENT
         bottom-0
         left-[12%]
         w-px
-        bg-charcoal/[0.04]
+        bg-[#1A1A1E]/[0.04]
       "
         />
 
@@ -314,7 +314,7 @@ BACKGROUND MOVEMENT
           text-[18vw]
           leading-none
           tracking-[-0.08em]
-          text-charcoal/[0.018]
+          text-[#1A1A1E]/[0.018]
         "
           >
             EXPERIENCE
@@ -366,7 +366,7 @@ BACKGROUND MOVEMENT
               }}
               className="
             annotation
-            text-charcoal/40
+            text-[#1A1A1E]/40
             mb-6
           "
             >
@@ -383,7 +383,7 @@ BACKGROUND MOVEMENT
             font-bold
             leading-[0.88]
             tracking-[-0.055em]
-            text-charcoal
+            text-[#1A1A1E]
             font-display
             max-w-4xl
           "
@@ -432,7 +432,7 @@ BACKGROUND MOVEMENT
                     delay: 0.48,
                     ease: customEase,
                   }}
-                  className="block text-charcoal/35"
+                  className="block text-[#1A1A1E]/35"
                 >
                   of wonder
                 </motion.span>
@@ -468,7 +468,7 @@ BACKGROUND MOVEMENT
             text-lg
             md:text-xl
             leading-relaxed
-            text-charcoal/60
+            text-[#1A1A1E]/60
             font-display
           "
             >
@@ -505,7 +505,7 @@ BACKGROUND MOVEMENT
           md:mt-20
           w-full
           h-px
-          bg-charcoal/10
+          bg-[#1A1A1E]/10
         "
           />
         </div>
@@ -580,16 +580,16 @@ BACKGROUND MOVEMENT
                   pointer-events-none
                 "
                   >
-                    <span className="annotation text-charcoal/20">
+                    <span className="annotation text-[#1A1A1E]/20">
                       0{index + 1}
                     </span>
 
                     <div className="flex items-center gap-3">
-                      <span className="annotation text-charcoal/15">
+                      <span className="annotation text-[#1A1A1E]/15">
                         {exp.caption}
                       </span>
 
-                      <div className="w-8 md:w-16 h-px bg-charcoal/10" />
+                      <div className="w-8 md:w-16 h-px bg-[#1A1A1E]/10" />
                     </div>
                   </div>
 
@@ -662,7 +662,7 @@ BACKGROUND MOVEMENT
                       <p
                         className="
                       annotation
-                      text-champagne/90
+                      text-[#C9A45A]/90
                       mb-3
                     "
                       >
@@ -675,7 +675,7 @@ BACKGROUND MOVEMENT
                       md:text-3xl
                       font-bold
                       tracking-[-0.03em]
-                      text-charcoal
+                      text-[#1A1A1E]
                       font-display
                       mb-3
                     "
@@ -687,7 +687,7 @@ BACKGROUND MOVEMENT
                         className="
                       text-base
                       leading-relaxed
-                      text-charcoal/70
+                      text-[#1A1A1E]/70
                       font-display
                     "
                       >
@@ -713,11 +713,11 @@ BACKGROUND MOVEMENT
                     justify-between
                   "
                     >
-                      <p className="annotation text-charcoal/30">
+                      <p className="annotation text-[#1A1A1E]/30">
                         0{index + 1} / 0{experiences.length}
                       </p>
 
-                      <p className="annotation text-charcoal/20">
+                      <p className="annotation text-[#1A1A1E]/20">
                         PURURA / EXPERIENCE
                       </p>
                     </div>
@@ -757,7 +757,7 @@ BACKGROUND MOVEMENT
       bottom-0
       inset-x-0
       h-px
-      bg-charcoal/10
+      bg-[#1A1A1E]/10
     "
       />
     </section>
