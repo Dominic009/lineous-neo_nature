@@ -10,11 +10,24 @@ export default function Sustainability() {
     <section
       id="sustainability"
       className="
-        bg-[var(--color-bg-secondary)]
+        relative bg-void
         overflow-hidden
       "
     >
-      <Container>
+      {/* Full-bleed background image */}
+      <div className="absolute inset-0">
+        <ParallaxImage
+          src="/purura_resort_images/purura_render_10.jpg"
+          alt="Sustainability"
+          fill
+          intensity={0.3}
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-overlay/70" />
+        <div className="absolute inset-0 bg-linear-to-b from-void/50 via-transparent to-void/80" />
+      </div>
+
+      <Container className="relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-stretch">
            <div className="sticky top-32 self-start h-full">
             <span
@@ -22,7 +35,8 @@ export default function Sustainability() {
                 uppercase
                 tracking-[0.3em]
                 text-xs
-                text-[var(--color-accent-primary)]
+                text-chrome1
+                font-mono
               "
             >
               Future Infrastructure
@@ -36,7 +50,8 @@ export default function Sustainability() {
                 mt-8
                 leading-none
                 tracking-[-0.05em]
-                text-[var(--color-text-primary)]
+                text-bone
+                font-display
               "
             >
               Designed
@@ -47,7 +62,7 @@ export default function Sustainability() {
               className="
                 mt-10
                 text-lg
-                text-[var(--color-text-secondary)]
+                text-haze
                 max-w-md
                 leading-relaxed
               "
@@ -55,19 +70,6 @@ export default function Sustainability() {
               Sustainability is embedded into the architecture, landscape,
               infrastructure, and operations of the resort.
             </p>
-
-            <div className="mt-12 h-full max-h-[90dvh]">
-              <div className="relative h-full  overflow-hidden rounded-[2rem] bg-[var(--color-surface-muted)]">
-                <ParallaxImage
-                  src="/villa.jpg"
-                  alt="Sustainability"
-                  fill
-                  intensity={0.5}
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-[var(--color-dark-foundation)]/15" />
-              </div>
-            </div>
           </div>
 
           <div className="lg:mt-56 space-y-8">

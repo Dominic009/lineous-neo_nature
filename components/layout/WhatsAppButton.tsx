@@ -26,6 +26,7 @@ export default function WhatsAppButton() {
         setTimeout(() => setShowTooltip(false), 200);
       }}
       aria-label="Chat on WhatsApp"
+      data-cursor-hover
     >
       {/* Tooltip */}
       <div
@@ -35,8 +36,8 @@ export default function WhatsAppButton() {
             : "opacity-0 translate-x-2"
         }`}
         style={{
-          backgroundColor: "var(--color-dark-foundation)",
-          color: "var(--color-bg-primary)",
+          backgroundColor: "var(--color-graphite)",
+          color: "var(--color-bone)",
         }}
       >
         Chat with us
@@ -47,7 +48,7 @@ export default function WhatsAppButton() {
             height: 0,
             borderTop: "6px solid transparent",
             borderBottom: "6px solid transparent",
-            borderLeft: `6px solid var(--color-dark-foundation)`,
+            borderLeft: `6px solid var(--color-graphite)`,
           }}
         />
       </div>
@@ -57,11 +58,11 @@ export default function WhatsAppButton() {
         className="relative flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300"
         style={{
           backgroundColor: isHovered
-            ? "var(--color-accent-secondary)"
-            : "var(--color-accent-primary)",
+            ? "var(--color-chrome2)"
+            : "var(--color-chrome1)",
           boxShadow: isHovered
-            ? "0 8px 30px rgba(141, 57, 31, 0.4)"
-            : "0 4px 20px rgba(201, 164, 90, 0.35)",
+            ? "0 8px 30px rgba(201, 169, 255, 0.4)"
+            : "0 4px 20px rgba(142, 197, 255, 0.35)",
           transform: isHovered ? "scale(1.08)" : "scale(1)",
         }}
       >
@@ -70,8 +71,8 @@ export default function WhatsAppButton() {
           className="absolute inset-0 rounded-full animate-ping opacity-20"
           style={{
             backgroundColor: isHovered
-              ? "var(--color-accent-secondary)"
-              : "var(--color-accent-primary)",
+              ? "var(--color-chrome2)"
+              : "var(--color-chrome1)",
           }}
         />
 

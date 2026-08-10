@@ -21,12 +21,6 @@ export default function ParallaxImage({
     offset: ["start end", "end start"],
   });
 
-  // const y = useTransform(
-  //   scrollYProgress,
-  //   [0, 0],
-  //   [`${15 * intensity}%`, `${-15 * intensity}%`]
-  // );
-
   const scale = useTransform(
     scrollYProgress,
     [0, 1],
@@ -39,7 +33,7 @@ export default function ParallaxImage({
       className={`absolute inset-0 w-full h-full overflow-hidden ${wrapperClassName}`}
     >
       <motion.div
-        className="absolute inset-0 w-full h-"
+        className="absolute inset-0 w-full h-full"
         style={{ scale }}
       >
         <Image

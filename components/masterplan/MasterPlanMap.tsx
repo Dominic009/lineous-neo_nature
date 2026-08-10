@@ -27,9 +27,9 @@ const spots: Spot[] = [
     label: "Private Beach",
     top: "72%",
     left: "22%",
-    description: "Pristine white sand beach with exclusive cabanas and sunset views over the Red Sea.",
+    description: "Pristine white sand beach with exclusive cabanas and sunset views over the natural landscape.",
     features: ["Private Cabanas", "Sunset Lounge", "Water Sports", "Beach Dining"],
-    image: "/beach.jpg",
+    image: "/purura_resort_images/purura_render_18.jpg",
     icon: <Waves className="w-5 h-5" />,
     color: "#f5e6d3",
   },
@@ -40,18 +40,18 @@ const spots: Spot[] = [
     left: "42%",
     description: "Overwater and beachfront villas with private pools and butler service.",
     features: ["Private Pool", "Butler Service", "Ocean View", "Smart Home"],
-    image: "/villa.jpg",
+    image: "/purura_resort_images/purura_render_11.jpg",
     icon: <Building2 className="w-5 h-5" />,
-    color: "#c9a87c",
+    color: "#8EC5FF",
   },
   {
     id: "bar",
     label: "Ocean Bar",
     top: "58%",
     left: "68%",
-    description: "Rooftop cocktail bar with 360° ocean views and live DJ sets.",
+    description: "Rooftop cocktail bar with panoramic views and curated experiences.",
     features: ["Craft Cocktails", "Live Music", "Infinity Pool", "Sunset Views"],
-    image: "/bar.jpg",
+    image: "/purura_resort_images/purura_render_16.jpg",
     icon: <Droplets className="w-5 h-5" />,
     color: "#3ab0c0",
   },
@@ -62,7 +62,7 @@ const spots: Spot[] = [
     left: "58%",
     description: "World-class wellness center with hydrotherapy and traditional treatments.",
     features: ["Hydrotherapy", "Massage", "Yoga Pavilion", "Meditation"],
-    image: "/spa.jpg",
+    image: "/purura_resort_images/purura_render_10.jpg",
     icon: <Palmtree className="w-5 h-5" />,
     color: "#4a8c3f",
   },
@@ -73,7 +73,7 @@ const spots: Spot[] = [
     left: "85%",
     description: "Private marina with yacht charter services and deep-water docking.",
     features: ["Yacht Charter", "Deep Water Dock", "Helipad", "Concierge"],
-    image: "/marina.jpg",
+    image: "/purura_resort_images/purura_render_02.jpg",
     icon: <Anchor className="w-5 h-5" />,
     color: "#8b7355",
   },
@@ -81,8 +81,8 @@ const spots: Spot[] = [
 
 // ─── JOURNEY PATHS (connecting spots) ──────────────────
 const journeyPaths = [
-  { from: "villa", to: "beach", color: "#c9a87c" },
-  { from: "beach", to: "bar", color: "#3ab0c0" },
+  { from: "villa", to: "beach", color: "#8EC5FF" },
+  { from: "beach", to: "bar", color: "#C9A9FF" },
   { from: "bar", to: "spa", color: "#4a8c3f" },
   { from: "spa", to: "dock", color: "#f5e6d3" },
 ];
@@ -246,7 +246,7 @@ export default function MasterplanMap() {
           
           {/* Inner pulse */}
           <motion.div
-            className="absolute h-3 w-3 rounded-full bg-white"
+            className="absolute h-3 w-3 rounded-full bg-bone"
             animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
@@ -263,10 +263,10 @@ export default function MasterplanMap() {
               className="absolute top-[-60px] left-1/2 -translate-x-1/2 whitespace-nowrap z-50"
             >
               <div
-                className="px-4 py-2 rounded-full 
-                  bg-white/10 backdrop-blur-xl 
-                  border border-white/20 
-                  text-white text-xs tracking-widest font-medium
+                className="px-4 py-2 rounded-full
+                  bg-graphite/50 backdrop-blur-xl
+                  border border-line
+                  text-bone text-xs tracking-widest font-medium
                   shadow-[0_8px_32px_rgba(0,0,0,0.4)]
                   flex items-center gap-2"
               >
@@ -274,7 +274,7 @@ export default function MasterplanMap() {
                 {spot.label}
               </div>
               {/* Tooltip arrow */}
-              <div className="absolute left-1/2 -translate-x-1/2 -bottom-1 w-2 h-2 bg-white/10 rotate-45 border-r border-b border-white/20" />
+              <div className="absolute left-1/2 -translate-x-1/2 -bottom-1 w-2 h-2 bg-graphite/50 rotate-45 border-r border-b border-line" />
             </motion.div>
           )}
         </AnimatePresence>
@@ -283,9 +283,9 @@ export default function MasterplanMap() {
   );
 
   return (
-    <section 
+    <section
       ref={containerRef}
-      className="relative w-full h-screen overflow-hidden bg-[#0a1628]"
+      className="relative w-full h-screen overflow-hidden bg-void"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -323,10 +323,10 @@ export default function MasterplanMap() {
         {/* ─── COMPASS DECORATION ──────────────────────── */}
         <div className="absolute bottom-8 right-8 opacity-60">
           <div className="relative w-16 h-16">
-            <div className="absolute inset-0 rounded-full border border-[#c9a87c]/40" />
-            <div className="absolute inset-2 rounded-full border border-[#c9a87c]/20" />
-            <Compass className="absolute inset-0 m-auto w-8 h-8 text-[#c9a87c]" />
-            <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-[#c9a87c] text-xs font-bold tracking-widest">N</span>
+            <div className="absolute inset-0 rounded-full border border-chrome1/40" />
+            <div className="absolute inset-2 rounded-full border border-chrome1/20" />
+            <Compass className="absolute inset-0 m-auto w-8 h-8 text-chrome1" />
+            <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-chrome1 text-xs font-bold tracking-widest">N</span>
           </div>
         </div>
       </motion.div>
@@ -341,18 +341,18 @@ export default function MasterplanMap() {
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="absolute right-0 top-0 h-full w-[420px] max-w-[90vw] z-30"
           >
-            <div className="h-full bg-[#0a1628]/95 backdrop-blur-2xl border-l border-white/10 shadow-2xl overflow-y-auto">
+            <div className="h-full bg-void/95 backdrop-blur-2xl border-l border-line shadow-2xl overflow-y-auto">
               {/* Close button */}
               <button
                 onClick={handleCloseZoom}
-                className="absolute top-6 right-6 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                className="absolute top-6 right-6 z-10 p-2 rounded-full bg-graphite/50 hover:bg-graphite/70 transition-colors"
               >
-                <X className="w-5 h-5 text-white" />
+                <X className="w-5 h-5 text-bone" />
               </button>
 
               {/* Spot Image */}
               <div className="relative h-64 w-full overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0a1628] z-10" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-overlay z-10" />
                 <Image
                   src={selectedSpot.image}
                   alt={selectedSpot.label}
@@ -367,15 +367,15 @@ export default function MasterplanMap() {
                     >
                       {selectedSpot.icon}
                     </div>
-                    <span className="text-[#c9a87c] text-xs tracking-widest uppercase">Location</span>
+                    <span className="text-chrome2 text-xs tracking-widest uppercase">Location</span>
                   </div>
-                  <h2 className="text-3xl font-bold text-white">{selectedSpot.label}</h2>
+                  <h2 className="text-3xl font-bold text-bone">{selectedSpot.label}</h2>
                 </div>
               </div>
 
               {/* Content */}
               <div className="p-8 space-y-6">
-                <p className="text-white/70 text-sm leading-relaxed">
+                <p className="text-haze text-sm leading-relaxed">
                   {selectedSpot.description}
                 </p>
 
@@ -387,15 +387,15 @@ export default function MasterplanMap() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.1 }}
-                      className="p-3 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                      className="p-3 rounded-lg bg-graphite/30 border border-line/50 hover:bg-graphite/50 transition-colors"
                     >
-                      <span className="text-white/80 text-xs font-medium">{feature}</span>
+                      <span className="text-bone/80 text-xs font-medium">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
 
                 {/* CTA */}
-                <button className="w-full py-4 rounded-full bg-gradient-to-r from-[#c9a87c] to-[#a88858] text-[#0a1628] font-bold text-sm tracking-widest uppercase hover:shadow-[0_0_30px_rgba(201,168,124,0.4)] transition-shadow">
+                <button className="w-full py-4 rounded-full bg-gradient-to-r from-chrome1 to-chrome2 text-void font-bold text-sm tracking-widest uppercase hover:shadow-[0_0_30px_rgba(142,197,255,0.3)] transition-shadow">
                   Explore This Location
                 </button>
               </div>
@@ -413,10 +413,10 @@ export default function MasterplanMap() {
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-8 left-8 z-20"
           >
-            <h1 className="text-white/90 text-sm tracking-[0.3em] uppercase font-light mb-1">
+            <h1 className="text-bone/90 text-sm tracking-[0.3em] uppercase font-light mb-1">
               Thuwal Private Island
             </h1>
-            <p className="text-[#c9a87c] text-xs tracking-widest uppercase">
+            <p className="text-chrome2 text-xs tracking-widest uppercase">
               Interactive Masterplan
             </p>
           </motion.div>
@@ -432,7 +432,7 @@ export default function MasterplanMap() {
             exit={{ opacity: 0 }}
             className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
           >
-            <p className="text-white/40 text-xs tracking-widest uppercase flex items-center gap-2">
+            <p className="text-haze/40 text-xs tracking-widest uppercase flex items-center gap-2">
               <MapPin className="w-3 h-3" />
               Click any location to explore
             </p>
