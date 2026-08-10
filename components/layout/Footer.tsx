@@ -54,7 +54,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom-right honeycomb pattern - bleeding off-screen */}
-      {/* <div className="absolute -right-20 -bottom-90 h-[calc(100%+40px)] w-[600px] opacity-[0.08] pointer-events-none">
+      <div className="absolute -right-20 -bottom-90 h-[calc(100%+40px)] w-[600px] opacity-[0.08] pointer-events-none">
         <svg
           viewBox="0 0 600 800"
           className="h-full w-full"
