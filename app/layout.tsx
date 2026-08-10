@@ -44,7 +44,6 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="light"
       className={`${display.variable} ${mono.variable} ${serif.variable}`}
     >
       <body>

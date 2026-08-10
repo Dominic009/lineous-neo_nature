@@ -14,6 +14,7 @@ import InvestmentInquiry from "@/components/investment/InvestmentInquiry";
 import SectionNav from "@/components/layout/SectionNav";
 import SectionTransition from "@/components/home/SectionTransition";
 import ScrollColorTransition from "@/components/home/ScrollColorTransition";
+import Hero from "@/components/home/Hero";
 
 export default function HomePage() {
   return (
@@ -33,7 +34,7 @@ export default function HomePage() {
             { label: "Legacy", href: "#legacy" },
           ]}
         />
-        <HeroCinematic />
+        <Hero />
         {/* <SectionTransition fromBg="bg-void" toBg="bg-ivory" /> */}
         <Philosophy />
         {/* <SectionTransition fromBg="bg-ivory" toBg="bg-void" /> */}

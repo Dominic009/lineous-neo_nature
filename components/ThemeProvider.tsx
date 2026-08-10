@@ -13,8 +13,8 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  theme: "dark",
-  defaultTheme: "dark",
+  theme: "light",
+  defaultTheme: "light",
   setTheme: () => {},
   setDefaultTheme: () => {},
   toggleTheme: () => {},
@@ -24,21 +24,22 @@ const DEFAULT_THEME_KEY = "theme-default";
 const SESSION_THEME_KEY = "theme-session";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [defaultTheme, setDefaultThemeState] = useState<Theme>(() => {
-    if (typeof window === "undefined") return "light";
-    return (localStorage.getItem(DEFAULT_THEME_KEY) as Theme | null) || "light";
-  });
-
-  const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window === "undefined") return "light";
-    const session = localStorage.getItem(SESSION_THEME_KEY) as Theme | null;
-    if (session) return session;
-    return defaultTheme;
-  });
+  const [mounted, setMounted] = useState(false);
+  const [defaultTheme, setDefaultThemeState] = useState<Theme>("light");
+  const [theme, setThemeState] = useState<Theme>("light");
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
+    setMounted(true);
+    const storedDefault = localStorage.getItem(DEFAULT_THEME_KEY) as Theme | null;
+    const storedSession = localStorage.getItem(SESSION_THEME_KEY) as Theme | null;
+
+    const initialDefault = storedDefault || "light";
+    const initialTheme = storedSession || initialDefault;
+
+    setDefaultThemeState(initialDefault);
+    setThemeState(initialTheme);
+    document.documentElement.setAttribute("data-theme", initialTheme);
+  }, []);
 
   const setTheme = useCallback(
     (newTheme: Theme) => {
@@ -62,6 +63,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
   }, [theme, setTheme]);
+
+  if (!mounted) {
+    return (
+      <ThemeContext.Provider
+        value={{ theme: "light", defaultTheme: "light", setTheme, setDefaultTheme, toggleTheme }}
+      >
+        {children}
+      </ThemeContext.Provider>
+    );
+  }
 
   return (
     <ThemeContext.Provider
